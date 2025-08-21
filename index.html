@@ -20,11 +20,11 @@
       --card: #111523;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #fbfbfd; --surface:#ffffff; --surface-2:#f3f5fb; --text:#0b1020; --muted:#475070; --brand:#0066ff; --accent:#10b981; --ring: rgba(0,102,255,.25); --card:#ffffff; --shadow: 0 8px 24px rgba(16,22,40,.08);
-      }
-    }
+
+    /* Explicit theme override via html[data-theme] only */
+    html[data-theme="light"] { --bg: #fbfbfd; --surface:#ffffff; --surface-2:#f3f5fb; --text:#0b1020; --muted:#475070; --brand:#0066ff; --accent:#10b981; --ring: rgba(0,102,255,.25); --card:#ffffff; --shadow: 0 8px 24px rgba(16,22,40,.08); }
+    html[data-theme="dark"]  { --bg: #0b0d13; --surface:#121625; --surface-2:#171c2e; --text:#e8ebf3; --muted:#a9b0c7; --brand:#6cc9ff; --accent:#a7f3d0; --ring: rgba(108,201,255,.4); --card:#111523; --shadow: 0 10px 30px rgba(0,0,0,.35); }
+
     * { box-sizing: border-box; }
     html, body { margin:0; padding:0; }
     body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color: var(--text); background: radial-gradient(1200px 600px at 80% -10%, rgba(94,234,212,.09), transparent 40%), linear-gradient(180deg, var(--bg), var(--bg)); line-height: 1.5; }
@@ -48,8 +48,6 @@
     .tags { display:flex; flex-wrap:wrap; gap:8px; }
     .avatar { width: 110px; height: 110px; border-radius: 22px; display:grid; place-items:center; font-weight:800; font-size: 36px; background: linear-gradient(145deg, var(--brand), var(--accent)); color: #0a0f1f; border: 3px solid color-mix(in srgb, var(--text), transparent 80%); }
     .hero-cta { display:flex; gap:10px; flex-wrap:wrap; }
-    .two-col { display:flex; gap: 16px; }
-    @media (max-width: 720px){ .two-col { grid-template-columns: 1fr; } }
     .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
     .span-4 { grid-column: span 4; }
     .span-6 { grid-column: span 6; }
@@ -59,7 +57,6 @@
     .section { padding: 32px 0; }
     .section h2 { font-size: 24px; margin: 0 0 12px; letter-spacing: .2px; }
     .muted { color: var(--muted); }
-    .list { display:grid; gap: 12px; }
     .project { display:flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 16px; border:1px solid color-mix(in srgb, var(--muted), transparent 70%); background: var(--surface); }
     .project h3 { margin: 0; font-size: 18px; }
     .project p { margin: 0; color: var(--muted); }
@@ -73,65 +70,13 @@
     .tl .where { font-weight:600; }
     .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12px; background: var(--surface-2); border:1px solid color-mix(in srgb, var(--muted), transparent 60%); padding: 2px 6px; border-radius: 6px; }
     .footer { padding: 40px 0; color: var(--muted); font-size: 14px; }
-    .srch { width: 100%; padding: 10px 12px; border-radius: 12px; border:1px solid color-mix(in srgb, var(--muted), transparent 60%); background: var(--surface); color: var(--text); }
-    .kbd-row { display:flex; gap: 10px; align-items:center; }
-    .pill { border-radius: 999px; padding: 8px 10px; border:1px dashed color-mix(in srgb, var(--muted), transparent 60%); }
-    .flex {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;  /* align children at the top */
-    }
-    .right .muted {
-      display: block;         /* forces label on its own line */
-      margin-bottom: 6px;     /* small gap below "Open to:" */
-    }
-    .nowrap { white-space: nowrap; }
-    /* explicit theme override via html[data-theme] */
-    html[data-theme="light"] { --bg: #fbfbfd; --surface:#ffffff; --surface-2:#f3f5fb; --text:#0b1020; --muted:#475070; --brand:#0066ff; --accent:#10b981; --ring: rgba(0,102,255,.25); --card:#ffffff; --shadow: 0 8px 24px rgba(16,22,40,.08); }
-    html[data-theme="dark"]  { --bg: #0b0d13; --surface:#121625; --surface-2:#171c2e; --text:#e8ebf3; --muted:#a9b0c7; --brand:#6cc9ff; --accent:#a7f3d0; --ring: rgba(108,201,255,.4); --card:#111523; --shadow: 0 10px 30px rgba(0,0,0,.35); }
 
-    /* thumbnails & meta */
-    .thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border:1px solid color-mix(in srgb, var(--muted), transparent 70%); background: var(--surface-2); }
-    .meta { display:flex; gap:10px; align-items:center; font-size:13px; color: var(--muted); margin-top: 6px; }
-    .badge { display:inline-flex; gap:6px; align-items:center; padding:4px 8px; border:1px solid color-mix(in srgb, var(--muted), transparent 70%); border-radius:999px; }
-    
-    .bio-box {
-      max-width: 420px;   /* make the box narrower */
-      padding: 18px;      /* adjust spacing inside */
-      margin-top: 12px;   /* move it a bit lower if needed */
-    }
-
-    /* paragraph-like rows with aligned labels */
-    .facts {
-      display: grid;
-      row-gap: 10px;
-      margin-top: 10px;
-    }
-    .fact {
-      display: grid;
-      grid-template-columns: 140px 1fr; /* label | value */
-      column-gap: 12px;
-      align-items: baseline;
-    }
-    .fact .label {
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .fact .value {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    /* small screens: stack label above value */
-    @media (max-width: 640px) {
-      .fact { grid-template-columns: 1fr; }
-    }
-
-    /* since .two-col is now flex, fix its mobile behavior too */
-    @media (max-width: 720px){
-      .two-col { flex-direction: column; }
-    }
+    /* facts rows */
+    .facts { display: grid; row-gap: 10px; margin-top: 10px; }
+    .fact { display: grid; grid-template-columns: 140px 1fr; column-gap: 12px; align-items: baseline; }
+    .fact .label { color: var(--muted); white-space: nowrap; }
+    .fact .value { display: flex; flex-wrap: wrap; gap: 8px; }
+    @media (max-width: 640px) { .fact { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -150,7 +95,6 @@
   </header>
 
   <main id="top" class="container">
-
     <!-- SEO Intro block -->
     <section class="seo-intro" style="margin-top:20px; text-align:center; padding:40px 20px; width:100%;">
       <h1 class="headline">Salvatore Barbagallo</h1>
@@ -159,8 +103,6 @@
         Bridging biomedical science and computational analysis through Python, R, SQL, and genomic data science
       </p>
     </section>
-<!-- End SEO Intro block -->
-    <!-- End SEO Intro block -->
 
     <section id="about" class="section">
       <div class="card">
@@ -203,9 +145,7 @@
             </div>
             <div class="fact">
               <span class="label">Open to:</span>
-              <span class="value">
-                <span class="value"><strong>Bioinformatics · Data Science</strong></span>
-              </span>
+              <span class="value"><strong>Bioinformatics · Data Science</strong></span>
             </div>
           </div>
         </div>
@@ -216,54 +156,46 @@
       <h2>Projects</h2>
       <p class="muted">A selection of work spanning genomics, analytics, and scripting. Full list on <a href="https://github.com/barbavegeta" target="_blank" rel="noreferrer noopener">GitHub</a>.</p>
       <div id="project-list" class="grid" style="margin-top:14px">
-        <!-- Project cards (now with repo & thumbnail support) -->
+        <!-- Project cards -->
         <article class="span-6 project" data-tags="python r biopython genomics sequencing alignment sql database" data-repo="barbavegeta/Genomic_Data_Science_Specialization">
           <h3><a href="https://github.com/barbavegeta/Genomic_Data_Science_Specialization" target="_blank" rel="noreferrer noopener">Genomic Data Science Specialization</a></h3>
           <p>End-to-end workflows for genomic analysis: alignment, assembly, RNA-seq, variant calling, and DB querying.</p>
           <div class="proj-tags"><span class="chip">Python</span><span class="chip">R</span><span class="chip">Biopython</span><span class="chip">Bioconductor</span><span class="chip">Bowtie/Bowtie2</span><span class="chip">Burrows-Wheeler Aligner (BWA)</span><span class="chip">SAMtools</span><span class="chip">BEDtools</span><span class="chip">VCFtools</span><span class="chip">FastQC</span><span class="chip">Cufflinks/Cuffdiff</span><span class="chip">TopHat</span><span class="chip">STAR</span><span class="chip">HISAT2</span><span class="chip">DESeq2</span></div>
-          <div class="meta" aria-live="polite"></div>
         </article>
         <article class="span-6 project" data-tags="python scikit-learn pandas classification hr analytics attrition" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors">
           <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" target="_blank" rel="noreferrer noopener">Salifort Motors - Attrition Model</a></h3>
           <p>Predictive modelling to understand drivers of employee turnover and inform retention strategy.</p>
           <div class="proj-tags"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scipy</span><span class="chip">Statsmodels</span><span class="chip">Matplotlib</span><span class="chip">XGBoost</span></div>
-          <div class="meta" aria-live="polite"></div>
         </article>
         <article class="span-6 project" data-tags="python pandas matplotlib social media eda tik tok" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Tik_Tok_Project">
           <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Tik_Tok_Project" target="_blank" rel="noreferrer noopener">TikTok Engagement Analysis</a></h3>
           <p>Exploratory analysis of engagement metrics to uncover content trends and optimisation levers.</p>
           <div class="proj-tags"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span><span class="chip">scipy</span></div>
-          <div class="meta" aria-live="polite"></div>
         </article>
         <article class="span-6 project" data-tags="r sqlite dplyr tableau wearable health eda" data-repo="barbavegeta/Google_Data_Analytics-Bellabeat-Project">
           <h3><a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat-Project" target="_blank" rel="noreferrer noopener">Bellabeat Case Study</a></h3>
-          <p>R + SQL workflow on wearable device data; built dashboards to surface activity & health patterns.</p>
+          <p>R + SQL workflow on wearable device data; built dashboards to surface activity &amp; health patterns.</p>
           <div class="proj-tags"><span class="chip">R</span><span class="chip">SQLite</span><span class="chip">dplyr</span><span class="chip">Tableau</span></div>
-          <div class="meta" aria-live="polite"></div>
         </article>
         <article class="span-6 project" data-tags="sql bash python pandas matplotlib automation algorithms" data-repo="barbavegeta/FreeCodeCamp_Projects">
           <h3><a href="https://github.com/barbavegeta/FreeCodeCamp_Projects" target="_blank" rel="noreferrer noopener">FreeCodeCamp Projects</a></h3>
           <p>Certification projects across SQL, Bash, and Python: databases, automation, analysis, and algorithmic challenges.</p>
           <div class="proj-tags"><span class="chip">SQL</span><span class="chip">Bash</span><span class="chip">Python</span></div>
-          <div class="meta" aria-live="polite"></div>
         </article>
         <article class="span-6 project" data-tags="python scripting biopython utilities" data-repo="barbavegeta/python-exercises">
           <h3><a href="https://github.com/barbavegeta/python-exercises" target="_blank" rel="noreferrer noopener">Python Exercises</a></h3>
           <p>A curated collection of Python scripts for automation and data handling.</p>
           <div class="proj-tags"><span class="chip">Python</span><span class="chip">Biopython</span></div>
-          <div class="meta" aria-live="polite"></div>
         </article>
         <article class="span-6 project" data-tags="sql relational database practice queries" data-repo="barbavegeta/sql-practice">
           <h3><a href="https://github.com/barbavegeta/sql-practice" target="_blank" rel="noreferrer noopener">SQL Practice</a></h3>
           <p>Relational database design and query exercises demonstrating SQL fluency.</p>
           <div class="proj-tags"><span class="chip">SQL</span></div>
-          <div class="meta" aria-live="polite"></div>
         </article>
         <article class="span-6 project" data-tags="bash automation scripting data processing" data-repo="barbavegeta/bash-scripts">
           <h3><a href="https://github.com/barbavegeta/bash-scripts" target="_blank" rel="noreferrer noopener">Bash Utilities</a></h3>
           <p>Automation scripts for data processing, file management, and workflow optimisation.</p>
           <div class="proj-tags"><span class="chip">Bash</span></div>
-          <div class="meta" aria-live="polite"></div>
         </article>
       </div>
     </section>
@@ -280,7 +212,7 @@
               <li>Maintained Grade A clean room sterility via protocols and agar plate assessments.</li>
               <li>Analysed CD3+/CD34+ populations via MACSQuant; delivered critical treatment data.</li>
               <li>Supported 11 active clinical trials including CAR-T (Yescarta, Novartis), antibody, and genetic therapies.</li>
-              <li>Built stock-management & training tracking tools; reduced inventory errors by ~30% and saved ~10 hrs/week.</li>
+              <li>Built stock-management &amp; training tracking tools; reduced inventory errors by ~30% and saved ~10 hrs/week.</li>
             </ul>
           </div>
         </div>
@@ -290,7 +222,7 @@
             <div class="muted">Jul 2019 – Sep 2021 · London, UK</div>
             <ul>
               <li>Processed embryo samples for PGT-A / PGT-SR / PGT-M, WGA and gel electrophoresis.</li>
-              <li>Maintained Mosquito HV & Dragonfly Discovery liquid handlers; optimised run reliability.</li>
+              <li>Maintained Mosquito HV &amp; Dragonfly Discovery liquid handlers; optimised run reliability.</li>
               <li>Analysed NGS run metrics (96–192 samples/run) and generated patient reports (&gt;500/week).</li>
               <li>Authored and reviewed SOPs across the workflow.</li>
             </ul>
@@ -338,57 +270,32 @@
     <section id="contact" class="section">
       <div class="card card-pad">
         <h2>Contact</h2>
-            <p><a href="mailto:barbagallo1@hotmail.it">Email</a> · <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noreferrer noopener">LinkedIn</a> · <a href="https://github.com/barbavegeta" target="_blank" rel="noreferrer noopener">GitHub</a></p>
-          </div>
-          <div class="right">
-          </div>
-        </div>
+        <p><a href="mailto:barbagallo1@hotmail.it">Email</a> · <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noreferrer noopener">LinkedIn</a> · <a href="https://github.com/barbavegeta" target="_blank" rel="noreferrer noopener">GitHub</a></p>
       </div>
     </section>
 
     <footer class="container footer">
-      <div class="two-col">
-        <div>© <span id="y"></span> Salvatore Barbagallo</div>
-        <div class="right">Built with plain HTML/CSS · Deployed on GitHub Pages</div>
-      </div>
+      <div>© <span id="y"></span> Salvatore Barbagallo</div>
     </footer>
   </main>
 
   <script>
-    // year
+    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
-    // fuzzy filter
-    const search = document.getElementById('search');
-    const projects = Array.from(document.querySelectorAll('.project'));
-    const normalize = s => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
-    const filter = q => {
-      const n = normalize(q.trim());
-      projects.forEach(el => {
-        const hay = normalize(el.textContent + ' ' + (el.dataset.tags||''));
-        el.style.display = hay.includes(n) ? 'flex' : 'none';
-      });
-    };
-    search.addEventListener('input', e => filter(e.target.value));
-    // keyboard focus '/'
-    window.addEventListener('keydown', e => {
-      if (e.key === '/' && document.activeElement !== search) {
-        e.preventDefault();
-        search.focus();
-      }
-    });
-  </script>
 
-  <script>
-    // --- Theme toggle with persistence ---
+    // Theme toggle with persistence (explicit data-theme only)
     (function(){
       const root = document.documentElement;
       const btn = document.getElementById('themeToggle');
+      const media = matchMedia('(prefers-color-scheme: dark)');
+
       const getPref = () => localStorage.getItem('theme') || 'system';
       const apply = (mode) => {
-        if (mode === 'light') { root.setAttribute('data-theme','light'); btn.textContent = '🌞'; }
-        else if (mode === 'dark') { root.setAttribute('data-theme','dark'); btn.textContent = '🌙'; }
-        else { root.removeAttribute('data-theme'); btn.textContent = matchMedia('(prefers-color-scheme: dark)').matches ? '🌙' : '🌞'; }
+        const resolved = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
+        root.setAttribute('data-theme', resolved);
+        btn.textContent = resolved === 'light' ? '🌞' : '🌙';
       };
+
       apply(getPref());
       btn.addEventListener('click', () => {
         const curr = getPref();
@@ -396,26 +303,7 @@
         localStorage.setItem('theme', next);
         apply(next);
       });
-      // respond to OS changes when in system mode
-      matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if(getPref()==='system') apply('system'); });
-    })();
-
-    // --- Thumbnails + GitHub badges ---
-    (async function(){
-      const cards = Array.from(document.querySelectorAll('.project[data-repo]'));
-      for (const card of cards) {
-        const repo = card.getAttribute('data-repo');
-        // Thumbnail using GitHub OpenGraph preview
-        const img = card.querySelector('.thumb');
-        if (img) {
-          img.src = `https://opengraph.githubassets.com/1/${repo}`;
-          // Fallback: if blocked or fails, hide image area
-          img.onerror = () => { img.style.display = 'none'; };
-        }
-
-        // Badges: stars & forks
-        const meta = card.querySelector('.meta');
-      }
+      media.addEventListener('change', () => { if(getPref()==='system') apply('system'); });
     })();
   </script>
 
