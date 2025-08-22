@@ -39,6 +39,7 @@
     .btn:hover { filter: brightness(1.05); text-decoration: none; }
     .ghost { background: transparent; border: 1px solid color-mix(in srgb, var(--muted), transparent 55%); box-shadow:none; }
     .hero { display:grid; grid-template-columns: 1.2fr .8fr; gap: 28px; padding: 56px 0 22px; align-items:center; }
+    .two-col { display:flex; gap: 16px; }
     @media (max-width: 860px){ .hero { grid-template-columns: 1fr; } }
     .card { background: var(--card); border: 1px solid color-mix(in srgb, var(--muted), transparent 70%); border-radius: 20px; box-shadow: var(--shadow); }
     .card-pad { padding: 22px; }
@@ -70,6 +71,11 @@
     .tl .where { font-weight:600; }
     .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12px; background: var(--surface-2); border:1px solid color-mix(in srgb, var(--muted), transparent 60%); padding: 2px 6px; border-radius: 6px; }
     .footer { padding: 40px 0; color: var(--muted); font-size: 14px; }
+    .right .muted {
+      display: block;         /* forces label on its own line */
+      margin-bottom: 6px;     /* small gap below "Open to:" */
+    }
+
 
     /* facts rows */
     .facts { display: grid; row-gap: 10px; margin-top: 10px; }
@@ -276,7 +282,10 @@
     </section>
 
     <footer class="container footer">
-      <div>© <span id="y"></span> Salvatore Barbagallo</div>
+      <div class="two-col">
+        <div>© <span id="y"></span> Salvatore Barbagallo</div>
+        <div class="right">Built with plain HTML/CSS · Deployed on GitHub Pages</div>
+      </div>
     </footer>
   </main>
 
@@ -331,5 +340,3 @@
   </script>
 </body>
 </html>
-
-
