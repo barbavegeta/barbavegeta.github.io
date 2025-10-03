@@ -46,7 +46,6 @@
     .btn { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius: 12px; background: var(--surface-2); color: var(--text); box-shadow: var(--shadow); border: 1px solid color-mix(in srgb, var(--muted), transparent 70%); }
     .btn:hover { filter: brightness(1.05); text-decoration: none; }
     .ghost { background: transparent; border: 1px solid color-mix(in srgb, var(--muted), transparent 55%); box-shadow:none; }
-    .hero { display:grid; grid-template-columns: 1.2fr .8fr; gap: 28px; padding: 56px 0 22px; align-items:center; }
     .two-col { display:flex; gap: 16px; }
     @media (max-width: 860px){ .hero { grid-template-columns: 1fr; } }
     .card { background: var(--card); border: 1px solid color-mix(in srgb, var(--muted), transparent 70%); border-radius: 20px; box-shadow: var(--shadow); }
@@ -55,8 +54,6 @@
     .sub { color: var(--muted); margin: 0 0 18px; }
     .tag { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius: 999px; border:1px solid color-mix(in srgb, var(--muted), transparent 60%); background: color-mix(in srgb, var(--surface), white 2%); font-size: 13px; color: var(--text); }
     .tags { display:flex; flex-wrap:wrap; gap:8px; }
-    .avatar { width: 110px; height: 110px; border-radius: 22px; display:grid; place-items:center; font-weight:800; font-size: 36px; background: linear-gradient(145deg, var(--brand), var(--accent)); color: #0a0f1f; border: 3px solid color-mix(in srgb, var(--text), transparent 80%); }
-    .hero-cta { display:flex; gap:10px; flex-wrap:wrap; }
     .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
     .span-4 { grid-column: span 4; }
     .span-6 { grid-column: span 6; }
@@ -64,8 +61,7 @@
     .span-12 { grid-column: 1 / -1; }
     @media (max-width: 980px){ .span-8,.span-6,.span-4 { grid-column: 1 / -1; } }
     .section { padding: 32px 0; }
-    .section h2 { font-size: 24px; margin: 0 0 12px; letter-spacing: .2px; }
-    .muted { color: var(--muted); }
+    .section > h2 { font-size:24px; border-left:4px solid var(--brand); padding-left:12px; margin-bottom:16px; }
     .project { display:flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 16px; border:1px solid color-mix(in srgb, var(--muted), transparent 70%); background: var(--surface); }
     .project h3 { margin: 0; font-size: 18px; }
     .project p { margin: 0; color: var(--muted); }
@@ -77,13 +73,18 @@
     .tl::before { content:""; position:absolute; left:-6px; top:12px; width:10px; height:10px; background: var(--brand); border-radius:50%; box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand), transparent 60%); }
     .tl h3 { margin:0; font-size: 16px; }
     .tl .where { font-weight:600; }
-    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12px; background: var(--surface-2); border:1px solid color-mix(in srgb, var(--muted), transparent 60%); padding: 2px 6px; border-radius: 6px; }
     .footer { padding: 40px 0; color: var(--muted); font-size: 14px; }
     .right .muted {
       display: block;         /* forces label on its own line */
       margin-bottom: 6px;     /* small gap below "Open to:" */
     }
 
+    .section.style4 > h2 {
+    border-left: 4px solid var(--brand);
+    padding-left: 12px;
+    margin-bottom: 16px;
+    font-size: 24px;
+    }
 
     /* facts rows */
     .facts { display: grid; row-gap: 10px; margin-top: 10px; }
@@ -118,10 +119,10 @@
       </p>
     </section>
 
-    <section id="about" class="section">
-      <div class="card card-pad">
-        <h2 class="headline">About</h2>
+    <section id="about" class="section style4">
+      <h2 class="headline">About</h2>
 
+      <div class="card card-pad">
         <p class="sub">
           Experienced Biomedical Scientist transitioning into bioinformatics with 7+ years in clinical labs.
           I combine wet-lab expertise (flow cytometry, NGS library prep) with computational skills to analyse
@@ -164,7 +165,7 @@
       </div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects" class="section style4">
       <h2>Projects</h2>
       <p class="muted">A selection of work spanning genomics, analytics, and scripting. Full list on <a href="https://github.com/barbavegeta" target="_blank" rel="noreferrer noopener">GitHub</a>.</p>
       <div id="project-list" class="grid" style="margin-top:14px">
@@ -267,7 +268,7 @@
       </div>
     </section>
 
-    <section id="experience" class="section">
+    <section id="experience" class="section style4">
       <h2>Experience</h2>
       <div class="timeline">
         <div class="tl card">
@@ -309,18 +310,18 @@
       </div>
     </section>
 
-    <section id="education" class="section style1">
+    <section id="education" class="section style4">
       <h2>Education</h2>
       <div class="card card-pad">
         <ul>
-          <li><strong>MSc, Bioinformatics</strong> – Atlantic Technological University (Sep 2025 – present)</li>
-          <li><strong>MSc, Cell &amp; Gene Therapy</strong> – University College London (2021–2023)</li>
-          <li><strong>BSc, Biomedical Science</strong> – University of Catania (2014–2017)</li>
+          <li><strong>MSc, Bioinformatics</strong> - Atlantic Technological University (Sep 2025 - present)</li>
+          <li><strong>MSc, Cell &amp; Gene Therapy</strong> - University College London (2021-2023)</li>
+          <li><strong>BSc, Biomedical Science</strong> - University of Catania (2014-2017)</li>
         </ul>
       </div>
     </section>
-    
-    <section id="certificates" class="section style1">
+
+    <section id="certificates" class="section style4">
       <h2>Certificates</h2>
       <div class="card card-pad">
         <ul>
@@ -337,9 +338,9 @@
       </div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="contact" class="section style4">
+      <h2>Contact</h2>
       <div class="card card-pad">
-        <h2>Contact</h2>
         <p>
           <a href="mailto:barbagallo1@hotmail.it">Email</a> · 
           <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noreferrer noopener">LinkedIn</a> · 
@@ -407,5 +408,3 @@
   </script>
 </body>
 </html>
-
-
