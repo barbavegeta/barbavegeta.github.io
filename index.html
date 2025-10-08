@@ -119,6 +119,47 @@
   scroll-padding-top: 80px; /* equal or slightly larger than your header height */
     }
 
+    /* Contact icons styling */
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+      margin-top: 16px;
+    }
+
+    .contact-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;              /* larger button */
+      height: 56px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 1px solid color-mix(in srgb, var(--muted), transparent 60%);
+      box-shadow: var(--shadow);
+      transition: all 0.25s ease;
+    }
+
+    .contact-icons a:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: var(--brand);
+    }
+
+    .contact-icons .icon {
+      width: 28px;              /* larger icon */
+      height: 28px;
+      filter: invert(90%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
+      transition: filter 0.25s ease;
+    }
+
+    html[data-theme="light"] .contact-icons .icon {
+      filter: invert(20%) sepia(5%) saturate(500%) hue-rotate(180deg) brightness(80%) contrast(100%);
+    }
+
+    .contact-icons a:hover .icon {
+      filter: invert(100%);
+    }
 
 
     /* facts rows */
@@ -419,11 +460,17 @@
     <section id="contact" class="section style4">
       <h2>Contact</h2>
       <div class="card card-pad">
-        <p>
-          <a href="mailto:barbagallo1@hotmail.it">Email</a> · 
-          <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noreferrer noopener">LinkedIn</a> · 
-          <a href="https://github.com/barbavegeta" target="_blank" rel="noreferrer noopener">GitHub</a>
-        </p>
+        <div class="contact-icons">
+          <a href="mailto:barbagallo1@hotmail.it" aria-label="Email">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftoutlook.svg" alt="Email" class="icon">
+          </a>
+          <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="icon">
+          </a>
+          <a href="https://github.com/barbavegeta" target="_blank" rel="noreferrer noopener" aria-label="GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="icon">
+          </a>
+        </div>
       </div>
     </section>
 
