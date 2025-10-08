@@ -161,6 +161,19 @@
       filter: invert(100%);
     }
 
+    #education ul, #certificates ul {
+    list-style: none;
+    padding-left: 0;
+    }
+    #education li::before, #certificates li::before {
+    content: "•";
+    color: var(--brand);
+    margin-right: 10px;
+    font-weight: bold;
+    }
+    #education li, #certificates li {
+    margin-bottom: 10px;
+    }
 
     /* facts rows */
     .facts { display: grid; row-gap: 10px; margin-top: 10px; }
