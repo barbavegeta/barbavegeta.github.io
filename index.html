@@ -86,6 +86,35 @@
     font-size: 24px;
     }
 
+    /* collapsible details styling for internship section */
+    #internships details {
+      margin: 8px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--surface-2);
+      border: 1px solid color-mix(in srgb, var(--muted), transparent 70%);
+      transition: background 0.2s ease;
+    }
+    #internships details:hover {
+      background: color-mix(in srgb, var(--surface), white 2%);
+    }
+    #internships summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text);
+      list-style: none;
+    }
+    #internships summary::-webkit-details-marker {
+      display: none;
+    }
+    #internships details[open] summary {
+      color: var(--brand);
+    }
+    #internships ul {
+      margin: 8px 0 4px 18px;
+    }
+
+
     /* facts rows */
     .facts { display: grid; row-gap: 10px; margin-top: 10px; }
     .fact { display: grid; grid-template-columns: 140px 1fr; column-gap: 12px; align-items: baseline; }
@@ -320,6 +349,49 @@
         </ul>
       </div>
     </section>
+
+    <section id="internships" class="section style4">
+  <h2>Earlier Research Internships</h2>
+  <div class="card card-pad">
+    <p class="sub">
+      Research internships completed during the BSc in Biomedical Science at the University of Catania,
+      building a foundation in genomics, molecular diagnostics, and analytical biochemistry.
+    </p>
+
+    <details>
+      <summary><strong>Medical Genetics - University Hospital of Catania</strong> (Oct 2016 - Sep 2017)</summary>
+      <ul>
+        <li>DNA extraction and quantification from peripheral blood using spectrophotometric analysis.</li>
+        <li>CGH-SNP Array analysis for chromosomal abnormalities and variant detection.</li>
+        <li>Clinical data submission and coordination with medical genetics team.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary><strong>Oncology & Experimental Haematology - Dept. of Clinical & Experimental Medicine</strong> (Sep 2017 - Oct 2017)</summary>
+      <ul>
+        <li>Applied PCR, electrophoresis, western blot, chemiluminescence, and NGS for diagnostic research.</li>
+        <li>Processed fluorescence-labelled DNA samples for gene expression and mutation studies.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary><strong>Pharmacology - Torre Biologica · Dept. of Biomedical & Biotechnological Sciences</strong> (Oct 2015 - Jun 2016)</summary>
+      <ul>
+        <li>Performed cytotoxicity assays using ATP-lite on SIRC, ARPE-19, and HRPE cell lines.</li>
+        <li>Designed and analysed quantitative experiments forming the basis of undergraduate thesis.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary><strong>Additional Rotations - University of Catania</strong> (2015 - 2018)</summary>
+      <ul>
+        <li>Short placements across Forensic Toxicology, Pathology, Immunohematology, and Public Health.</li>
+        <li>Hands-on exposure to GC-MS analysis, immunohistochemistry, FISH, and analytical chemistry techniques.</li>
+      </ul>
+    </details>
+  </div>
+</section>
 
     <section id="certificates" class="section style4">
       <h2>Certificates</h2>
