@@ -311,52 +311,84 @@
           </details>
           <div class="proj-tags"><span class="chip">R</span><span class="chip">SQLite</span><span class="chip">dplyr</span><span class="chip">Tableau</span></div>
         </article>
-        <article class="span-12 project" data-tags="sql bash python pandas matplotlib automation algorithms" data-repo="barbavegeta/FreeCodeCamp_Projects">
-          <h3><a href="https://github.com/barbavegeta/FreeCodeCamp_Projects" target="_blank" rel="noreferrer noopener">FreeCodeCamp Projects</a></h3>
-          <p>Certification projects across SQL, Bash, and Python: databases, automation, analysis, and algorithmic challenges.</p>
-          <details close>
-            <summary>Details</summary>
-            <ul>
-              <li><strong>Objective</strong>: Complete multiple FreeCodeCamp certifications to strengthen skills in SQL, Bash scripting, Python data analysis, and scientific computing.</li>
-              <li>
-                <strong>Approach</strong>:
-                <ul>
-                  <li>SQL & Bash: Developed relational database queries and automation scripts for datasets like Periodic Table, World Cup, and Student Records.</li>
-                  <li>Data Analysis with Python: Applied Pandas and Matplotlib to projects such as sea-level prediction, demographic analysis, and medical data exploration.</li>
-                  <li>Scientific Computing with Python: Created algorithmic tools including budget apps, probability calculators, Sudoku solvers, and equation solvers.</li>
-                </ul>
-              </li>
-              <li><strong>Outcome</strong>: Built a diverse set of well-documented, reproducible projects showcasing adaptability across data manipulation, visualisation, and computational problem-solving.</li>
-            </ul>
-          </details>
-          <div class="proj-tags"><span class="chip">SQL</span><span class="chip">Bash</span><span class="chip">Python</span></div>
-        </article>
-        <article class="span-12 project" data-tags="python scripting biopython utilities" data-repo="barbavegeta/python-exercises">
-          <h3><a href="https://github.com/barbavegeta/python-exercises" target="_blank" rel="noreferrer noopener">Python Exercises</a></h3>
-          <p>A curated collection of Python scripts for automation and data handling.</p>
-            <details close>
-              <summary>Details</summary>
+        <article class="span-12 project" data-tags="aws cloud architecture migration devops analytics s3 ecs aurora emr redshift quicksight" data-repo="">
+        <h3>
+          <a href="/mnt/data/aws_architecture_diagram-Solution_Architect.png" target="_blank" rel="noreferrer noopener">
+            Solution Architect - AWS Migration Design
+          </a>
+        </h3>
+        <p>
+          High-level AWS architecture design for migrating on-premises workloads to a cloud-native, fully managed solution, ensuring scalability, fault-tolerance, and operational efficiency.
+        </p>
+        <details close>
+          <summary>Details</summary>
+          <ul>
+            <li><strong>Objective</strong>: Migrate two on-prem workloads - a three-tier web application and a Hadoop-based analytics environment - into a modern AWS environment with managed services.</li>
+
+            <li><strong>Approach</strong>: Designed an end-to-end cloud solution using AWS managed services:
               <ul>
-                <li><strong>Objective</strong>: Demonstrate versatility in scripting, querying, and automation.</li>
-                <li><strong>Approach</strong>: Developed modular, well-tested code with Python; created optimised SQL queries; automated workflows with Bash scripting.</li>
-                <li><strong>Outcome</strong>: Showcases coding style, testing discipline, and cross-technology adaptability.</li>
+                <li><strong>Web Application Architecture</strong>: 
+                  <ul>
+                    <li>Frontend hosted on <strong>Amazon S3</strong> with <strong>CloudFront</strong> for global HTTPS delivery.</li>
+                    <li>Backend containerized in <strong>ECS on Fargate</strong> behind an <strong>Application Load Balancer (ALB)</strong>.</li>
+                    <li>Database migrated to <strong>Amazon Aurora MySQL (Multi-AZ)</strong> with <strong>ElastiCache Redis</strong> for caching and <strong>SQS</strong> for asynchronous decoupling.</li>
+                    <li><strong>AWS Secrets Manager</strong> used for credential management and <strong>CloudWatch/X-Ray</strong> for monitoring.</li>
+                  </ul>
+                </li>
+                <li><strong>Data Analytics Architecture</strong>:
+                  <ul>
+                    <li>Replaced Hadoop with <strong>AWS EMR (Spark/Hive)</strong> for scalable distributed data processing.</li>
+                    <li>Created an <strong>S3 Data Lake</strong> as the central repository with metadata managed by <strong>AWS Glue Data Catalog</strong>.</li>
+                    <li>Used <strong>Athena</strong> for serverless queries, <strong>Redshift</strong> for data warehousing, and <strong>QuickSight</strong> for BI dashboards.</li>
+                    <li>Data ingested from on-prem via <strong>AWS DataSync</strong>.</li>
+                  </ul>
+                </li>
               </ul>
-            </details>
-          <div class="proj-tags"><span class="chip">Python</span><span class="chip">Biopython</span></div>
-        </article>
-        <article class="span-12 project" data-tags="sql relational database practice queries" data-repo="barbavegeta/sql-practice">
-          <h3><a href="https://github.com/barbavegeta/sql-practice" target="_blank" rel="noreferrer noopener">SQL Practice</a></h3>
-          <p>Relational database design and query exercises demonstrating SQL fluency.</p>
-          <div class="proj-tags"><span class="chip">SQL</span></div>
-        </article>
-        <article class="span-12 project" data-tags="bash automation scripting data processing" data-repo="barbavegeta/bash-scripts">
-          <h3><a href="https://github.com/barbavegeta/bash-scripts" target="_blank" rel="noreferrer noopener">Bash Utilities</a></h3>
-          <p>Automation scripts for data processing, file management, and workflow optimisation.</p>
-          <div class="proj-tags"><span class="chip">Bash</span></div>
-        </article>
+            </li>
+
+            <li><strong>Integration Flow</strong>: 
+            CloudFront routes traffic to ALB → ECS → Aurora, with ElastiCache and SQS optimizing backend performance. 
+            Simultaneously, DataSync moves data to S3 for analysis via Glue → EMR → Athena → Redshift → QuickSight.
+          </li>
+
+          <li><strong>Outcome</strong>: Achieved full migration with:
+            <ul>
+              <li>Decoupled, fault-tolerant architecture</li>
+              <li>Multi-AZ high availability</li>
+              <li>Cloud-native modernization of both workloads</li>
+              <li>Reduced operational overhead with managed services</li>
+              <li>Integrated observability and security across layers</li>
+            </ul>
+          </li>
+
+          </ul>
+
+          <figure style="margin-top:10px; text-align:center;">
+            <img src="/mnt/data/aws_architecture_diagram-Solution_Architect.png" 
+                alt="AWS Migration Architecture Diagram" 
+                style="max-width:100%; border-radius:8px;">
+            <figcaption style="font-size:14px; color:#aaa; margin-top:4px;">
+              AWS Architecture Diagram - Migration Solution
+            </figcaption>
+          </figure>
+          </details>
+        <div class="proj-tags">
+          <span class="chip">AWS</span>
+          <span class="chip">CloudFront</span>
+          <span class="chip">S3</span>
+          <span class="chip">ECS Fargate</span>
+          <span class="chip">Aurora MySQL</span>
+          <span class="chip">ElastiCache</span>
+          <span class="chip">SQS</span>
+          <span class="chip">EMR</span>
+          <span class="chip">Glue</span>
+          <span class="chip">Athena</span>
+          <span class="chip">Redshift</span>
+          <span class="chip">QuickSight</span>
+        </div>
+      </article>
       </div>
     </section>
-
     <section id="experience" class="section style4">
       <h2>Experience</h2>
       <div class="timeline">
@@ -560,7 +592,3 @@
   </script>
 </body>
 </html>
-
-
-
-
