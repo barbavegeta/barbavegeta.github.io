@@ -248,7 +248,7 @@
           </div>
           <div class="fact">
             <span class="label">Open to:</span>
-            <span class="value"><strong>Data Science · Bioinformatics</strong></span>
+            <span class="value"><strong>Bioinformatics / Data Scientist roles · UK & EU</strong></span>
           </div>
         </div>
       </div>
@@ -307,24 +307,25 @@
               <li><strong>Objective</strong>: Explore wearable device data to identify activity patterns and health trends.</li>
               <li><strong>Approach</strong>: Used R with dplyr and SQLite for data cleaning and summarisation; designed interactive Tableau dashboards for insight presentation.</li>
               <li><strong>Outcome</strong>: Suggested targeted product features and marketing approaches based on data-driven evidence.</li>
-              <figure style="margin-top:12px; text-align:center;">
-                <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" target="_blank" rel="noopener noreferrer">
-                  <img src="bellabeat.png" alt="Bellabeat Tableau Dashboard" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);">
-                </a>
-                <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-                  <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a>
-                </figcaption>
-              </figure>
-
-              <figure style="margin-top:20px; text-align:center;">
-                <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" target="_blank" rel="noopener noreferrer">
-                  <img src="Profit Margin by State (Map) - dash.png" alt="Profit Margin Dashboard" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);">
-                </a>
-                <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-                  <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a>
-                </figcaption>
-              </figure>
             </ul>
+
+            <figure style="margin-top:12px; text-align:center;">
+                <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" target="_blank" rel="noopener noreferrer">
+                <img src="bellabeat.png" alt="Bellabeat Tableau Dashboard" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);">
+                </a>
+                <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+                <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a>
+                </figcaption>
+            </figure>
+            <figure style="margin-top:20px; text-align:center;">
+                <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" target="_blank" rel="noopener noreferrer">
+                <img src="Profit Margin by State (Map) - dash.png" alt="Profit Margin Dashboard" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);">
+                </a>
+                <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+                <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a>
+                </figcaption>
+            </figure>
+
           </details>
           <div class="proj-tags"><span class="chip">R</span><span class="chip">SQLite</span><span class="chip">dplyr</span><span class="chip">Tableau</span></div>
         </article>
@@ -366,23 +367,22 @@
             <li><strong>Integration Flow</strong>: 
             CloudFront routes traffic to ALB → ECS → Aurora, with ElastiCache and SQS optimising backend performance. 
             Simultaneously, DataSync moves data to S3 for analysis via Glue → EMR → Athena → Redshift → QuickSight.
-          </li>
+            </li>
 
-          <li><strong>Outcome</strong>: Achieved full migration with:
-            <ul>
+            <li><strong>Outcome</strong>: Achieved full migration with:
               <li>Decoupled, fault-tolerant architecture</li>
               <li>Multi-AZ high availability</li>
               <li>Cloud-native modernization of both workloads</li>
               <li>Reduced operational overhead with managed services</li>
               <li>Integrated observability and security across layers</li>
             </ul>
-          </li>
-
+            </li>
           </ul>
 
           <figure style="margin-top:10px; text-align:center;">
             <img src="aws_architecture_diagram-Solution_Architect.png" 
-                alt="AWS Migration Architecture Diagram" 
+                alt="AWS Migration Architecture Diagram"
+                loading="lazy"
                 style="max-width:100%; border-radius:8px;">
             <figcaption style="font-size:14px; color:#aaa; margin-top:4px;">
               AWS Architecture Diagram - Migration Solution
@@ -617,8 +617,10 @@
       const apply = (mode) => {
         const resolved = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
         root.setAttribute('data-theme', resolved);
-        btn.textContent = resolved === 'light' ? '🌞' : '🌙';
-      };
+        const isLight = resolved === 'light';
+        btn.textContent = isLight ? '🌞' : '🌙';
+        btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+        };
 
       apply(getPref());
       btn.addEventListener('click', () => {
@@ -654,8 +656,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
