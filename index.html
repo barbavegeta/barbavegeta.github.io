@@ -311,21 +311,51 @@
             <span class="chip">Cutadapt</span><span class="chip">DSL2</span>
           </div>
         </article>
-        <article class="span-12 project" data-tags="python r biopython genomics sequencing alignment sql database" data-repo="barbavegeta/Genomic_Data_Science_Specialization">
-          <h3><a href="https://github.com/barbavegeta/Genomic_Data_Science_Specialization" target="_blank" rel="noreferrer noopener">Computational Genomics & NGS Analysis Workflows</a></h3>
-          <p>End-to-end workflows for genomic analysis: alignment, assembly, RNA-seq, variant calling, and DB querying.</p>
+        <article class="span-12 project"
+          data-tags="bioinformatics genomics tuberculosis wgs galaxy linux bwa-mem2 samtools bcftools snpeff snpsift multiqc igv resistance"
+          data-repo="barbavegeta/mtb-wgs-galaxy-workflow">
+          <h3>
+            <a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow" target="_blank" rel="noreferrer noopener">
+              M. tuberculosis WGS Variant Analysis Workflow (Galaxy)
+            </a>
+          </h3>
+          <p>Galaxy-based whole-genome sequencing workflow for <em>Mycobacterium tuberculosis</em>, covering QC, trimming, alignment, coverage assessment, variant calling, annotation, and IGV-supported interpretation of resistance-associated loci.</p>
           <details>
             <summary>Details</summary>
             <ul>
-              <li><strong>Objective</strong>: Gain proficiency in computational genomics through applied projects spanning multiple bioinformatics subfields.</li>
-              <li><strong>Approach</strong>: Built reproducible pipelines and scripts for sequence alignment, genome assembly, RNA-seq analysis, variant calling, visualisation, and database querying using Python, R, and Biopython.</li>     
-              <li><strong>Outcome</strong>: Produced reusable scripts/pipelines and documented results for alignment, assembly, RNA-seq QC, variant calling, and database querying.</li>
+              <li><strong>Objective</strong>: Build and run an end-to-end WGS workflow to identify and interpret resistance-associated variants in <em>M. tuberculosis</em> isolates.</li>
+              <li><strong>Approach</strong>: Processed short-read sequencing data through FASTQ retrieval, QC, trimming, alignment, BAM processing, coverage analysis, variant calling, filtering, annotation, and visual validation in IGV using Galaxy and standard genomics tools.</li>
+              <li><strong>Outcome</strong>: Produced QC and mapping summaries, variant tables, resistance interpretation summaries, and IGV validation images for clinically relevant loci.</li>
             </ul>
+        
+            <figure style="margin-top:12px; text-align:center;">
+              <a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/results/figure1_katg_q295_igv.png" target="_blank" rel="noreferrer noopener">
+                <img
+                  src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/results/figure1_katg_q295_igv.png"
+                  alt="IGV validation of atypical katG codon 295 variation in Mycobacterium tuberculosis"
+                  loading="lazy"
+                  style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"
+                >
+              </a>
+              <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+                IGV validation example from the <em>M. tuberculosis</em> WGS workflow
+              </figcaption>
+            </figure>
           </details>
-          <div class="proj-tags"><span class="chip">Bioinformatics</span><span class="chip">Computational Genomics</span><span class="chip">NGS Analysis</span><span class="chip">Coursera Specialization</span>
-            <span class="chip">Python</span><span class="chip">R</span><span class="chip">Biopython</span><span class="chip">Bioconductor</span><span class="chip">Bowtie/Bowtie2</span>
-            <span class="chip">Burrows-Wheeler Aligner (BWA)</span><span class="chip">SAMtools</span><span class="chip">BEDtools</span><span class="chip">VCFtools</span>
-            <span class="chip">FastQC</span><span class="chip">Cufflinks/Cuffdiff</span><span class="chip">TopHat</span><span class="chip">STAR</span><span class="chip">HISAT2</span><span class="chip">DESeq2</span></div>
+          <div class="proj-tags">
+            <span class="chip">Bioinformatics</span>
+            <span class="chip">WGS</span>
+            <span class="chip">Variant Calling</span>
+            <span class="chip">Galaxy</span>
+            <span class="chip">Linux</span>
+            <span class="chip">BWA-MEM2</span>
+            <span class="chip">SAMtools</span>
+            <span class="chip">bcftools</span>
+            <span class="chip">SnpEff</span>
+            <span class="chip">SnpSift</span>
+            <span class="chip">IGV</span>
+            <span class="chip">MultiQC</span>
+          </div>
         </article>
         <article class="span-12 project" data-tags="python scikit-learn pandas classification hr analytics attrition" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors">
           <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" target="_blank" rel="noreferrer noopener">Salifort Motors - Employee Attrition Prediction (Classification Model)</a></h3>
