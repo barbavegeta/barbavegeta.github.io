@@ -312,21 +312,36 @@
           </div>
         </article>
         <article class="span-12 project"
-          data-tags="bioinformatics genomics tuberculosis wgs galaxy linux bwa-mem2 samtools bcftools snpeff snpsift multiqc igv resistance"
+          data-tags="bioinformatics genomics tuberculosis wgs galaxy linux fasterq-dump falco fastp cutadapt bwa-mem2 picard samtools mosdepth bcftools snpeff snpsift multiqc igv resistance"
           data-repo="barbavegeta/mtb-wgs-galaxy-workflow">
           <h3>
             <a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow" target="_blank" rel="noreferrer noopener">
               M. tuberculosis WGS Variant Analysis Workflow (Galaxy)
             </a>
           </h3>
-          <p>Galaxy-based whole-genome sequencing workflow for <em>Mycobacterium tuberculosis</em>, covering QC, trimming, alignment, coverage assessment, variant calling, annotation, and IGV-supported interpretation of resistance-associated loci.</p>
+          <p>Galaxy-based whole-genome sequencing workflow for <em>Mycobacterium tuberculosis</em>, covering QC, trimming, alignment, BAM processing, coverage assessment, variant calling, annotation, and read-level interpretation of resistance-associated loci.</p>
+        
           <details>
             <summary>Details</summary>
             <ul>
               <li><strong>Objective</strong>: Build and run an end-to-end WGS workflow to identify and interpret resistance-associated variants in <em>M. tuberculosis</em> isolates.</li>
-              <li><strong>Approach</strong>: Processed short-read sequencing data using <code>fasterq-dump</code>, <code>Falco</code>, <code>fastp</code>, <code>Cutadapt</code>, <code>BWA-MEM2</code>, <code>Picard SortSam</code>, <code>Picard MarkDuplicates</code>, <code>SAMtools flagstat</code>, <code>SAMtools idxstats</code>, <code>mosdepth</code>, <code>bcftools mpileup</code>, <code>bcftools call</code>, <code>bcftools filter</code>, <code>bcftools csq</code>, <code>SnpEff</code>, <code>SnpSift</code>, <code>MultiQC</code>, and <code>IGV</code> within a Galaxy workflow for QC, trimming, alignment, BAM processing, coverage analysis, variant calling, filtering, annotation, and visual validation in IGV using Galaxy and standard genomics tools.</li>
-              <li><strong>Outcome</strong>: Produced QC and mapping summaries, variant tables, resistance interpretation summaries, and IGV validation images for clinically relevant loci.</li>
+              <li><strong>Approach</strong>: Processed short-read sequencing data using <code>fasterq-dump</code>, <code>Falco</code>, <code>fastp</code>, <code>Cutadapt</code>, <code>BWA-MEM2</code>, <code>Picard SortSam</code>, <code>Picard MarkDuplicates</code>, <code>SAMtools flagstat</code>, <code>SAMtools idxstats</code>, <code>samtools view</code>, <code>mosdepth</code>, <code>bcftools mpileup</code>, <code>bcftools call</code>, <code>bcftools filter</code>, <code>bcftools csq</code>, <code>SnpEff</code>, <code>SnpSift</code>, <code>MultiQC</code>, and <code>IGV</code> within a Galaxy workflow for QC, alignment, BAM processing, coverage analysis, variant calling, annotation, and visual validation.</li>
+              <li><strong>Outcome</strong>: Produced QC and mapping summaries, variant tables, resistance interpretation summaries, workflow documentation, and IGV validation images for clinically relevant loci.</li>
             </ul>
+        
+            <figure style="margin-top:12px; text-align:center;">
+              <a href="workflow/mtb-workflow.png" target="_blank" rel="noreferrer noopener">
+                <img
+                  src="workflow/mtb-workflow.png"
+                  alt="Galaxy workflow overview for Mycobacterium tuberculosis WGS variant analysis"
+                  loading="lazy"
+                  style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"
+                >
+              </a>
+              <figcaption class="muted" style="font-size:14px; margin-top:6px;">
+                Framed Galaxy workflow for <em>M. tuberculosis</em> WGS variant analysis
+              </figcaption>
+            </figure>
         
             <figure style="margin-top:12px; text-align:center;">
               <a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/results/figure1_katg_q295_igv.png" target="_blank" rel="noreferrer noopener">
@@ -337,8 +352,8 @@
                   style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"
                 >
               </a>
-              <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-                IGV validation example from the <em>M. tuberculosis</em> WGS workflow
+              <figcaption class="muted" style="font-size:14px; margin-top:6px;">
+                IGV validation of atypical <em>katG</em> codon 295 variation
               </figcaption>
             </figure>
           </details>
