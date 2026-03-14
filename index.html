@@ -324,7 +324,7 @@
             <summary>Details</summary>
             <ul>
               <li><strong>Objective</strong>: Build and run an end-to-end WGS workflow to identify and interpret resistance-associated variants in <em>M. tuberculosis</em> isolates.</li>
-              <li><strong>Approach</strong>: Processed short-read sequencing data through FASTQ retrieval, QC, trimming, alignment, BAM processing, coverage analysis, variant calling, filtering, annotation, and visual validation in IGV using Galaxy and standard genomics tools.</li>
+              <li><strong>Approach</strong>: Processed short-read sequencing data using <code>fasterq-dump</code>, <code>Falco</code>, <code>fastp</code>, <code>Cutadapt</code>, <code>BWA-MEM2</code>, <code>Picard SortSam</code>, <code>Picard MarkDuplicates</code>, <code>SAMtools flagstat</code>, <code>SAMtools idxstats</code>, <code>mosdepth</code>, <code>bcftools mpileup</code>, <code>bcftools call</code>, <code>bcftools filter</code>, <code>bcftools csq</code>, <code>SnpEff</code>, <code>SnpSift</code>, <code>MultiQC</code>, and <code>IGV</code> within a Galaxy workflow for QC, trimming, alignment, BAM processing, coverage analysis, variant calling, filtering, annotation, and visual validation in IGV using Galaxy and standard genomics tools.</li>
               <li><strong>Outcome</strong>: Produced QC and mapping summaries, variant tables, resistance interpretation summaries, and IGV validation images for clinically relevant loci.</li>
             </ul>
         
@@ -345,16 +345,20 @@
           <div class="proj-tags">
             <span class="chip">Bioinformatics</span>
             <span class="chip">WGS</span>
-            <span class="chip">Variant Calling</span>
             <span class="chip">Galaxy</span>
-            <span class="chip">Linux</span>
+            <span class="chip">fasterq-dump</span>
+            <span class="chip">Falco</span>
+            <span class="chip">fastp</span>
+            <span class="chip">Cutadapt</span>
             <span class="chip">BWA-MEM2</span>
+            <span class="chip">Picard</span>
             <span class="chip">SAMtools</span>
+            <span class="chip">mosdepth</span>
             <span class="chip">bcftools</span>
             <span class="chip">SnpEff</span>
             <span class="chip">SnpSift</span>
-            <span class="chip">IGV</span>
             <span class="chip">MultiQC</span>
+            <span class="chip">IGV</span>
           </div>
         </article>
         <article class="span-12 project" data-tags="python scikit-learn pandas classification hr analytics attrition" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors">
