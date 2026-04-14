@@ -276,6 +276,52 @@
       <div id="project-list" class="grid" style="margin-top:14px">
         <!-- Project cards -->
         <article class="span-12 project"
+          data-tags="machine-learning unsupervised-learning clustering kmeans pandas scikit-learn data-analysis segmentation"
+          data-repo="barbavegeta/telco-customer-segmentation">
+        
+          <h3>
+            <a href="https://github.com/barbavegeta/telco-customer-segmentation" target="_blank" rel="noreferrer noopener">
+              Customer Segmentation (Unsupervised Learning)
+            </a>
+          </h3>
+        
+          <p>
+            Segmented 7,043 telecom customers using K-Means, hierarchical clustering, and DBSCAN, identifying a high-risk segment with ~42% churn compared to ~14% in the most stable group.
+          </p>
+        
+          <details>
+            <summary>Details</summary>
+            <ul>
+              <li><strong>Objective</strong>: Identify meaningful customer segments to enable targeted retention strategies instead of treating churn as a uniform problem.</li>
+              <li><strong>Approach</strong>: Applied clustering methods (K-Means, hierarchical, DBSCAN) on standardised features (tenure, charges, senior status), selecting the final model using silhouette score.</li>
+              <li><strong>Key Insight</strong>: A high-risk segment (~42% churn) was identified, clearly distinct from a stable premium group (~14% churn), demonstrating that churn risk is not homogeneous.</li>
+              <li><strong>Outcome</strong>: Produced interpretable segments that can guide retention campaigns, onboarding improvements, and pricing strategies.</li>
+            </ul>
+            <figure style="margin-top:12px; text-align:center;">
+              <a href="https://github.com/barbavegeta/telco-customer-segmentation" target="_blank" rel="noreferrer noopener">
+                <img
+                  src="images/telco_clusters_pca.png"
+                  alt="Customer segmentation PCA visualisation"
+                  loading="lazy"
+                  style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"
+                >
+              </a>
+              <figcaption class="muted" style="font-size:14px; margin-top:6px;">
+                PCA projection of customer clusters (K-Means, k=3)
+              </figcaption>
+            </figure>
+          </details>
+          <div class="proj-tags">
+            <span class="chip">Machine Learning</span>
+            <span class="chip">Unsupervised Learning</span>
+            <span class="chip">Clustering</span>
+            <span class="chip">K-Means</span>
+            <span class="chip">Scikit-learn</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">Customer Segmentation</span>
+          </div>
+        </article>
+        <article class="span-12 project"
           data-tags="nextflow docker rnaseq bioinformatics fastqc star featurecounts deseq2 cutadapt dsl2 multiqc workflow reproducibility"
           data-repo="barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker">
           <h3>
