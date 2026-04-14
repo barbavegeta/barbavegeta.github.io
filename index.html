@@ -191,6 +191,37 @@
     margin-top:14px;
   }
 
+
+
+    /* collapsible project groups */
+    .project-group {
+      margin-top: 18px;
+      padding: 14px 16px 18px;
+      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--muted), transparent 70%);
+    }
+    .project-group + .project-group { margin-top: 18px; }
+    .project-group summary {
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 700;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .project-group summary::-webkit-details-marker { display: none; }
+    .project-group summary::before {
+      content: "▸";
+      font-size: 18px;
+      line-height: 1;
+      transition: transform .2s ease;
+      color: var(--brand);
+    }
+    .project-group[open] summary::before { transform: rotate(90deg); }
+    .project-group .group-grid { margin-top: 14px; }
+
   </style>
 </head>
 <body>
@@ -261,12 +292,15 @@
             <span class="value"><strong>Bioinformatics &amp; Data Science roles · Right to work in UK & EU</strong></span>
           </div>
         </div>
-      </div>
+      </details>
     </section>
     <section id="projects" class="section style4">
       <h2>Projects</h2>
-      <p class="muted">A selection of work spanning genomics, analytics, and scripting. Full list on <a href="https://github.com/barbavegeta" target="_blank" rel="noreferrer noopener">GitHub</a>.</p>
-      <div id="project-list" class="grid" style="margin-top:14px">
+      <p class="muted">A selection of work spanning genomics, analytics, and scripting. Full list on <a href="https://github.com/barbavegeta" target="_blank" rel="noreferrer noopener">GitHub</a>.
+      </p>
+      <details class="project-group" open>
+        <summary>Featured Projects</summary>
+        <div id="project-list" class="grid group-grid">        
         <!-- Project cards -->
         <article class="span-12 project"
           data-tags="llm rag langchain chroma fastapi gradio watsonx embeddings vector-database ai document-qa"
@@ -480,7 +514,12 @@
             <span class="chip">IGV</span>
           </div>
         </article>
-        <article class="span-12 project" data-tags="python scikit-learn pandas classification hr analytics attrition" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors">
+      </div>
+      </details>
+      <details class="project-group">
+        <summary>Additional Projects</summary>
+        <div class="grid group-grid">
+        <article class="span-6 project" data-tags="python scikit-learn pandas classification hr analytics attrition" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors">
           <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" target="_blank" rel="noreferrer noopener">Salifort Motors - Employee Attrition Prediction (Classification Model)</a></h3>
           <p>Predictive modelling to understand drivers of employee turnover and inform retention strategy.</p>
           <details>
@@ -505,7 +544,7 @@
             <span class="chip">XGBoost</span>
           </div>
         </article>
-        <article class="span-12 project" data-tags="python pandas matplotlib social media eda tiktok" data-repo="barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project">
+        <article class="span-6 project" data-tags="python pandas matplotlib social media eda tiktok" data-repo="barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project">
           <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" target="_blank" rel="noreferrer noopener">TikTok - Social Media Engagement Analysis (EDA & Visualisation)</a></h3>
           <p>Exploratory analysis of engagement metrics to uncover content trends and optimisation levers.</p>
           <details>
@@ -518,7 +557,7 @@
           </details> 
           <div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Exploratory Data Analysis</span><span class="chip">Google Capstone</span><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span><span class="chip">SciPy</span></div>
         </article>
-        <article class="span-12 project" data-tags="r sqlite dplyr tableau wearable health eda" data-repo="barbavegeta/Google_Data_Analytics-Bellabeat_Project">
+        <article class="span-6 project" data-tags="r sqlite dplyr tableau wearable health eda" data-repo="barbavegeta/Google_Data_Analytics-Bellabeat_Project">
           <h3><a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" target="_blank" rel="noreferrer noopener">Bellabeat - Wearable Health Data Analysis</a></h3>
           <p>R + SQL workflow on wearable device data; built dashboards to surface activity &amp; health patterns.</p>
           <details>
@@ -555,7 +594,7 @@
           </details>
           <div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Business Intelligence</span><span class="chip">Google Capstone</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">dplyr</span><span class="chip">Tableau</span></div>
         </article>
-        <article class="span-12 project" data-tags="aws cloud architecture migration devops analytics s3 ecs aurora emr redshift quicksight" data-repo="barbavegeta/AWS_Solution_Architect">
+        <article class="span-6 project" data-tags="aws cloud architecture migration devops analytics s3 ecs aurora emr redshift quicksight" data-repo="barbavegeta/AWS_Solution_Architect">
         <h3>
           <a href="https://github.com/barbavegeta/AWS_Solution_Architect" target="_blank" rel="noreferrer noopener">
             AWS Managed Services - Cloud Migration Architecture
@@ -631,9 +670,9 @@
           <span class="chip">Redshift</span>
           <span class="chip">QuickSight</span>
         </div>
-      </article>
+        </article>
 
-      <article class="span-12 project" data-tags="tableau google business intelligence dashboard fiber case study" data-repo="barbavegeta/Google_Business_Intelligence-Google_Fiber">
+        <article class="span-6 project" data-tags="tableau google business intelligence dashboard fiber case study" data-repo="barbavegeta/Google_Business_Intelligence-Google_Fiber">
         <h3>
           <a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber"
              target="_blank" rel="noreferrer noopener">
@@ -680,8 +719,7 @@
           <span class="chip">KPI Design</span>
           <span class="chip">SQL</span>
         </div>
-      </article>
-
+        </article>
       </div>
     </section>
     <section id="experience" class="section style4">
@@ -889,11 +927,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
