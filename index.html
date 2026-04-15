@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDBND1PJP7"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KDBND1PJP7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -9,12 +10,12 @@
 
   gtag('config', 'G-KDBND1PJP7');
 </script>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Salvatore Barbagallo</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Salvatore Barbagallo</title>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --bg: #0b0d13;
       --surface: #121625;
@@ -222,678 +223,607 @@
     .project-group[open] summary::before { transform: rotate(90deg); }
     .project-group .group-grid { margin-top: 14px; }
 
-  </style>
+  
+
+
+/* Variant 2: multi-column project grid */
+#projects .project-group { margin-top: 18px; }
+#projects .project-group summary { cursor: pointer; font-weight: 700; font-size: 20px; margin-bottom: 14px; }
+#projects .group-grid { margin-top: 14px !important; }
+#projects .project { height: 100%; }
+#projects .project-group .group-grid > .project { grid-column: span 6; }
+@media (max-width: 980px){
+  #projects .project-group .group-grid > .project { grid-column: 1 / -1; }
+}
+
+</style>
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <nav class="links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-        <button id="themeToggle" class="btn ghost" type="button" aria-label="Toggle theme">🌙</button>
-        <a class="btn ghost" 
-        href="https://1drv.ms/b/c/01f4911257d78e49/IQCU9zzhV4IoRo4UW3aELw-mARKUSnokcDhJnuehjXCF9Vk?e=TGiRTl"
-          target="_blank"
-          rel="noopener noreferrer">
-          Download Data & Analytics CV
+<header class="nav">
+<div class="container nav-inner">
+<nav class="links">
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#experience">Experience</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a>
+<button aria-label="Toggle theme" class="btn ghost" id="themeToggle" type="button">🌙</button>
+<a class="btn ghost" download="" href="docs/Salvatore_Barbagallo_Data_CV.pdf">
+          Download Data &amp; Analytics CV
         </a>
-        <a class="btn ghost" href="https://1drv.ms/b/c/01f4911257d78e49/IQBlSitR6G-GSYyWANPP7SHqARguJdH-UP06gMDAf8J43iQ?e=9o5sz3"
-        target="_blank"
-        rel="noopener noreferrer">
-        Download Bioinformatics CV
+<a class="btn ghost" download="" href="docs/Salvatore_Barbagallo_Bioinformatics_CV.pdf">
+          Download Bioinformatics CV
         </a>
-      </nav>
-    </div>
-  </header>
-  <main id="top" class="container">
-    <!-- SEO Intro block -->
-    <section class="seo-intro" style="margin-top:20px; text-align:center; padding:40px 20px; width:100%;">
-      <h1 class="headline">Salvatore Barbagallo</h1>
-      <p class="muted" style="font-size:18px; max-width:900px; margin:0 auto;">
-        Bioinformatics &amp; Data Science<br>
+</nav>
+</div>
+</header>
+<main class="container" id="top">
+<!-- SEO Intro block -->
+<section class="seo-intro" style="margin-top:20px; text-align:center; padding:40px 20px; width:100%;">
+<h1 class="headline">Salvatore Barbagallo</h1>
+<p class="muted" style="font-size:18px; max-width:900px; margin:0 auto;">
+        Bioinformatics &amp; Data Science<br/>
         Data scientist with 7+ years in clinical and genomics labs, now applying Python, R, SQL, and Bash to NGS and clinical data.
       </p>
-    </section>
-    <section id="about" class="section style4">
-      <h2 class="headline">About</h2>
-      <div class="card card-pad">
-        <p class="sub">
+</section>
+<section class="section style4" id="about">
+<h2 class="headline">About</h2>
+<div class="card card-pad">
+<p class="sub">
           I have 7+ years of experience across clinical, stem-cell, and genomics laboratories, and now focus on bioinformatics and data science.
           I bridge GMP-grade wet-lab workflows (flow cytometry, NGS library preparation, sample tracking) with computational analysis so that
           biological and clinical data are reproducible, auditable, and actually useful.
         </p>
-        <p class="sub">
+<p class="sub">
           I work with <strong>Python</strong>, <strong>R</strong>, <strong>SQL</strong>, and <strong>Bash</strong> to build analysis notebooks, small pipelines,
           and automation scripts for NGS data, QC, and reporting.
         </p>
-        <div class="tags" style="margin:14px 0 18px">
-          <span class="tag">Python</span>
-          <span class="tag">R</span>
-          <span class="tag">SQL</span>
-          <span class="tag">Bash</span>
-          <span class="tag">Bioinformatics</span>
-          <span class="tag">NGS Data Analysis</span>
-          <span class="tag">NGS Library Prep (Illumina)</span>
-          <span class="tag">Flow Cytometry</span>
-          <span class="tag">Statistics</span>
-          <span class="tag">Tableau</span>
-          <span class="tag">Git</span>
-          <span class="tag">LIMS</span>
-        </div>
-        <div class="facts">
-          <div class="fact">
-            <span class="label">Location:</span>
-            <span class="value"><strong>London, United Kingdom</strong></span>
-          </div>
-          <div class="fact">
-            <span class="label">Languages:</span>
-            <span class="value"><strong>Italian · English · Portuguese · Spanish</strong></span>
-          </div>
-          <div class="fact">
-            <span class="label">Open to:</span>
-            <span class="value"><strong>Bioinformatics &amp; Data Science roles · Right to work in UK & EU</strong></span>
-          </div>
-        </div>
-      </details>
-    </section>
-    <section id="projects" class="section style4">
-      <h2>Projects</h2>
-      <p class="muted">A selection of work spanning genomics, analytics, and scripting. Full list on <a href="https://github.com/barbavegeta" target="_blank" rel="noreferrer noopener">GitHub</a>.
+<div class="tags" style="margin:14px 0 18px">
+<span class="tag">Python</span>
+<span class="tag">R</span>
+<span class="tag">SQL</span>
+<span class="tag">Bash</span>
+<span class="tag">Bioinformatics</span>
+<span class="tag">NGS Data Analysis</span>
+<span class="tag">NGS Library Prep (Illumina)</span>
+<span class="tag">Flow Cytometry</span>
+<span class="tag">Statistics</span>
+<span class="tag">Tableau</span>
+<span class="tag">Git</span>
+<span class="tag">LIMS</span>
+</div>
+<div class="facts">
+<div class="fact">
+<span class="label">Location:</span>
+<span class="value"><strong>London, United Kingdom</strong></span>
+</div>
+<div class="fact">
+<span class="label">Languages:</span>
+<span class="value"><strong>Italian · English · Portuguese · Spanish</strong></span>
+</div>
+<div class="fact">
+<span class="label">Open to:</span>
+<span class="value"><strong>Bioinformatics &amp; Data Science roles · Right to work in UK &amp; EU</strong></span>
+</div>
+</div>
+
+</div></section>
+<section class="section style4" id="projects">
+<h2>Projects</h2>
+<p class="muted">A selection of work spanning genomics, analytics, and scripting. Full list on <a href="https://github.com/barbavegeta" rel="noreferrer noopener" target="_blank">GitHub</a>.
       </p>
-      <details class="project-group" open>
-        <summary>Featured Projects</summary>
-        <div id="project-list" class="grid group-grid">        
-        <!-- Project cards -->
-        <article class="span-12 project"
-          data-tags="llm rag langchain chroma fastapi gradio watsonx embeddings vector-database ai document-qa"
-          data-repo="barbavegeta/qa-bot-rag">
-          <h3>
-            <a href="https://github.com/barbavegeta/qa-bot-rag" target="_blank" rel="noreferrer noopener">
+<details class="project-group" open="">
+<summary>Featured Projects</summary>
+<div class="grid group-grid" id="project-list">
+<!-- Project cards -->
+<article class="span-12 project" data-repo="barbavegeta/qa-bot-rag" data-tags="llm rag langchain chroma fastapi gradio watsonx embeddings vector-database ai document-qa">
+<h3>
+<a href="https://github.com/barbavegeta/qa-bot-rag" rel="noreferrer noopener" target="_blank">
               QA Bot for Documents using RAG
             </a>
-          </h3>
-          <p>
+</h3>
+<p>
             Built a Retrieval-Augmented Generation system for PDF question answering using LangChain, Chroma, IBM watsonx, FastAPI, and Gradio.
           </p>
-          <details>
-            <summary>Details</summary>
-            <ul>
-              <li><strong>Objective</strong>: Build a document question-answering system that retrieves relevant PDF content before generating answers, rather than relying on unguided prompting.</li>
-              <li><strong>Approach</strong>: Implemented a full RAG pipeline covering document loading, text chunking, embeddings, vector storage, retrieval, and answer generation with an LLM.</li>
-              <li><strong>Engineering</strong>: Structured the project into pipeline, API, and UI layers, with FastAPI for serving and Gradio for interaction.</li>
-              <li><strong>Outcome</strong>: Produced a modular, deployment-ready document QA system that demonstrates practical LLM application design.</li>
-            </ul>
-          </details>
-          <div class="proj-tags">
-            <span class="chip">LLM</span>
-            <span class="chip">RAG</span>
-            <span class="chip">LangChain</span>
-            <span class="chip">Chroma</span>
-            <span class="chip">FastAPI</span>
-            <span class="chip">Gradio</span>
-            <span class="chip">watsonx</span>
-          </div>
-        </article>
-        <article class="span-12 project"
-          data-tags="deep-learning pytorch keras cnn vit transfer-learning computer-vision neural-networks"
-          data-repo="barbavegeta/deep-learning-experiments">
-          <h3>
-            <a href="https://github.com/barbavegeta/deep-learning-experiments" target="_blank" rel="noreferrer noopener">
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Build a document question-answering system that retrieves relevant PDF content before generating answers, rather than relying on unguided prompting.</li>
+<li><strong>Approach</strong>: Implemented a full RAG pipeline covering document loading, text chunking, embeddings, vector storage, retrieval, and answer generation with an LLM.</li>
+<li><strong>Engineering</strong>: Structured the project into pipeline, API, and UI layers, with FastAPI for serving and Gradio for interaction.</li>
+<li><strong>Outcome</strong>: Produced a modular, deployment-ready document QA system that demonstrates practical LLM application design.</li>
+</ul>
+</details>
+<div class="proj-tags">
+<span class="chip">LLM</span>
+<span class="chip">RAG</span>
+<span class="chip">LangChain</span>
+<span class="chip">Chroma</span>
+<span class="chip">FastAPI</span>
+<span class="chip">Gradio</span>
+<span class="chip">watsonx</span>
+</div>
+</article>
+<article class="span-12 project" data-repo="barbavegeta/deep-learning-experiments" data-tags="deep-learning pytorch keras cnn vit transfer-learning computer-vision neural-networks">
+<h3>
+<a href="https://github.com/barbavegeta/deep-learning-experiments" rel="noreferrer noopener" target="_blank">
               Deep Learning Experiments (Keras vs PyTorch, CNN, ViT)
             </a>
-          </h3>
-          <p>
+</h3>
+<p>
             Comparative deep learning experiments using Keras and PyTorch across CNNs, Vision Transformers, and transfer learning for image classification tasks.
           </p>
-          <details>
-            <summary>Details</summary>
-            <ul>
-              <li><strong>Objective</strong>: Compare deep learning approaches and frameworks across multiple computer vision tasks.</li>
-              <li><strong>Approach</strong>: Implemented CNNs, transfer learning models, and Vision Transformers in both Keras and PyTorch, evaluating performance and training behaviour.</li>
-              <li><strong>Experiments include</strong>:
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Compare deep learning approaches and frameworks across multiple computer vision tasks.</li>
+<li><strong>Approach</strong>: Implemented CNNs, transfer learning models, and Vision Transformers in both Keras and PyTorch, evaluating performance and training behaviour.</li>
+<li><strong>Experiments include</strong>:
                 <ul>
-                  <li>Data loading strategies (memory vs generator-based)</li>
-                  <li>CNN image classification (FashionMNIST, waste classification, anime images)</li>
-                  <li>Transfer learning and fine-tuning</li>
-                  <li>Vision Transformers (ViT)</li>
-                  <li>Keras vs PyTorch comparative analysis</li>
-                </ul>
-              </li>
-              <li><strong>Outcome</strong>: Demonstrated differences in performance, flexibility, and workflow between frameworks and architectures.</li>
-            </ul>
-          </details>
-          <div class="proj-tags">
-            <span class="chip">Deep Learning</span>
-            <span class="chip">PyTorch</span>
-            <span class="chip">Keras</span>
-            <span class="chip">CNN</span>
-            <span class="chip">Vision Transformer</span>
-            <span class="chip">Transfer Learning</span>
-            <span class="chip">Computer Vision</span>
-          </div>
-        </article>        
-        <article class="span-12 project"
-          data-tags="machine-learning unsupervised-learning clustering kmeans pandas scikit-learn data-analysis segmentation"
-          data-repo="barbavegeta/telco-customer-segmentation">
-          <h3>
-            <a href="https://github.com/barbavegeta/telco-customer-segmentation" target="_blank" rel="noreferrer noopener">
+<li>Data loading strategies (memory vs generator-based)</li>
+<li>CNN image classification (FashionMNIST, waste classification, anime images)</li>
+<li>Transfer learning and fine-tuning</li>
+<li>Vision Transformers (ViT)</li>
+<li>Keras vs PyTorch comparative analysis</li>
+</ul>
+</li>
+<li><strong>Outcome</strong>: Demonstrated differences in performance, flexibility, and workflow between frameworks and architectures.</li>
+</ul>
+</details>
+<div class="proj-tags">
+<span class="chip">Deep Learning</span>
+<span class="chip">PyTorch</span>
+<span class="chip">Keras</span>
+<span class="chip">CNN</span>
+<span class="chip">Vision Transformer</span>
+<span class="chip">Transfer Learning</span>
+<span class="chip">Computer Vision</span>
+</div>
+</article>
+<article class="span-12 project" data-repo="barbavegeta/telco-customer-segmentation" data-tags="machine-learning unsupervised-learning clustering kmeans pandas scikit-learn data-analysis segmentation">
+<h3>
+<a href="https://github.com/barbavegeta/telco-customer-segmentation" rel="noreferrer noopener" target="_blank">
               Customer Segmentation (Unsupervised Learning)
             </a>
-          </h3>
-          <p>
+</h3>
+<p>
             Segmented 7,043 telecom customers using K-Means, hierarchical clustering, and DBSCAN, identifying a high-risk segment with ~42% churn compared to ~14% in the most stable group.
           </p>
-          <details>
-            <summary>Details</summary>
-            <ul>
-              <li><strong>Objective</strong>: Identify meaningful customer segments to enable targeted retention strategies instead of treating churn as a uniform problem.</li>
-              <li><strong>Approach</strong>: Applied clustering methods (K-Means, hierarchical, DBSCAN) on standardised features (tenure, charges, senior status), selecting the final model using silhouette score.</li>
-              <li><strong>Key Insight</strong>: A high-risk segment (~42% churn) was identified, clearly distinct from a stable premium group (~14% churn), demonstrating that churn risk is not homogeneous.</li>
-              <li><strong>Outcome</strong>: Produced interpretable segments that can guide retention campaigns, onboarding improvements, and pricing strategies.</li>
-            </ul>
-            <figure style="margin-top:12px; text-align:center;">
-              <a href="https://github.com/barbavegeta/telco-customer-segmentation" target="_blank" rel="noreferrer noopener">
-                <img
-                  src="https://raw.githubusercontent.com/barbavegeta/telco-customer-segmentation/refs/heads/main/images/telco_clusters_pca.png"
-                  alt="Customer segmentation PCA visualisation"
-                  loading="lazy"
-                  style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"
-                >
-              </a>
-              <figcaption class="muted" style="font-size:14px; margin-top:6px;">
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Identify meaningful customer segments to enable targeted retention strategies instead of treating churn as a uniform problem.</li>
+<li><strong>Approach</strong>: Applied clustering methods (K-Means, hierarchical, DBSCAN) on standardised features (tenure, charges, senior status), selecting the final model using silhouette score.</li>
+<li><strong>Key Insight</strong>: A high-risk segment (~42% churn) was identified, clearly distinct from a stable premium group (~14% churn), demonstrating that churn risk is not homogeneous.</li>
+<li><strong>Outcome</strong>: Produced interpretable segments that can guide retention campaigns, onboarding improvements, and pricing strategies.</li>
+</ul>
+<figure style="margin-top:12px; text-align:center;">
+<a href="https://github.com/barbavegeta/telco-customer-segmentation" rel="noreferrer noopener" target="_blank">
+<img alt="Customer segmentation PCA visualisation" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/telco-customer-segmentation/refs/heads/main/images/telco_clusters_pca.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption class="muted" style="font-size:14px; margin-top:6px;">
                 PCA projection of customer clusters (K-Means, k=3)
               </figcaption>
-            </figure>
-          </details>
-          <div class="proj-tags">
-            <span class="chip">Machine Learning</span>
-            <span class="chip">Unsupervised Learning</span>
-            <span class="chip">Clustering</span>
-            <span class="chip">K-Means</span>
-            <span class="chip">Scikit-learn</span>
-            <span class="chip">Pandas</span>
-            <span class="chip">Customer Segmentation</span>
-          </div>
-        </article>
-        <article class="span-12 project"
-          data-tags="nextflow docker rnaseq bioinformatics fastqc star featurecounts deseq2 cutadapt dsl2 multiqc workflow reproducibility"
-          data-repo="barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker">
-          <h3>
-            <a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" target="_blank" rel="noreferrer noopener">
+</figure>
+</details>
+<div class="proj-tags">
+<span class="chip">Machine Learning</span>
+<span class="chip">Unsupervised Learning</span>
+<span class="chip">Clustering</span>
+<span class="chip">K-Means</span>
+<span class="chip">Scikit-learn</span>
+<span class="chip">Pandas</span>
+<span class="chip">Customer Segmentation</span>
+</div>
+</article>
+<article class="span-12 project" data-repo="barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" data-tags="nextflow docker rnaseq bioinformatics fastqc star featurecounts deseq2 cutadapt dsl2 multiqc workflow reproducibility">
+<h3>
+<a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
               RNA-seq Pipeline (Nextflow + Docker)
             </a>
-          </h3>
-          <p>Containerised RNA-seq workflow: FastQC → Cutadapt → STAR alignment → featureCounts → MultiQC → DESeq2.</p>
-          <details>
-            <summary>Details</summary>
-            <ul>
-              <li><strong>Objective</strong>: Build a reproducible, portable RNA-seq pipeline runnable on any machine with Docker.</li>
-              <li><strong>Approach</strong>: Implemented the workflow in Nextflow and executed with Docker to isolate dependencies; produces a MultiQC report for end-to-end QC review.</li>
-              <li><strong>Outcome</strong>: One-command execution; standardised outputs for QC and quantification suitable for downstream DE analysis.</li>
-            </ul>   
-            <figure style="margin-top:12px; text-align:center;">
-              <a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" target="_blank" rel="noreferrer noopener">
-                <img
-                  src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/refs/heads/main/img/test-run-docker.png"
-                  alt="Nextflow RNA-seq pipeline: successful Docker test run (Docker profile)"
-                  loading="lazy"
-                  style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"
-                >
-              </a>
-              <figcaption class="muted" style="font-size:14px; margin-top:6px;">
+</h3>
+<p>Containerised RNA-seq workflow: FastQC → Cutadapt → STAR alignment → featureCounts → MultiQC → DESeq2.</p>
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Build a reproducible, portable RNA-seq pipeline runnable on any machine with Docker.</li>
+<li><strong>Approach</strong>: Implemented the workflow in Nextflow and executed with Docker to isolate dependencies; produces a MultiQC report for end-to-end QC review.</li>
+<li><strong>Outcome</strong>: One-command execution; standardised outputs for QC and quantification suitable for downstream DE analysis.</li>
+</ul>
+<figure style="margin-top:12px; text-align:center;">
+<a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
+<img alt="Nextflow RNA-seq pipeline: successful Docker test run (Docker profile)" loading="lazy" src="img/test-run-docker.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption class="muted" style="font-size:14px; margin-top:6px;">
                 Proof run: Nextflow test execution (Docker profile)
               </figcaption>
-            </figure>
-          </details>
-          <div class="proj-tags">
-            <span class="chip">Bioinformatics</span><span class="chip">Workflow Engineering</span><span class="chip">Nextflow</span><span class="chip">Docker</span><span class="chip">RNA-seq</span>
-            <span class="chip">FastQC</span><span class="chip">MultiQC</span><span class="chip">STAR</span><span class="chip">featureCounts</span><span class="chip">DESeq2</span>
-            <span class="chip">Cutadapt</span><span class="chip">DSL2</span>
-          </div>
-        </article>
-        <article class="span-12 project"
-          data-tags="bioinformatics genomics tuberculosis wgs galaxy linux fasterq-dump falco fastp cutadapt bwa-mem2 picard samtools mosdepth bcftools snpeff snpsift multiqc igv resistance"
-          data-repo="barbavegeta/mtb-wgs-galaxy-workflow">
-          <h3>
-            <a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow" target="_blank" rel="noreferrer noopener">
+</figure>
+</details>
+<div class="proj-tags">
+<span class="chip">Bioinformatics</span><span class="chip">Workflow Engineering</span><span class="chip">Nextflow</span><span class="chip">Docker</span><span class="chip">RNA-seq</span>
+<span class="chip">FastQC</span><span class="chip">MultiQC</span><span class="chip">STAR</span><span class="chip">featureCounts</span><span class="chip">DESeq2</span>
+<span class="chip">Cutadapt</span><span class="chip">DSL2</span>
+</div>
+</article>
+<article class="span-12 project" data-repo="barbavegeta/mtb-wgs-galaxy-workflow" data-tags="bioinformatics genomics tuberculosis wgs galaxy linux fasterq-dump falco fastp cutadapt bwa-mem2 picard samtools mosdepth bcftools snpeff snpsift multiqc igv resistance">
+<h3>
+<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow" rel="noreferrer noopener" target="_blank">
               M. tuberculosis WGS Variant Analysis Workflow (Galaxy)
             </a>
-          </h3>
-          <p>Galaxy-based whole-genome sequencing workflow for <em>Mycobacterium tuberculosis</em>, covering QC, trimming, alignment, BAM processing, coverage assessment, variant calling, annotation, and read-level interpretation of resistance-associated loci.</p>
-        
-          <details>
-            <summary>Details</summary>
-            <ul>
-              <li><strong>Objective</strong>: Build and run an end-to-end WGS workflow to identify and interpret resistance-associated variants in <em>M. tuberculosis</em> isolates.</li>
-              <li><strong>Approach</strong>: Processed short-read sequencing data using <code>fasterq-dump</code>, <code>Falco</code>, <code>fastp</code>, <code>Cutadapt</code>, <code>BWA-MEM2</code>, <code>Picard SortSam</code>, <code>Picard MarkDuplicates</code>, <code>SAMtools flagstat</code>, <code>SAMtools idxstats</code>, <code>samtools view</code>, <code>mosdepth</code>, <code>bcftools mpileup</code>, <code>bcftools call</code>, <code>bcftools filter</code>, <code>bcftools csq</code>, <code>SnpEff</code>, <code>SnpSift</code>, <code>MultiQC</code>, and <code>IGV</code> within a Galaxy workflow for QC, alignment, BAM processing, coverage analysis, variant calling, annotation, and visual validation.</li>
-              <li><strong>Outcome</strong>: Produced QC and mapping summaries, variant tables, resistance interpretation summaries, workflow documentation, and IGV validation images for clinically relevant loci.</li>
-            </ul>
-        
-            <figure style="margin-top:12px; text-align:center;">
-              <a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/workflow/mtb-workflow.png" target="_blank" rel="noreferrer noopener">
-                <img
-                  src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/workflow/mtb-workflow.png"
-                  alt="Galaxy workflow overview for Mycobacterium tuberculosis WGS variant analysis"
-                  loading="lazy"
-                  style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"
-                >
-              </a>
-              <figcaption class="muted" style="font-size:14px; margin-top:6px;">
+</h3>
+<p>Galaxy-based whole-genome sequencing workflow for <em>Mycobacterium tuberculosis</em>, covering QC, trimming, alignment, BAM processing, coverage assessment, variant calling, annotation, and read-level interpretation of resistance-associated loci.</p>
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Build and run an end-to-end WGS workflow to identify and interpret resistance-associated variants in <em>M. tuberculosis</em> isolates.</li>
+<li><strong>Approach</strong>: Processed short-read sequencing data using <code>fasterq-dump</code>, <code>Falco</code>, <code>fastp</code>, <code>Cutadapt</code>, <code>BWA-MEM2</code>, <code>Picard SortSam</code>, <code>Picard MarkDuplicates</code>, <code>SAMtools flagstat</code>, <code>SAMtools idxstats</code>, <code>samtools view</code>, <code>mosdepth</code>, <code>bcftools mpileup</code>, <code>bcftools call</code>, <code>bcftools filter</code>, <code>bcftools csq</code>, <code>SnpEff</code>, <code>SnpSift</code>, <code>MultiQC</code>, and <code>IGV</code> within a Galaxy workflow for QC, alignment, BAM processing, coverage analysis, variant calling, annotation, and visual validation.</li>
+<li><strong>Outcome</strong>: Produced QC and mapping summaries, variant tables, resistance interpretation summaries, workflow documentation, and IGV validation images for clinically relevant loci.</li>
+</ul>
+<figure style="margin-top:12px; text-align:center;">
+<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/workflow/mtb-workflow.png" rel="noreferrer noopener" target="_blank">
+<img alt="Galaxy workflow overview for Mycobacterium tuberculosis WGS variant analysis" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/workflow/mtb-workflow.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption class="muted" style="font-size:14px; margin-top:6px;">
                 Framed Galaxy workflow for <em>M. tuberculosis</em> WGS variant analysis
               </figcaption>
-            </figure>
-        
-            <figure style="margin-top:12px; text-align:center;">
-              <a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/results/figure1_katg_q295_igv.png" target="_blank" rel="noreferrer noopener">
-                <img
-                  src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/results/figure1_katg_q295_igv.png"
-                  alt="IGV validation of atypical katG codon 295 variation in Mycobacterium tuberculosis"
-                  loading="lazy"
-                  style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"
-                >
-              </a>
-              <figcaption class="muted" style="font-size:14px; margin-top:6px;">
+</figure>
+<figure style="margin-top:12px; text-align:center;">
+<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/results/figure1_katg_q295_igv.png" rel="noreferrer noopener" target="_blank">
+<img alt="IGV validation of atypical katG codon 295 variation in Mycobacterium tuberculosis" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/results/figure1_katg_q295_igv.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption class="muted" style="font-size:14px; margin-top:6px;">
                 IGV validation of atypical <em>katG</em> codon 295 variation
               </figcaption>
-            </figure>
-          </details>
-          <div class="proj-tags">
-            <span class="chip">Bioinformatics</span>
-            <span class="chip">WGS</span>
-            <span class="chip">Galaxy</span>
-            <span class="chip">fasterq-dump</span>
-            <span class="chip">Falco</span>
-            <span class="chip">fastp</span>
-            <span class="chip">Cutadapt</span>
-            <span class="chip">BWA-MEM2</span>
-            <span class="chip">Picard</span>
-            <span class="chip">SAMtools</span>
-            <span class="chip">mosdepth</span>
-            <span class="chip">bcftools</span>
-            <span class="chip">SnpEff</span>
-            <span class="chip">SnpSift</span>
-            <span class="chip">MultiQC</span>
-            <span class="chip">IGV</span>
-          </div>
-        </article>
-      </div>
-      </details>
-      <details class="project-group">
-        <summary>Additional Projects</summary>
-        <div class="grid group-grid">
-        <article class="span-6 project" data-tags="python scikit-learn pandas classification hr analytics attrition" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors">
-          <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" target="_blank" rel="noreferrer noopener">Salifort Motors - Employee Attrition Prediction (Classification Model)</a></h3>
-          <p>Predictive modelling to understand drivers of employee turnover and inform retention strategy.</p>
-          <details>
-            <summary>Details</summary>
-            <ul>
-              <li><strong>Objective</strong>: Build a predictive model to understand factors influencing employee attrition</li>
-              <li><strong>Approach</strong>: Cleaned and transformed HR datasets with Pandas, performed exploratory analysis, engineered features, and implemented classification models using scikit-learn.</li>
-              <li><strong>Outcome</strong>: Delivered actionable insights and recommendations to improve workforce retention strategies.</li>
-            </ul>
-          </details>
-          <div class="proj-tags">
-            <span class="chip">Data Science</span>
-            <span class="chip">Machine Learning</span>
-            <span class="chip">Google Capstone</span>
-            <span class="chip">Python</span>
-            <span class="chip">scikit-learn</span>
-            <span class="chip">Pandas</span>
-            <span class="chip">NumPy</span>
-            <span class="chip">SciPy</span>
-            <span class="chip">Statsmodels</span>
-            <span class="chip">Matplotlib</span>
-            <span class="chip">XGBoost</span>
-          </div>
-        </article>
-        <article class="span-6 project" data-tags="python pandas matplotlib social media eda tiktok" data-repo="barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project">
-          <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" target="_blank" rel="noreferrer noopener">TikTok - Social Media Engagement Analysis (EDA & Visualisation)</a></h3>
-          <p>Exploratory analysis of engagement metrics to uncover content trends and optimisation levers.</p>
-          <details>
-            <summary>Details</summary>
-            <ul>
-              <li><strong>Objective</strong>: Analyse user engagement metrics to identify content trends on TikTok.</li>
-              <li><strong>Approach</strong>: Processed raw CSV datasets, generated visualisations with Matplotlib, and applied descriptive statistics to uncover patterns in user behaviour.</li>
-              <li><strong>Outcome</strong>: Produced data-driven recommendations to optimise content strategy and boost audience engagement.</li>
-            </ul>
-          </details> 
-          <div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Exploratory Data Analysis</span><span class="chip">Google Capstone</span><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span><span class="chip">SciPy</span></div>
-        </article>
-        <article class="span-6 project" data-tags="r sqlite dplyr tableau wearable health eda" data-repo="barbavegeta/Google_Data_Analytics-Bellabeat_Project">
-          <h3><a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" target="_blank" rel="noreferrer noopener">Bellabeat - Wearable Health Data Analysis</a></h3>
-          <p>R + SQL workflow on wearable device data; built dashboards to surface activity &amp; health patterns.</p>
-          <details>
-            <summary>Details</summary>
-            <ul>
-              <li><strong>Objective</strong>: Explore wearable device data to identify activity patterns and health trends.</li>
-              <li><strong>Approach</strong>: Used R with dplyr and SQLite for data cleaning and summarisation; designed interactive Tableau dashboards for insight presentation.</li>
-              <li><strong>Outcome</strong>: Suggested targeted product features and marketing approaches based on data-driven evidence.</li>
-            </ul>
-
-            <figure style="margin-top:12px; text-align:center;">
-                <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" target="_blank" rel="noopener noreferrer">
-                <img src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/bellabeat.png" 
-                     alt="Bellabeat Tableau Dashboard" 
-                     loading="lazy" 
-                     style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);">
-                </a>
-                <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-                <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a>
-                </figcaption>
-            </figure>
-            <figure style="margin-top:20px; text-align:center;">
-                <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" target="_blank" rel="noopener noreferrer">
-                <img src="https://raw.githubusercontent.com/barbavegeta/barbavegeta.github.io/refs/heads/main/img/Profit%20Margin%20by%20State%20(Map)%20-%20dash.png" 
-                     alt="Profit Margin Dashboard" 
-                     loading="lazy" 
-                     style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);">
-                </a>
-                <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-                <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a>
-                </figcaption>
-            </figure>
-
-          </details>
-          <div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Business Intelligence</span><span class="chip">Google Capstone</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">dplyr</span><span class="chip">Tableau</span></div>
-        </article>
-        <article class="span-6 project" data-tags="aws cloud architecture migration devops analytics s3 ecs aurora emr redshift quicksight" data-repo="barbavegeta/AWS_Solution_Architect">
-        <h3>
-          <a href="https://github.com/barbavegeta/AWS_Solution_Architect" target="_blank" rel="noreferrer noopener">
+</figure>
+</details>
+<div class="proj-tags">
+<span class="chip">Bioinformatics</span>
+<span class="chip">WGS</span>
+<span class="chip">Galaxy</span>
+<span class="chip">fasterq-dump</span>
+<span class="chip">Falco</span>
+<span class="chip">fastp</span>
+<span class="chip">Cutadapt</span>
+<span class="chip">BWA-MEM2</span>
+<span class="chip">Picard</span>
+<span class="chip">SAMtools</span>
+<span class="chip">mosdepth</span>
+<span class="chip">bcftools</span>
+<span class="chip">SnpEff</span>
+<span class="chip">SnpSift</span>
+<span class="chip">MultiQC</span>
+<span class="chip">IGV</span>
+</div>
+</article>
+</div>
+</details>
+<details class="project-group">
+<summary>Additional Projects</summary>
+<div class="grid group-grid">
+<article class="span-6 project" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" data-tags="python scikit-learn pandas classification hr analytics attrition">
+<h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" rel="noreferrer noopener" target="_blank">Salifort Motors - Employee Attrition Prediction (Classification Model)</a></h3>
+<p>Predictive modelling to understand drivers of employee turnover and inform retention strategy.</p>
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Build a predictive model to understand factors influencing employee attrition</li>
+<li><strong>Approach</strong>: Cleaned and transformed HR datasets with Pandas, performed exploratory analysis, engineered features, and implemented classification models using scikit-learn.</li>
+<li><strong>Outcome</strong>: Delivered actionable insights and recommendations to improve workforce retention strategies.</li>
+</ul>
+</details>
+<div class="proj-tags">
+<span class="chip">Data Science</span>
+<span class="chip">Machine Learning</span>
+<span class="chip">Google Capstone</span>
+<span class="chip">Python</span>
+<span class="chip">scikit-learn</span>
+<span class="chip">Pandas</span>
+<span class="chip">NumPy</span>
+<span class="chip">SciPy</span>
+<span class="chip">Statsmodels</span>
+<span class="chip">Matplotlib</span>
+<span class="chip">XGBoost</span>
+</div>
+</article>
+<article class="span-6 project" data-repo="barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" data-tags="python pandas matplotlib social media eda tiktok">
+<h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" rel="noreferrer noopener" target="_blank">TikTok - Social Media Engagement Analysis (EDA &amp; Visualisation)</a></h3>
+<p>Exploratory analysis of engagement metrics to uncover content trends and optimisation levers.</p>
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Analyse user engagement metrics to identify content trends on TikTok.</li>
+<li><strong>Approach</strong>: Processed raw CSV datasets, generated visualisations with Matplotlib, and applied descriptive statistics to uncover patterns in user behaviour.</li>
+<li><strong>Outcome</strong>: Produced data-driven recommendations to optimise content strategy and boost audience engagement.</li>
+</ul>
+</details>
+<div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Exploratory Data Analysis</span><span class="chip">Google Capstone</span><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span><span class="chip">SciPy</span></div>
+</article>
+<article class="span-6 project" data-repo="barbavegeta/Google_Data_Analytics-Bellabeat_Project" data-tags="r sqlite dplyr tableau wearable health eda">
+<h3><a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" rel="noreferrer noopener" target="_blank">Bellabeat - Wearable Health Data Analysis</a></h3>
+<p>R + SQL workflow on wearable device data; built dashboards to surface activity &amp; health patterns.</p>
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Explore wearable device data to identify activity patterns and health trends.</li>
+<li><strong>Approach</strong>: Used R with dplyr and SQLite for data cleaning and summarisation; designed interactive Tableau dashboards for insight presentation.</li>
+<li><strong>Outcome</strong>: Suggested targeted product features and marketing approaches based on data-driven evidence.</li>
+</ul>
+<figure style="margin-top:12px; text-align:center;">
+<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" rel="noopener noreferrer" target="_blank">
+<img alt="Bellabeat Tableau Dashboard" loading="lazy" src="img/bellabeat.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" rel="noopener noreferrer" target="_blank">View interactive Tableau dashboard ↗</a>
+</figcaption>
+</figure>
+<figure style="margin-top:20px; text-align:center;">
+<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" rel="noopener noreferrer" target="_blank">
+<img alt="Profit Margin Dashboard" loading="lazy" src="img/Profit Margin by State (Map) - dash.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" rel="noopener noreferrer" target="_blank">View interactive Tableau dashboard ↗</a>
+</figcaption>
+</figure>
+</details>
+<div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Business Intelligence</span><span class="chip">Google Capstone</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">dplyr</span><span class="chip">Tableau</span></div>
+</article>
+<article class="span-6 project" data-repo="barbavegeta/AWS_Solution_Architect" data-tags="aws cloud architecture migration devops analytics s3 ecs aurora emr redshift quicksight">
+<h3>
+<a href="https://github.com/barbavegeta/AWS_Solution_Architect" rel="noreferrer noopener" target="_blank">
             AWS Managed Services - Cloud Migration Architecture
           </a>
-        </h3>
-        <p>
+</h3>
+<p>
           High-level AWS architecture design for migrating on-premises workloads to a cloud-native, fully managed solution, ensuring scalability, fault-tolerance, and operational efficiency.
         </p>
-        <details>
-          <summary>Details</summary>
-          <ul>
-            <li><strong>Objective</strong>: Migrate two on-prem workloads - a three-tier web application and a Hadoop-based analytics environment - into a modern AWS environment with managed services.</li>
-
-            <li><strong>Approach</strong>: Designed an end-to-end cloud solution using AWS managed services:
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Migrate two on-prem workloads - a three-tier web application and a Hadoop-based analytics environment - into a modern AWS environment with managed services.</li>
+<li><strong>Approach</strong>: Designed an end-to-end cloud solution using AWS managed services:
               <ul>
-                <li><strong>Web Application Architecture</strong>: 
+<li><strong>Web Application Architecture</strong>: 
                   <ul>
-                    <li>Frontend hosted on <strong>Amazon S3</strong> with <strong>CloudFront</strong> for global HTTPS delivery.</li>
-                    <li>Backend containerized in <strong>ECS on Fargate</strong> behind an <strong>Application Load Balancer (ALB)</strong>.</li>
-                    <li>Database migrated to <strong>Amazon Aurora MySQL (Multi-AZ)</strong> with <strong>ElastiCache Redis</strong> for caching and <strong>SQS</strong> for asynchronous decoupling.</li>
-                    <li><strong>AWS Secrets Manager</strong> used for credential management and <strong>CloudWatch/X-Ray</strong> for monitoring.</li>
-                  </ul>
-                </li>
-                <li><strong>Data Analytics Architecture</strong>:
+<li>Frontend hosted on <strong>Amazon S3</strong> with <strong>CloudFront</strong> for global HTTPS delivery.</li>
+<li>Backend containerized in <strong>ECS on Fargate</strong> behind an <strong>Application Load Balancer (ALB)</strong>.</li>
+<li>Database migrated to <strong>Amazon Aurora MySQL (Multi-AZ)</strong> with <strong>ElastiCache Redis</strong> for caching and <strong>SQS</strong> for asynchronous decoupling.</li>
+<li><strong>AWS Secrets Manager</strong> used for credential management and <strong>CloudWatch/X-Ray</strong> for monitoring.</li>
+</ul>
+</li>
+<li><strong>Data Analytics Architecture</strong>:
                   <ul>
-                    <li>Replaced Hadoop with <strong>AWS EMR (Spark/Hive)</strong> for scalable distributed data processing.</li>
-                    <li>Created an <strong>S3 Data Lake</strong> as the central repository with metadata managed by <strong>AWS Glue Data Catalog</strong>.</li>
-                    <li>Used <strong>Athena</strong> for serverless queries, <strong>Redshift</strong> for data warehousing, and <strong>QuickSight</strong> for BI dashboards.</li>
-                    <li>Data ingested from on-prem via <strong>AWS DataSync</strong>.</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-
-            <li><strong>Integration Flow</strong>: 
+<li>Replaced Hadoop with <strong>AWS EMR (Spark/Hive)</strong> for scalable distributed data processing.</li>
+<li>Created an <strong>S3 Data Lake</strong> as the central repository with metadata managed by <strong>AWS Glue Data Catalog</strong>.</li>
+<li>Used <strong>Athena</strong> for serverless queries, <strong>Redshift</strong> for data warehousing, and <strong>QuickSight</strong> for BI dashboards.</li>
+<li>Data ingested from on-prem via <strong>AWS DataSync</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Integration Flow</strong>: 
             CloudFront routes traffic to ALB → ECS → Aurora, with ElastiCache and SQS optimising backend performance. 
             Simultaneously, DataSync moves data to S3 for analysis via Glue → EMR → Athena → Redshift → QuickSight.
             </li>
-            <li><strong>Outcome</strong>:
+<li><strong>Outcome</strong>:
               <ul>
-                <li>Decoupled, fault-tolerant architecture</li>
-                <li>Multi-AZ high availability</li>
-                <li>Cloud-native modernization of both workloads</li>
-                <li>Reduced operational overhead with managed services</li>
-                <li>Integrated observability and security across layers</li>
-              </ul>
-            </li>
-          </ul>
-          <figure style="margin-top:10px; text-align:center;">
-            <img src="https://raw.githubusercontent.com/barbavegeta/AWS_Solution_Architect/refs/heads/main/aws_architecture_diagram-Solution_Architect.png" 
-                alt="AWS Migration Architecture Diagram"
-                loading="lazy"
-                style="max-width:100%; border-radius:8px;">
-            <figcaption style="font-size:14px; color:#aaa; margin-top:4px;">
+<li>Decoupled, fault-tolerant architecture</li>
+<li>Multi-AZ high availability</li>
+<li>Cloud-native modernization of both workloads</li>
+<li>Reduced operational overhead with managed services</li>
+<li>Integrated observability and security across layers</li>
+</ul>
+</li>
+</ul>
+<figure style="margin-top:10px; text-align:center;">
+<img alt="AWS Migration Architecture Diagram" loading="lazy" src="img/aws_architecture_diagram-Solution_Architect.png" style="max-width:100%; border-radius:8px;"/>
+<figcaption style="font-size:14px; color:#aaa; margin-top:4px;">
               AWS Architecture Diagram - Migration Solution
             </figcaption>
-          </figure>
-        </details>
-        <div class="proj-tags">
-          <span class="chip">Cloud Architecture</span>
-          <span class="chip">Architecture Design</span>
-          <span class="chip">AWS</span>
-          <span class="chip">Data Infrastructure</span>
-          <span class="chip">CloudFront</span>
-          <span class="chip">S3</span>
-          <span class="chip">ECS Fargate</span>
-          <span class="chip">Aurora MySQL</span>
-          <span class="chip">ElastiCache</span>
-          <span class="chip">SQS</span>
-          <span class="chip">EMR</span>
-          <span class="chip">Glue</span>
-          <span class="chip">Athena</span>
-          <span class="chip">Redshift</span>
-          <span class="chip">QuickSight</span>
-        </div>
-        </article>
-
-        <article class="span-6 project" data-tags="tableau google business intelligence dashboard fiber case study" data-repo="barbavegeta/Google_Business_Intelligence-Google_Fiber">
-        <h3>
-          <a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber"
-             target="_blank" rel="noreferrer noopener">
-            Google Fiber - Telecom KPI Dashboard & SQL Analytics
+</figure>
+</details>
+<div class="proj-tags">
+<span class="chip">Cloud Architecture</span>
+<span class="chip">Architecture Design</span>
+<span class="chip">AWS</span>
+<span class="chip">Data Infrastructure</span>
+<span class="chip">CloudFront</span>
+<span class="chip">S3</span>
+<span class="chip">ECS Fargate</span>
+<span class="chip">Aurora MySQL</span>
+<span class="chip">ElastiCache</span>
+<span class="chip">SQS</span>
+<span class="chip">EMR</span>
+<span class="chip">Glue</span>
+<span class="chip">Athena</span>
+<span class="chip">Redshift</span>
+<span class="chip">QuickSight</span>
+</div>
+</article>
+<article class="span-6 project" data-repo="barbavegeta/Google_Business_Intelligence-Google_Fiber" data-tags="tableau google business intelligence dashboard fiber case study">
+<h3>
+<a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" rel="noreferrer noopener" target="_blank">
+            Google Fiber - Telecom KPI Dashboard &amp; SQL Analytics
           </a>
-        </h3>
-        <p>
+</h3>
+<p>
           Stakeholder-driven KPI dashboard in Tableau, combining regional datasets and turning them into an executive-ready performance view.
         </p>
-        <details>
-          <summary>Details</summary>
-          <ul>
-            <li><strong>Objective</strong>: Build a BI solution that communicates market performance and insights for Google Fiber's leadership team.</li>
-            <li><strong>Approach</strong>: 
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Build a BI solution that communicates market performance and insights for Google Fiber's leadership team.</li>
+<li><strong>Approach</strong>: 
               Merged multiple regional CSV datasets directly in Tableau, cleaned and standardised columns, and created interactive dashboards
               visualising KPIs such as revenue, margin, and customer trends.
             </li>
-            <li><strong>Outcome</strong>: Delivered a clear, visually consistent dashboard highlighting business performance across regions and channels.</li>
-          </ul>
-      
-          <figure style="margin-top:14px; text-align:center;">
-            <a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-               target="_blank" rel="noopener noreferrer">
-              <img src="https://raw.githubusercontent.com/barbavegeta/Google_Business_Intelligence-Google_Fiber/refs/heads/main/img/fiber.png"
-                   alt="Google Fiber Tableau Dashboard"
-                   loading="lazy"
-                   style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);">
-            </a>
-            <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-              <a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-                 target="_blank" rel="noopener noreferrer">
+<li><strong>Outcome</strong>: Delivered a clear, visually consistent dashboard highlighting business performance across regions and channels.</li>
+</ul>
+<figure style="margin-top:14px; text-align:center;">
+<a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" rel="noopener noreferrer" target="_blank">
+<img alt="Google Fiber Tableau Dashboard" loading="lazy" src="img/fiber.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+<a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" rel="noopener noreferrer" target="_blank">
                 View interactive Tableau dashboard ↗
               </a>
-            </figcaption>
-          </figure>
-        </details>
-      
-        <div class="proj-tags">
-          <span class="chip">Business Intelligence</span>
-          <span class="chip">Dashboarding</span>
-          <span class="chip">Google BI Capstone</span>
-          <span class="chip">Tableau</span>
-          <span class="chip">Data Visualization</span>
-          <span class="chip">KPI Design</span>
-          <span class="chip">SQL</span>
-        </div>
-        </article>
-      </div>
-    </section>
-    <section id="experience" class="section style4">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <div class="tl card">
-          <div class="card-pad">
-            <h3>Specialist Biomedical Scientist <span class="muted">-</span> <span class="where">UCL Hospitals · Stem Cell Laboratory</span></h3>
-            <div class="muted">Sep 2021 - Dec 2025 · London, UK</div>
-            <ul>
-              <li>Processed and cryopreserved PBSCs, bone marrow, DLI and CD34+ enrichment for transplant procedures.</li>
-              <li>Maintained Grade A clean room sterility via protocols and agar plate assessments.</li>
-              <li>Analysed CD3+/CD34+ populations via MACSQuant; delivered critical treatment data.</li>
-              <li>Supported 11 active clinical trials, including CAR-T (Yescarta, Novartis), antibody, and genetic therapies.</li>
-              <li>Built stock-management &amp; training tracking tools; reduced inventory errors by ~30% and saved ~10 hrs/week.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tl card">
-          <div class="card-pad">
-            <h3>Laboratory Scientist <span class="muted">-</span> <span class="where">CooperGenomics</span></h3>
-            <div class="muted">Jul 2019 - Sep 2021 · London, UK</div>
-            <ul>
-              <li>Processed embryo samples for PGT-A / PGT-SR / PGT-M, WGA and gel electrophoresis.</li>
-              <li>Conducted NGS library preparation (manual: 96 samples/run; automated: 192 samples/run) with strict QC adherence for Whole Genome Sequencing.</li>
-              <li>Maintained Mosquito HV &amp; Dragonfly Discovery liquid handlers; optimised run reliability.</li>
-              <li>Analysed NGS run metrics and generated patient reports (&gt;500/week).</li>
-              <li>Authored and reviewed SOPs across the workflow.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tl card">
-          <div class="card-pad">
-            <h3>Biomedical Laboratory Assistant - Cytology <span class="muted">-</span> <span class="where">Leicester Royal Infirmary</span></h3>
-            <div class="muted">Dec 2018 - Jun 2019 · Leicester, UK</div>
-            <ul>
-              <li>Managed sample reception and prepared specimens for Papanicolaou staining.</li>
-              <li>Maintained reagents and ensured sample integrity end-to-end.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="education" class="section style4">
-      <h2>Education</h2>
-      <div class="card card-pad">
-        <ul class="edu-list">
-          <li>
-            <strong>MSc, Bioinformatics</strong> - Atlantic Technological University (Sep 2025 - Present)
+</figcaption>
+</figure>
+</details>
+<div class="proj-tags">
+<span class="chip">Business Intelligence</span>
+<span class="chip">Dashboarding</span>
+<span class="chip">Google BI Capstone</span>
+<span class="chip">Tableau</span>
+<span class="chip">Data Visualization</span>
+<span class="chip">KPI Design</span>
+<span class="chip">SQL</span>
+</div>
+</article>
+</div>
+</details></section>
+<section class="section style4" id="experience">
+<h2>Experience</h2>
+<div class="timeline">
+<div class="tl card">
+<div class="card-pad">
+<h3>Specialist Biomedical Scientist <span class="muted">-</span> <span class="where">UCL Hospitals · Stem Cell Laboratory</span></h3>
+<div class="muted">Sep 2021 - Dec 2025 · London, UK</div>
+<ul>
+<li>Processed and cryopreserved PBSCs, bone marrow, DLI and CD34+ enrichment for transplant procedures.</li>
+<li>Maintained Grade A clean room sterility via protocols and agar plate assessments.</li>
+<li>Analysed CD3+/CD34+ populations via MACSQuant; delivered critical treatment data.</li>
+<li>Supported 11 active clinical trials, including CAR-T (Yescarta, Novartis), antibody, and genetic therapies.</li>
+<li>Built stock-management &amp; training tracking tools; reduced inventory errors by ~30% and saved ~10 hrs/week.</li>
+</ul>
+</div>
+</div>
+<div class="tl card">
+<div class="card-pad">
+<h3>Laboratory Scientist <span class="muted">-</span> <span class="where">CooperGenomics</span></h3>
+<div class="muted">Jul 2019 - Sep 2021 · London, UK</div>
+<ul>
+<li>Processed embryo samples for PGT-A / PGT-SR / PGT-M, WGA and gel electrophoresis.</li>
+<li>Conducted NGS library preparation (manual: 96 samples/run; automated: 192 samples/run) with strict QC adherence for Whole Genome Sequencing.</li>
+<li>Maintained Mosquito HV &amp; Dragonfly Discovery liquid handlers; optimised run reliability.</li>
+<li>Analysed NGS run metrics and generated patient reports (&gt;500/week).</li>
+<li>Authored and reviewed SOPs across the workflow.</li>
+</ul>
+</div>
+</div>
+<div class="tl card">
+<div class="card-pad">
+<h3>Biomedical Laboratory Assistant - Cytology <span class="muted">-</span> <span class="where">Leicester Royal Infirmary</span></h3>
+<div class="muted">Dec 2018 - Jun 2019 · Leicester, UK</div>
+<ul>
+<li>Managed sample reception and prepared specimens for Papanicolaou staining.</li>
+<li>Maintained reagents and ensured sample integrity end-to-end.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="section style4" id="education">
+<h2>Education</h2>
+<div class="card card-pad">
+<ul class="edu-list">
+<li>
+<strong>MSc, Bioinformatics</strong> - Atlantic Technological University (Sep 2025 - Present)
           </li>
-
-          <li>
-            <strong>MSc, Cell &amp; Gene Therapy</strong> - University College London (2021-2023)
+<li>
+<strong>MSc, Cell &amp; Gene Therapy</strong> - University College London (2021-2023)
             <div class="dissertation">
               Dissertation: <em>Expansion and Preservation of Haematopoietic Potential in Human Amniotic Fluid Stem Cells for Therapeutic Applications</em>
-            </div>
-          </li>
-
-          <li>
-            <strong>BSc, Biomedical Science</strong> - University of Catania (2014-2017)
+</div>
+</li>
+<li>
+<strong>BSc, Biomedical Science</strong> - University of Catania (2014-2017)
             <div class="dissertation">
               Dissertation: <em>Cytotoxicity assays using SIRC, ARPE-19, and HRPE cells</em>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="internships" class="section style4">
-  <h2>Earlier Research Internships</h2>
-  <div class="card card-pad">
-    <p class="sub">
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section class="section style4" id="internships">
+<h2>Earlier Research Internships</h2>
+<div class="card card-pad">
+<p class="sub">
       Research internships completed during the BSc in Biomedical Science at the University of Catania,
       building a foundation in genomics, molecular diagnostics, and analytical biochemistry.
     </p>
-    <details>
-      <summary><strong>Pharmacology - Torre Biologica · Dept. of Biomedical & Biotechnological Sciences</strong> (Oct 2016 - Sep 2017)</summary>
-      <ul>
-        <li>Performed cytotoxicity assays using ATP-lite on SIRC, ARPE-19, and HRPE cell lines.</li>
-        <li>Designed and analysed quantitative experiments forming the basis of an undergraduate thesis.</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary><strong>Oncology & Experimental Haematology - Dept. of Clinical & Experimental Medicine</strong> (May 2016 - Jul 2016)</summary>
-      <ul>
-        <li>Applied PCR, electrophoresis, western blot, chemiluminescence, and NGS for diagnostic research.</li>
-        <li>Processed fluorescence-labelled DNA samples for gene expression and mutation studies.</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary><strong>Medical Genetics - University Hospital of Catania</strong> (Jan 2015 - Apr 2015)</summary>
-      <ul>
-        <li>DNA extraction and quantification from peripheral blood using spectrophotometric analysis.</li>
-        <li>CGH-SNP Array analysis for chromosomal abnormalities and variant detection.</li>
-        <li>Clinical data submission and coordination with medical genetics team.</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary><strong>Additional Rotations - University of Catania</strong> (2014 - 2017)</summary>
-      <ul>
-        <li>Short placements across Forensic Toxicology, Pathology, Immunohematology, and Public Health.</li>
-        <li>Hands-on exposure to GC-MS analysis, immunohistochemistry, FISH, and analytical chemistry techniques.</li>
-      </ul>
-    </details>
-  </div>
+<details>
+<summary><strong>Pharmacology - Torre Biologica · Dept. of Biomedical &amp; Biotechnological Sciences</strong> (Oct 2016 - Sep 2017)</summary>
+<ul>
+<li>Performed cytotoxicity assays using ATP-lite on SIRC, ARPE-19, and HRPE cell lines.</li>
+<li>Designed and analysed quantitative experiments forming the basis of an undergraduate thesis.</li>
+</ul>
+</details>
+<details>
+<summary><strong>Oncology &amp; Experimental Haematology - Dept. of Clinical &amp; Experimental Medicine</strong> (May 2016 - Jul 2016)</summary>
+<ul>
+<li>Applied PCR, electrophoresis, western blot, chemiluminescence, and NGS for diagnostic research.</li>
+<li>Processed fluorescence-labelled DNA samples for gene expression and mutation studies.</li>
+</ul>
+</details>
+<details>
+<summary><strong>Medical Genetics - University Hospital of Catania</strong> (Jan 2015 - Apr 2015)</summary>
+<ul>
+<li>DNA extraction and quantification from peripheral blood using spectrophotometric analysis.</li>
+<li>CGH-SNP Array analysis for chromosomal abnormalities and variant detection.</li>
+<li>Clinical data submission and coordination with medical genetics team.</li>
+</ul>
+</details>
+<details>
+<summary><strong>Additional Rotations - University of Catania</strong> (2014 - 2017)</summary>
+<ul>
+<li>Short placements across Forensic Toxicology, Pathology, Immunohematology, and Public Health.</li>
+<li>Hands-on exposure to GC-MS analysis, immunohistochemistry, FISH, and analytical chemistry techniques.</li>
+</ul>
+</details>
+</div>
 </section>
-
-    <section id="certificates" class="section style4">
-      <h2>Certificates</h2>
-      <div class="card card-pad">
-        <ul>
-          <li><strong>IBM</strong>: Machine Learning; AI Engineering</li>
-          <li><strong>Google</strong>: Data Analytics; Advanced Data Analytics; IT Automation with Python; Project Management; Business Intelligence</li>
-          <li><strong>Google Cloud</strong>: Architecting with Google Kubernetes Engine</li>
-          <li><strong>Amazon Web Services (AWS)</strong>: Cloud Practitioner Essentials; Cloud Solutions Architect</li>
-          <li><strong>Johns Hopkins University</strong>: Genomic Data Science Specialization</li>
-          <li><strong>SAS</strong>: SAS Programming 1: Essentials; SAS Programming 2: Data Manipulation Techniques</li>
-          <li><strong>Coursera</strong>: Access Bioinformatics Databases with Biopython</li>
-          <li><strong>Wellcome</strong>: Bioinformatics for Biologists: An Introduction to Linux, Bash Scripting, and R; Analysing and Interpreting Genomics Datasets</li>
-          <li><strong>freeCodeCamp</strong>: Data Analysis with Python; Relational Databases; Scientific Computing with Python</li>
-          <li><strong>DE&lt;code&gt;LIFE</strong>: Genomes, Networks &amp; Pathways; Data Science &amp; Machine Learning with Python</li>
-          <li><strong>Le Wagon</strong>: Data Visualization with Tableau</li>
-        </ul>
-      </div>     
-    </section>
-    <section id="contact" class="section style4">
-      <h2>Contact</h2>
-      <div class="card card-pad">
-        <div class="contact-icons">
-          <a href="mailto:barbagallo1@hotmail.it"
-            aria-label="Email"
-            title="Send email">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftoutlook.svg"
-                alt="Email"
-                class="icon">
-          </a>
-          <a href="https://www.linkedin.com/in/salvatore-barbagallo"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            title="View LinkedIn profile">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
-                alt="LinkedIn"
-                class="icon">
-          </a>
-          <a href="https://github.com/barbavegeta"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            title="View GitHub profile">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg"
-                alt="GitHub"
-                class="icon">
-          </a>
-        </div>
-      </div>
-    </section>
-    <footer class="container footer">
-      <div class="two-col">
-        <div>© <span id="y"></span> Salvatore Barbagallo</div>
-        <div class="right">Built with plain HTML/CSS · Deployed on GitHub Pages</div>
-      </div>
-    </footer>
-  </main>
-  <script>
+<section class="section style4" id="certificates">
+<h2>Certificates</h2>
+<div class="card card-pad">
+<ul>
+<li><strong>IBM</strong>: Machine Learning; AI Engineering</li>
+<li><strong>Google</strong>: Data Analytics; Advanced Data Analytics; IT Automation with Python; Project Management; Business Intelligence</li>
+<li><strong>Google Cloud</strong>: Architecting with Google Kubernetes Engine</li>
+<li><strong>Amazon Web Services (AWS)</strong>: Cloud Practitioner Essentials; Cloud Solutions Architect</li>
+<li><strong>Johns Hopkins University</strong>: Genomic Data Science Specialization</li>
+<li><strong>SAS</strong>: SAS Programming 1: Essentials; SAS Programming 2: Data Manipulation Techniques</li>
+<li><strong>Coursera</strong>: Access Bioinformatics Databases with Biopython</li>
+<li><strong>Wellcome</strong>: Bioinformatics for Biologists: An Introduction to Linux, Bash Scripting, and R; Analysing and Interpreting Genomics Datasets</li>
+<li><strong>freeCodeCamp</strong>: Data Analysis with Python; Relational Databases; Scientific Computing with Python</li>
+<li><strong>DE&lt;code&gt;LIFE</strong>: Genomes, Networks &amp; Pathways; Data Science &amp; Machine Learning with Python</li>
+<li><strong>Le Wagon</strong>: Data Visualization with Tableau</li>
+</ul>
+</div>
+</section>
+<section class="section style4" id="contact">
+<h2>Contact</h2>
+<div class="card card-pad">
+<div class="contact-icons">
+<a aria-label="Email" href="mailto:barbagallo1@hotmail.it">
+<img alt="Email" class="icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftoutlook.svg"/>
+</a>
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/salvatore-barbagallo" rel="noreferrer noopener" target="_blank">
+<img alt="LinkedIn" class="icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"/>
+</a>
+<a aria-label="GitHub" href="https://github.com/barbavegeta" rel="noreferrer noopener" target="_blank">
+<img alt="GitHub" class="icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg"/>
+</a>
+</div>
+</div>
+</section>
+<footer class="container footer">
+<div class="two-col">
+<div>© <span id="y"></span> Salvatore Barbagallo</div>
+<div class="right">Built with plain HTML/CSS · Deployed on GitHub Pages</div>
+</div>
+</footer>
+</main>
+<script>
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
@@ -922,9 +852,8 @@
       media.addEventListener('change', () => { if(getPref()==='system') apply('system'); });
     })();
   </script>
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
+<!-- Structured data -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
