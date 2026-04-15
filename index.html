@@ -12,7 +12,13 @@
 </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="description" content="Bioinformatics and data science portfolio of Salvatore Barbagallo. NGS analysis, machine learning, and workflow engineering projects."/>
 <title>Salvatore Barbagallo</title>
+<meta property="og:title" content="Salvatore Barbagallo - Bioinformatics Portfolio"/>
+<meta property="og:description" content="NGS, machine learning, data science, and workflow engineering projects by Salvatore Barbagallo."/>
+<meta property="og:url" content="https://barbavegeta.github.io"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://barbavegeta.github.io/img/preview.png"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -226,14 +232,21 @@
   
 
 
-/* Variant 2: multi-column project grid */
+/* Variant 2: project grids */
 #projects .project-group { margin-top: 18px; }
 #projects .project-group summary { cursor: pointer; font-weight: 700; font-size: 20px; margin-bottom: 14px; }
 #projects .group-grid { margin-top: 14px !important; }
 #projects .project { height: 100%; }
-#projects .project-group .group-grid > .project { grid-column: span 6; }
+
+/* Featured projects stay full width */
+#projects #project-list > .project { grid-column: 1 / -1; }
+
+/* Additional projects use two columns */
+#projects .project-group .group-grid > .span-6.project { grid-column: span 6; }
+
 @media (max-width: 980px){
-  #projects .project-group .group-grid > .project { grid-column: 1 / -1; }
+  #projects #project-list > .project,
+  #projects .project-group .group-grid > .span-6.project { grid-column: 1 / -1; }
 }
 
 </style>
@@ -247,7 +260,7 @@
 <a href="#experience">Experience</a>
 <a href="#education">Education</a>
 <a href="#contact">Contact</a>
-<button aria-label="Toggle theme" class="btn ghost" id="themeToggle" type="button">🌙</button>
+<button aria-label="Toggle theme" aria-pressed="false" class="btn ghost" id="themeToggle" type="button" title="Toggle theme">🌙</button>
 <a class="btn ghost" download="" href="docs/Salvatore_Barbagallo_Data_CV.pdf">
           Download Data &amp; Analytics CV
         </a>
@@ -315,7 +328,85 @@
 <details class="project-group" open="">
 <summary>Featured Projects</summary>
 <div class="grid group-grid" id="project-list">
-<!-- Project cards -->
+<article class="span-12 project" data-repo="barbavegeta/mtb-wgs-galaxy-workflow" data-tags="bioinformatics genomics tuberculosis wgs galaxy linux fasterq-dump falco fastp cutadapt bwa-mem2 picard samtools mosdepth bcftools snpeff snpsift multiqc igv resistance">
+<h3>
+<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow" rel="noreferrer noopener" target="_blank">
+              M. tuberculosis WGS Variant Analysis Workflow (Galaxy)
+            </a>
+</h3>
+<p>Galaxy-based whole-genome sequencing workflow for <em>Mycobacterium tuberculosis</em>, covering QC, trimming, alignment, BAM processing, coverage assessment, variant calling, annotation, and read-level interpretation of resistance-associated loci.</p>
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Build and run an end-to-end WGS workflow to identify and interpret resistance-associated variants in <em>M. tuberculosis</em> isolates.</li>
+<li><strong>Approach</strong>: Processed short-read sequencing data using <code>fasterq-dump</code>, <code>Falco</code>, <code>fastp</code>, <code>Cutadapt</code>, <code>BWA-MEM2</code>, <code>Picard SortSam</code>, <code>Picard MarkDuplicates</code>, <code>SAMtools flagstat</code>, <code>SAMtools idxstats</code>, <code>samtools view</code>, <code>mosdepth</code>, <code>bcftools mpileup</code>, <code>bcftools call</code>, <code>bcftools filter</code>, <code>bcftools csq</code>, <code>SnpEff</code>, <code>SnpSift</code>, <code>MultiQC</code>, and <code>IGV</code> within a Galaxy workflow for QC, alignment, BAM processing, coverage analysis, variant calling, annotation, and visual validation.</li>
+<li><strong>Outcome</strong>: Produced QC and mapping summaries, variant tables, resistance interpretation summaries, workflow documentation, and IGV validation images for clinically relevant loci.</li>
+</ul>
+<figure style="margin-top:12px; text-align:center;">
+<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/workflow/mtb-workflow.png" rel="noreferrer noopener" target="_blank">
+<img alt="Galaxy workflow overview for Mycobacterium tuberculosis WGS variant analysis" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/workflow/mtb-workflow.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption class="muted" style="font-size:14px; margin-top:6px;">
+                Framed Galaxy workflow for <em>M. tuberculosis</em> WGS variant analysis
+              </figcaption>
+</figure>
+<figure style="margin-top:12px; text-align:center;">
+<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/results/figure1_katg_q295_igv.png" rel="noreferrer noopener" target="_blank">
+<img alt="IGV validation of atypical katG codon 295 variation in Mycobacterium tuberculosis" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/results/figure1_katg_q295_igv.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption class="muted" style="font-size:14px; margin-top:6px;">
+                IGV validation of atypical <em>katG</em> codon 295 variation
+              </figcaption>
+</figure>
+</details>
+<div class="proj-tags">
+<span class="chip">Bioinformatics</span>
+<span class="chip">WGS</span>
+<span class="chip">Galaxy</span>
+<span class="chip">fasterq-dump</span>
+<span class="chip">Falco</span>
+<span class="chip">fastp</span>
+<span class="chip">Cutadapt</span>
+<span class="chip">BWA-MEM2</span>
+<span class="chip">Picard</span>
+<span class="chip">SAMtools</span>
+<span class="chip">mosdepth</span>
+<span class="chip">bcftools</span>
+<span class="chip">SnpEff</span>
+<span class="chip">SnpSift</span>
+<span class="chip">MultiQC</span>
+<span class="chip">IGV</span>
+</div>
+</article>
+<article class="span-12 project" data-repo="barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" data-tags="nextflow docker rnaseq bioinformatics fastqc star featurecounts deseq2 cutadapt dsl2 multiqc workflow reproducibility">
+<h3>
+<a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
+              RNA-seq Pipeline (Nextflow + Docker)
+            </a>
+</h3>
+<p>Containerised RNA-seq workflow: FastQC → Cutadapt → STAR alignment → featureCounts → MultiQC → DESeq2.</p>
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Build a reproducible, portable RNA-seq pipeline runnable on any machine with Docker.</li>
+<li><strong>Approach</strong>: Implemented the workflow in Nextflow and executed with Docker to isolate dependencies; produces a MultiQC report for end-to-end QC review.</li>
+<li><strong>Outcome</strong>: One-command execution; standardised outputs for QC and quantification suitable for downstream DE analysis.</li>
+</ul>
+<figure style="margin-top:12px; text-align:center;">
+<a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
+<img alt="Nextflow RNA-seq pipeline: successful Docker test run (Docker profile)" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/refs/heads/main/img/test-run-docker.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption class="muted" style="font-size:14px; margin-top:6px;">
+                Proof run: Nextflow test execution (Docker profile)
+              </figcaption>
+</figure>
+</details>
+<div class="proj-tags">
+<span class="chip">Bioinformatics</span><span class="chip">Workflow Engineering</span><span class="chip">Nextflow</span><span class="chip">Docker</span><span class="chip">RNA-seq</span>
+<span class="chip">FastQC</span><span class="chip">MultiQC</span><span class="chip">STAR</span><span class="chip">featureCounts</span><span class="chip">DESeq2</span>
+<span class="chip">Cutadapt</span><span class="chip">DSL2</span>
+</div>
+</article>
 <article class="span-12 project" data-repo="barbavegeta/qa-bot-rag" data-tags="llm rag langchain chroma fastapi gradio watsonx embeddings vector-database ai document-qa">
 <h3>
 <a href="https://github.com/barbavegeta/qa-bot-rag" rel="noreferrer noopener" target="_blank">
@@ -416,90 +507,80 @@
 <span class="chip">Customer Segmentation</span>
 </div>
 </article>
-<article class="span-12 project" data-repo="barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" data-tags="nextflow docker rnaseq bioinformatics fastqc star featurecounts deseq2 cutadapt dsl2 multiqc workflow reproducibility">
-<h3>
-<a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
-              RNA-seq Pipeline (Nextflow + Docker)
-            </a>
-</h3>
-<p>Containerised RNA-seq workflow: FastQC → Cutadapt → STAR alignment → featureCounts → MultiQC → DESeq2.</p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Build a reproducible, portable RNA-seq pipeline runnable on any machine with Docker.</li>
-<li><strong>Approach</strong>: Implemented the workflow in Nextflow and executed with Docker to isolate dependencies; produces a MultiQC report for end-to-end QC review.</li>
-<li><strong>Outcome</strong>: One-command execution; standardised outputs for QC and quantification suitable for downstream DE analysis.</li>
-</ul>
-<figure style="margin-top:12px; text-align:center;">
-<a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
-<img alt="Nextflow RNA-seq pipeline: successful Docker test run (Docker profile)" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/refs/heads/main/img/test-run-docker.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption class="muted" style="font-size:14px; margin-top:6px;">
-                Proof run: Nextflow test execution (Docker profile)
-              </figcaption>
-</figure>
-</details>
-<div class="proj-tags">
-<span class="chip">Bioinformatics</span><span class="chip">Workflow Engineering</span><span class="chip">Nextflow</span><span class="chip">Docker</span><span class="chip">RNA-seq</span>
-<span class="chip">FastQC</span><span class="chip">MultiQC</span><span class="chip">STAR</span><span class="chip">featureCounts</span><span class="chip">DESeq2</span>
-<span class="chip">Cutadapt</span><span class="chip">DSL2</span>
-</div>
-</article>
-<article class="span-12 project" data-repo="barbavegeta/mtb-wgs-galaxy-workflow" data-tags="bioinformatics genomics tuberculosis wgs galaxy linux fasterq-dump falco fastp cutadapt bwa-mem2 picard samtools mosdepth bcftools snpeff snpsift multiqc igv resistance">
-<h3>
-<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow" rel="noreferrer noopener" target="_blank">
-              M. tuberculosis WGS Variant Analysis Workflow (Galaxy)
-            </a>
-</h3>
-<p>Galaxy-based whole-genome sequencing workflow for <em>Mycobacterium tuberculosis</em>, covering QC, trimming, alignment, BAM processing, coverage assessment, variant calling, annotation, and read-level interpretation of resistance-associated loci.</p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Build and run an end-to-end WGS workflow to identify and interpret resistance-associated variants in <em>M. tuberculosis</em> isolates.</li>
-<li><strong>Approach</strong>: Processed short-read sequencing data using <code>fasterq-dump</code>, <code>Falco</code>, <code>fastp</code>, <code>Cutadapt</code>, <code>BWA-MEM2</code>, <code>Picard SortSam</code>, <code>Picard MarkDuplicates</code>, <code>SAMtools flagstat</code>, <code>SAMtools idxstats</code>, <code>samtools view</code>, <code>mosdepth</code>, <code>bcftools mpileup</code>, <code>bcftools call</code>, <code>bcftools filter</code>, <code>bcftools csq</code>, <code>SnpEff</code>, <code>SnpSift</code>, <code>MultiQC</code>, and <code>IGV</code> within a Galaxy workflow for QC, alignment, BAM processing, coverage analysis, variant calling, annotation, and visual validation.</li>
-<li><strong>Outcome</strong>: Produced QC and mapping summaries, variant tables, resistance interpretation summaries, workflow documentation, and IGV validation images for clinically relevant loci.</li>
-</ul>
-<figure style="margin-top:12px; text-align:center;">
-<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/workflow/mtb-workflow.png" rel="noreferrer noopener" target="_blank">
-<img alt="Galaxy workflow overview for Mycobacterium tuberculosis WGS variant analysis" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/workflow/mtb-workflow.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption class="muted" style="font-size:14px; margin-top:6px;">
-                Framed Galaxy workflow for <em>M. tuberculosis</em> WGS variant analysis
-              </figcaption>
-</figure>
-<figure style="margin-top:12px; text-align:center;">
-<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/results/figure1_katg_q295_igv.png" rel="noreferrer noopener" target="_blank">
-<img alt="IGV validation of atypical katG codon 295 variation in Mycobacterium tuberculosis" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/results/figure1_katg_q295_igv.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption class="muted" style="font-size:14px; margin-top:6px;">
-                IGV validation of atypical <em>katG</em> codon 295 variation
-              </figcaption>
-</figure>
-</details>
-<div class="proj-tags">
-<span class="chip">Bioinformatics</span>
-<span class="chip">WGS</span>
-<span class="chip">Galaxy</span>
-<span class="chip">fasterq-dump</span>
-<span class="chip">Falco</span>
-<span class="chip">fastp</span>
-<span class="chip">Cutadapt</span>
-<span class="chip">BWA-MEM2</span>
-<span class="chip">Picard</span>
-<span class="chip">SAMtools</span>
-<span class="chip">mosdepth</span>
-<span class="chip">bcftools</span>
-<span class="chip">SnpEff</span>
-<span class="chip">SnpSift</span>
-<span class="chip">MultiQC</span>
-<span class="chip">IGV</span>
-</div>
-</article>
 </div>
 </details>
 <details class="project-group">
 <summary>Additional Projects</summary>
 <div class="grid group-grid">
+<article class="span-6 project" data-repo="barbavegeta/Google_Data_Analytics-Bellabeat_Project" data-tags="r sqlite dplyr tableau wearable health eda">
+<h3><a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" rel="noreferrer noopener" target="_blank">Bellabeat - Wearable Health Data Analysis</a></h3>
+<p>R + SQL workflow on wearable device data; built dashboards to surface activity &amp; health patterns.</p>
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Explore wearable device data to identify activity patterns and health trends.</li>
+<li><strong>Approach</strong>: Used R with dplyr and SQLite for data cleaning and summarisation; designed interactive Tableau dashboards for insight presentation.</li>
+<li><strong>Outcome</strong>: Suggested targeted product features and marketing approaches based on data-driven evidence.</li>
+</ul>
+<figure style="margin-top:12px; text-align:center;">
+<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" rel="noopener noreferrer" target="_blank">
+<img alt="Bellabeat Tableau Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/bellabeat.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" rel="noopener noreferrer" target="_blank">View interactive Tableau dashboard ↗</a>
+</figcaption>
+</figure>
+<figure style="margin-top:20px; text-align:center;">
+<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" rel="noopener noreferrer" target="_blank">
+<img alt="Profit Margin Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/Profit%20Margin%20by%20State%20(Map)%20-%20dash.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" rel="noopener noreferrer" target="_blank">View interactive Profit Margin dashboard ↗</a>
+</figcaption>
+</figure>
+</details>
+<div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Business Intelligence</span><span class="chip">Google Capstone</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">dplyr</span><span class="chip">Tableau</span></div>
+</article>
+<article class="span-6 project" data-repo="barbavegeta/Google_Business_Intelligence-Google_Fiber" data-tags="tableau google business intelligence dashboard fiber case study">
+<h3>
+<a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" rel="noreferrer noopener" target="_blank">
+            Google Fiber - Telecom KPI Dashboard &amp; SQL Analytics
+          </a>
+</h3>
+<p>
+          Stakeholder-driven KPI dashboard in Tableau, combining regional datasets and turning them into an executive-ready performance view.
+        </p>
+<details>
+<summary>Details</summary>
+<ul>
+<li><strong>Objective</strong>: Build a BI solution that communicates market performance and insights for Google Fiber's leadership team.</li>
+<li><strong>Approach</strong>: 
+              Merged multiple regional CSV datasets directly in Tableau, cleaned and standardised columns, and created interactive dashboards
+              visualising KPIs such as revenue, margin, and customer trends.
+            </li>
+<li><strong>Outcome</strong>: Delivered a clear, visually consistent dashboard highlighting business performance across regions and channels.</li>
+</ul>
+<figure style="margin-top:14px; text-align:center;">
+<a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" rel="noopener noreferrer" target="_blank">
+<img alt="Google Fiber Tableau Dashboard" loading="lazy" src="img/fiber.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+</a>
+<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+<a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" rel="noopener noreferrer" target="_blank">
+                View interactive Tableau dashboard ↗
+              </a>
+</figcaption>
+</figure>
+</details>
+<div class="proj-tags">
+<span class="chip">Business Intelligence</span>
+<span class="chip">Dashboarding</span>
+<span class="chip">Google BI Capstone</span>
+<span class="chip">Tableau</span>
+<span class="chip">Data Visualization</span>
+<span class="chip">KPI Design</span>
+<span class="chip">SQL</span>
+</div>
+</article>
 <article class="span-6 project" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" data-tags="python scikit-learn pandas classification hr analytics attrition">
 <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" rel="noreferrer noopener" target="_blank">Salifort Motors - Employee Attrition Prediction (Classification Model)</a></h3>
 <p>Predictive modelling to understand drivers of employee turnover and inform retention strategy.</p>
@@ -537,35 +618,6 @@
 </ul>
 </details>
 <div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Exploratory Data Analysis</span><span class="chip">Google Capstone</span><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span><span class="chip">SciPy</span></div>
-</article>
-<article class="span-6 project" data-repo="barbavegeta/Google_Data_Analytics-Bellabeat_Project" data-tags="r sqlite dplyr tableau wearable health eda">
-<h3><a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" rel="noreferrer noopener" target="_blank">Bellabeat - Wearable Health Data Analysis</a></h3>
-<p>R + SQL workflow on wearable device data; built dashboards to surface activity &amp; health patterns.</p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Explore wearable device data to identify activity patterns and health trends.</li>
-<li><strong>Approach</strong>: Used R with dplyr and SQLite for data cleaning and summarisation; designed interactive Tableau dashboards for insight presentation.</li>
-<li><strong>Outcome</strong>: Suggested targeted product features and marketing approaches based on data-driven evidence.</li>
-</ul>
-<figure style="margin-top:12px; text-align:center;">
-<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" rel="noopener noreferrer" target="_blank">
-<img alt="Bellabeat Tableau Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/bellabeat.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" rel="noopener noreferrer" target="_blank">View interactive Tableau dashboard ↗</a>
-</figcaption>
-</figure>
-<figure style="margin-top:20px; text-align:center;">
-<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" rel="noopener noreferrer" target="_blank">
-<img alt="Profit Margin Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/barbavegeta.github.io/refs/heads/main/img/Profit%20Margin%20by%20State%20(Map)%20-%20dash.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/shared/9JJKGKBSH" rel="noopener noreferrer" target="_blank">View interactive Tableau dashboard ↗</a>
-</figcaption>
-</figure>
-</details>
-<div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Business Intelligence</span><span class="chip">Google Capstone</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">dplyr</span><span class="chip">Tableau</span></div>
 </article>
 <article class="span-6 project" data-repo="barbavegeta/AWS_Solution_Architect" data-tags="aws cloud architecture migration devops analytics s3 ecs aurora emr redshift quicksight">
 <h3>
@@ -637,46 +689,6 @@
 <span class="chip">Athena</span>
 <span class="chip">Redshift</span>
 <span class="chip">QuickSight</span>
-</div>
-</article>
-<article class="span-6 project" data-repo="barbavegeta/Google_Business_Intelligence-Google_Fiber" data-tags="tableau google business intelligence dashboard fiber case study">
-<h3>
-<a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" rel="noreferrer noopener" target="_blank">
-            Google Fiber - Telecom KPI Dashboard &amp; SQL Analytics
-          </a>
-</h3>
-<p>
-          Stakeholder-driven KPI dashboard in Tableau, combining regional datasets and turning them into an executive-ready performance view.
-        </p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Build a BI solution that communicates market performance and insights for Google Fiber's leadership team.</li>
-<li><strong>Approach</strong>: 
-              Merged multiple regional CSV datasets directly in Tableau, cleaned and standardised columns, and created interactive dashboards
-              visualising KPIs such as revenue, margin, and customer trends.
-            </li>
-<li><strong>Outcome</strong>: Delivered a clear, visually consistent dashboard highlighting business performance across regions and channels.</li>
-</ul>
-<figure style="margin-top:14px; text-align:center;">
-<a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" rel="noopener noreferrer" target="_blank">
-<img alt="Google Fiber Tableau Dashboard" loading="lazy" src="img/fiber.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-<a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" rel="noopener noreferrer" target="_blank">
-                View interactive Tableau dashboard ↗
-              </a>
-</figcaption>
-</figure>
-</details>
-<div class="proj-tags">
-<span class="chip">Business Intelligence</span>
-<span class="chip">Dashboarding</span>
-<span class="chip">Google BI Capstone</span>
-<span class="chip">Tableau</span>
-<span class="chip">Data Visualization</span>
-<span class="chip">KPI Design</span>
-<span class="chip">SQL</span>
 </div>
 </article>
 </div>
