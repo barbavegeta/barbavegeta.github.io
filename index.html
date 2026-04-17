@@ -198,8 +198,6 @@
     margin-top:14px;
   }
 
-
-
     /* collapsible project groups */
     .project-group {
       margin-top: 18px;
@@ -228,9 +226,6 @@
     }
     .project-group[open] summary::before { transform: rotate(90deg); }
     .project-group .group-grid { margin-top: 14px; }
-
-  
-
 
 /* Variant 2: project grids */
 #projects .project-group { margin-top: 18px; }
@@ -288,14 +283,13 @@
 <h2 class="headline">About</h2>
 <div class="card card-pad">
 <p class="sub">
-          I have 7+ years of experience across clinical, stem-cell, and genomics laboratories, and now focus on bioinformatics and data science.
-          I bridge GMP-grade wet-lab workflows (flow cytometry, NGS library preparation, sample tracking) with computational analysis so that
-          biological and clinical data are reproducible, auditable, and actually useful.
-        </p>
+  I have 7+ years of experience across clinical, stem-cell, and genomics laboratories, and now focus on bioinformatics, analytics, and workflow engineering.
+  I bridge GMP-grade wet-lab workflows with computational systems to make biological and clinical data reproducible, auditable, and usable for real decisions.
+</p>
 <p class="sub">
-          I work with <strong>Python</strong>, <strong>R</strong>, <strong>SQL</strong>, and <strong>Bash</strong> to build analysis notebooks, small pipelines,
-          and automation scripts for NGS data, QC, and reporting.
-        </p>
+  I use <strong>Python</strong>, <strong>R</strong>, <strong>SQL</strong>, and <strong>Bash</strong> to build data workflows, analysis pipelines, QC processes,
+  and automation tools across NGS, reporting, and operational tracking.
+</p>
 <div class="tags" style="margin:14px 0 18px">
 <span class="tag">Python</span>
 <span class="tag">R</span>
@@ -439,13 +433,13 @@
               M. tuberculosis WGS Variant Analysis Workflow (Galaxy)
             </a>
 </h3>
-<p>Galaxy-based whole-genome sequencing workflow for <em>Mycobacterium tuberculosis</em>, covering QC, trimming, alignment, BAM processing, coverage assessment, variant calling, annotation, and read-level interpretation of resistance-associated loci.</p>
+<p>Built an end-to-end WGS workflow for <em>Mycobacterium tuberculosis</em> drug resistance analysis, standardising variant detection and interpretation across QC, alignment, annotation, and read-level validation.</p>
 <details>
 <summary>Details</summary>
 <ul>
-<li><strong>Objective</strong>: Build and run an end-to-end WGS workflow to identify and interpret resistance-associated variants in <em>M. tuberculosis</em> isolates.</li>
-<li><strong>Approach</strong>: Processed short-read sequencing data using <code>fasterq-dump</code>, <code>Falco</code>, <code>fastp</code>, <code>Cutadapt</code>, <code>BWA-MEM2</code>, <code>Picard SortSam</code>, <code>Picard MarkDuplicates</code>, <code>SAMtools flagstat</code>, <code>SAMtools idxstats</code>, <code>samtools view</code>, <code>mosdepth</code>, <code>bcftools mpileup</code>, <code>bcftools call</code>, <code>bcftools filter</code>, <code>bcftools csq</code>, <code>SnpEff</code>, <code>SnpSift</code>, <code>MultiQC</code>, and <code>IGV</code> within a Galaxy workflow for QC, alignment, BAM processing, coverage analysis, variant calling, annotation, and visual validation.</li>
-<li><strong>Outcome</strong>: Produced QC and mapping summaries, variant tables, resistance interpretation summaries, workflow documentation, and IGV validation images for clinically relevant loci.</li>
+<li><strong>Problem</strong>: Resistance interpretation from WGS data requires a long multi-step workflow with multiple failure points and high risk of inconsistent analysis.</li>
+<li><strong>Action</strong>: Built and executed a Galaxy-based workflow covering QC, trimming, alignment, BAM processing, coverage analysis, variant calling, annotation, and IGV-based validation using tools including <code>fastp</code>, <code>Cutadapt</code>, <code>BWA-MEM2</code>, <code>SAMtools</code>, <code>mosdepth</code>, <code>bcftools</code>, <code>SnpEff</code>, <code>SnpSift</code>, <code>MultiQC</code>, and <code>IGV</code>.</li>
+<li><strong>Impact</strong>: Produced a structured and reproducible resistance analysis workflow that supports clearer interpretation of clinically relevant loci in infectious disease genomics.</li>
 </ul>
 <figure style="margin-top:12px; text-align:center;">
 <a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/workflow/mtb-workflow.png" rel="noreferrer noopener" target="_blank">
@@ -484,145 +478,155 @@
 </div>
 </article>
 <article class="span-12 project" data-repo="barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" data-tags="nextflow docker rnaseq bioinformatics fastqc star featurecounts deseq2 cutadapt dsl2 multiqc workflow reproducibility">
-<h3>
-<a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
-              RNA-seq Pipeline (Nextflow + Docker)
-            </a>
-</h3>
-<p>Containerised RNA-seq workflow: FastQC → Cutadapt → STAR alignment → featureCounts → MultiQC → DESeq2.</p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Build a reproducible, portable RNA-seq pipeline runnable on any machine with Docker.</li>
-<li><strong>Approach</strong>: Implemented the workflow in Nextflow and executed with Docker to isolate dependencies; produces a MultiQC report for end-to-end QC review.</li>
-<li><strong>Outcome</strong>: One-command execution; standardised outputs for QC and quantification suitable for downstream DE analysis.</li>
-</ul>
-<figure style="margin-top:12px; text-align:center;">
-<a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
-<img alt="Nextflow RNA-seq pipeline: successful Docker test run (Docker profile)" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/refs/heads/main/img/test-run-docker.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption class="muted" style="font-size:14px; margin-top:6px;">
-                Proof run: Nextflow test execution (Docker profile)
-              </figcaption>
-</figure>
-</details>
-<div class="proj-tags">
-<span class="chip">Bioinformatics</span><span class="chip">Workflow Engineering</span><span class="chip">Nextflow</span><span class="chip">Docker</span><span class="chip">RNA-seq</span>
-<span class="chip">FastQC</span><span class="chip">MultiQC</span><span class="chip">STAR</span><span class="chip">featureCounts</span><span class="chip">DESeq2</span>
-<span class="chip">Cutadapt</span><span class="chip">DSL2</span>
-</div>
+  <h3>
+    <a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
+      RNA-seq Pipeline (Nextflow + Docker)
+    </a>
+  </h3>
+  <p>Eliminated inconsistent and error-prone RNA-seq analyses by building a containerised workflow that standardises processing from raw FASTQ to differential expression outputs.</p>
+  <details>
+    <summary>Details</summary>
+    <ul>
+      <li><strong>Problem</strong>: RNA-seq analyses are often manually assembled, environment-dependent, and difficult to reproduce across machines.</li>
+      <li><strong>Action</strong>: Built a containerised Nextflow pipeline integrating FastQC, Cutadapt, STAR, featureCounts, MultiQC, and DESeq2 into a one-command workflow.</li>
+      <li><strong>Impact</strong>: Reduced setup friction, improved reproducibility, and produced standardised outputs suitable for scalable downstream expression analysis.</li>
+    </ul>
+    <figure style="margin-top:12px; text-align:center;">
+      <a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
+        <img alt="Nextflow RNA-seq pipeline: successful Docker test run (Docker profile)" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/refs/heads/main/img/test-run-docker.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+      </a>
+      <figcaption class="muted" style="font-size:14px; margin-top:6px;">
+        Proof run: Nextflow test execution (Docker profile)
+      </figcaption>
+    </figure>
+  </details>
+  <div class="proj-tags">
+    <span class="chip">Bioinformatics</span>
+    <span class="chip">Workflow Engineering</span>
+    <span class="chip">Nextflow</span>
+    <span class="chip">Docker</span>
+    <span class="chip">RNA-seq</span>
+    <span class="chip">FastQC</span>
+    <span class="chip">MultiQC</span>
+    <span class="chip">STAR</span>
+    <span class="chip">featureCounts</span>
+    <span class="chip">DESeq2</span>
+    <span class="chip">Cutadapt</span>
+    <span class="chip">DSL2</span>
+  </div>
 </article>
 </div>
 </details>
 <details class="project-group">
 <summary>Additional Projects</summary>
 <div class="grid group-grid">
-<article class="span-6 project" data-repo="barbavegeta/Google_Data_Analytics-Bellabeat_Project" data-tags="r sqlite dplyr tableau wearable health eda">
-<h3><a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" rel="noreferrer noopener" target="_blank">Bellabeat - Wearable Health Data Analysis</a></h3>
-<p>R + SQL workflow on wearable device data; built dashboards to surface activity &amp; health patterns.</p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Explore wearable device data to identify activity patterns and health trends.</li>
-<li><strong>Approach</strong>: Used R with dplyr and SQLite for data cleaning and summarisation; designed interactive Tableau dashboards for insight presentation.</li>
-<li><strong>Outcome</strong>: Suggested targeted product features and marketing approaches based on data-driven evidence.</li>
-</ul>
-<figure style="margin-top:12px; text-align:center;">
-<a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" rel="noopener noreferrer" target="_blank">
-<img alt="Bellabeat Tableau Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/bellabeat.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" rel="noopener noreferrer" target="_blank">View interactive Tableau dashboard ↗</a>
-</figcaption>
-</figure>
-<figure style="margin-top:20px; text-align:center;">
-<a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" rel="noopener noreferrer" target="_blank">
-<img alt="Profit Margin Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/Profit%20Margin%20by%20State%20(Map)%20-%20dash.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-<a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/GoogleDataAnalyticsProfitData/ProfitMarginbyStateMap-dash" rel="noopener noreferrer" target="_blank">View interactive Profit Margin dashboard ↗</a>
-</figcaption>
-</figure>
-</details>
-<div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Business Intelligence</span><span class="chip">Google Capstone</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">dplyr</span><span class="chip">Tableau</span></div>
+<article class="span-6 project" data-repo="barbavegeta/Google_Data_Analytics-Bellabeat_Project" data-tags="r sqlite dplyr tableau wearable health eda analytics behavioural-data">
+  <h3><a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" rel="noreferrer noopener" target="_blank">Bellabeat - Wearable Health Data Analysis</a></h3>
+  <p>Transformed fragmented wearable data into a structured analytics dataset to uncover behavioural patterns across activity, sleep, heart rate, and weight for 35 users.</p>
+  <details>
+    <summary>Details</summary>
+    <ul>
+      <li><strong>Problem</strong>: Raw Fitbit data was split across multiple files and not directly usable for behavioural analysis or product-facing insight generation.</li>
+      <li><strong>Action</strong>: Cleaned, merged, and summarised wearable datasets using R, dplyr, and SQLite, then created a Tableau-ready user summary with 15 behavioural and wellness variables.</li>
+      <li><strong>Impact</strong>: Enabled clearer identification of activity, sleep, and health trends to support data-driven product and marketing recommendations.</li>
+    </ul>
+    <figure style="margin-top:12px; text-align:center;">
+      <a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" rel="noopener noreferrer" target="_blank">
+        <img alt="Bellabeat Tableau Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/bellabeat.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+      </a>
+      <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+        <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" rel="noopener noreferrer" target="_blank">View interactive Tableau dashboard ↗</a>
+      </figcaption>
+    </figure>
+  </details>
+  <div class="proj-tags">
+    <span class="chip">Data Analytics</span>
+    <span class="chip">Behavioural Analytics</span>
+    <span class="chip">R</span>
+    <span class="chip">SQL</span>
+    <span class="chip">dplyr</span>
+    <span class="chip">Tableau</span>
+    <span class="chip">Wearable Data</span>
+  </div>
 </article>
-<article class="span-6 project" data-repo="barbavegeta/Google_Business_Intelligence-Google_Fiber" data-tags="tableau google business intelligence dashboard fiber case study">
-<h3>
-<a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" rel="noreferrer noopener" target="_blank">
-            Google Fiber - Telecom KPI Dashboard &amp; SQL Analytics
-          </a>
-</h3>
-<p>
-          Stakeholder-driven KPI dashboard in Tableau, combining regional datasets and turning them into an executive-ready performance view.
-        </p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Build a BI solution that communicates market performance and insights for Google Fiber's leadership team.</li>
-<li><strong>Approach</strong>: 
-              Merged multiple regional CSV datasets directly in Tableau, cleaned and standardised columns, and created interactive dashboards
-              visualising KPIs such as revenue, margin, and customer trends.
-            </li>
-<li><strong>Outcome</strong>: Delivered a clear, visually consistent dashboard highlighting business performance across regions and channels.</li>
-</ul>
-<figure style="margin-top:14px; text-align:center;">
-<a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" rel="noopener noreferrer" target="_blank">
-<img alt="Google Fiber Tableau Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/Google_Business_Intelligence-Google_Fiber/refs/heads/main/img/fiber.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-<a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" rel="noopener noreferrer" target="_blank">
-                View interactive Tableau dashboard ↗
-              </a>
-</figcaption>
-</figure>
-</details>
-<div class="proj-tags">
-<span class="chip">Business Intelligence</span>
-<span class="chip">Dashboarding</span>
-<span class="chip">Google BI Capstone</span>
-<span class="chip">Tableau</span>
-<span class="chip">Data Visualization</span>
-<span class="chip">KPI Design</span>
-<span class="chip">SQL</span>
-</div>
+<article class="span-6 project" data-repo="barbavegeta/Google_Business_Intelligence-Google_Fiber" data-tags="tableau google business intelligence dashboard fiber case study sql bigquery telecom kpi analytics">
+  <h3>
+    <a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" rel="noreferrer noopener" target="_blank">
+      Google Fiber - Contact Centre Analytics &amp; BI Dashboard
+    </a>
+  </h3>
+  <p>
+    Identified repeat-contact patterns across 85,179 customer interactions by consolidating fragmented regional datasets into a unified analytics view, enabling clearer visibility into service inefficiencies.
+  </p>
+  <details>
+    <summary>Details</summary>
+    <ul>
+      <li><strong>Problem</strong>: Customer contact data was split across regional datasets, making it difficult to understand repeat-contact behaviour and pinpoint service pain points.</li>
+      <li><strong>Action</strong>: Consolidated 3 datasets into a unified analysis table covering 1,350 records and 85,179 contact events across 5 contact types, then built a Tableau dashboard to surface repeat-contact patterns and operational friction.</li>
+      <li><strong>Impact</strong>: Turned fragmented customer-support data into a decision-ready BI view that can support targeted service improvements and reduction of avoidable support load.</li>
+    </ul>
+    <figure style="margin-top:14px; text-align:center;">
+      <a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" rel="noopener noreferrer" target="_blank">
+        <img alt="Google Fiber Tableau Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/Google_Business_Intelligence-Google_Fiber/refs/heads/main/img/fiber.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
+      </a>
+      <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
+        <a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" rel="noopener noreferrer" target="_blank">
+          View interactive Tableau dashboard ↗
+        </a>
+      </figcaption>
+    </figure>
+  </details>
+  <div class="proj-tags">
+    <span class="chip">Business Intelligence</span>
+    <span class="chip">Customer Analytics</span>
+    <span class="chip">Dashboarding</span>
+    <span class="chip">Tableau</span>
+    <span class="chip">SQL</span>
+    <span class="chip">KPI Design</span>
+    <span class="chip">Telecom Analytics</span>
+  </div>
 </article>
-<article class="span-6 project" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" data-tags="python scikit-learn pandas classification hr analytics attrition">
-<h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" rel="noreferrer noopener" target="_blank">Salifort Motors - Employee Attrition Prediction (Classification Model)</a></h3>
-<p>Predictive modelling to understand drivers of employee turnover and inform retention strategy.</p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Build a predictive model to understand factors influencing employee attrition</li>
-<li><strong>Approach</strong>: Cleaned and transformed HR datasets with Pandas, performed exploratory analysis, engineered features, and implemented classification models using scikit-learn.</li>
-<li><strong>Outcome</strong>: Delivered actionable insights and recommendations to improve workforce retention strategies.</li>
-</ul>
-</details>
-<div class="proj-tags">
-<span class="chip">Data Science</span>
-<span class="chip">Machine Learning</span>
-<span class="chip">Google Capstone</span>
-<span class="chip">Python</span>
-<span class="chip">scikit-learn</span>
-<span class="chip">Pandas</span>
-<span class="chip">NumPy</span>
-<span class="chip">SciPy</span>
-<span class="chip">Statsmodels</span>
-<span class="chip">Matplotlib</span>
-<span class="chip">XGBoost</span>
-</div>
+<article class="span-6 project" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" data-tags="python scikit-learn pandas classification hr analytics attrition xgboost retention">
+  <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" rel="noreferrer noopener" target="_blank">Salifort Motors - Employee Attrition Prediction</a></h3>
+  <p>Built predictive models on 14,999 employee records to identify the drivers of 23.8% turnover and translate model outputs into retention-focused recommendations.</p>
+  <details>
+    <summary>Details</summary>
+    <ul>
+      <li><strong>Problem</strong>: The business faced substantial employee turnover, but the main drivers of attrition were not clearly understood.</li>
+      <li><strong>Action</strong>: Performed exploratory analysis, engineered features, and trained classification models using Python, scikit-learn, and XGBoost to analyse attrition patterns across 10 departments.</li>
+      <li><strong>Impact</strong>: Produced evidence-based recommendations to support workforce retention strategy and prioritise the factors most associated with employee loss.</li>
+    </ul>
+  </details>
+  <div class="proj-tags">
+    <span class="chip">Data Science</span>
+    <span class="chip">Machine Learning</span>
+    <span class="chip">Python</span>
+    <span class="chip">scikit-learn</span>
+    <span class="chip">Pandas</span>
+    <span class="chip">XGBoost</span>
+    <span class="chip">HR Analytics</span>
+  </div>
 </article>
-<article class="span-6 project" data-repo="barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" data-tags="python pandas matplotlib social media eda tiktok">
-<h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" rel="noreferrer noopener" target="_blank">TikTok - Social Media Engagement Analysis (EDA &amp; Visualisation)</a></h3>
-<p>Exploratory analysis of engagement metrics to uncover content trends and optimisation levers.</p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Analyse user engagement metrics to identify content trends on TikTok.</li>
-<li><strong>Approach</strong>: Processed raw CSV datasets, generated visualisations with Matplotlib, and applied descriptive statistics to uncover patterns in user behaviour.</li>
-<li><strong>Outcome</strong>: Produced data-driven recommendations to optimise content strategy and boost audience engagement.</li>
-</ul>
-</details>
-<div class="proj-tags"><span class="chip">Data Analytics</span><span class="chip">Exploratory Data Analysis</span><span class="chip">Google Capstone</span><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span><span class="chip">SciPy</span></div>
+<article class="span-6 project" data-repo="barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" data-tags="python pandas matplotlib social media eda tiktok engagement analytics plotly">
+  <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" rel="noreferrer noopener" target="_blank">TikTok - Social Media Engagement Analysis</a></h3>
+  <p>Analysed 19,382 posts to uncover highly skewed engagement patterns and identify content features associated with stronger performance.</p>
+  <details>
+    <summary>Details</summary>
+    <ul>
+      <li><strong>Problem</strong>: Engagement was unevenly distributed, making it difficult to understand which content characteristics were linked to stronger performance.</li>
+      <li><strong>Action</strong>: Used Python, pandas, and visual analytics to explore engagement metrics, inspect distribution patterns, and examine relationships between content features and post performance.</li>
+      <li><strong>Impact</strong>: Generated evidence-based recommendations to support content optimisation and stronger audience engagement strategy.</li>
+    </ul>
+  </details>
+  <div class="proj-tags">
+    <span class="chip">Data Analytics</span>
+    <span class="chip">Exploratory Data Analysis</span>
+    <span class="chip">Python</span>
+    <span class="chip">Pandas</span>
+    <span class="chip">Matplotlib</span>
+    <span class="chip">Plotly</span>
+    <span class="chip">Engagement Analytics</span>
+  </div>
 </article>
 <article class="span-6 project" data-repo="barbavegeta/AWS_Solution_Architect" data-tags="aws cloud architecture migration devops analytics s3 ecs aurora emr redshift quicksight">
 <h3>
@@ -708,11 +712,11 @@
 <h3>Specialist Biomedical Scientist <span class="muted">-</span> <span class="where">UCL Hospitals · Stem Cell Laboratory</span></h3>
 <div class="muted">Sep 2021 - Dec 2025 · London, UK</div>
 <ul>
-<li>Processed and cryopreserved PBSCs, bone marrow, DLI and CD34+ enrichment for transplant procedures.</li>
-<li>Maintained Grade A clean room sterility via protocols and agar plate assessments.</li>
-<li>Analysed CD3+/CD34+ populations via MACSQuant; delivered critical treatment data.</li>
-<li>Supported 11 active clinical trials, including CAR-T (Yescarta, Novartis), antibody, and genetic therapies.</li>
-<li>Built stock-management &amp; training tracking tools; reduced inventory errors by ~30% and saved ~10 hrs/week.</li>
+  <li>Delivered processing and cryopreservation of PBSCs, bone marrow, DLI, and CD34+ enriched products to support transplant workflows in a regulated clinical environment.</li>
+  <li>Maintained Grade A clean-room compliance through sterility controls, environmental monitoring, and strict adherence to GMP procedures.</li>
+  <li>Generated flow cytometry data on CD3+ and CD34+ populations to support time-sensitive clinical decision-making in stem cell transplantation.</li>
+  <li>Supported 11 active clinical and ATMP trials, including CAR-T therapies, ensuring traceability, documentation quality, and audit-ready data handling.</li>
+  <li>Proactively built stock-management and training-tracking tools to replace manual reconciliation, reducing inventory errors by around 30% and saving roughly 10 hours per week.</li>
 </ul>
 </div>
 </div>
@@ -721,11 +725,11 @@
 <h3>Laboratory Scientist <span class="muted">-</span> <span class="where">CooperGenomics</span></h3>
 <div class="muted">Jul 2019 - Sep 2021 · London, UK</div>
 <ul>
-<li>Processed embryo samples for PGT-A / PGT-SR / PGT-M, WGA and gel electrophoresis.</li>
-<li>Conducted NGS library preparation (manual: 96 samples/run; automated: 192 samples/run) with strict QC adherence for Whole Genome Sequencing.</li>
-<li>Maintained Mosquito HV &amp; Dragonfly Discovery liquid handlers; optimised run reliability.</li>
-<li>Analysed NGS run metrics and generated patient reports (&gt;500/week).</li>
-<li>Authored and reviewed SOPs across the workflow.</li>
+  <li>Processed embryo samples for PGT-A, PGT-SR, and PGT-M testing within a high-throughput clinical genomics workflow.</li>
+  <li>Delivered NGS library preparation and quality control across manual and automated workflows, supporting runs of 96 to 192 samples while maintaining turnaround and data-quality standards.</li>
+  <li>Analysed sequencing run metrics and produced more than 500 clinical reports per week using structured validation checks to maintain reporting accuracy and consistency.</li>
+  <li>Programmed, validated, and maintained Mosquito HV and Dragonfly liquid handlers to improve workflow scalability and reproducibility.</li>
+  <li>Contributed to SOP writing and review, strengthening standardisation and ISO-compliant laboratory practice across the workflow.</li>
 </ul>
 </div>
 </div>
