@@ -1,215 +1,352 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KDBND1PJP7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KDBND1PJP7');
-</script>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta name="description" content="Bioinformatics and data science portfolio of Salvatore Barbagallo. NGS analysis, machine learning, and workflow engineering projects."/>
-<title>Salvatore Barbagallo</title>
-<meta property="og:title" content="Salvatore Barbagallo - Bioinformatics Portfolio"/>
-<meta property="og:description" content="NGS, machine learning, data science, and workflow engineering projects by Salvatore Barbagallo."/>
-<meta property="og:url" content="https://barbavegeta.github.io"/>
-<meta property="og:type" content="website"/>
-<meta property="og:image" content="https://barbavegeta.github.io/img/preview.png"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Salvatore Barbagallo - Bioinformatics Analyst. NGS pipelines, machine learning, and data workflows."/>
+  <title>Salvatore Barbagallo · Bioinformatics & Data</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
     :root {
-      --bg: #0b0d13;
-      --surface: #121625;
-      --surface-2: #171c2e;
-      --text: #e8ebf3;
-      --muted: #a9b0c7;
-      --brand: #6cc9ff;
-      --accent: #a7f3d0;
-      --ring: rgba(108,201,255,.4);
-      --card: #111523;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --bg:        #f7f9ff;
+      --bg-2:      #eef2ff;
+      --surface:   #ffffff;
+      --surface-2: #f0f4ff;
+      --surface-3: #e4ecff;
+      --border:    #dbe4ff;
+      --border-2:  #eef2ff;
+      --text:      #0b1120;
+      --text-2:    #253d6e;
+      --text-3:    #4e6594;
+      --brand:     #2563eb;
+      --brand-2:   #3b82f6;
+      --brand-3:   #1d4ed8;
+      --accent:    #0ea5e9;
+      --glow:      rgba(37,99,235,.14);
+      --font-head: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+    [data-theme="dark"] {
+      --bg:        #060a14;
+      --bg-2:      #0a1020;
+      --surface:   #0d1528;
+      --surface-2: #111e36;
+      --surface-3: #172540;
+      --border:    rgba(59,130,246,.14);
+      --border-2:  rgba(59,130,246,.07);
+      --text:      #e8f0ff;
+      --text-2:    #b8cce8;
+      --text-3:    #7898be;
+      --brand:     #3b82f6;
+      --brand-2:   #60a5fa;
+      --brand-3:   #93c5fd;
+      --accent:    #38bdf8;
+      --glow:      rgba(59,130,246,.18);
     }
 
-    /* Explicit theme override via html[data-theme] only */
-    html[data-theme="light"] { --bg: #fbfbfd; --surface:#ffffff; --surface-2:#f3f5fb; --text:#0b1020; --muted:#475070; --brand:#0066ff; --accent:#10b981; --ring: rgba(0,102,255,.25); --card:#ffffff; --shadow: 0 8px 24px rgba(16,22,40,.08); }
-    html[data-theme="dark"]  { --bg: #0b0d13; --surface:#121625; --surface-2:#171c2e; --text:#e8ebf3; --muted:#a9b0c7; --brand:#6cc9ff; --accent:#a7f3d0; --ring: rgba(108,201,255,.4); --card:#111523; --shadow: 0 10px 30px rgba(0,0,0,.35); }
-
-    * { box-sizing: border-box; }
-    html, body { margin:0; padding:0; }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color: var(--text); background: radial-gradient(1200px 600px at 80% -10%, rgba(94,234,212,.09), transparent 40%), linear-gradient(180deg, var(--bg), var(--bg)); line-height: 1.5; }
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { width: min(1100px, 92vw); margin: 0 auto; }
-    .nav { position: sticky; top: 0; backdrop-filter: saturate(180%) blur(12px); background: color-mix(in hsl, var(--surface), transparent 30%); border-bottom: 1px solid color-mix(in srgb, var(--muted), transparent 70%); z-index: 30; }
-    .nav-inner { display:flex; gap:24px; align-items:center; justify-content:space-between; padding: 14px 0; }
-    .nav a.brand { font-weight: 800; letter-spacing:.3px; color: var(--text); text-decoration:none; }
-    .nav .links { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
-    .btn { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius: 12px; background: var(--surface-2); color: var(--text); box-shadow: var(--shadow); border: 1px solid color-mix(in srgb, var(--muted), transparent 70%); }
-    .btn:hover { filter: brightness(1.05); text-decoration: none; }
-    .ghost { background: transparent; border: 1px solid color-mix(in srgb, var(--muted), transparent 55%); box-shadow:none; }
-    .two-col { display:flex; gap: 16px; }
-    @media (max-width: 860px){ .hero { grid-template-columns: 1fr; } }
-    .card { background: var(--card); border: 1px solid color-mix(in srgb, var(--muted), transparent 70%); border-radius: 20px; box-shadow: var(--shadow); }
-    .card-pad { padding: 22px; }
-    .headline { font-size: clamp(32px, 4vw, 48px); line-height: 1.05; margin: 0 0 10px; letter-spacing: -0.015em; }
-    .sub { color: var(--muted); margin: 0 0 18px; }
-    .tag { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius: 999px; border:1px solid color-mix(in srgb, var(--muted), transparent 60%); background: color-mix(in srgb, var(--surface), white 2%); font-size: 13px; color: var(--text); }
-    .tags { display:flex; flex-wrap:wrap; gap:8px; }
-    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .span-4 { grid-column: span 4; }
-    .span-6 { grid-column: span 6; }
-    .span-8 { grid-column: span 8; }
-    .span-12 { grid-column: 1 / -1; }
-    @media (max-width: 980px){ .span-8,.span-6,.span-4 { grid-column: 1 / -1; } }
-    .section { padding: 32px 0; }
-    .section > h2 { font-size:24px; border-left:4px solid var(--brand); padding-left:12px; margin-bottom:16px; }
-    .project { display:flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 16px; border:1px solid color-mix(in srgb, var(--muted), transparent 70%); background: var(--surface); }
-    .project h3 { margin: 0; font-size: 18px; }
-    .project p { margin: 0; color: var(--muted); }
-    .proj-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top: 6px; }
-    .chip { font-size: 12px; border: 1px solid color-mix(in srgb, var(--muted), transparent 65%); border-radius: 999px; padding: 4px 8px; }
-    .timeline { position: relative; padding-left: 18px; }
-    .timeline::before { content:""; position:absolute; left:3px; top:2px; bottom:2px; width:2px; background: color-mix(in srgb, var(--brand), var(--text) 65%); opacity:.5; }
-    .tl { position:relative; padding: 10px 12px 12px 14px; margin: 0 0 10px; border-left: 2px solid transparent; }
-    .tl::before { content:""; position:absolute; left:-6px; top:12px; width:10px; height:10px; background: var(--brand); border-radius:50%; box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand), transparent 60%); }
-    .tl h3 { margin:0; font-size: 16px; }
-    .tl .where { font-weight:600; }
-    .footer { padding: 40px 0; color: var(--muted); font-size: 14px; }
-    .right .muted {
-      display: block;         /* forces label on its own line */
-      margin-bottom: 6px;     /* small gap below "Open to:" */
-    }
-
-    .muted { color: var(--muted); }
-    .section.style4 > h2 {
-    border-left: 4px solid var(--brand);
-    padding-left: 12px;
-    margin-bottom: 16px;
-    font-size: 24px;
-    }
-
-    /* collapsible details styling for internship section */
-    #internships details {
-      margin: 8px 0;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: var(--surface-2);
-      border: 1px solid color-mix(in srgb, var(--muted), transparent 70%);
-      transition: background 0.2s ease;
-    }
-    #internships details:hover {
-      background: color-mix(in srgb, var(--surface), white 2%);
-    }
-    #internships summary {
-      cursor: pointer;
-      font-weight: 600;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
       color: var(--text);
-      list-style: none;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
-    #internships summary::-webkit-details-marker {
+    h1, h2, h3, h4 { font-family: var(--font-head); }
+    a { color: var(--brand); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--accent); }
+
+    /* ── NAV ─────────────────────────────────── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      background: color-mix(in srgb, var(--bg), transparent 10%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 48px;
+      display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    .nav-brand { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--text); letter-spacing: -.01em; }
+    .nav-center { display: flex; align-items: center; gap: 4px; }
+    .nav-pill {
+      padding: 6px 14px; border-radius: 999px; font-size: .85rem; font-weight: 500;
+      color: var(--text-2); transition: all .2s;
+    }
+    .nav-pill:hover { background: var(--surface-2); color: var(--text); }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+
+    .dl-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 16px; border-radius: 999px; font-size: .82rem; font-weight: 600;
+      border: 1.5px solid var(--border); color: var(--text-2);
+      background: var(--surface); transition: all .2s;
+    }
+    .dl-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .dl-btn:hover { border-color: var(--brand); color: var(--brand); background: var(--surface-2); }
+    .dl-btn-fill { background: var(--brand); color: #ffffff !important; border-color: var(--brand); }
+    .dl-btn-fill svg { stroke: currentColor; }
+    .dl-btn-fill:hover { background: var(--brand-3); color: #ffffff !important; border-color: var(--brand-3); }
+
+    .theme-pill {
+      width: 36px; height: 36px; border-radius: 999px;
+      border: 1.5px solid var(--border); background: var(--surface);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all .2s;
+    }
+    .theme-pill:hover { background: var(--surface-2); border-color: var(--brand); }
+    .theme-pill svg { width: 16px; height: 16px; stroke: var(--text-2); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── HAMBURGER BUTTON ───────────────────── */
+    .hamburger {
       display: none;
+      flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 1.5px solid var(--border); background: var(--surface);
+      cursor: pointer; transition: all .2s; flex-shrink: 0;
     }
-    #internships details[open] summary {
-      color: var(--brand);
+    .hamburger:hover { background: var(--surface-2); border-color: var(--brand); }
+    .hamburger span {
+      display: block; width: 18px; height: 2px;
+      background: var(--text-2); border-radius: 2px;
+      transition: all .25s;
     }
-    #internships ul {
-      margin: 8px 0 4px 18px;
-    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* equal or slightly larger than your header height */
+    /* ── MOBILE NAV DRAWER ───────────────────── */
+    .mobile-nav {
+      display: none;
+      position: fixed; top: 60px; left: 0; right: 0;
+      background: color-mix(in srgb, var(--bg), transparent 4%);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 20px 20px;
+      z-index: 99;
+      flex-direction: column; gap: 4px;
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: opacity .2s, transform .2s;
     }
-
-    /* Contact icons styling */
-    .contact-icons {
+    .mobile-nav.open {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 28px;
-      margin-top: 16px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .mobile-nav-link {
+      padding: 11px 14px; border-radius: 10px;
+      font-size: .95rem; font-weight: 500; color: var(--text-2);
+      transition: all .15s;
+    }
+    .mobile-nav-link:hover { background: var(--surface-2); color: var(--text); }
+    .mobile-nav-divider { height: 1px; background: var(--border-2); margin: 8px 0; }
+    .mobile-nav-cv {
+      display: flex; gap: 8px; padding: 4px 0;
+    }
+    .mobile-nav-cv .dl-btn { flex: 1; justify-content: center; font-size: .85rem; }
+
+    /* ── RESPONSIVE NAV ──────────────────────── */
+    @media (max-width: 860px) {
+      .nav-center { display: none; }
+      .nav-inner { padding: 0 20px; }
+      .hamburger { display: flex; }
+    }
+    /* tablet: shrink CV button text */
+    @media (max-width: 680px) {
+      .nav-right { gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+      .dl-btn { padding: 7px 12px; font-size: .78rem; }
+    }
+    /* keep top CV buttons visible instead of hiding them */
+    @media (max-width: 480px) {
+      .nav-brand { font-size: .95rem; }
+      .nav-right { gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+      .dl-btn { display: inline-flex; padding: 7px 10px; font-size: .76rem; }
+      .dl-btn .dl-label { display: inline; }
+      .mobile-nav-cv .dl-btn { display: inline-flex; }
+    }
+    /* keep CV button labels visible inside the mobile drawer at all sizes */
+    @media (max-width: 680px) {
+      .mobile-nav-cv .dl-btn .dl-label { display: inline; }
+      .mobile-nav-cv .dl-btn { padding: 7px 16px; }
     }
 
-    .contact-icons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;              /* larger button */
-      height: 56px;
-      border-radius: 50%;
-      background: var(--surface-2);
-      border: 1px solid color-mix(in srgb, var(--muted), transparent 60%);
-      box-shadow: var(--shadow);
-      transition: all 0.25s ease;
+    /* ── HERO BENTO ──────────────────────────── */
+    .page-wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+    @media (max-width: 860px) { .page-wrap { padding: 0 24px; } }
+    @media (max-width: 480px) { .page-wrap { padding: 0 14px; } }
+
+    .bento-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 14px;
+      padding: 32px 0 20px;
+    }
+    @media (max-width: 1000px) { .bento-hero { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .bento-hero { grid-template-columns: 1fr; gap: 10px; padding: 20px 0 16px; } }
+
+    .bento {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+    }
+    @media (max-width: 600px) { .bento { padding: 20px; border-radius: 14px; } }
+
+    .bento-main {
+      grid-column: span 2;
+      background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
+      border-color: transparent;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .bento-main::before {
+      content: "";
+      position: absolute; top: -60px; right: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: rgba(255,255,255,.08);
+    }
+    .bento-main::after {
+      content: "";
+      position: absolute; bottom: -40px; left: 30%;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: rgba(255,255,255,.05);
+    }
+    @media (max-width: 1000px) { .bento-main { grid-column: span 2; } }
+    @media (max-width: 600px) { .bento-main { grid-column: span 1; } }
+
+    .bento-main .eyebrow {
+      font-family: var(--font-mono); font-size: .72rem;
+      color: rgba(255,255,255,.7); letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .bento-main h1 {
+      font-size: clamp(1.8rem, 4vw, 3.4rem);
+      font-weight: 700; line-height: 1.1; letter-spacing: -.02em;
+      margin-bottom: 14px; position: relative; z-index: 1;
+    }
+    .bento-main .sub {
+      font-size: clamp(.88rem, 2vw, 1rem); color: rgba(255,255,255,.9);
+      line-height: 1.75; position: relative; z-index: 1;
     }
 
-    .contact-icons a:hover {
-      transform: translateY(-4px) scale(1.05);
-      background: var(--brand);
+    .bento-status {
+      display: flex; flex-direction: column; gap: 14px;
+      min-height: 100%;
+    }
+    .bento-label {
+      font-family: var(--font-mono); font-size: .72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em; color: var(--text-3);
     }
 
-    .contact-icons .icon {
-      width: 28px;              /* larger icon */
-      height: 28px;
-      filter: invert(90%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
-      transition: filter 0.25s ease;
+    /* ── HERO AVAIL STRIP ────────────────────── */
+    .hero-avail {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px;
+      margin-top: 22px; padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.22);
+      position: relative; z-index: 1;
+    }
+    .hero-avail-left {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .84rem; color: rgba(255,255,255,.88);
+      flex-wrap: wrap;
+    }
+    .hero-sep { color: rgba(255,255,255,.35); }
+    .hero-work-badge {
+      font-size: .73rem; font-weight: 600; white-space: nowrap;
+      padding: 4px 13px; border-radius: 999px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.28);
+      color: rgba(255,255,255,.9);
+    }
+    @media (max-width: 600px) { .hero-avail { flex-direction: column; align-items: flex-start; } }
+
+    /* ── LANGUAGES CARD ──────────────────────── */
+    .lang-list { display: flex; flex-direction: column; margin-top: 6px; }
+    .lang-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 6px 0; border-bottom: 1px solid var(--border-2);
+    }
+    .lang-item:last-child { border-bottom: none; }
+    .lang-name { font-size: .82rem; font-weight: 600; color: var(--text); }
+    .lang-level { font-family: var(--font-mono); font-size: .68rem; color: var(--text-3); }
+    .status-indicator { display: flex; align-items: center; gap: 8px; }
+    .status-dot { width: 9px; height: 9px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; animation: pulse 2s infinite; flex-shrink: 0; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+    .status-label { font-size: .85rem; font-weight: 600; color: var(--text-2); }
+    .status-location { font-size: .76rem; color: var(--text-3); margin-top: 5px; margin-bottom: 16px; font-family: var(--font-mono); padding-left: 17px; }
+    .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; }
+    .sitem {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 14px 8px; border-radius: 14px;
+      background: color-mix(in srgb, var(--brand), transparent 90%);
+      border: 1px solid var(--border);
+    }
+    .sitem-n { font-family: var(--font-head); font-size: 2.1rem; font-weight: 800; color: var(--brand); line-height: 1; }
+    .sitem-l { font-size: .72rem; color: var(--text-3); margin-top: 6px; line-height: 1.35; }
+
+    .bento-tags .label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--text-3); margin-bottom: 14px; font-family: var(--font-mono); }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-cloud span {
+      font-family: var(--font-mono); font-size: .68rem; font-weight: 500;
+      padding: 5px 11px; border-radius: 999px;
+      background: var(--brand); border: 1px solid var(--brand);
+      color: #fff;
     }
 
-    html[data-theme="light"] .contact-icons .icon {
-      filter: invert(20%) sepia(5%) saturate(500%) hue-rotate(180deg) brightness(80%) contrast(100%);
+    .bento-location {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .bento-location .bento-label {
+      font-size: .65rem; letter-spacing: .08em; opacity: .8;
+    }
+    /* dark mode: secondary bento cards get surface-2 bg; light mode uses default surface (white) */
+    [data-theme="dark"] .bento-status,
+    [data-theme="dark"] .bento-location,
+    [data-theme="dark"] .bento-tags,
+    [data-theme="dark"] .bento-edu { background: var(--surface-2); }
+    .loc-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: color-mix(in srgb, var(--brand), transparent 88%);
+      border: 1px solid color-mix(in srgb, var(--brand), transparent 75%);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 4px;
+    }
+    .loc-icon svg { width: 20px; height: 20px; stroke: var(--brand); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .loc-title { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--text); }
+    .loc-sub { font-size: .84rem; color: var(--text-2); }
+    .loc-badge {
+      display: inline-block; margin-top: auto;
+      font-size: .73rem; font-weight: 600;
+      padding: 4px 12px; border-radius: 999px;
+      background: var(--surface-3); color: var(--brand); width: fit-content;
     }
 
-    .contact-icons a:hover .icon {
-      filter: invert(100%);
-    }
+    /* ── SECTION WRAPPER ─────────────────────── */
+    .sec { padding: 42px 0; border-top: 1px solid var(--border-2); }
+    @media (max-width: 600px) { .sec { padding: 28px 0; } }
 
-    #education ul, #certificates ul {
-    list-style: none;
-    padding-left: 0;
-    }
-    #education li::before, #certificates li::before {
-    content: "•";
-    color: var(--brand);
-    margin-right: 10px;
-    font-weight: bold;
-    }
-    #education li, #certificates li {
-    margin-bottom: 10px;
-    }
+    .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; flex-wrap: wrap; }
+    .sec-num { font-family: var(--font-mono); font-size: .75rem; color: var(--text-3); }
 
-    /* facts rows */
-    .facts { display: grid; row-gap: 10px; margin-top: 10px; }
-    .fact { display: grid; grid-template-columns: 140px 1fr; column-gap: 12px; align-items: baseline; }
-    .fact .label { color: var(--muted); white-space: nowrap; }
-    .fact .value { display: flex; flex-wrap: wrap; gap: 8px; }
-    @media (max-width: 640px) { .fact { grid-template-columns: 1fr; } }
-
-      /* Credly badge wrapper */
-  .credly-badges{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:16px;
-    margin-top:14px;
-  }
-
-    /* collapsible project groups */
     .project-group {
       margin-top: 18px;
       padding: 14px 16px 18px;
       border-radius: 16px;
       background: var(--surface);
-      border: 1px solid color-mix(in srgb, var(--muted), transparent 70%);
+      border: 1px solid var(--border);
     }
     .project-group + .project-group { margin-top: 18px; }
     .project-group summary {
       cursor: pointer;
-      font-size: 20px;
+      font-size: 1.08rem;
       font-weight: 700;
       list-style: none;
       display: flex;
@@ -226,679 +363,779 @@
     }
     .project-group[open] summary::before { transform: rotate(90deg); }
     .project-group .group-grid { margin-top: 14px; }
+    .sec-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand), transparent 82%);
+      display: inline-block;
+      flex: 0 0 10px;
+    }
+    .sec-num { display:none; }
 
-/* Variant 2: project grids */
-#projects .project-group { margin-top: 18px; }
-#projects .project-group summary { cursor: pointer; font-weight: 700; font-size: 20px; margin-bottom: 14px; }
-#projects .group-grid { margin-top: 14px !important; }
-#projects .project { height: 100%; }
+    .sec-title { font-family: var(--font-head); font-size: clamp(1.4rem, 4vw, 1.85rem); font-weight: 700; letter-spacing: -.02em; }
+    .sec-sub { font-size: .88rem; color: var(--text-2); margin-left: auto; }
 
-/* Featured projects stay full width */
-#projects #project-list > .project { grid-column: 1 / -1; }
+    /* ── ABOUT ───────────────────────────────── */
+    #about.sec { padding: 30px 0; }
+    .about-layout { }
 
-/* Additional projects use two columns */
-#projects .project-group .group-grid > .span-6.project { grid-column: span 6; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px;
+    }
+    .bio-p { font-size: .94rem; color: var(--text-2); line-height: 1.72; margin-bottom: 12px; }
 
-@media (max-width: 980px){
-  #projects #project-list > .project,
-  #projects .project-group .group-grid > .span-6.project { grid-column: 1 / -1; }
-}
+    .skill-area { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border-2); }
+    .skill-area-title { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--text-3); font-family: var(--font-mono); margin-bottom: 8px; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+    .sp {
+      font-size: .76rem; font-weight: 500;
+      padding: 4px 10px; border-radius: 8px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--text-2);
+    }
 
-</style>
+    .facts-card { display: flex; flex-direction: column; gap: 0; }
+    .fact-row {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 0; border-bottom: 1px solid var(--border-2);
+    }
+    .fact-row:last-child { border-bottom: none; }
+    .fact-icon {
+      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+      background: color-mix(in srgb, var(--brand), transparent 90%);
+      border: 1px solid color-mix(in srgb, var(--brand), transparent 78%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fact-icon svg { width: 15px; height: 15px; stroke: var(--brand); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .fact-body { padding-top: 2px; }
+    .fact-key { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: var(--text-3); font-family: var(--font-mono); }
+    .fact-val { font-size: .9rem; color: var(--text-2); margin-top: 2px; }
+
+    /* ── PROJECTS GRID ───────────────────────── */
+    #projects.sec { padding: 34px 0; }
+    .proj-bento { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 700px) { .proj-bento { grid-template-columns: 1fr; gap: 10px; } }
+
+    .pcard {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 18px;
+      display: flex; flex-direction: column;
+    }
+    @media (max-width: 480px) { .pcard { padding: 16px; border-radius: 12px; } }
+    .pcard-span { grid-column: span 2; }
+    @media (max-width: 700px) { .pcard-span { grid-column: span 1; } }
+
+    .pcard-top {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+
+    .pcard-icon {
+      width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
+      background: color-mix(in srgb, var(--brand), transparent 88%);
+      border: 1px solid color-mix(in srgb, var(--brand), transparent 74%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pcard-icon svg { width: 17px; height: 17px; stroke: var(--brand); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    .pcard-title { font-family: var(--font-head); font-size: .98rem; font-weight: 700; color: var(--text); line-height: 1.25; }
+    .pcard-title a { color: inherit; }
+    .pcard-title a:hover { color: var(--brand); }
+    .pcard-desc { font-size: .84rem; color: var(--text-2); line-height: 1.62; flex-grow: 1; margin-bottom: 10px; }
+
+    .pcard-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 14px; }
+    .pcard-expand[open] + .pcard-tags { margin-top: 12px; }
+    .pt {
+      font-family: var(--font-mono); font-size: .62rem;
+      padding: 3px 7px; border-radius: 5px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--brand);
+    }
+
+    .pcard-expand { margin-top: 10px; margin-bottom: 8px; }
+    .pcard-expand[open] { margin-bottom: 14px; }
+    .pcard-expand summary {
+      font-size: .76rem; font-weight: 600; color: var(--brand-2);
+      cursor: pointer; list-style: none;
+      display: inline-flex; align-items: center; gap: 5px;
+      transition: color .2s;
+    }
+    .pcard-expand summary:hover { color: var(--accent); }
+    .pcard-expand summary::-webkit-details-marker { display: none; }
+    .pcard-expand summary::before { content: "▸"; transition: transform .2s; }
+    .pcard-expand[open] summary::before { transform: rotate(90deg); }
+    .pcard-expand ul { margin: 10px 0 0 14px; padding-bottom: 2px; display: flex; flex-direction: column; gap: 6px; }
+    .pcard-expand li { font-size: .8rem; color: var(--text-2); line-height: 1.55; }
+    .pcard-expand li strong { color: var(--text); }
+    .pcard-img { width: 100%; border-radius: 8px; border: 1px solid var(--border); margin-top: 12px; }
+    .pcard-span .pcard-img {
+      width: auto;
+      max-width: min(100%, 620px);
+      max-height: 320px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: contain;
+    }
+    .pcard-caption { font-size: .72rem; color: var(--text-3); text-align: center; margin-top: 6px; }
+
+    .pcard-gh-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 12px; align-self: flex-end; margin-left: auto;
+      padding: 8px 12px; border-radius: 10px;
+      font-size: .76rem; font-weight: 600;
+      border: 1.5px solid var(--border); color: var(--text-2);
+      background: var(--surface-2); transition: all .2s;
+    }
+    .pcard-gh-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+    .pcard-gh-btn:hover { border-color: var(--brand); color: var(--brand); background: color-mix(in srgb, var(--brand), transparent 92%); }
+
+    /* ── EXPERIENCE ───────────────────────────── */
+    .exp-scroll { display: flex; flex-direction: column; gap: 14px; }
+    .exp-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 24px 26px;
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 24px; align-items: start;
+    }
+    @media (max-width: 700px) { .exp-card { grid-template-columns: 1fr; gap: 12px; padding: 18px; } }
+    @media (max-width: 480px) { .exp-card { padding: 14px; border-radius: 12px; } }
+
+    .exp-left { }
+    .exp-company { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .exp-date { font-family: var(--font-mono); font-size: .72rem; color: var(--text-3); margin-bottom: 8px; }
+    .exp-badge { display: inline-block; font-size: .7rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--brand); }
+
+    .exp-right { }
+    .exp-role-title { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    .exp-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .exp-items li { font-size: .9rem; color: var(--text-2); line-height: 1.7; padding-left: 16px; position: relative; }
+    .exp-items li::before { content: "·"; position: absolute; left: 0; color: var(--brand); font-size: 1.2rem; line-height: 1.4; }
+
+    /* ── EDUCATION STRIP ─────────────────────── */
+    .edu-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    @media (max-width: 860px) { .edu-strip { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .edu-strip { grid-template-columns: 1fr; gap: 10px; } }
+
+    .edu-tile {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 24px;
+      position: relative; overflow: hidden;
+    }
+    .edu-tile::before {
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--brand), var(--accent));
+    }
+    .edu-tag { font-family: var(--font-mono); font-size: .67rem; color: var(--text-3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+    .edu-deg { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+    .edu-school { font-size: .88rem; color: var(--brand); font-weight: 500; margin-bottom: 6px; }
+    .edu-year { font-family: var(--font-mono); font-size: .75rem; color: var(--text-3); }
+    .edu-thesis {
+      margin-top: 12px; font-size: .8rem; color: var(--text-2);
+      font-style: italic; padding: 9px 12px;
+      background: color-mix(in srgb, var(--brand), transparent 88%);
+      border-left: 3px solid color-mix(in srgb, var(--brand), transparent 55%);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* ── CERTS ────────────────────────────────── */
+    .cert-masonry {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px; align-items: stretch;
+    }
+    @media (max-width: 860px) { .cert-masonry { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .cert-masonry { grid-template-columns: 1fr; } }
+
+    .cert-tile {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px;
+    }
+    .cert-org { font-family: var(--font-mono); font-size: .67rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 5px; }
+    .cert-names { font-size: .86rem; color: var(--text-2); line-height: 1.55; }
+
+    /* ── CONTACT ─────────────────────────────── */
+    .contact-bento {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    @media (max-width: 700px) { .contact-bento { grid-template-columns: 1fr; gap: 10px; } }
+
+    .contact-left {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
+      border-radius: 20px; padding: 40px 32px; color: #fff;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .contact-left h2 { font-family: var(--font-head); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 12px; }
+    .contact-left p { font-size: 1rem; color: rgba(255,255,255,.82); line-height: 1.75; margin-bottom: 28px; }
+    .contact-cv-btns { display: flex; flex-direction: column; gap: 10px; }
+    .contact-cv-btn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 18px; border-radius: 12px;
+      font-size: .88rem; font-weight: 700;
+      background: rgba(255,255,255,.2); color: #fff;
+      border: 1.5px solid rgba(255,255,255,.3);
+      transition: all .2s;
+    }
+    .contact-cv-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .contact-cv-btn:hover { background: rgba(255,255,255,.35); color: #fff; }
+    .contact-cv-btn-solid { background: #fff; color: var(--brand); border-color: #fff; }
+    .contact-cv-btn-solid:hover { background: rgba(255,255,255,.9); color: var(--brand-3); }
+    .contact-wrap .contact-cv-btn { background: var(--surface-2); color: var(--text); border-color: var(--border); }
+    .contact-wrap .contact-cv-btn:hover { background: var(--brand); color: #fff; border-color: var(--brand); }
+    .contact-wrap .contact-cv-btn-solid { background: var(--brand); color: #fff; border-color: var(--brand); }
+    .contact-wrap .contact-cv-btn-solid:hover { background: var(--brand-3); color: #fff; border-color: var(--brand-3); }
+
+    .contact-right { display: flex; flex-direction: column; gap: 12px; }
+    .clink {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 20px; border-radius: 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      flex: 1; transition: all .2s; color: var(--text-2);
+    }
+    .clink:hover { border-color: color-mix(in srgb, var(--brand), transparent 35%); background: var(--surface-2); color: var(--text); }
+    .clink-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .clink-icon svg { width: 18px; height: 18px; fill: var(--brand); }
+    .clink-label { font-size: .82rem; color: var(--text-3); }
+    .clink-value { font-size: .92rem; font-weight: 600; color: var(--text); }
+
+
+    .contact-wrap {
+      text-align: center; padding: 32px 24px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; box-shadow: var(--shadow);
+    }
+    .contact-wrap h2 { font-family: var(--font-head); font-size: clamp(1.25rem, 3vw, 1.55rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 8px; }
+    .contact-wrap p { color: var(--text-2); font-size: .88rem; max-width: 460px; margin: 0 auto 14px; line-height: 1.6; }
+    .contact-icons {
+      display: flex; justify-content: center; gap: 14px; margin-top: 14px; flex-wrap: wrap;
+    }
+    .contact-icons a {
+      display: flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: 12px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      transition: all .2s ease;
+    }
+    .contact-icons a:hover { background: var(--brand); transform: translateY(-2px); }
+    .contact-icons svg { width: 20px; height: 20px; fill: var(--text); transition: fill .2s ease; }
+    .contact-icons a:hover svg { fill: #fff; }
+    .contact-cv-row { display:flex; justify-content:center; gap:10px; margin-top:18px; flex-wrap:wrap; }
+    @media (max-width: 700px) { .contact-wrap { padding: 20px 14px; } }
+
+    /* ── FOOTER ──────────────────────────────── */
+    .footer { padding: 28px 0; text-align: center; border-top: 1px solid var(--border-2); font-size: .82rem; color: var(--text-3); font-family: var(--font-mono); }
+  </style>
 </head>
 <body>
+
+<!-- SVG ICON DEFS (reusable) -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ico-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/>
+    <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
+    <line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/>
+    <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+  </symbol>
+  <symbol id="ico-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </symbol>
+  <symbol id="ico-download" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+  </symbol>
+  <symbol id="ico-map-pin" viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2C8.686 2 6 4.686 6 8c0 4.5 6 12 6 12s6-7.5 6-12c0-3.314-2.686-6-6-6z"/>
+    <circle cx="12" cy="8" r="2"/>
+  </symbol>
+  <symbol id="ico-briefcase" viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/>
+  </symbol>
+  <symbol id="ico-target" viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+  </symbol>
+  <symbol id="ico-globe" viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+  </symbol>
+  <symbol id="ico-flask" viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 3h6v8l3.5 6a2 2 0 0 1-1.73 3H7.23a2 2 0 0 1-1.73-3L9 11V3z"/><line x1="6" y1="6" x2="18" y2="6"/>
+  </symbol>
+  <symbol id="ico-graduation" viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+  </symbol>
+  <!-- project icons -->
+  <symbol id="ico-dna" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7 3C7 3 4 6.5 4 12C4 17.5 7 21 7 21"/>
+    <path d="M17 3C17 3 20 6.5 20 12C20 17.5 17 21 17 21"/>
+    <line x1="6.2" y1="7" x2="17.8" y2="7"/>
+    <line x1="4.5" y1="12" x2="19.5" y2="12"/>
+    <line x1="6.2" y1="17" x2="17.8" y2="17"/>
+  </symbol>
+  <symbol id="ico-virus" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/>
+    <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+    <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+    <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+    <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+  </symbol>
+  <symbol id="ico-cpu" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/>
+    <line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/>
+    <line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/>
+    <line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/>
+    <line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/>
+  </symbol>
+  <symbol id="ico-barchart" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+    <line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>
+  </symbol>
+  <symbol id="ico-layers" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+  </symbol>
+  <symbol id="ico-activity" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+  </symbol>
+  <symbol id="ico-users" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+  </symbol>
+  <symbol id="ico-play" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="5 3 19 12 5 21 5 3"/>
+  </symbol>
+  <symbol id="ico-cloud" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+  </symbol>
+  <symbol id="ico-github" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
 <header class="nav">
-<div class="container nav-inner">
-<nav class="links">
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#experience">Experience</a>
-<a href="#education">Education</a>
-<a href="#contact">Contact</a>
-<button aria-label="Toggle theme" aria-pressed="false" class="btn ghost" id="themeToggle" type="button" title="Toggle theme">🌙</button>
-        <a class="btn ghost" 
-        href="https://1drv.ms/b/c/01f4911257d78e49/IQCU9zzhV4IoRo4UW3aELw-mARKUSnokcDhJnuehjXCF9Vk?e=TGiRTl"
-          target="_blank"
-          rel="noopener noreferrer">
-          Download Data & Analytics CV
-        </a>
-        <a class="btn ghost" href="https://1drv.ms/b/c/01f4911257d78e49/IQBlSitR6G-GSYyWANPP7SHqARguJdH-UP06gMDAf8J43iQ?e=9o5sz3"
-        target="_blank"
-        rel="noopener noreferrer">
-        Download Bioinformatics CV
-        </a>
-</nav>
-</div>
+  <div class="nav-inner">
+    <span class="nav-brand">Salvatore Barbagallo</span>
+    <nav class="nav-center">
+      <a href="#about"        class="nav-pill">About</a>
+      <a href="#projects"     class="nav-pill">Projects</a>
+      <a href="#experience"   class="nav-pill">Experience</a>
+      <a href="#education"    class="nav-pill">Education</a>
+      <a href="#contact"      class="nav-pill">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="dl-btn dl-btn-fill" href="https://1drv.ms/b/c/01f4911257d78e49/IQBlSitR6G-GSYyWANPP7SHqARguJdH-UP06gMDAf8J43iQ?e=9o5sz3" target="_blank" rel="noopener">
+        <svg><use href="#ico-download"/></svg><span class="dl-label"> Bioinformatics CV</span>
+      </a>
+      <a class="dl-btn" href="https://1drv.ms/b/c/01f4911257d78e49/IQCU9zzhV4IoRo4UW3aELw-mARKUSnokcDhJnuehjXCF9Vk?e=TGiRTl" target="_blank" rel="noopener">
+        <svg><use href="#ico-download"/></svg><span class="dl-label"> Data & Analytics CV</span>
+      </a>
+      <button class="theme-pill" id="themeBtn" aria-label="Toggle theme">
+        <svg id="themeIcon"><use href="#ico-moon"/></svg>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
 </header>
-<main class="container" id="top">
-<!-- SEO Intro block -->
-<section class="seo-intro" style="margin-top:20px; text-align:center; padding:40px 20px; width:100%;">
-  <h1 class="headline">Salvatore Barbagallo</h1>
-  <p class="muted" style="font-size:18px; max-width:900px; margin:0 auto;">
-    Bioinformatics Analyst | Genomics, Data, and Automation
-  </p>
-  <p class="muted" style="font-size:17px; max-width:900px; margin:12px auto 0;">
-    I combine hands-on clinical and genomics lab experience with data analysis and workflow automation to make biological and operational data usable for research and decision-making.
-  </p>
-</section>
-<section class="section style4" id="about">
-  <h2 class="headline">About</h2>
-  <div class="card card-pad">
-    <p class="sub">
-      I have 7+ years of experience across clinical, stem-cell, and genomics laboratories, with hands-on work in regulated environments, flow cytometry, sample handling, and sequencing operations.
-    </p>
-    <p class="sub">
-      I now apply that experience to bioinformatics and data work, using Python, R, SQL, and Bash to analyse data, automate manual processes, and improve reliability in QC, reporting, and data handling.
-    <div class="tags" style="margin:14px 0 18px">
-      <span class="tag">Python</span>
-      <span class="tag">R</span>
-      <span class="tag">SQL</span>
-      <span class="tag">Bash</span>
-      <span class="tag">Bioinformatics</span>
-      <span class="tag">NGS Workflows</span>
-      <span class="tag">Workflow Automation</span>
-      <span class="tag">QC &amp; Reporting</span>
-      <span class="tag">Flow Cytometry</span>
-      <span class="tag">LIMS</span>
-    </div>
-    <div class="facts">
-      <div class="fact">
-        <span class="label">Based in</span>
-        <span class="value"><strong>London, United Kingdom</strong></span>
-      </div>
-      <div class="fact">
-        <span class="label">Languages</span>
-        <span class="value"><strong>Italian · English · Portuguese · Spanish</strong></span>
-      </div>
-      <div class="fact">
-        <span class="label">Work status</span>
-        <span class="value"><strong>Right to work in the UK and EU</strong></span>
-      </div>
-      <div class="fact">
-        <span class="label">Target roles</span>
-        <span class="value"><strong>Bioinformatics · Data · Workflow Engineering</strong></span>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile menu">
+  <a href="#about"      class="mobile-nav-link">About</a>
+  <a href="#projects"   class="mobile-nav-link">Projects</a>
+  <a href="#experience" class="mobile-nav-link">Experience</a>
+  <a href="#education"  class="mobile-nav-link">Education</a>
+  <a href="#contact"    class="mobile-nav-link">Contact</a>
+  <div class="mobile-nav-divider"></div>
+  <div class="mobile-nav-cv">
+    <a class="dl-btn dl-btn-fill" href="https://1drv.ms/b/c/01f4911257d78e49/IQBlSitR6G-GSYyWANPP7SHqARguJdH-UP06gMDAf8J43iQ?e=9o5sz3" target="_blank" rel="noopener">
+      <svg><use href="#ico-download"/></svg><span class="dl-label">Bioinformatics CV</span>
+    </a>
+    <a class="dl-btn" href="https://1drv.ms/b/c/01f4911257d78e49/IQCU9zzhV4IoRo4UW3aELw-mARKUSnokcDhJnuehjXCF9Vk?e=TGiRTl" target="_blank" rel="noopener">
+      <svg><use href="#ico-download"/></svg><span class="dl-label">Data & Analytics CV</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <!-- BENTO HERO -->
+  <div class="bento-hero" id="top">
+
+    <div class="bento bento-main">
+      <div class="eyebrow">Bioinformatics · Data Science · Pipelines · Automation</div>
+      <h1>Salvatore Barbagallo</h1>
+      <p class="sub">Combining 7+ years in clinical genomics with computational engineering, building reproducible NGS pipelines, ML models, and data workflows that transform biological data into decisions.</p>
+      <div class="hero-avail">
+        <div class="hero-avail-left">
+          <div class="status-dot"></div>
+          <span>Open to opportunities</span>
+          <span class="hero-sep">·</span>
+          <span>London · Remote</span>
+        </div>
+        <span class="hero-work-badge">Right to work · UK &amp; EU</span>
       </div>
     </div>
+
+    <div class="bento bento-status">
+      <div class="bento-label">// impact</div>
+      <div class="status-grid">
+        <div class="sitem"><div class="sitem-n">7+</div><div class="sitem-l">Years in clinical genomics</div></div>
+        <div class="sitem"><div class="sitem-n">500+</div><div class="sitem-l">NGS reports/week</div></div>
+        <div class="sitem"><div class="sitem-n">11</div><div class="sitem-l">Clinical trials</div></div>
+        <div class="sitem"><div class="sitem-n">30%</div><div class="sitem-l">Error reduction via Automation</div></div>
+      </div>
+    </div>
+
+    <div class="bento bento-tags">
+      <div class="label">// core skills</div>
+      <div class="tag-cloud">
+        <span>Python</span><span>R</span><span>SQL</span><span>Bash</span>
+        <span>Nextflow</span><span>Docker</span><span>RNA-seq</span>
+        <span>WGS</span><span>DESeq2</span><span>SnpEff</span>
+        <span>scikit-learn</span><span>PyTorch</span><span>Tableau</span>
+        <span>BigQuery</span><span>Galaxy</span>
+      </div>
+    </div>
+
+    <div class="bento bento-location">
+      <div class="bento-label">// languages</div>
+      <div class="lang-list">
+        <div class="lang-item">
+          <span class="lang-name">Italian</span>
+          <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <span class="lang-level">Fluent</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Portuguese</span>
+          <span class="lang-level">Fluent</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Spanish</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento bento-edu">
+      <div class="bento-label" style="margin-bottom:14px;">// education</div>
+      <div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px;">MSc, Bioinformatics <span style="color:var(--brand);font-size:.78rem;font-weight:500;">(ongoing)</span></div>
+      <div style="font-size:.82rem;color:var(--text-3);margin-bottom:12px;">Atlantic Technological University</div>
+      <div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px;">MSc, Cell &amp; Gene Therapy</div>
+      <div style="font-size:.82rem;color:var(--text-3);margin-bottom:12px;">University College London</div>
+      <div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px;">BSc, Biomedical Science</div>
+      <div style="font-size:.82rem;color:var(--text-3);">University of Catania</div>
+    </div>
+
   </div>
-</section>
-<section class="section style4" id="projects">
-<h2>Projects</h2>
-<p class="muted">A selection of work spanning genomics, analytics, and scripting. Full list on <a href="https://github.com/barbavegeta" rel="noreferrer noopener" target="_blank">GitHub</a>.
-      </p>
-<details class="project-group" open="">
-<summary>Featured Projects</summary>
-<div class="grid group-grid" id="project-list">
-<article class="span-12 project" data-repo="barbavegeta/qa-bot-rag" data-tags="llm rag langchain chroma fastapi gradio watsonx embeddings vector-database ai document-qa">
-<h3>
-<a href="https://github.com/barbavegeta/qa-bot-rag" rel="noreferrer noopener" target="_blank">
-              QA Bot for Documents using RAG
-            </a>
-</h3>
-<p>
-            Built a Retrieval-Augmented Generation system for PDF question answering using LangChain, Chroma, IBM watsonx, FastAPI, and Gradio.
-          </p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Build a document question-answering system that retrieves relevant PDF content before generating answers, rather than relying on unguided prompting.</li>
-<li><strong>Approach</strong>: Implemented a full RAG pipeline covering document loading, text chunking, embeddings, vector storage, retrieval, and answer generation with an LLM.</li>
-<li><strong>Engineering</strong>: Structured the project into pipeline, API, and UI layers, with FastAPI for serving and Gradio for interaction.</li>
-<li><strong>Outcome</strong>: Produced a modular, deployment-ready document QA system that demonstrates practical LLM application design.</li>
-</ul>
-</details>
-<div class="proj-tags">
-<span class="chip">LLM</span>
-<span class="chip">RAG</span>
-<span class="chip">LangChain</span>
-<span class="chip">Chroma</span>
-<span class="chip">FastAPI</span>
-<span class="chip">Gradio</span>
-<span class="chip">watsonx</span>
-</div>
-</article>
-<article class="span-12 project" data-repo="barbavegeta/deep-learning-experiments" data-tags="deep-learning pytorch keras cnn vit transfer-learning computer-vision neural-networks">
-<h3>
-<a href="https://github.com/barbavegeta/deep-learning-experiments" rel="noreferrer noopener" target="_blank">
-              Deep Learning Experiments (Keras vs PyTorch, CNN, ViT)
-            </a>
-</h3>
-<p>
-            Comparative deep learning experiments using Keras and PyTorch across CNNs, Vision Transformers, and transfer learning for image classification tasks.
-          </p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Compare deep learning approaches and frameworks across multiple computer vision tasks.</li>
-<li><strong>Approach</strong>: Implemented CNNs, transfer learning models, and Vision Transformers in both Keras and PyTorch, evaluating performance and training behaviour.</li>
-<li><strong>Experiments include</strong>:
-                <ul>
-<li>Data loading strategies (memory vs generator-based)</li>
-<li>CNN image classification (FashionMNIST, waste classification, anime images)</li>
-<li>Transfer learning and fine-tuning</li>
-<li>Vision Transformers (ViT)</li>
-<li>Keras vs PyTorch comparative analysis</li>
-</ul>
-</li>
-<li><strong>Outcome</strong>: Demonstrated differences in performance, flexibility, and workflow between frameworks and architectures.</li>
-</ul>
-</details>
-<div class="proj-tags">
-<span class="chip">Deep Learning</span>
-<span class="chip">PyTorch</span>
-<span class="chip">Keras</span>
-<span class="chip">CNN</span>
-<span class="chip">Vision Transformer</span>
-<span class="chip">Transfer Learning</span>
-<span class="chip">Computer Vision</span>
-</div>
-</article>
-<article class="span-12 project" data-repo="barbavegeta/telco-customer-segmentation" data-tags="machine-learning unsupervised-learning clustering kmeans pandas scikit-learn data-analysis segmentation">
-<h3>
-<a href="https://github.com/barbavegeta/telco-customer-segmentation" rel="noreferrer noopener" target="_blank">
-              Customer Segmentation (Unsupervised Learning)
-            </a>
-</h3>
-<p>
-            Segmented 7,043 telecom customers using K-Means, hierarchical clustering, and DBSCAN, identifying a high-risk segment with ~42% churn compared to ~14% in the most stable group.
-          </p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Identify meaningful customer segments to enable targeted retention strategies instead of treating churn as a uniform problem.</li>
-<li><strong>Approach</strong>: Applied clustering methods (K-Means, hierarchical, DBSCAN) on standardised features (tenure, charges, senior status), selecting the final model using silhouette score.</li>
-<li><strong>Key Insight</strong>: A high-risk segment (~42% churn) was identified, clearly distinct from a stable premium group (~14% churn), demonstrating that churn risk is not homogeneous.</li>
-<li><strong>Outcome</strong>: Produced interpretable segments that can guide retention campaigns, onboarding improvements, and pricing strategies.</li>
-</ul>
-<figure style="margin-top:12px; text-align:center;">
-<a href="https://github.com/barbavegeta/telco-customer-segmentation" rel="noreferrer noopener" target="_blank">
-<img alt="Customer segmentation PCA visualisation" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/telco-customer-segmentation/refs/heads/main/images/telco_clusters_pca.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption class="muted" style="font-size:14px; margin-top:6px;">
-                PCA projection of customer clusters (K-Means, k=3)
-              </figcaption>
-</figure>
-</details>
-<div class="proj-tags">
-<span class="chip">Machine Learning</span>
-<span class="chip">Unsupervised Learning</span>
-<span class="chip">Clustering</span>
-<span class="chip">K-Means</span>
-<span class="chip">Scikit-learn</span>
-<span class="chip">Pandas</span>
-<span class="chip">Customer Segmentation</span>
-</div>
-</article>
-<article class="span-12 project" data-repo="barbavegeta/mtb-wgs-galaxy-workflow" data-tags="bioinformatics genomics tuberculosis wgs galaxy linux fasterq-dump falco fastp cutadapt bwa-mem2 picard samtools mosdepth bcftools snpeff snpsift multiqc igv resistance">
-<h3>
-<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow" rel="noreferrer noopener" target="_blank">
-              M. tuberculosis WGS Variant Analysis Workflow (Galaxy)
-            </a>
-</h3>
-<p>Built an end-to-end WGS workflow for <em>Mycobacterium tuberculosis</em> drug resistance analysis, standardising variant detection and interpretation across QC, alignment, annotation, and read-level validation.</p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Problem</strong>: Resistance interpretation from WGS data requires a long multi-step workflow with multiple failure points and high risk of inconsistent analysis.</li>
-<li><strong>Action</strong>: Built and executed a Galaxy-based workflow covering QC, trimming, alignment, BAM processing, coverage analysis, variant calling, annotation, and IGV-based validation using tools including <code>fastp</code>, <code>Cutadapt</code>, <code>BWA-MEM2</code>, <code>SAMtools</code>, <code>mosdepth</code>, <code>bcftools</code>, <code>SnpEff</code>, <code>SnpSift</code>, <code>MultiQC</code>, and <code>IGV</code>.</li>
-<li><strong>Impact</strong>: Produced a structured and reproducible resistance analysis workflow that supports clearer interpretation of clinically relevant loci in infectious disease genomics.</li>
-</ul>
-<figure style="margin-top:12px; text-align:center;">
-<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/workflow/mtb-workflow.png" rel="noreferrer noopener" target="_blank">
-<img alt="Galaxy workflow overview for Mycobacterium tuberculosis WGS variant analysis" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/workflow/mtb-workflow.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption class="muted" style="font-size:14px; margin-top:6px;">
-                Framed Galaxy workflow for <em>M. tuberculosis</em> WGS variant analysis
-              </figcaption>
-</figure>
-<figure style="margin-top:12px; text-align:center;">
-<a href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow/blob/main/results/figure1_katg_q295_igv.png" rel="noreferrer noopener" target="_blank">
-<img alt="IGV validation of atypical katG codon 295 variation in Mycobacterium tuberculosis" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/results/figure1_katg_q295_igv.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-</a>
-<figcaption class="muted" style="font-size:14px; margin-top:6px;">
-                IGV validation of atypical <em>katG</em> codon 295 variation
-              </figcaption>
-</figure>
-</details>
-<div class="proj-tags">
-<span class="chip">Bioinformatics</span>
-<span class="chip">WGS</span>
-<span class="chip">Galaxy</span>
-<span class="chip">fasterq-dump</span>
-<span class="chip">Falco</span>
-<span class="chip">fastp</span>
-<span class="chip">Cutadapt</span>
-<span class="chip">BWA-MEM2</span>
-<span class="chip">Picard</span>
-<span class="chip">SAMtools</span>
-<span class="chip">mosdepth</span>
-<span class="chip">bcftools</span>
-<span class="chip">SnpEff</span>
-<span class="chip">SnpSift</span>
-<span class="chip">MultiQC</span>
-<span class="chip">IGV</span>
-</div>
-</article>
-<article class="span-12 project" data-repo="barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" data-tags="nextflow docker rnaseq bioinformatics fastqc star featurecounts deseq2 cutadapt dsl2 multiqc workflow reproducibility">
-  <h3>
-    <a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
-      RNA-seq Pipeline (Nextflow + Docker)
-    </a>
-  </h3>
-  <p>Eliminated inconsistent and error-prone RNA-seq analyses by building a containerised workflow that standardises processing from raw FASTQ to differential expression outputs.</p>
-  <details>
-    <summary>Details</summary>
-    <ul>
-      <li><strong>Problem</strong>: RNA-seq analyses are often manually assembled, environment-dependent, and difficult to reproduce across machines.</li>
-      <li><strong>Action</strong>: Built a containerised Nextflow pipeline integrating FastQC, Cutadapt, STAR, featureCounts, MultiQC, and DESeq2 into a one-command workflow.</li>
-      <li><strong>Impact</strong>: Reduced setup friction, improved reproducibility, and produced standardised outputs suitable for scalable downstream expression analysis.</li>
-    </ul>
-    <figure style="margin-top:12px; text-align:center;">
-      <a href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" rel="noreferrer noopener" target="_blank">
-        <img alt="Nextflow RNA-seq pipeline: successful Docker test run (Docker profile)" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/refs/heads/main/img/test-run-docker.png" style="max-width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-      </a>
-      <figcaption class="muted" style="font-size:14px; margin-top:6px;">
-        Proof run: Nextflow test execution (Docker profile)
-      </figcaption>
-    </figure>
-  </details>
-  <div class="proj-tags">
-    <span class="chip">Bioinformatics</span>
-    <span class="chip">Workflow Engineering</span>
-    <span class="chip">Nextflow</span>
-    <span class="chip">Docker</span>
-    <span class="chip">RNA-seq</span>
-    <span class="chip">FastQC</span>
-    <span class="chip">MultiQC</span>
-    <span class="chip">STAR</span>
-    <span class="chip">featureCounts</span>
-    <span class="chip">DESeq2</span>
-    <span class="chip">Cutadapt</span>
-    <span class="chip">DSL2</span>
-  </div>
-</article>
-</div>
-</details>
-<details class="project-group">
-<summary>Additional Projects</summary>
-<div class="grid group-grid">
-<article class="span-6 project" data-repo="barbavegeta/Google_Data_Analytics-Bellabeat_Project" data-tags="r sqlite dplyr tableau wearable health eda analytics behavioural-data">
-  <h3><a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" rel="noreferrer noopener" target="_blank">Bellabeat - Wearable Health Data Analysis</a></h3>
-  <p>Transformed fragmented wearable data into a structured analytics dataset to uncover behavioural patterns across activity, sleep, heart rate, and weight for 35 users.</p>
-  <details>
-    <summary>Details</summary>
-    <ul>
-      <li><strong>Problem</strong>: Raw Fitbit data was split across multiple files and not directly usable for behavioural analysis or product-facing insight generation.</li>
-      <li><strong>Action</strong>: Cleaned, merged, and summarised wearable datasets using R, dplyr, and SQLite, then created a Tableau-ready user summary with 15 behavioural and wellness variables.</li>
-      <li><strong>Impact</strong>: Enabled clearer identification of activity, sleep, and health trends to support data-driven product and marketing recommendations.</li>
-    </ul>
-    <figure style="margin-top:12px; text-align:center;">
-      <a href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" rel="noopener noreferrer" target="_blank">
-        <img alt="Bellabeat Tableau Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/bellabeat.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-      </a>
-      <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-        <a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" rel="noopener noreferrer" target="_blank">View interactive Tableau dashboard ↗</a>
-      </figcaption>
-    </figure>
-  </details>
-  <div class="proj-tags">
-    <span class="chip">Data Analytics</span>
-    <span class="chip">Behavioural Analytics</span>
-    <span class="chip">R</span>
-    <span class="chip">SQL</span>
-    <span class="chip">dplyr</span>
-    <span class="chip">Tableau</span>
-    <span class="chip">Wearable Data</span>
-  </div>
-</article>
-<article class="span-6 project" data-repo="barbavegeta/Google_Business_Intelligence-Google_Fiber" data-tags="tableau google business intelligence dashboard fiber case study sql bigquery telecom kpi analytics">
-  <h3>
-    <a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" rel="noreferrer noopener" target="_blank">
-      Google Fiber - Contact Centre Analytics &amp; BI Dashboard
-    </a>
-  </h3>
-  <p>
-    Identified repeat-contact patterns across 85,179 customer interactions by consolidating fragmented regional datasets into a unified analytics view, enabling clearer visibility into service inefficiencies.
-  </p>
-  <details>
-    <summary>Details</summary>
-    <ul>
-      <li><strong>Problem</strong>: Customer contact data was split across regional datasets, making it difficult to understand repeat-contact behaviour and pinpoint service pain points.</li>
-      <li><strong>Action</strong>: Consolidated 3 datasets into a unified analysis table covering 1,350 records and 85,179 contact events across 5 contact types, then built a Tableau dashboard to surface repeat-contact patterns and operational friction.</li>
-      <li><strong>Impact</strong>: Turned fragmented customer-support data into a decision-ready BI view that can support targeted service improvements and reduction of avoidable support load.</li>
-    </ul>
-    <figure style="margin-top:14px; text-align:center;">
-      <a href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" rel="noopener noreferrer" target="_blank">
-        <img alt="Google Fiber Tableau Dashboard" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/Google_Business_Intelligence-Google_Fiber/refs/heads/main/img/fiber.png" style="max-width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.3);"/>
-      </a>
-      <figcaption style="font-size:14px; color:#aaa; margin-top:6px;">
-        <a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" rel="noopener noreferrer" target="_blank">
-          View interactive Tableau dashboard ↗
+
+  <!-- ABOUT -->
+  <section class="sec" id="about">
+    <div class="sec-head">
+      <span class="sec-dot" aria-hidden="true"></span>
+      <h2 class="sec-title">About</h2>
+    </div>
+    <div class="about-layout">
+      <div class="card">
+        <p class="bio-p">I combine clinical and genomics laboratory experience with data analysis and process automation to build reliable pipelines, reporting tools, and QC workflows that turn complex biological data into usable results.</p>
+        <p class="bio-p">My background spans regulated clinical environments, from stem cell transplantation at UCL Hospitals to high-throughput PGT genomics at CooperGenomics, where I built Python-driven tools, automated QC pipelines, and worked with NGS from library prep through to clinical reporting.</p>
+        <p class="bio-p" style="margin-bottom:0;">Currently pursuing an MSc in Bioinformatics at Atlantic Technological University, strengthening computational analysis and reproducible pipeline development and automation.</p>
+
+        <div class="skill-area">
+          <div class="skill-area-title">Pipelines &amp; Infrastructure</div>
+          <div class="skill-pills"><span class="sp">Nextflow</span><span class="sp">Docker</span><span class="sp">Galaxy</span><span class="sp">Git</span><span class="sp">Workflow automation</span></div>
+        </div>
+        <div class="skill-area">
+          <div class="skill-area-title">NGS / Omics</div>
+          <div class="skill-pills"><span class="sp">RNA-seq</span><span class="sp">WGS</span><span class="sp">BWA-MEM2</span><span class="sp">STAR</span><span class="sp">bcftools</span><span class="sp">SnpEff</span><span class="sp">DESeq2</span><span class="sp">IGV</span></div>
+        </div>
+        <div class="skill-area">
+          <div class="skill-area-title">ML / Data</div>
+          <div class="skill-pills"><span class="sp">scikit-learn</span><span class="sp">XGBoost</span><span class="sp">PyTorch</span><span class="sp">Keras</span><span class="sp">Tableau</span><span class="sp">BigQuery</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  
+  <section class="sec" id="projects">
+    <div class="sec-head">
+      <span class="sec-dot" aria-hidden="true"></span>
+      <h2 class="sec-title">Projects</h2>
+      <span class="sec-sub"><a href="https://github.com/barbavegeta" target="_blank" rel="noopener">View all on GitHub ↗</a></span>
+    </div>
+
+    <details class="project-group" open>
+      <summary>Featured Projects</summary>
+      <div class="proj-bento group-grid">
+
+        <div class="pcard pcard-span">
+          <div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-cpu"/></svg></div><div class="pcard-title">QA Bot for Documents using RAG</div></div>
+          <div class="pcard-desc">Built a Retrieval-Augmented Generation system for PDF question answering using LangChain, Chroma, IBM watsonx, FastAPI, and Gradio.</div>
+          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Build a document question-answering system that retrieves relevant PDF content before generating answers.</li><li><strong>Approach:</strong> Implemented a full RAG pipeline covering document loading, chunking, embeddings, vector storage, retrieval, and answer generation.</li><li><strong>Outcome:</strong> Produced a modular, deployment-ready document QA system that demonstrates practical LLM application design.</li></ul></details>
+          <div class="pcard-tags"><span class="pt">LLM</span><span class="pt">RAG</span><span class="pt">LangChain</span><span class="pt">Chroma</span><span class="pt">FastAPI</span><span class="pt">Gradio</span><span class="pt">watsonx</span></div>
+          <a class="pcard-gh-btn" href="https://github.com/barbavegeta/qa-bot-rag" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a>
+        </div>
+
+        <div class="pcard pcard-span">
+          <div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-layers"/></svg></div><div class="pcard-title">Deep Learning Experiments (Keras vs PyTorch, CNN, ViT)</div></div>
+          <div class="pcard-desc">Comparative deep learning experiments using Keras and PyTorch across CNNs, Vision Transformers, and transfer learning for image classification tasks.</div>
+          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Compare deep learning approaches and frameworks across multiple computer vision tasks.</li><li><strong>Approach:</strong> Implemented CNNs, transfer learning models, and Vision Transformers in both Keras and PyTorch, evaluating performance and training behaviour.</li><li><strong>Outcome:</strong> Demonstrated differences in performance, flexibility, and workflow between frameworks and architectures.</li></ul></details>
+          <div class="pcard-tags"><span class="pt">Deep Learning</span><span class="pt">PyTorch</span><span class="pt">Keras</span><span class="pt">CNN</span><span class="pt">Vision Transformer</span><span class="pt">Transfer Learning</span><span class="pt">Computer Vision</span></div>
+          <a class="pcard-gh-btn" href="https://github.com/barbavegeta/deep-learning-experiments" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a>
+        </div>
+
+        <div class="pcard pcard-span">
+          <div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-barchart"/></svg></div><div class="pcard-title">Customer Segmentation (Unsupervised Learning)</div></div>
+          <div class="pcard-desc">Segmented 7,043 telecom customers using K-Means, hierarchical clustering, and DBSCAN, identifying a high-risk segment with ~42% churn compared to ~14% in the most stable group.</div>
+          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Identify meaningful customer segments to enable targeted retention strategies instead of treating churn as a uniform problem.</li><li><strong>Approach:</strong> Applied clustering methods on standardised features and selected the final model using silhouette score.</li><li><strong>Outcome:</strong> Produced interpretable segments that can guide retention campaigns, onboarding improvements, and pricing strategies.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/telco-customer-segmentation/refs/heads/main/images/telco_clusters_pca.png" alt="PCA clusters"/><div class="pcard-caption">PCA projection of customer clusters (K-Means, k=3)</div></details>
+          <div class="pcard-tags"><span class="pt">Machine Learning</span><span class="pt">Unsupervised Learning</span><span class="pt">Clustering</span><span class="pt">K-Means</span><span class="pt">Scikit-learn</span><span class="pt">Pandas</span><span class="pt">Customer Segmentation</span></div>
+          <a class="pcard-gh-btn" href="https://github.com/barbavegeta/telco-customer-segmentation" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a>
+        </div>
+
+        <div class="pcard pcard-span">
+          <div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-virus"/></svg></div><div class="pcard-title"><em>M. tuberculosis</em> WGS Variant Analysis Workflow (Galaxy)</div></div>
+          <div class="pcard-desc">Built an end-to-end WGS workflow for <em>Mycobacterium tuberculosis</em> drug resistance analysis, standardising variant detection and interpretation across QC, alignment, annotation, and read-level validation.</div>
+          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Resistance interpretation from WGS data requires a long multi-step workflow with multiple failure points and high risk of inconsistent analysis.</li><li><strong>Action:</strong> Built and executed a Galaxy-based workflow covering QC, trimming, alignment, coverage analysis, variant calling, annotation, and IGV-based validation.</li><li><strong>Impact:</strong> Produced a structured and reproducible resistance analysis workflow supporting clearer interpretation of clinically relevant loci.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/workflow/mtb-workflow.png" alt="Galaxy workflow"/><div class="pcard-caption">Framed Galaxy workflow for <em>M. tuberculosis</em> WGS variant analysis</div></details>
+          <div class="pcard-tags"><span class="pt">Bioinformatics</span><span class="pt">WGS</span><span class="pt">Galaxy</span><span class="pt">BWA-MEM2</span><span class="pt">bcftools</span><span class="pt">SnpEff</span><span class="pt">IGV</span></div>
+          <a class="pcard-gh-btn" href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a>
+        </div>
+
+        <div class="pcard pcard-span">
+          <div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-dna"/></svg></div><div class="pcard-title">RNA-seq Pipeline (Nextflow + Docker)</div></div>
+          <div class="pcard-desc">Eliminated inconsistent and error-prone RNA-seq analyses by building a containerised workflow that standardises processing from raw FASTQ to differential expression outputs.</div>
+          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> RNA-seq analyses are often manually assembled, environment-dependent, and difficult to reproduce across machines.</li><li><strong>Action:</strong> Built a containerised Nextflow pipeline integrating FastQC, Cutadapt, STAR, featureCounts, MultiQC, and DESeq2 into a one-command workflow.</li><li><strong>Impact:</strong> Reduced setup friction, improved reproducibility, and produced standardised outputs suitable for scalable downstream expression analysis.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/refs/heads/main/img/test-run-docker.png" alt="Nextflow run"/><div class="pcard-caption">Proof run: Nextflow test execution (Docker profile)</div></details>
+          <div class="pcard-tags"><span class="pt">Bioinformatics</span><span class="pt">Pipelines & Automation</span><span class="pt">Nextflow</span><span class="pt">Docker</span><span class="pt">RNA-seq</span><span class="pt">STAR</span><span class="pt">DESeq2</span></div>
+          <a class="pcard-gh-btn" href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a>
+        </div>
+
+      </div>
+    </details>
+
+    <details class="project-group" open>
+      <summary>Additional Projects</summary>
+      <div class="proj-bento group-grid">
+        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-activity"/></svg></div><div class="pcard-title">Bellabeat - Wearable Health Data Analysis</div></div><div class="pcard-desc">Transformed fragmented wearable data into a structured analytics dataset to uncover behavioural patterns across activity, sleep, heart rate, and weight for 35 users.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Raw Fitbit data was split across multiple files and not directly usable for behavioural analysis or product-facing insight generation.</li><li><strong>Action:</strong> Cleaned, merged, and summarised wearable datasets using R, dplyr, and SQLite, then created a Tableau-ready user summary with 15 behavioural and wellness variables.</li><li><strong>Impact:</strong> Enabled clearer identification of activity, sleep, and health trends to support data-driven product and marketing recommendations.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/bellabeat.png" alt="Bellabeat Tableau Dashboard"/><div class="pcard-caption"><a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a></div></details><div class="pcard-tags"><span class="pt">Data Analytics</span><span class="pt">R</span><span class="pt">SQL</span><span class="pt">dplyr</span><span class="pt">Tableau</span><span class="pt">Wearable Data</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
+        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-barchart"/></svg></div><div class="pcard-title">Google Fiber - Contact Centre Analytics &amp; BI Dashboard</div></div><div class="pcard-desc">Identified repeat-contact patterns across 85,179 customer interactions by consolidating fragmented regional datasets into a unified analytics view, enabling clearer visibility into service inefficiencies.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Customer contact data was split across regional datasets, making it difficult to understand repeat-contact behaviour and pinpoint service pain points.</li><li><strong>Action:</strong> Consolidated 3 datasets into a unified analysis table covering 1,350 records and 85,179 contact events across 5 contact types, then built a Tableau dashboard to surface repeat-contact patterns and operational friction.</li><li><strong>Impact:</strong> Turned fragmented customer-support data into a decision-ready BI view that can support targeted service improvements and reduction of avoidable support load.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/Google_Business_Intelligence-Google_Fiber/refs/heads/main/img/fiber.png" alt="Google Fiber Tableau Dashboard"/><div class="pcard-caption"><a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a></div></details><div class="pcard-tags"><span class="pt">Business Intelligence</span><span class="pt">Customer Analytics</span><span class="pt">Tableau</span><span class="pt">SQL</span><span class="pt">KPI Design</span><span class="pt">Telecom Analytics</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
+        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-users"/></svg></div><div class="pcard-title">Salifort Motors - Employee Attrition Prediction</div></div><div class="pcard-desc">Built predictive models on 14,999 employee records to identify the drivers of 23.8% turnover and translate model outputs into retention-focused recommendations.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> The business faced substantial employee turnover, but the main drivers of attrition were not clearly understood.</li><li><strong>Action:</strong> Performed exploratory analysis, engineered features, and trained classification models using Python, scikit-learn, and XGBoost to analyse attrition patterns across 10 departments.</li><li><strong>Impact:</strong> Produced evidence-based recommendations to support workforce retention strategy and prioritise the factors most associated with employee loss.</li></ul></details><div class="pcard-tags"><span class="pt">Data Science</span><span class="pt">Machine Learning</span><span class="pt">Python</span><span class="pt">scikit-learn</span><span class="pt">XGBoost</span><span class="pt">HR Analytics</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
+        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-play"/></svg></div><div class="pcard-title">TikTok - Social Media Engagement Analysis</div></div><div class="pcard-desc">Analysed 19,382 posts to uncover highly skewed engagement patterns and identify content features associated with stronger performance.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Engagement was unevenly distributed, making it difficult to understand which content characteristics were linked to stronger performance.</li><li><strong>Action:</strong> Used Python, pandas, and visual analytics to explore engagement metrics, inspect distribution patterns, and examine relationships between content features and post performance.</li><li><strong>Impact:</strong> Generated evidence-based recommendations to support content optimisation and stronger audience engagement strategy.</li></ul></details><div class="pcard-tags"><span class="pt">Data Analytics</span><span class="pt">Exploratory Data Analysis</span><span class="pt">Python</span><span class="pt">Pandas</span><span class="pt">Matplotlib</span><span class="pt">Plotly</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
+        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-cloud"/></svg></div><div class="pcard-title">AWS Managed Services - Cloud Migration Architecture</div></div><div class="pcard-desc">High-level AWS architecture design for migrating on-premises workloads to a cloud-native, fully managed solution, ensuring scalability, fault-tolerance, and operational efficiency.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Migrate two on-prem workloads, a three-tier web application and a Hadoop-based analytics environment, into a modern AWS environment with managed services.</li><li><strong>Approach:</strong> Designed an end-to-end cloud solution using AWS managed services including CloudFront, S3, ECS on Fargate, ALB, Aurora MySQL, ElastiCache, SQS, EMR, Glue, Athena, Redshift, and QuickSight.</li><li><strong>Outcome:</strong> Produced a decoupled, fault-tolerant, multi-AZ architecture that modernises both workloads while reducing operational overhead through managed services.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/AWS_Solution_Architect/refs/heads/main/aws_architecture_diagram-Solution_Architect.png" alt="AWS Migration Architecture Diagram"/><div class="pcard-caption">AWS Architecture Diagram - Migration Solution</div></details><div class="pcard-tags"><span class="pt">Cloud Architecture</span><span class="pt">AWS</span><span class="pt">Data Infrastructure</span><span class="pt">ECS Fargate</span><span class="pt">Aurora MySQL</span><span class="pt">Redshift</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/AWS_Solution_Architect" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
+      </div>
+    </details>
+  </section>
+
+
+  <!-- EXPERIENCE -->
+  <section class="sec" id="experience">
+    <div class="sec-head">
+      <span class="sec-dot" aria-hidden="true"></span>
+      <h2 class="sec-title">Experience</h2>
+    </div>
+    <div class="exp-scroll">
+
+      <div class="exp-card">
+        <div class="exp-left">
+          <div class="exp-company">UCL Hospitals</div>
+          <div class="exp-date">Sep 2021 – Dec 2025</div>
+          <div class="exp-badge">London, UK</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-role-title">Specialist Biomedical Scientist · Stem Cell Laboratory</div>
+          <ul class="exp-items">
+            <li>Delivered processing and cryopreservation of PBSCs, bone marrow, DLI, and CD34+ enriched products in a regulated clinical environment.</li>
+            <li>Generated flow cytometry data on CD3+ and CD34+ populations for time-sensitive clinical decision-making.</li>
+            <li>Supported 11 active clinical and ATMP trials, including CAR-T therapies, with responsibility for traceability, documentation quality, and audit-ready data handling in a high-stakes regulated clinical setting.</li>
+            <li>Designed Python/Excel tracking tools replacing manual reconciliation, reduced inventory errors by ~30%, saved ~10 hours/week.</li>
+            <li>Led digitisation of SOPs and QA documentation, standardising data handling across workflows.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-left">
+          <div class="exp-company">CooperGenomics</div>
+          <div class="exp-date">Jul 2019 – Sep 2021</div>
+          <div class="exp-badge">London, UK</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-role-title">Laboratory Scientist · Clinical Genomics</div>
+          <ul class="exp-items">
+            <li>Processed embryo samples for PGT-A, PGT-SR, and PGT-M testing within a high-throughput clinical genomics pipeline.</li>
+            <li>Delivered NGS library preparation and QC across 96–192 samples/run; produced 500+ clinical reports per week.</li>
+            <li>Programmed and validated Mosquito HV and Dragonfly liquid handlers, improving workflow scalability and reproducibility.</li>
+            <li>Contributed to SOP writing and review, strengthening ISO-compliant laboratory practice.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-left">
+          <div class="exp-company">Leicester Royal Infirmary</div>
+          <div class="exp-date">Dec 2018 – Jun 2019</div>
+          <div class="exp-badge">Leicester, UK</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-role-title">Biomedical Laboratory Assistant · Cytology</div>
+          <ul class="exp-items">
+            <li>Managed sample reception and prepared specimens for Papanicolaou staining.</li>
+            <li>Maintained reagents and ensured sample integrity end-to-end.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="sec" id="education">
+    <div class="sec-head">
+      <span class="sec-dot" aria-hidden="true"></span>
+      <h2 class="sec-title">Education</h2>
+    </div>
+    <div class="edu-strip">
+      <div class="edu-tile">
+        <div class="edu-tag">2014 – 2017</div>
+        <div class="edu-deg">BSc, Biomedical Science</div>
+        <div class="edu-school">University of Catania</div>
+        <div class="edu-year">Catania, Italy</div>
+        <div class="edu-thesis">Cytotoxicity assays using SIRC, ARPE-19, and HRPE cells</div>
+      </div>
+      <div class="edu-tile">
+        <div class="edu-tag">2021 – 2023</div>
+        <div class="edu-deg">MSc, Cell &amp; Gene Therapy</div>
+        <div class="edu-school">University College London</div>
+        <div class="edu-year">London, UK</div>
+        <div class="edu-thesis">Expansion and Preservation of Haematopoietic Potential in Human Amniotic Fluid Stem Cells for Therapeutic Applications</div>
+      </div>
+      <div class="edu-tile">
+        <div class="edu-tag">Sep 2025 – Present</div>
+        <div class="edu-deg">MSc, Bioinformatics</div>
+        <div class="edu-school">Atlantic Technological University</div>
+        <div class="edu-year">Letterkenny, Ireland · Remote</div>
+          <div class="edu-thesis">Planned dissertation: <em>Two-sample Mendelian randomisation and Bayesian colocalisation for causal inference using GWAS and eQTL data</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section class="sec" id="certificates">
+    <div class="sec-head">
+      <span class="sec-dot" aria-hidden="true"></span>
+      <h2 class="sec-title">Certifications</h2>
+    </div>
+    <div class="cert-masonry">
+      <div class="cert-tile"><div class="cert-org">IBM</div><div class="cert-names">Machine Learning · AI Engineering</div></div>
+      <div class="cert-tile"><div class="cert-org">Google</div><div class="cert-names">Data Analytics · Advanced Data Analytics · IT Automation with Python · Project Management · Business Intelligence</div></div>
+      <div class="cert-tile"><div class="cert-org">Google Cloud</div><div class="cert-names">Architecting with Google Kubernetes Engine</div></div>
+      <div class="cert-tile"><div class="cert-org">AWS</div><div class="cert-names">Cloud Practitioner Essentials · Cloud Solutions Architect</div></div>
+      <div class="cert-tile"><div class="cert-org">Johns Hopkins</div><div class="cert-names">Genomic Data Science Specialization</div></div>
+      <div class="cert-tile"><div class="cert-org">SAS</div><div class="cert-names">SAS Programming 1: Essentials · SAS Programming 2: Data Manipulation Techniques</div></div>
+      <div class="cert-tile"><div class="cert-org">Wellcome</div><div class="cert-names">Bioinformatics for Biologists: Linux, Bash, R · Analysing Genomics Datasets</div></div>
+      <div class="cert-tile"><div class="cert-org">freeCodeCamp</div><div class="cert-names">Data Analysis with Python · Relational Databases · Scientific Computing</div></div>
+      <div class="cert-tile"><div class="cert-org">DE&lt;code&gt;LIFE</div><div class="cert-names">Genomes, Networks &amp; Pathways · Data Science &amp; Machine Learning</div></div>
+      <div class="cert-tile"><div class="cert-org">Coursera</div><div class="cert-names">Access Bioinformatics Databases with Biopython</div></div>
+      <div class="cert-tile"><div class="cert-org">Le Wagon</div><div class="cert-names">Data Visualization with Tableau</div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec" id="contact">
+    <div class="sec-head">
+      <span class="sec-dot" aria-hidden="true"></span>
+      <h2 class="sec-title">Contact</h2>
+    </div>
+    <div class="contact-wrap">
+      <h2>Let's Connect</h2>
+      <p>Open to opportunities in bioinformatics, data science, and data pipelines and automation. Based in London and remote-friendly.</p>
+
+      <div class="contact-icons">
+        <a href="mailto:barbagallo1@hotmail.it" aria-label="Email" title="Email">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
-      </figcaption>
-    </figure>
-  </details>
-  <div class="proj-tags">
-    <span class="chip">Business Intelligence</span>
-    <span class="chip">Customer Analytics</span>
-    <span class="chip">Dashboarding</span>
-    <span class="chip">Tableau</span>
-    <span class="chip">SQL</span>
-    <span class="chip">KPI Design</span>
-    <span class="chip">Telecom Analytics</span>
-  </div>
-</article>
-<article class="span-6 project" data-repo="barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" data-tags="python scikit-learn pandas classification hr analytics attrition xgboost retention">
-  <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" rel="noreferrer noopener" target="_blank">Salifort Motors - Employee Attrition Prediction</a></h3>
-  <p>Built predictive models on 14,999 employee records to identify the drivers of 23.8% turnover and translate model outputs into retention-focused recommendations.</p>
-  <details>
-    <summary>Details</summary>
-    <ul>
-      <li><strong>Problem</strong>: The business faced substantial employee turnover, but the main drivers of attrition were not clearly understood.</li>
-      <li><strong>Action</strong>: Performed exploratory analysis, engineered features, and trained classification models using Python, scikit-learn, and XGBoost to analyse attrition patterns across 10 departments.</li>
-      <li><strong>Impact</strong>: Produced evidence-based recommendations to support workforce retention strategy and prioritise the factors most associated with employee loss.</li>
-    </ul>
-  </details>
-  <div class="proj-tags">
-    <span class="chip">Data Science</span>
-    <span class="chip">Machine Learning</span>
-    <span class="chip">Python</span>
-    <span class="chip">scikit-learn</span>
-    <span class="chip">Pandas</span>
-    <span class="chip">XGBoost</span>
-    <span class="chip">HR Analytics</span>
-  </div>
-</article>
-<article class="span-6 project" data-repo="barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" data-tags="python pandas matplotlib social media eda tiktok engagement analytics plotly">
-  <h3><a href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" rel="noreferrer noopener" target="_blank">TikTok - Social Media Engagement Analysis</a></h3>
-  <p>Analysed 19,382 posts to uncover highly skewed engagement patterns and identify content features associated with stronger performance.</p>
-  <details>
-    <summary>Details</summary>
-    <ul>
-      <li><strong>Problem</strong>: Engagement was unevenly distributed, making it difficult to understand which content characteristics were linked to stronger performance.</li>
-      <li><strong>Action</strong>: Used Python, pandas, and visual analytics to explore engagement metrics, inspect distribution patterns, and examine relationships between content features and post performance.</li>
-      <li><strong>Impact</strong>: Generated evidence-based recommendations to support content optimisation and stronger audience engagement strategy.</li>
-    </ul>
-  </details>
-  <div class="proj-tags">
-    <span class="chip">Data Analytics</span>
-    <span class="chip">Exploratory Data Analysis</span>
-    <span class="chip">Python</span>
-    <span class="chip">Pandas</span>
-    <span class="chip">Matplotlib</span>
-    <span class="chip">Plotly</span>
-    <span class="chip">Engagement Analytics</span>
-  </div>
-</article>
-<article class="span-6 project" data-repo="barbavegeta/AWS_Solution_Architect" data-tags="aws cloud architecture migration devops analytics s3 ecs aurora emr redshift quicksight">
-<h3>
-<a href="https://github.com/barbavegeta/AWS_Solution_Architect" rel="noreferrer noopener" target="_blank">
-            AWS Managed Services - Cloud Migration Architecture
-          </a>
-</h3>
-<p>
-          High-level AWS architecture design for migrating on-premises workloads to a cloud-native, fully managed solution, ensuring scalability, fault-tolerance, and operational efficiency.
-        </p>
-<details>
-<summary>Details</summary>
-<ul>
-<li><strong>Objective</strong>: Migrate two on-prem workloads - a three-tier web application and a Hadoop-based analytics environment - into a modern AWS environment with managed services.</li>
-<li><strong>Approach</strong>: Designed an end-to-end cloud solution using AWS managed services:
-              <ul>
-<li><strong>Web Application Architecture</strong>: 
-                  <ul>
-<li>Frontend hosted on <strong>Amazon S3</strong> with <strong>CloudFront</strong> for global HTTPS delivery.</li>
-<li>Backend containerized in <strong>ECS on Fargate</strong> behind an <strong>Application Load Balancer (ALB)</strong>.</li>
-<li>Database migrated to <strong>Amazon Aurora MySQL (Multi-AZ)</strong> with <strong>ElastiCache Redis</strong> for caching and <strong>SQS</strong> for asynchronous decoupling.</li>
-<li><strong>AWS Secrets Manager</strong> used for credential management and <strong>CloudWatch/X-Ray</strong> for monitoring.</li>
-</ul>
-</li>
-<li><strong>Data Analytics Architecture</strong>:
-                  <ul>
-<li>Replaced Hadoop with <strong>AWS EMR (Spark/Hive)</strong> for scalable distributed data processing.</li>
-<li>Created an <strong>S3 Data Lake</strong> as the central repository with metadata managed by <strong>AWS Glue Data Catalog</strong>.</li>
-<li>Used <strong>Athena</strong> for serverless queries, <strong>Redshift</strong> for data warehousing, and <strong>QuickSight</strong> for BI dashboards.</li>
-<li>Data ingested from on-prem via <strong>AWS DataSync</strong>.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>Integration Flow</strong>: 
-            CloudFront routes traffic to ALB → ECS → Aurora, with ElastiCache and SQS optimising backend performance. 
-            Simultaneously, DataSync moves data to S3 for analysis via Glue → EMR → Athena → Redshift → QuickSight.
-            </li>
-<li><strong>Outcome</strong>:
-              <ul>
-<li>Decoupled, fault-tolerant architecture</li>
-<li>Multi-AZ high availability</li>
-<li>Cloud-native modernization of both workloads</li>
-<li>Reduced operational overhead with managed services</li>
-<li>Integrated observability and security across layers</li>
-</ul>
-</li>
-</ul>
-<figure style="margin-top:10px; text-align:center;">
-<a href="https://github.com/barbavegeta/AWS_Solution_Architect" rel="noopener noreferrer" target="_blank">
-<img alt="AWS Migration Architecture Diagram" loading="lazy" src="https://raw.githubusercontent.com/barbavegeta/AWS_Solution_Architect/refs/heads/main/aws_architecture_diagram-Solution_Architect.png" style="max-width:100%; border-radius:8px;"/>
-</a>
-<figcaption style="font-size:14px; color:#aaa; margin-top:4px;">
-              AWS Architecture Diagram - Migration Solution
-            </figcaption>
-</figure>
-</details>
-<div class="proj-tags">
-<span class="chip">Cloud Architecture</span>
-<span class="chip">Architecture Design</span>
-<span class="chip">AWS</span>
-<span class="chip">Data Infrastructure</span>
-<span class="chip">CloudFront</span>
-<span class="chip">S3</span>
-<span class="chip">ECS Fargate</span>
-<span class="chip">Aurora MySQL</span>
-<span class="chip">ElastiCache</span>
-<span class="chip">SQS</span>
-<span class="chip">EMR</span>
-<span class="chip">Glue</span>
-<span class="chip">Athena</span>
-<span class="chip">Redshift</span>
-<span class="chip">QuickSight</span>
+        <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://github.com/barbavegeta" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+      </div>
+
+      <div class="contact-cv-row">
+        <a class="contact-cv-btn contact-cv-btn-solid" href="https://1drv.ms/b/c/01f4911257d78e49/IQBlSitR6G-GSYyWANPP7SHqARguJdH-UP06gMDAf8J43iQ?e=9o5sz3" target="_blank" rel="noopener noreferrer">
+          <svg><use href="#ico-download"/></svg> Bioinformatics CV
+        </a>
+        <a class="contact-cv-btn" href="https://1drv.ms/b/c/01f4911257d78e49/IQCU9zzhV4IoRo4UW3aELw-mARKUSnokcDhJnuehjXCF9Vk?e=TGiRTl" target="_blank" rel="noopener noreferrer">
+          <svg><use href="#ico-download"/></svg> Data &amp; Analytics CV
+        </a>
+      </div>
+    </div>
+  </section>
+
 </div>
-</article>
-</div>
-</details></section>
-<section class="section style4" id="experience">
-<h2>Experience</h2>
-<div class="timeline">
-<div class="tl card">
-<div class="card-pad">
-<h3>Specialist Biomedical Scientist <span class="muted">-</span> <span class="where">UCL Hospitals · Stem Cell Laboratory</span></h3>
-<div class="muted">Sep 2021 - Dec 2025 · London, UK</div>
-<ul>
-  <li>Delivered processing and cryopreservation of PBSCs, bone marrow, DLI, and CD34+ enriched products to support transplant workflows in a regulated clinical environment.</li>
-  <li>Maintained Grade A clean-room compliance through sterility controls, environmental monitoring, and strict adherence to GMP procedures.</li>
-  <li>Generated flow cytometry data on CD3+ and CD34+ populations to support time-sensitive clinical decision-making in stem cell transplantation.</li>
-  <li>Supported 11 active clinical and ATMP trials, including CAR-T therapies, ensuring traceability, documentation quality, and audit-ready data handling.</li>
-  <li>Proactively built stock-management and training-tracking tools to replace manual reconciliation, reducing inventory errors by around 30% and saving roughly 10 hours per week.</li>
-</ul>
-</div>
-</div>
-<div class="tl card">
-<div class="card-pad">
-<h3>Laboratory Scientist <span class="muted">-</span> <span class="where">CooperGenomics</span></h3>
-<div class="muted">Jul 2019 - Sep 2021 · London, UK</div>
-<ul>
-  <li>Processed embryo samples for PGT-A, PGT-SR, and PGT-M testing within a high-throughput clinical genomics workflow.</li>
-  <li>Delivered NGS library preparation and quality control across manual and automated workflows, supporting runs of 96 to 192 samples while maintaining turnaround and data-quality standards.</li>
-  <li>Analysed sequencing run metrics and produced more than 500 clinical reports per week using structured validation checks to maintain reporting accuracy and consistency.</li>
-  <li>Programmed, validated, and maintained Mosquito HV and Dragonfly liquid handlers to improve workflow scalability and reproducibility.</li>
-  <li>Contributed to SOP writing and review, strengthening standardisation and ISO-compliant laboratory practice across the workflow.</li>
-</ul>
-</div>
-</div>
-<div class="tl card">
-<div class="card-pad">
-<h3>Biomedical Laboratory Assistant - Cytology <span class="muted">-</span> <span class="where">Leicester Royal Infirmary</span></h3>
-<div class="muted">Dec 2018 - Jun 2019 · Leicester, UK</div>
-<ul>
-<li>Managed sample reception and prepared specimens for Papanicolaou staining.</li>
-<li>Maintained reagents and ensured sample integrity end-to-end.</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class="section style4" id="education">
-<h2>Education</h2>
-<div class="card card-pad">
-<ul class="edu-list">
-<li>
-<strong>MSc, Bioinformatics</strong> - Atlantic Technological University (Sep 2025 - Present)
-            <div class="dissertation">  
-              Planned Dissertation: <em>Two-sample Mendelian randomisation and Bayesian colocalisation for causal inference using GWAS and eQTL data</em>
-</div>              
-</li>
-<li>
-<strong>MSc, Cell &amp; Gene Therapy</strong> - University College London (2021-2023)
-            <div class="dissertation">
-              Dissertation: <em>Expansion and Preservation of Haematopoietic Potential in Human Amniotic Fluid Stem Cells for Therapeutic Applications</em>
-</div>
-</li>
-<li>
-<strong>BSc, Biomedical Science</strong> - University of Catania (2014-2017)
-            <div class="dissertation">
-              Dissertation: <em>Cytotoxicity assays using SIRC, ARPE-19, and HRPE cells</em>
-</div>
-</li>
-</ul>
-</div>
-</section>
-<section class="section style4" id="internships">
-<h2>Earlier Research Internships</h2>
-<div class="card card-pad">
-<p class="sub">
-      Research internships completed during the BSc in Biomedical Science at the University of Catania,
-      building a foundation in genomics, molecular diagnostics, and analytical biochemistry.
-    </p>
-<details>
-<summary><strong>Pharmacology - Torre Biologica · Dept. of Biomedical &amp; Biotechnological Sciences</strong> (Oct 2016 - Sep 2017)</summary>
-<ul>
-<li>Performed cytotoxicity assays using ATP-lite on SIRC, ARPE-19, and HRPE cell lines.</li>
-<li>Designed and analysed quantitative experiments forming the basis of an undergraduate thesis.</li>
-</ul>
-</details>
-<details>
-<summary><strong>Oncology &amp; Experimental Haematology - Dept. of Clinical &amp; Experimental Medicine</strong> (May 2016 - Jul 2016)</summary>
-<ul>
-<li>Applied PCR, electrophoresis, western blot, chemiluminescence, and NGS for diagnostic research.</li>
-<li>Processed fluorescence-labelled DNA samples for gene expression and mutation studies.</li>
-</ul>
-</details>
-<details>
-<summary><strong>Medical Genetics - University Hospital of Catania</strong> (Jan 2015 - Apr 2015)</summary>
-<ul>
-<li>DNA extraction and quantification from peripheral blood using spectrophotometric analysis.</li>
-<li>CGH-SNP Array analysis for chromosomal abnormalities and variant detection.</li>
-<li>Clinical data submission and coordination with medical genetics team.</li>
-</ul>
-</details>
-<details>
-<summary><strong>Additional Rotations - University of Catania</strong> (2014 - 2017)</summary>
-<ul>
-<li>Short placements across Forensic Toxicology, Pathology, Immunohematology, and Public Health.</li>
-<li>Hands-on exposure to GC-MS analysis, immunohistochemistry, FISH, and analytical chemistry techniques.</li>
-</ul>
-</details>
-</div>
-</section>
-<section class="section style4" id="certificates">
-<h2>Certificates</h2>
-<div class="card card-pad">
-<ul>
-<li><strong>IBM</strong>: Machine Learning; AI Engineering</li>
-<li><strong>Google</strong>: Data Analytics; Advanced Data Analytics; IT Automation with Python; Project Management; Business Intelligence</li>
-<li><strong>Google Cloud</strong>: Architecting with Google Kubernetes Engine</li>
-<li><strong>Amazon Web Services (AWS)</strong>: Cloud Practitioner Essentials; Cloud Solutions Architect</li>
-<li><strong>Johns Hopkins University</strong>: Genomic Data Science Specialization</li>
-<li><strong>SAS</strong>: SAS Programming 1: Essentials; SAS Programming 2: Data Manipulation Techniques</li>
-<li><strong>Coursera</strong>: Access Bioinformatics Databases with Biopython</li>
-<li><strong>Wellcome</strong>: Bioinformatics for Biologists: An Introduction to Linux, Bash Scripting, and R; Analysing and Interpreting Genomics Datasets</li>
-<li><strong>freeCodeCamp</strong>: Data Analysis with Python; Relational Databases; Scientific Computing with Python</li>
-<li><strong>DE&lt;code&gt;LIFE</strong>: Genomes, Networks &amp; Pathways; Data Science &amp; Machine Learning with Python</li>
-<li><strong>Le Wagon</strong>: Data Visualization with Tableau</li>
-</ul>
-</div>
-</section>
-<section class="section style4" id="contact">
-<h2>Contact</h2>
-<div class="card card-pad">
-<div class="contact-icons">
-<a aria-label="Email" href="mailto:barbagallo1@hotmail.it">
-<img alt="Email" class="icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftoutlook.svg"/>
-</a>
-<a aria-label="LinkedIn" href="https://www.linkedin.com/in/salvatore-barbagallo" rel="noreferrer noopener" target="_blank">
-<img alt="LinkedIn" class="icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"/>
-</a>
-<a aria-label="GitHub" href="https://github.com/barbavegeta" rel="noreferrer noopener" target="_blank">
-<img alt="GitHub" class="icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg"/>
-</a>
-</div>
-</div>
-</section>
-<footer class="container footer">
-<div class="two-col">
-<div>© <span id="y"></span> Salvatore Barbagallo</div>
-<div class="right">Built with plain HTML/CSS · Deployed on GitHub Pages</div>
-</div>
+
+<footer class="footer">
+  © <span id="yr"></span> Salvatore Barbagallo · All rights reserved
 </footer>
-</main>
+
 <script>
-    // Year
-    document.getElementById('y').textContent = new Date().getFullYear();
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Theme toggle with persistence (explicit data-theme only)
-    (function(){
-      const root = document.documentElement;
-      const btn = document.getElementById('themeToggle');
-      const media = matchMedia('(prefers-color-scheme: dark)');
+  // Hamburger menu
+  (function(){
+    const hamburger  = document.getElementById('hamburgerBtn');
+    const mobileNav  = document.getElementById('mobileNav');
+    const navLinks   = mobileNav.querySelectorAll('.mobile-nav-link');
 
-      const getPref = () => localStorage.getItem('theme') || 'system';
-      const apply = (mode) => {
-        const resolved = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
-        root.setAttribute('data-theme', resolved);
-        const isLight = resolved === 'light';
-        btn.textContent = isLight ? '🌞' : '🌙';
-        btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
-        };
-
-      apply(getPref());
-      btn.addEventListener('click', () => {
-        const curr = getPref();
-        const next = curr === 'system' ? 'light' : curr === 'light' ? 'dark' : 'system';
-        localStorage.setItem('theme', next);
-        apply(next);
-      });
-      media.addEventListener('change', () => { if(getPref()==='system') apply('system'); });
-    })();
-  </script>
-<!-- Structured data -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Salvatore Barbagallo",
-    "url": "https://barbavegeta.github.io",
-    "email": "mailto:barbagallo1@hotmail.it",
-    "sameAs": [
-      "https://www.linkedin.com/in/salvatore-barbagallo",
-      "https://github.com/barbavegeta"
-    ],
-    "jobTitle": "Bioinformatics / Data Science / Analytics",
-    "knowsAbout": ["Genomics","NGS","Python","R","SQL","Bash","Tableau"],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "London",
-      "addressCountry": "United Kingdom"
+    function close() {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
     }
-  }
-  </script>
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.contains('open');
+      if (isOpen) { close(); } else {
+        hamburger.classList.add('open');
+        mobileNav.classList.add('open');
+        hamburger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    navLinks.forEach(link => link.addEventListener('click', close));
+
+    document.addEventListener('click', e => {
+      if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) close();
+    });
+  })();
+
+  (function(){
+    const root = document.documentElement;
+    const btn  = document.getElementById('themeBtn');
+    const icon = document.getElementById('themeIcon');
+    const stored = localStorage.getItem('sb3-theme') || 'light';
+    const apply = t => {
+      root.setAttribute('data-theme', t);
+      icon.innerHTML = t === 'light'
+        ? '<use href="#ico-moon"/>'
+        : '<use href="#ico-sun"/>';
+    };
+    apply(stored);
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      localStorage.setItem('sb3-theme', next);
+      apply(next);
+    });
+  })();
+</script>
 </body>
 </html>
