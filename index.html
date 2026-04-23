@@ -440,16 +440,16 @@
     }
     .pcard-icon svg { width: 17px; height: 17px; stroke: var(--brand); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
-    .pcard-title { font-family: var(--font-head); font-size: .98rem; font-weight: 700; color: var(--text); line-height: 1.25; }
+    .pcard-title { font-family: var(--font-head); font-size: 1.08rem; font-weight: 700; color: var(--text); line-height: 1.3; }
     .pcard-title a { color: inherit; }
     .pcard-title a:hover { color: var(--brand); }
-    .pcard-desc { font-size: .84rem; color: var(--text-2); line-height: 1.62; flex-grow: 1; margin-bottom: 10px; }
+    .pcard-desc { font-size: .94rem; color: var(--text-2); line-height: 1.68; flex-grow: 1; margin-bottom: 12px; }
 
     .pcard-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 14px; }
     .pcard-expand[open] + .pcard-tags { margin-top: 12px; }
     .pt {
-      font-family: var(--font-mono); font-size: .62rem;
-      padding: 3px 7px; border-radius: 5px;
+      font-family: var(--font-mono); font-size: .7rem;
+      padding: 4px 9px; border-radius: 5px;
       background: var(--surface-2); border: 1px solid var(--border);
       color: var(--brand);
     }
@@ -457,7 +457,7 @@
     .pcard-expand { margin-top: 10px; margin-bottom: 8px; }
     .pcard-expand[open] { margin-bottom: 14px; }
     .pcard-expand summary {
-      font-size: .76rem; font-weight: 600; color: var(--brand-2);
+      font-size: .86rem; font-weight: 600; color: var(--brand-2);
       cursor: pointer; list-style: none;
       display: inline-flex; align-items: center; gap: 5px;
       transition: color .2s;
@@ -467,7 +467,7 @@
     .pcard-expand summary::before { content: "▸"; transition: transform .2s; }
     .pcard-expand[open] summary::before { transform: rotate(90deg); }
     .pcard-expand ul { margin: 10px 0 0 14px; padding-bottom: 2px; display: flex; flex-direction: column; gap: 6px; }
-    .pcard-expand li { font-size: .8rem; color: var(--text-2); line-height: 1.55; }
+    .pcard-expand li { font-size: .9rem; color: var(--text-2); line-height: 1.62; }
     .pcard-expand li strong { color: var(--text); }
     .pcard-img { width: 100%; border-radius: 8px; border: 1px solid var(--border); margin-top: 12px; }
     .pcard-span .pcard-img {
@@ -479,13 +479,13 @@
       margin-right: auto;
       object-fit: contain;
     }
-    .pcard-caption { font-size: .72rem; color: var(--text-3); text-align: center; margin-top: 6px; }
+    .pcard-caption { font-size: .8rem; color: var(--text-3); text-align: center; margin-top: 8px; }
 
     .pcard-gh-btn {
       display: inline-flex; align-items: center; gap: 6px;
       margin-top: 12px; align-self: flex-end; margin-left: auto;
       padding: 8px 12px; border-radius: 10px;
-      font-size: .76rem; font-weight: 600;
+      font-size: .83rem; font-weight: 600;
       border: 1.5px solid var(--border); color: var(--text-2);
       background: var(--surface-2); transition: all .2s;
     }
@@ -828,11 +828,11 @@
 
     <div class="bento bento-edu">
       <div class="bento-label" style="margin-bottom:14px;">// education</div>
-      <div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px;">MSc, Bioinformatics <span style="color:var(--brand);font-size:.78rem;font-weight:500;">(ongoing)</span></div>
+      <div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px;">MSc Bioinformatics <span style="color:var(--brand);font-size:.78rem;font-weight:500;">(ongoing)</span></div>
       <div style="font-size:.82rem;color:var(--text-3);margin-bottom:12px;">Atlantic Technological University</div>
-      <div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px;">MSc, Cell &amp; Gene Therapy</div>
+      <div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px;">MSc Cell &amp; Gene Therapy</div>
       <div style="font-size:.82rem;color:var(--text-3);margin-bottom:12px;">University College London</div>
-      <div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px;">BSc, Biomedical Science</div>
+      <div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px;">BSc Biomedical Science</div>
       <div style="font-size:.82rem;color:var(--text-3);">University of Catania</div>
     </div>
 
@@ -1004,11 +1004,11 @@
     </div>
     <div class="edu-strip">
       <div class="edu-tile">
-        <div class="edu-tag">2014 – 2017</div>
-        <div class="edu-deg">BSc, Biomedical Science</div>
-        <div class="edu-school">University of Catania</div>
-        <div class="edu-year">Catania, Italy</div>
-        <div class="edu-thesis">Cytotoxicity assays using SIRC, ARPE-19, and HRPE cells</div>
+        <div class="edu-tag">Sep 2025 – Present</div>
+        <div class="edu-deg">MSc, Bioinformatics</div>
+        <div class="edu-school">Atlantic Technological University</div>
+        <div class="edu-year">Letterkenny, Ireland · Remote</div>
+          <div class="edu-thesis">Planned dissertation: <em>Two-sample Mendelian randomisation and Bayesian colocalisation for causal inference using GWAS and eQTL data</em></div>
       </div>
       <div class="edu-tile">
         <div class="edu-tag">2021 – 2023</div>
@@ -1018,11 +1018,11 @@
         <div class="edu-thesis">Expansion and Preservation of Haematopoietic Potential in Human Amniotic Fluid Stem Cells for Therapeutic Applications</div>
       </div>
       <div class="edu-tile">
-        <div class="edu-tag">Sep 2025 – Present</div>
-        <div class="edu-deg">MSc, Bioinformatics</div>
-        <div class="edu-school">Atlantic Technological University</div>
-        <div class="edu-year">Letterkenny, Ireland · Remote</div>
-          <div class="edu-thesis">Planned dissertation: <em>Two-sample Mendelian randomisation and Bayesian colocalisation for causal inference using GWAS and eQTL data</em></div>
+        <div class="edu-tag">2014 – 2017</div>
+        <div class="edu-deg">BSc, Biomedical Science</div>
+        <div class="edu-school">University of Catania</div>
+        <div class="edu-year">Catania, Italy</div>
+        <div class="edu-thesis">Cytotoxicity assays using SIRC, ARPE-19, and HRPE cells</div>
       </div>
     </div>
   </section>
