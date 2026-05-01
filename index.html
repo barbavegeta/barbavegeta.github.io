@@ -877,7 +877,15 @@
     <details class="project-group" open>
       <summary>Featured Projects</summary>
       <div class="proj-bento group-grid">
-
+        
+        <div class="pcard pcard-span">
+          <div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-dna"/></svg></div><div class="pcard-title">RegulonML - Real MPRA Regulatory Variant-Effect Modelling</div></div>
+          <div class="pcard-desc">Built a real-data MPRA modelling workflow using public saturation-mutagenesis reporter-assay data to prepare regulatory variant features, train interpretable regression models, and evaluate variant-effect prediction with leakage-aware element-level splitting.</div>
+          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Regulatory variant-effect modelling requires careful handling of MPRA count data, assay metadata, and train/test leakage between variants from the same regulatory element.</li><li><strong>Action:</strong> Added scripts to download public Kircher saturation-mutagenesis MPRA data, filter promoter elements, engineer variant/count features, and train Elastic Net and Random Forest regression models.</li><li><strong>Impact:</strong> Created a defensible real-data regulatory-genomics workflow with documented provenance, element-level group splitting, permutation importance, and clear limitations around full promoter-design claims.</li></ul></details>
+          <div class="pcard-tags"><span class="pt">Bioinformatics</span><span class="pt">MPRA</span><span class="pt">Regulatory Genomics</span><span class="pt">Python</span><span class="pt">scikit-learn</span><span class="pt">Elastic Net</span><span class="pt">Random Forest</span></div>
+          <a class="pcard-gh-btn" href="https://github.com/barbavegeta/RegulonML-Promoter-Sequence-Expression-Modelling" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a>
+        </div>
+        
         <div class="pcard pcard-span">
           <div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-cpu"/></svg></div><div class="pcard-title">QA Bot for Documents using RAG</div></div>
           <div class="pcard-desc">Built a Retrieval-Augmented Generation system for PDF question answering using LangChain, Chroma, IBM watsonx, FastAPI, and Gradio.</div>
