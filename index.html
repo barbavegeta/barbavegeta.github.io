@@ -514,6 +514,119 @@
     .exp-items li { font-size: .9rem; color: var(--text-2); line-height: 1.7; padding-left: 16px; position: relative; }
     .exp-items li::before { content: "·"; position: absolute; left: 0; color: var(--brand); font-size: 1.2rem; line-height: 1.4; }
 
+    /* ── AI WORK ──────────────────────────────── */
+    .ai-work-group {
+      margin-bottom: 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .ai-work-group > summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 21px 24px;
+      transition: background .2s, color .2s;
+    }
+    .ai-work-group > summary::-webkit-details-marker { display: none; }
+    .ai-work-group > summary:hover { background: var(--surface-2); }
+    .ai-work-summary-main { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .ai-work-summary-title {
+      font-family: var(--font-head);
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .ai-work-summary-sub { font-size: .78rem; color: var(--text-3); }
+    .ai-work-summary-action {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--brand);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .ai-work-summary-action::after {
+      content: "▾";
+      font-size: .9rem;
+      transition: transform .2s ease;
+    }
+    .ai-work-group[open] .ai-work-summary-action::before { content: "Close"; }
+    .ai-work-group:not([open]) .ai-work-summary-action::before { content: "Open"; }
+    .ai-work-group .ai-work-summary-action { font-size: 0; }
+    .ai-work-group .ai-work-summary-action::before { font-size: .7rem; }
+    .ai-work-group[open] .ai-work-summary-action::after { transform: rotate(180deg); }
+    .ai-work-content {
+      padding: 0 18px 18px;
+      border-top: 1px solid var(--border-2);
+    }
+    .ai-work-content .ai-card { margin-top: 18px; }
+    @media (max-width: 480px) {
+      .ai-work-group > summary { padding: 17px; }
+      .ai-work-content { padding: 0 12px 12px; }
+    }
+
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    @media (max-width: 760px) { .ai-grid { grid-template-columns: 1fr; } }
+
+    .ai-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .ai-card-wide { grid-column: span 2; }
+    @media (max-width: 760px) { .ai-card-wide { grid-column: span 1; } }
+    @media (max-width: 480px) { .ai-card { padding: 17px; border-radius: 13px; } }
+
+    .ai-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .ai-heading { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .ai-icon {
+      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+      background: color-mix(in srgb, var(--brand), transparent 88%);
+      border: 1px solid color-mix(in srgb, var(--brand), transparent 74%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ai-icon svg { width: 18px; height: 18px; stroke: var(--brand); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .ai-company { font-family: var(--font-head); font-size: 1.02rem; font-weight: 700; color: var(--text); }
+    .ai-project { font-size: .76rem; color: var(--text-3); margin-top: 2px; font-family: var(--font-mono); }
+    @media (max-width: 480px) {
+      .ai-top { flex-direction: column; }
+    }
+
+    .ai-role { font-family: var(--font-head); font-size: 1.08rem; font-weight: 700; color: var(--text); margin-bottom: 9px; }
+    .ai-summary { font-size: .9rem; color: var(--text-2); line-height: 1.68; }
+    .ai-items { margin: 12px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .ai-items li { font-size: .86rem; color: var(--text-2); line-height: 1.62; padding-left: 15px; position: relative; }
+    .ai-items li::before { content: "·"; position: absolute; left: 0; color: var(--brand); font-size: 1.15rem; line-height: 1.35; }
+    .ai-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 16px; }
+    .ai-tag {
+      font-family: var(--font-mono); font-size: .67rem;
+      padding: 4px 8px; border-radius: 6px;
+      background: var(--surface-2); border: 1px solid var(--border); color: var(--brand);
+    }
+
     /* ── EDUCATION STRIP ─────────────────────── */
     .edu-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     @media (max-width: 860px) { .edu-strip { grid-template-columns: 1fr 1fr; } }
@@ -947,24 +1060,133 @@
       <span class="sec-dot" aria-hidden="true"></span>
       <h2 class="sec-title">Experience</h2>
     </div>
-    <div class="exp-scroll">
+    <details class="ai-work-group" id="ai-work">
+      <summary>
+        <span class="ai-work-summary-main">
+          <span class="ai-work-summary-title">AI Training &amp; Evaluation Work</span>
+          <span class="ai-work-summary-sub">Mercor · Micro1 · Outlier</span>
+        </span>
+        <span class="ai-work-summary-action" aria-hidden="true">Open</span>
+      </summary>
+      <div class="ai-grid ai-work-content">
+      <article class="ai-card ai-card-wide">
+        <div class="ai-top">
+          <div class="ai-heading">
+            <div class="ai-icon"><svg><use href="#ico-cpu"/></svg></div>
+            <div><div class="ai-company">Mercor</div><div class="ai-project">Project Blackwell</div></div>
+          </div>
+        </div>
+        <div class="ai-role">Computational STEM Masters – Bioinformatician</div>
+        <p class="ai-summary">Designing frontier scientific-reasoning evaluations that test whether advanced language models can infer hidden biological and computational rules through controlled experimentation.</p>
+        <ul class="ai-items">
+          <li>Build deterministic Python black-box functions, discriminative unit tests, and tightly constrained scientific prompts.</li>
+          <li>Create biology-grounded benchmark problems requiring hypothesis generation, abstraction, and first-principles reasoning rather than factual recall.</li>
+          <li>Validate task behaviour and failure modes to ensure reliable, reproducible model evaluation.</li>
+        </ul>
+        <div class="ai-tags"><span class="ai-tag">Scientific AI</span><span class="ai-tag">Python</span><span class="ai-tag">Unit Testing</span><span class="ai-tag">Biology</span><span class="ai-tag">Benchmark Design</span></div>
+      </article>
 
-      <div class="exp-card">
-        <div class="exp-left">
-          <div class="exp-company">Mercor</div>
-          <div class="exp-date">2026 – Present</div>
-          <div class="exp-badge">Contract · Remote</div>
+      <article class="ai-card">
+        <div class="ai-top">
+          <div class="ai-heading">
+            <div class="ai-icon"><svg><use href="#ico-dna"/></svg></div>
+            <div><div class="ai-company">Mercor</div><div class="ai-project">Biology contract</div></div>
+          </div>
         </div>
-        <div class="exp-right">
-          <div class="exp-role-title">Computational STEM Masters - Bioinformatician</div>
-          <ul class="exp-items">
-            <li>Design deterministic Python-based blackbox tasks for a frontier scientific reasoning evaluation project assessing whether advanced language models can reason from first principles.</li>
-            <li>Build domain-grounded evaluation tasks combining biology, computational logic, discriminative unit tests, and carefully constrained prompts.</li>
-            <li>Create benchmark problems that require models to infer hidden function behaviour through limited experimental probing rather than memorised facts or lookup.</li>
-            <li>Contribute to scientific AI evaluation by testing hypothesis generation, abstraction, causal reasoning, and robust problem-solving under constrained information.</li>
-          </ul>
+        <div class="ai-role">Biology Expert / AI Trainer</div>
+        <p class="ai-summary">Applied subject-matter expertise to improve the scientific quality, accuracy, and reasoning of biology-focused model outputs.</p>
+        <ul class="ai-items">
+          <li>Assessed scientific answers for factual accuracy, logic, completeness, and instruction compliance.</li>
+          <li>Corrected weak reasoning and reviewed biology content across specialised evaluation tasks.</li>
+        </ul>
+        <div class="ai-tags"><span class="ai-tag">Biology SME</span><span class="ai-tag">AI Training</span><span class="ai-tag">Scientific Review</span></div>
+      </article>
+
+      <article class="ai-card">
+        <div class="ai-top">
+          <div class="ai-heading">
+            <div class="ai-icon"><svg><use href="#ico-layers"/></svg></div>
+            <div><div class="ai-company">Mercor</div><div class="ai-project">Les Artistes</div></div>
+          </div>
         </div>
+        <div class="ai-role">AI Training / Data Annotation</div>
+        <p class="ai-summary">Evaluated, annotated, and improved model-generated content using project-specific quality standards and structured feedback.</p>
+        <ul class="ai-items">
+          <li>Applied detailed annotation guidelines consistently across model responses and data samples.</li>
+          <li>Identified quality failures and supplied clear corrections to improve downstream training data.</li>
+        </ul>
+        <div class="ai-tags"><span class="ai-tag">Data Annotation</span><span class="ai-tag">Quality Evaluation</span><span class="ai-tag">AI Training</span></div>
+      </article>
+
+      <article class="ai-card">
+        <div class="ai-top">
+          <div class="ai-heading">
+            <div class="ai-icon"><svg><use href="#ico-activity"/></svg></div>
+            <div><div class="ai-company">Micro1</div><div class="ai-project">AI evaluation contracts</div></div>
+          </div>
+        </div>
+        <div class="ai-role">AI Training / Evaluation</div>
+        <p class="ai-summary">Reviewed model responses and reasoning quality across structured annotation and evaluation workflows.</p>
+        <ul class="ai-items">
+          <li>Scored outputs against defined criteria and documented the reasoning behind evaluation decisions.</li>
+          <li>Supported data-quality workflows spanning reasoning assessment and content annotation.</li>
+        </ul>
+        <div class="ai-tags"><span class="ai-tag">Model Evaluation</span><span class="ai-tag">Reasoning Review</span><span class="ai-tag">Annotation</span></div>
+      </article>
+
+      <article class="ai-card">
+        <div class="ai-top">
+          <div class="ai-heading">
+            <div class="ai-icon"><svg><use href="#ico-target"/></svg></div>
+            <div><div class="ai-company">Outlier</div><div class="ai-project">Mighty Moo</div></div>
+          </div>
+        </div>
+        <div class="ai-role">Multimodal Adversarial Prompt Writer</div>
+        <p class="ai-summary">Created challenging image-grounded questions designed to expose reasoning failures in state-of-the-art multimodal models.</p>
+        <ul class="ai-items">
+          <li>Selected images and constructed difficult prompts that consistently challenged multiple models.</li>
+          <li>Analysed model outputs and wrote evidence-based critiques of their errors and limitations.</li>
+        </ul>
+        <div class="ai-tags"><span class="ai-tag">Multimodal AI</span><span class="ai-tag">Adversarial Prompting</span><span class="ai-tag">Model Critique</span></div>
+      </article>
+
+      <article class="ai-card">
+        <div class="ai-top">
+          <div class="ai-heading">
+            <div class="ai-icon"><svg><use href="#ico-layers"/></svg></div>
+            <div><div class="ai-company">Outlier</div><div class="ai-project">Laurelin Moon</div></div>
+          </div>
+        </div>
+        <div class="ai-role">Prompt Generation &amp; Cleaning</div>
+        <p class="ai-summary">Generated and refined prompts used in model hint-generation pipelines.</p>
+        <ul class="ai-items">
+          <li>Improved prompt clarity, consistency, and suitability for downstream training workflows.</li>
+          <li>Removed ambiguity and quality defects while preserving the intended reasoning challenge.</li>
+        </ul>
+        <div class="ai-tags"><span class="ai-tag">Prompt Design</span><span class="ai-tag">Data Cleaning</span><span class="ai-tag">Reasoning Pipelines</span></div>
+      </article>
+
+      <article class="ai-card">
+        <div class="ai-top">
+          <div class="ai-heading">
+            <div class="ai-icon"><svg><use href="#ico-cpu"/></svg></div>
+            <div><div class="ai-company">Outlier</div><div class="ai-project">Mail Valley V2</div></div>
+          </div>
+        </div>
+        <div class="ai-role">Reasoning Task Contributor</div>
+        <p class="ai-summary">Produced structured reasoning data intended to strengthen state-of-the-art models across multiple knowledge domains.</p>
+        <ul class="ai-items">
+          <li>Constructed and reviewed reasoning tasks requiring clear, defensible solution paths.</li>
+          <li>Identified weak assumptions and corrected outputs that failed logical or domain-specific requirements.</li>
+        </ul>
+        <div class="ai-tags"><span class="ai-tag">Reasoning</span><span class="ai-tag">Response Review</span><span class="ai-tag">Model Training</span></div>
+      </article>
+
+      <!-- ADD ANOTHER AI ROLE: duplicate any <article class="ai-card"> block above and edit its company, project, dates, description, bullet points, and tags. -->
       </div>
+    </details>
+
+    <div class="exp-scroll">
 
       <div class="exp-card">
         <div class="exp-left">
