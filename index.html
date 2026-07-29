@@ -3,10 +3,70 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Salvatore Barbagallo - Bioinformatics Analyst. NGS pipelines, machine learning, scientific AI evaluation, and data workflows."/>
-  <title>Salvatore Barbagallo · Bioinformatics & Data</title>
+  <title>Salvatore Barbagallo · Bioinformatics &amp; Data</title>
+  <meta name="description" content="Salvatore Barbagallo — Bioinformatics Analyst. Reproducible NGS pipelines, machine learning, scientific AI evaluation, and data workflows. 7+ years in clinical genomics."/>
+  <meta name="author" content="Salvatore Barbagallo"/>
+  <meta name="keywords" content="bioinformatics, NGS, RNA-seq, Nextflow, clinical genomics, machine learning, AI evaluation, data science, London"/>
+  <link rel="canonical" href="https://barbavegeta.github.io/"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="theme-color" content="#2563eb" media="(prefers-color-scheme: light)"/>
+  <meta name="theme-color" content="#060a14" media="(prefers-color-scheme: dark)"/>
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="profile"/>
+  <meta property="og:title" content="Salvatore Barbagallo · Bioinformatics &amp; Data"/>
+  <meta property="og:description" content="Bioinformatics Analyst combining 7+ years in clinical genomics with reproducible NGS pipelines, ML, and scientific AI evaluation."/>
+  <meta property="og:url" content="https://barbavegeta.github.io/"/>
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="profile:first_name" content="Salvatore"/>
+  <meta property="profile:last_name" content="Barbagallo"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Salvatore Barbagallo · Bioinformatics &amp; Data"/>
+  <meta name="twitter:description" content="Bioinformatics Analyst combining 7+ years in clinical genomics with reproducible NGS pipelines, ML, and scientific AI evaluation."/>
+
+  <!-- Favicon: inline SVG monogram, no extra request -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial,sans-serif' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial,sans-serif' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+
+  <!-- Set theme before first paint to avoid a flash of the wrong theme -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('sb3-theme');
+        var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { /* localStorage blocked — fall back to the light default */ }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Salvatore Barbagallo",
+    "jobTitle": "Bioinformatics Analyst",
+    "email": "mailto:barbagallo1@hotmail.it",
+    "url": "https://barbavegeta.github.io/",
+    "sameAs": [
+      "https://github.com/barbavegeta",
+      "https://www.linkedin.com/in/salvatore-barbagallo",
+      "https://public.tableau.com/app/profile/salvatore.barbagallo"
+    ],
+    "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
+    "knowsLanguage": ["Italian", "English", "Portuguese", "Spanish"],
+    "knowsAbout": ["Bioinformatics", "Next-generation sequencing", "RNA-seq", "Nextflow", "Machine learning", "Scientific AI evaluation", "Data engineering"],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University College London" },
+      { "@type": "CollegeOrUniversity", "name": "University of Catania" },
+      { "@type": "CollegeOrUniversity", "name": "Atlantic Technological University" }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --bg:        #f7f9ff;
@@ -24,6 +84,8 @@
       --brand-3:   #1d4ed8;
       --accent:    #0ea5e9;
       --glow:      rgba(37,99,235,.14);
+      --shadow:    0 1px 2px rgba(15,32,74,.04), 0 6px 20px rgba(15,32,74,.05);
+      --shadow-lg: 0 2px 4px rgba(15,32,74,.05), 0 14px 38px rgba(15,32,74,.11);
       --font-head: 'Space Grotesk', system-ui, sans-serif;
       --font-body: 'Inter', system-ui, sans-serif;
       --font-mono: 'Fira Code', monospace;
@@ -44,6 +106,8 @@
       --brand-3:   #93c5fd;
       --accent:    #38bdf8;
       --glow:      rgba(59,130,246,.18);
+      --shadow:    0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.28);
+      --shadow-lg: 0 2px 4px rgba(0,0,0,.34), 0 16px 40px rgba(0,0,0,.42);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -58,6 +122,56 @@
     h1, h2, h3, h4 { font-family: var(--font-head); }
     a { color: var(--brand); text-decoration: none; transition: color .2s; }
     a:hover { color: var(--accent); }
+    img { max-width: 100%; }
+    ::selection { background: color-mix(in srgb, var(--brand), transparent 70%); color: var(--text); }
+
+    /* Visible keyboard focus everywhere, invisible for mouse users */
+    :focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* ── SKIP LINK ───────────────────────────── */
+    .skip-link {
+      position: absolute; left: 12px; top: -60px; z-index: 200;
+      padding: 10px 18px; border-radius: 0 0 12px 12px;
+      background: var(--brand); color: #fff; font-size: .85rem; font-weight: 600;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 0; color: #fff; }
+
+    /* ── SCROLL PROGRESS ─────────────────────── */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 100%;
+      transform: scaleX(0); transform-origin: 0 50%;
+      background: linear-gradient(90deg, var(--brand), var(--accent));
+      z-index: 200; pointer-events: none;
+    }
+
+    /* ── SCROLL REVEAL ───────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .55s cubic-bezier(.22,.61,.36,1), transform .55s cubic-bezier(.22,.61,.36,1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* ── BACK TO TOP ─────────────────────────── */
+    .to-top {
+      position: fixed; right: 22px; bottom: 22px; z-index: 90;
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--surface); border: 1.5px solid var(--border);
+      box-shadow: var(--shadow); cursor: pointer;
+      opacity: 0; visibility: hidden; transform: translateY(10px);
+      transition: opacity .25s, transform .25s, visibility .25s, background .2s, border-color .2s;
+    }
+    .to-top.show { opacity: 1; visibility: visible; transform: none; }
+    .to-top:hover { background: var(--brand); border-color: var(--brand); }
+    .to-top svg { width: 18px; height: 18px; stroke: var(--text-2); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: stroke .2s; }
+    .to-top:hover svg { stroke: #fff; }
+    @media (max-width: 600px) { .to-top { right: 14px; bottom: 14px; width: 40px; height: 40px; } }
 
     /* ── NAV ─────────────────────────────────── */
     .nav {
@@ -71,20 +185,29 @@
       padding: 0 48px;
       display: flex; align-items: center; justify-content: space-between; height: 60px;
     }
-    .nav-brand { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--text); letter-spacing: -.01em; }
+    .nav-brand { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--text); letter-spacing: -.01em; white-space: nowrap; }
+    .nav-brand:hover { color: var(--brand); }
     .nav-center { display: flex; align-items: center; gap: 4px; }
     .nav-pill {
       padding: 6px 14px; border-radius: 999px; font-size: .85rem; font-weight: 500;
       color: var(--text-2); transition: all .2s;
     }
     .nav-pill:hover { background: var(--surface-2); color: var(--text); }
+    .nav-pill.active {
+      background: color-mix(in srgb, var(--brand), transparent 88%);
+      color: var(--brand); font-weight: 600;
+    }
     .nav-right { display: flex; align-items: center; gap: 8px; }
+    /* subtle lift once the page is scrolled */
+    .nav.scrolled { box-shadow: 0 1px 0 var(--border), 0 8px 24px -18px rgba(15,32,74,.5); }
+    [data-theme="dark"] .nav.scrolled { box-shadow: 0 1px 0 var(--border), 0 10px 30px -18px rgba(0,0,0,.9); }
 
     .dl-btn {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 7px 16px; border-radius: 999px; font-size: .82rem; font-weight: 600;
       border: 1.5px solid var(--border); color: var(--text-2);
       background: var(--surface); transition: all .2s;
+      white-space: nowrap; line-height: 1.2;
     }
     .dl-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .dl-btn:hover { border-color: var(--brand); color: var(--brand); background: var(--surface-2); }
@@ -144,6 +267,7 @@
       transition: all .15s;
     }
     .mobile-nav-link:hover { background: var(--surface-2); color: var(--text); }
+    .mobile-nav-link.active { background: color-mix(in srgb, var(--brand), transparent 88%); color: var(--brand); font-weight: 600; }
     .mobile-nav-divider { height: 1px; background: var(--border-2); margin: 8px 0; }
     .mobile-nav-cv {
       display: flex; gap: 8px; padding: 4px 0;
@@ -151,28 +275,35 @@
     .mobile-nav-cv .dl-btn { flex: 1; justify-content: center; font-size: .85rem; }
 
     /* ── RESPONSIVE NAV ──────────────────────── */
-    @media (max-width: 860px) {
+    @media (max-width: 1180px) {
+      .nav-inner { padding: 0 28px; }
+      .nav-pill { padding: 6px 11px; font-size: .82rem; }
+      .dl-btn { padding: 7px 13px; font-size: .78rem; }
+    }
+    @media (max-width: 1040px) {
       .nav-center { display: none; }
       .nav-inner { padding: 0 20px; }
       .hamburger { display: flex; }
     }
     /* tablet: shrink CV button text */
-    @media (max-width: 680px) {
-      .nav-right { gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+    @media (max-width: 900px) {
+      .nav-right { gap: 6px; }
       .dl-btn { padding: 7px 12px; font-size: .78rem; }
     }
-    /* keep top CV buttons visible instead of hiding them */
-    @media (max-width: 480px) {
-      .nav-brand { font-size: .95rem; }
-      .nav-right { gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
-      .dl-btn { display: inline-flex; padding: 7px 10px; font-size: .76rem; }
-      .dl-btn .dl-label { display: inline; }
-      .mobile-nav-cv .dl-btn { display: inline-flex; }
+    /* Phones: the two CV buttons no longer fit beside the brand without wrapping
+       the header onto a second row, so they move into the menu drawer instead. */
+    @media (max-width: 760px) {
+      .nav-right > .dl-btn { display: none; }
+      .nav-brand { font-size: .98rem; }
     }
-    /* keep CV button labels visible inside the mobile drawer at all sizes */
-    @media (max-width: 680px) {
-      .mobile-nav-cv .dl-btn .dl-label { display: inline; }
-      .mobile-nav-cv .dl-btn { padding: 7px 16px; }
+    @media (max-width: 380px) {
+      .nav-brand { font-size: .9rem; }
+    }
+    /* CV buttons inside the drawer keep full labels and stack when space is tight */
+    .mobile-nav-cv .dl-btn .dl-label { display: inline; }
+    @media (max-width: 430px) {
+      .mobile-nav-cv { flex-direction: column; }
+      .mobile-nav-cv .dl-btn { padding: 10px 16px; font-size: .88rem; }
     }
 
     /* ── HERO BENTO ──────────────────────────── */
@@ -195,7 +326,10 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 28px;
+      box-shadow: var(--shadow);
+      transition: transform .25s cubic-bezier(.22,.61,.36,1), box-shadow .25s, border-color .25s;
     }
+    .bento:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
     @media (max-width: 600px) { .bento { padding: 20px; border-radius: 14px; } }
 
     .bento-main {
@@ -288,8 +422,10 @@
       text-align: center; padding: 14px 8px; border-radius: 14px;
       background: color-mix(in srgb, var(--brand), transparent 90%);
       border: 1px solid var(--border);
+      transition: background .2s, border-color .2s, transform .2s;
     }
-    .sitem-n { font-family: var(--font-head); font-size: 2.1rem; font-weight: 800; color: var(--brand); line-height: 1; }
+    .sitem:hover { background: color-mix(in srgb, var(--brand), transparent 82%); border-color: color-mix(in srgb, var(--brand), transparent 60%); transform: translateY(-2px); }
+    .sitem-n { font-family: var(--font-head); font-size: 2.1rem; font-weight: 800; color: var(--brand); line-height: 1; font-variant-numeric: tabular-nums; }
     .sitem-l { font-size: .72rem; color: var(--text-3); margin-top: 6px; line-height: 1.35; }
 
     .bento-tags .label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--text-3); margin-bottom: 14px; font-family: var(--font-mono); }
@@ -299,7 +435,10 @@
       padding: 5px 11px; border-radius: 999px;
       background: var(--brand); border: 1px solid var(--brand);
       color: #fff;
+      transition: background .2s, border-color .2s, transform .2s;
     }
+    .tag-cloud span:hover { background: var(--brand-3); border-color: var(--brand-3); transform: translateY(-1px); }
+    [data-theme="dark"] .tag-cloud span:hover { background: var(--brand-2); border-color: var(--brand-2); }
 
     .bento-location {
       display: flex; flex-direction: column; gap: 8px;
@@ -334,7 +473,6 @@
     @media (max-width: 600px) { .sec { padding: 28px 0; } }
 
     .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; flex-wrap: wrap; }
-    .sec-num { font-family: var(--font-mono); font-size: .75rem; color: var(--text-3); }
 
     .project-group {
       margin-top: 18px;
@@ -342,6 +480,7 @@
       border-radius: 16px;
       background: var(--surface);
       border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
     .project-group + .project-group { margin-top: 18px; }
     .project-group summary {
@@ -372,19 +511,19 @@
       display: inline-block;
       flex: 0 0 10px;
     }
-    .sec-num { display:none; }
 
     .sec-title { font-family: var(--font-head); font-size: clamp(1.4rem, 4vw, 1.85rem); font-weight: 700; letter-spacing: -.02em; }
     .sec-sub { font-size: .88rem; color: var(--text-2); margin-left: auto; }
 
     /* ── ABOUT ───────────────────────────────── */
     #about.sec { padding: 30px 0; }
-    .about-layout { }
 
     .card {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 18px; padding: 28px;
+      box-shadow: var(--shadow);
     }
+    @media (max-width: 480px) { .card { padding: 20px; border-radius: 14px; } }
     .bio-p { font-size: .94rem; color: var(--text-2); line-height: 1.72; margin-bottom: 12px; }
 
     .skill-area { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border-2); }
@@ -395,7 +534,9 @@
       padding: 4px 10px; border-radius: 8px;
       background: var(--surface-2); border: 1px solid var(--border);
       color: var(--text-2);
+      transition: background .2s, border-color .2s, color .2s;
     }
+    .sp:hover { border-color: color-mix(in srgb, var(--brand), transparent 55%); color: var(--brand); background: color-mix(in srgb, var(--brand), transparent 92%); }
 
     .facts-card { display: flex; flex-direction: column; gap: 0; }
     .fact-row {
@@ -423,7 +564,16 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 18px;
       display: flex; flex-direction: column;
+      box-shadow: var(--shadow);
+      transition: transform .25s cubic-bezier(.22,.61,.36,1), box-shadow .25s, border-color .25s;
     }
+    .pcard:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: color-mix(in srgb, var(--brand), transparent 65%);
+    }
+    .pcard:hover .pcard-icon { background: color-mix(in srgb, var(--brand), transparent 78%); }
+    .pcard-icon { transition: background .25s; }
     @media (max-width: 480px) { .pcard { padding: 16px; border-radius: 12px; } }
     .pcard-span { grid-column: span 2; }
     @media (max-width: 700px) { .pcard-span { grid-column: span 1; } }
@@ -469,7 +619,7 @@
     .pcard-expand ul { margin: 10px 0 0 14px; padding-bottom: 2px; display: flex; flex-direction: column; gap: 6px; }
     .pcard-expand li { font-size: .9rem; color: var(--text-2); line-height: 1.62; }
     .pcard-expand li strong { color: var(--text); }
-    .pcard-img { width: 100%; border-radius: 8px; border: 1px solid var(--border); margin-top: 12px; }
+    .pcard-img { width: 100%; border-radius: 8px; border: 1px solid var(--border); margin-top: 12px; background: var(--surface-2); }
     .pcard-span .pcard-img {
       width: auto;
       max-width: min(100%, 620px);
@@ -499,16 +649,21 @@
       border-radius: 18px; padding: 24px 26px;
       display: grid; grid-template-columns: 180px 1fr;
       gap: 24px; align-items: start;
+      box-shadow: var(--shadow);
+      transition: transform .25s cubic-bezier(.22,.61,.36,1), box-shadow .25s, border-color .25s;
+    }
+    .exp-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: color-mix(in srgb, var(--brand), transparent 65%);
     }
     @media (max-width: 700px) { .exp-card { grid-template-columns: 1fr; gap: 12px; padding: 18px; } }
     @media (max-width: 480px) { .exp-card { padding: 14px; border-radius: 12px; } }
 
-    .exp-left { }
     .exp-company { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
     .exp-date { font-family: var(--font-mono); font-size: .72rem; color: var(--text-3); margin-bottom: 8px; }
     .exp-badge { display: inline-block; font-size: .7rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--brand); }
 
-    .exp-right { }
     .exp-role-title { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
     .exp-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .exp-items li { font-size: .9rem; color: var(--text-2); line-height: 1.7; padding-left: 16px; position: relative; }
@@ -521,6 +676,7 @@
       border: 1px solid var(--border);
       border-radius: 18px;
       overflow: hidden;
+      box-shadow: var(--shadow);
     }
     .ai-work-group > summary {
       cursor: pointer;
@@ -589,7 +745,14 @@
       display: flex;
       flex-direction: column;
       min-width: 0;
+      transition: transform .25s cubic-bezier(.22,.61,.36,1), box-shadow .25s, border-color .25s;
     }
+    .ai-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: color-mix(in srgb, var(--brand), transparent 65%);
+    }
+    [data-theme="dark"] .ai-work-content .ai-card { background: var(--surface-2); }
     .ai-card-wide { grid-column: span 2; }
     @media (max-width: 760px) { .ai-card-wide { grid-column: span 1; } }
     @media (max-width: 480px) { .ai-card { padding: 17px; border-radius: 13px; } }
@@ -636,6 +799,13 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 18px; padding: 24px;
       position: relative; overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .25s cubic-bezier(.22,.61,.36,1), box-shadow .25s, border-color .25s;
+    }
+    .edu-tile:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: color-mix(in srgb, var(--brand), transparent 65%);
     }
     .edu-tile::before {
       content: "";
@@ -665,59 +835,30 @@
     .cert-tile {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 12px; padding: 14px 16px;
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .cert-tile:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      border-color: color-mix(in srgb, var(--brand), transparent 65%);
     }
     .cert-org { font-family: var(--font-mono); font-size: .67rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 5px; }
     .cert-names { font-size: .86rem; color: var(--text-2); line-height: 1.55; }
 
     /* ── CONTACT ─────────────────────────────── */
-    .contact-bento {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-    }
-    @media (max-width: 700px) { .contact-bento { grid-template-columns: 1fr; gap: 10px; } }
-
-    .contact-left {
-      background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
-      border-radius: 20px; padding: 40px 32px; color: #fff;
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .contact-left h2 { font-family: var(--font-head); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 12px; }
-    .contact-left p { font-size: 1rem; color: rgba(255,255,255,.82); line-height: 1.75; margin-bottom: 28px; }
-    .contact-cv-btns { display: flex; flex-direction: column; gap: 10px; }
     .contact-cv-btn {
       display: flex; align-items: center; gap: 8px;
       padding: 12px 18px; border-radius: 12px;
       font-size: .88rem; font-weight: 700;
-      background: rgba(255,255,255,.2); color: #fff;
-      border: 1.5px solid rgba(255,255,255,.3);
+      background: var(--surface-2); color: var(--text);
+      border: 1.5px solid var(--border);
       transition: all .2s;
     }
     .contact-cv-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-    .contact-cv-btn:hover { background: rgba(255,255,255,.35); color: #fff; }
-    .contact-cv-btn-solid { background: #fff; color: var(--brand); border-color: #fff; }
-    .contact-cv-btn-solid:hover { background: rgba(255,255,255,.9); color: var(--brand-3); }
-    .contact-wrap .contact-cv-btn { background: var(--surface-2); color: var(--text); border-color: var(--border); }
-    .contact-wrap .contact-cv-btn:hover { background: var(--brand); color: #fff; border-color: var(--brand); }
-    .contact-wrap .contact-cv-btn-solid { background: var(--brand); color: #fff; border-color: var(--brand); }
-    .contact-wrap .contact-cv-btn-solid:hover { background: var(--brand-3); color: #fff; border-color: var(--brand-3); }
-
-    .contact-right { display: flex; flex-direction: column; gap: 12px; }
-    .clink {
-      display: flex; align-items: center; gap: 14px;
-      padding: 18px 20px; border-radius: 16px;
-      background: var(--surface); border: 1px solid var(--border);
-      flex: 1; transition: all .2s; color: var(--text-2);
-    }
-    .clink:hover { border-color: color-mix(in srgb, var(--brand), transparent 35%); background: var(--surface-2); color: var(--text); }
-    .clink-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--surface-2); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .clink-icon svg { width: 18px; height: 18px; fill: var(--brand); }
-    .clink-label { font-size: .82rem; color: var(--text-3); }
-    .clink-value { font-size: .92rem; font-weight: 600; color: var(--text); }
-
+    .contact-cv-btn:hover { background: var(--brand); color: #fff; border-color: var(--brand); transform: translateY(-1px); }
+    .contact-cv-btn-solid { background: var(--brand); color: #fff; border-color: var(--brand); }
+    .contact-cv-btn-solid:hover { background: var(--brand-3); color: #fff; border-color: var(--brand-3); }
 
     .contact-wrap {
       text-align: center; padding: 32px 24px;
@@ -743,9 +884,49 @@
 
     /* ── FOOTER ──────────────────────────────── */
     .footer { padding: 28px 0; text-align: center; border-top: 1px solid var(--border-2); font-size: .82rem; color: var(--text-3); font-family: var(--font-mono); }
+
+    /* ── REDUCED MOTION ──────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .bento:hover, .pcard:hover, .exp-card:hover, .ai-card:hover, .edu-tile:hover, .cert-tile:hover { transform: none; }
+    }
+
+    /* ── PRINT ───────────────────────────────── */
+    @media print {
+      :root {
+        --bg: #fff; --surface: #fff; --surface-2: #fff; --surface-3: #fff;
+        --border: #ccc; --border-2: #e5e5e5;
+        --text: #000; --text-2: #222; --text-3: #555;
+        --shadow: none; --shadow-lg: none;
+      }
+      .nav, .mobile-nav, .to-top, .scroll-progress, .skip-link, .theme-pill, .hamburger { display: none !important; }
+      body { background: #fff; color: #000; font-size: 11pt; }
+      .page-wrap { max-width: none; padding: 0; }
+      .bento, .card, .pcard, .exp-card, .ai-card, .edu-tile, .cert-tile, .project-group, .ai-work-group {
+        box-shadow: none !important; break-inside: avoid; page-break-inside: avoid;
+      }
+      .bento-main, .contact-wrap { background: #fff !important; color: #000 !important; border: 1px solid #ccc; }
+      .bento-main h1, .bento-main .sub, .bento-main .eyebrow, .hero-avail-left, .hero-work-badge { color: #000 !important; }
+      .sec { break-inside: avoid; }
+      details { display: block; }
+      details > summary { display: none; }
+      .pcard-expand, .ai-work-content, .project-group .group-grid { display: block !important; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; word-break: break-all; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
   </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <!-- SVG ICON DEFS (reusable) -->
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
@@ -825,20 +1006,24 @@
   <symbol id="ico-cloud" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
     <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
   </symbol>
+  <symbol id="ico-arrow-up" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="19" x2="12" y2="6"/><polyline points="5 13 12 6 19 13"/>
+  </symbol>
   <symbol id="ico-github" viewBox="0 0 24 24">
     <path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
   </symbol>
 </svg>
 
 <!-- NAV -->
-<header class="nav">
+<header class="nav" id="siteNav">
   <div class="nav-inner">
-    <span class="nav-brand">Salvatore Barbagallo</span>
-    <nav class="nav-center">
+    <a class="nav-brand" href="#top">Salvatore Barbagallo</a>
+    <nav class="nav-center" aria-label="Primary">
       <a href="#about"        class="nav-pill">About</a>
       <a href="#projects"     class="nav-pill">Projects</a>
       <a href="#experience"   class="nav-pill">Experience</a>
       <a href="#education"    class="nav-pill">Education</a>
+      <a href="#certificates" class="nav-pill">Certifications</a>
       <a href="#contact"      class="nav-pill">Contact</a>
     </nav>
     <div class="nav-right">
@@ -864,6 +1049,7 @@
   <a href="#projects"   class="mobile-nav-link">Projects</a>
   <a href="#experience" class="mobile-nav-link">Experience</a>
   <a href="#education"  class="mobile-nav-link">Education</a>
+  <a href="#certificates" class="mobile-nav-link">Certifications</a>
   <a href="#contact"    class="mobile-nav-link">Contact</a>
   <div class="mobile-nav-divider"></div>
   <div class="mobile-nav-cv">
@@ -876,7 +1062,7 @@
   </div>
 </div>
 
-<div class="page-wrap">
+<main class="page-wrap" id="main">
 
   <!-- BENTO HERO -->
   <div class="bento-hero" id="top">
@@ -958,7 +1144,7 @@
       <span class="sec-dot" aria-hidden="true"></span>
       <h2 class="sec-title">About</h2>
     </div>
-    <div class="about-layout">
+    <div>
       <div class="card">
         <p class="bio-p">I combine clinical and genomics laboratory experience with data analysis and process automation to build reliable pipelines, reporting tools, and QC workflows that turn complex biological data into usable results. 
           My background spans regulated clinical environments where I built Python-driven tools, automated QC pipelines, and worked with NGS from library prep through to clinical reporting.</p>
@@ -1016,7 +1202,7 @@
         <div class="pcard pcard-span">
           <div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-layers"/></svg></div><div class="pcard-title">SoftCart Data Engineering Platform</div></div>
           <div class="pcard-desc">Built an end-to-end e-commerce data engineering project covering raw data ingestion, SQL/NoSQL querying, dimensional warehouse design, ETL automation, PostgreSQL analytics, BI reporting, and Spark workflow practice.</div>
-          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Build a structured e-commerce data platform that connects operational sales data, NoSQL product data, warehouse modelling, reporting outputs, and scalable analytics practice.</li><li><strong>Approach:</strong> Reorganised the IBM Data Engineering capstone into a clean portfolio repository, fixed warehouse SQL inconsistencies, loaded dimensional tables into PostgreSQL, and generated validated analytical CSV outputs.</li><li><strong>Outcome:</strong> Produced a reproducible data engineering artefact with 300,000 fact rows loaded, warehouse validation notes, sales aggregations by country/category, rollup and cube outputs, ETL scripts, MongoDB commands, Spark notebook, and BI report.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/softcart-data-engineering-platform/refs/heads/main/architecture/architecture.png" alt="PCA clusters"/><div class="pcard-caption">SoftCart data platform architecture showing the flow from customer-facing web activity into MySQL and MongoDB, through PostgreSQL staging and DB2 warehousing, with Cognos Analytics for BI reporting and Spark for large-scale analytics.</div></details>
+          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Build a structured e-commerce data platform that connects operational sales data, NoSQL product data, warehouse modelling, reporting outputs, and scalable analytics practice.</li><li><strong>Approach:</strong> Reorganised the IBM Data Engineering capstone into a clean portfolio repository, fixed warehouse SQL inconsistencies, loaded dimensional tables into PostgreSQL, and generated validated analytical CSV outputs.</li><li><strong>Outcome:</strong> Produced a reproducible data engineering artefact with 300,000 fact rows loaded, warehouse validation notes, sales aggregations by country/category, rollup and cube outputs, ETL scripts, MongoDB commands, Spark notebook, and BI report.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/softcart-data-engineering-platform/refs/heads/main/architecture/architecture.png" loading="lazy" decoding="async" alt="SoftCart architecture diagram: web activity flows into MySQL and MongoDB, then PostgreSQL staging, a DB2 warehouse, Cognos Analytics for BI, and Spark for large-scale analytics"/><div class="pcard-caption">SoftCart data platform architecture showing the flow from customer-facing web activity into MySQL and MongoDB, through PostgreSQL staging and DB2 warehousing, with Cognos Analytics for BI reporting and Spark for large-scale analytics.</div></details>
           <div class="pcard-tags"><span class="pt">Data Engineering</span><span class="pt">PostgreSQL</span><span class="pt">SQL</span><span class="pt">MongoDB</span><span class="pt">ETL</span><span class="pt">Data Warehouse</span><span class="pt">Spark</span><span class="pt">BI Reporting</span></div>
           <a class="pcard-gh-btn" href="https://github.com/barbavegeta/softcart-data-engineering-platform" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a>
         </div>
@@ -1024,7 +1210,7 @@
         <div class="pcard pcard-span">
           <div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-virus"/></svg></div><div class="pcard-title"><em>M. tuberculosis</em> WGS Variant Analysis Workflow (Galaxy)</div></div>
           <div class="pcard-desc">Built an end-to-end WGS workflow for <em>Mycobacterium tuberculosis</em> drug resistance analysis, standardising variant detection and interpretation across QC, alignment, annotation, and read-level validation.</div>
-          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Resistance interpretation from WGS data requires a long multi-step workflow with multiple failure points and high risk of inconsistent analysis.</li><li><strong>Action:</strong> Built and executed a Galaxy-based workflow covering QC, trimming, alignment, coverage analysis, variant calling, annotation, and IGV-based validation.</li><li><strong>Impact:</strong> Produced a structured and reproducible resistance analysis workflow supporting clearer interpretation of clinically relevant loci.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/workflow/mtb-workflow.png" alt="Galaxy workflow"/><div class="pcard-caption">Framed Galaxy workflow for <em>M. tuberculosis</em> WGS variant analysis</div></details>
+          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Resistance interpretation from WGS data requires a long multi-step workflow with multiple failure points and high risk of inconsistent analysis.</li><li><strong>Action:</strong> Built and executed a Galaxy-based workflow covering QC, trimming, alignment, coverage analysis, variant calling, annotation, and IGV-based validation.</li><li><strong>Impact:</strong> Produced a structured and reproducible resistance analysis workflow supporting clearer interpretation of clinically relevant loci.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/mtb-wgs-galaxy-workflow/main/workflow/mtb-workflow.png" loading="lazy" decoding="async" alt="Galaxy workflow graph for M. tuberculosis WGS variant analysis, from QC and trimming through alignment, variant calling and annotation"/><div class="pcard-caption">Framed Galaxy workflow for <em>M. tuberculosis</em> WGS variant analysis</div></details>
           <div class="pcard-tags"><span class="pt">Bioinformatics</span><span class="pt">WGS</span><span class="pt">Galaxy</span><span class="pt">BWA-MEM2</span><span class="pt">bcftools</span><span class="pt">SnpEff</span><span class="pt">IGV</span></div>
           <a class="pcard-gh-btn" href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a>
         </div>
@@ -1032,7 +1218,7 @@
         <div class="pcard pcard-span">
           <div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-dna"/></svg></div><div class="pcard-title">RNA-seq Pipeline (Nextflow + Docker)</div></div>
           <div class="pcard-desc">Eliminated inconsistent and error-prone RNA-seq analyses by building a containerised workflow that standardises processing from raw FASTQ to differential expression outputs.</div>
-          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> RNA-seq analyses are often manually assembled, environment-dependent, and difficult to reproduce across machines.</li><li><strong>Action:</strong> Built a containerised Nextflow pipeline integrating FastQC, Cutadapt, STAR, featureCounts, MultiQC, and DESeq2 into a one-command workflow.</li><li><strong>Impact:</strong> Reduced setup friction, improved reproducibility, and produced standardised outputs suitable for scalable downstream expression analysis.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/refs/heads/main/img/test-run-docker.png" alt="Nextflow run"/><div class="pcard-caption">Proof run: Nextflow test execution (Docker profile)</div></details>
+          <details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> RNA-seq analyses are often manually assembled, environment-dependent, and difficult to reproduce across machines.</li><li><strong>Action:</strong> Built a containerised Nextflow pipeline integrating FastQC, Cutadapt, STAR, featureCounts, MultiQC, and DESeq2 into a one-command workflow.</li><li><strong>Impact:</strong> Reduced setup friction, improved reproducibility, and produced standardised outputs suitable for scalable downstream expression analysis.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/refs/heads/main/img/test-run-docker.png" loading="lazy" decoding="async" alt="Terminal output of a successful Nextflow RNA-seq pipeline test run using the Docker profile"/><div class="pcard-caption">Proof run: Nextflow test execution (Docker profile)</div></details>
           <div class="pcard-tags"><span class="pt">Bioinformatics</span><span class="pt">Pipelines & Automation</span><span class="pt">Nextflow</span><span class="pt">Docker</span><span class="pt">RNA-seq</span><span class="pt">STAR</span><span class="pt">DESeq2</span></div>
           <a class="pcard-gh-btn" href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a>
         </div>
@@ -1044,12 +1230,12 @@
       <summary>Additional Projects</summary>
       <div class="proj-bento group-grid">
         <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-layers"/></svg></div><div class="pcard-title">Deep Learning Experiments (Keras vs PyTorch, CNN, ViT)</div></div><div class="pcard-desc">Comparative deep learning experiments using Keras and PyTorch across CNNs, Vision Transformers, and transfer learning for image classification tasks.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Compare deep learning approaches and frameworks across multiple computer vision tasks.</li><li><strong>Approach:</strong> Implemented CNNs, transfer learning models, and Vision Transformers in both Keras and PyTorch, evaluating performance and training behaviour.</li><li><strong>Outcome:</strong> Demonstrated differences in performance, flexibility, and workflow between frameworks and architectures.</li></ul></details><div class="pcard-tags"><span class="pt">Deep Learning</span><span class="pt">PyTorch</span><span class="pt">Keras</span><span class="pt">CNN</span><span class="pt">Vision Transformer</span><span class="pt">Transfer Learning</span><span class="pt">Computer Vision</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/deep-learning-experiments" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
-        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-barchart"/></svg></div><div class="pcard-title">Customer Segmentation (Unsupervised Learning)</div></div><div class="pcard-desc">Segmented 7,043 telecom customers using K-Means, hierarchical clustering, and DBSCAN, identifying a high-risk segment with ~42% churn compared to ~14% in the most stable group.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Identify meaningful customer segments to enable targeted retention strategies instead of treating churn as a uniform problem.</li><li><strong>Approach:</strong> Applied clustering methods on standardised features and selected the final model using silhouette score.</li><li><strong>Outcome:</strong> Produced interpretable segments that can guide retention campaigns, onboarding improvements, and pricing strategies.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/telco-customer-segmentation/refs/heads/main/images/telco_clusters_pca.png" alt="PCA clusters"/><div class="pcard-caption">PCA projection of customer clusters (K-Means, k=3)</div></details><div class="pcard-tags"><span class="pt">Machine Learning</span><span class="pt">Unsupervised Learning</span><span class="pt">Clustering</span><span class="pt">K-Means</span><span class="pt">Scikit-learn</span><span class="pt">Pandas</span><span class="pt">Customer Segmentation</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/telco-customer-segmentation" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
-        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-activity"/></svg></div><div class="pcard-title">Bellabeat - Wearable Health Data Analysis</div></div><div class="pcard-desc">Transformed fragmented wearable data into a structured analytics dataset to uncover behavioural patterns across activity, sleep, heart rate, and weight for 35 users.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Raw Fitbit data was split across multiple files and not directly usable for behavioural analysis or product-facing insight generation.</li><li><strong>Action:</strong> Cleaned, merged, and summarised wearable datasets using R, dplyr, and SQLite, then created a Tableau-ready user summary with 15 behavioural and wellness variables.</li><li><strong>Impact:</strong> Enabled clearer identification of activity, sleep, and health trends to support data-driven product and marketing recommendations.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/bellabeat.png" alt="Bellabeat Tableau Dashboard"/><div class="pcard-caption"><a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a></div></details><div class="pcard-tags"><span class="pt">Data Analytics</span><span class="pt">R</span><span class="pt">SQL</span><span class="pt">dplyr</span><span class="pt">Tableau</span><span class="pt">Wearable Data</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
-        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-barchart"/></svg></div><div class="pcard-title">Google Fiber - Contact Centre Analytics &amp; BI Dashboard</div></div><div class="pcard-desc">Identified repeat-contact patterns across 85,179 customer interactions by consolidating fragmented regional datasets into a unified analytics view, enabling clearer visibility into service inefficiencies.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Customer contact data was split across regional datasets, making it difficult to understand repeat-contact behaviour and pinpoint service pain points.</li><li><strong>Action:</strong> Consolidated 3 datasets into a unified analysis table covering 1,350 records and 85,179 contact events across 5 contact types, then built a Tableau dashboard to surface repeat-contact patterns and operational friction.</li><li><strong>Impact:</strong> Turned fragmented customer-support data into a decision-ready BI view that can support targeted service improvements and reduction of avoidable support load.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/Google_Business_Intelligence-Google_Fiber/refs/heads/main/img/fiber.png" alt="Google Fiber Tableau Dashboard"/><div class="pcard-caption"><a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a></div></details><div class="pcard-tags"><span class="pt">Business Intelligence</span><span class="pt">Customer Analytics</span><span class="pt">Tableau</span><span class="pt">SQL</span><span class="pt">KPI Design</span><span class="pt">Telecom Analytics</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
+        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-barchart"/></svg></div><div class="pcard-title">Customer Segmentation (Unsupervised Learning)</div></div><div class="pcard-desc">Segmented 7,043 telecom customers using K-Means, hierarchical clustering, and DBSCAN, identifying a high-risk segment with ~42% churn compared to ~14% in the most stable group.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Identify meaningful customer segments to enable targeted retention strategies instead of treating churn as a uniform problem.</li><li><strong>Approach:</strong> Applied clustering methods on standardised features and selected the final model using silhouette score.</li><li><strong>Outcome:</strong> Produced interpretable segments that can guide retention campaigns, onboarding improvements, and pricing strategies.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/telco-customer-segmentation/refs/heads/main/images/telco_clusters_pca.png" loading="lazy" decoding="async" alt="PCA scatter plot showing three K-Means customer clusters for the telecom segmentation project"/><div class="pcard-caption">PCA projection of customer clusters (K-Means, k=3)</div></details><div class="pcard-tags"><span class="pt">Machine Learning</span><span class="pt">Unsupervised Learning</span><span class="pt">Clustering</span><span class="pt">K-Means</span><span class="pt">Scikit-learn</span><span class="pt">Pandas</span><span class="pt">Customer Segmentation</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/telco-customer-segmentation" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
+        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-activity"/></svg></div><div class="pcard-title">Bellabeat - Wearable Health Data Analysis</div></div><div class="pcard-desc">Transformed fragmented wearable data into a structured analytics dataset to uncover behavioural patterns across activity, sleep, heart rate, and weight for 35 users.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Raw Fitbit data was split across multiple files and not directly usable for behavioural analysis or product-facing insight generation.</li><li><strong>Action:</strong> Cleaned, merged, and summarised wearable datasets using R, dplyr, and SQLite, then created a Tableau-ready user summary with 15 behavioural and wellness variables.</li><li><strong>Impact:</strong> Enabled clearer identification of activity, sleep, and health trends to support data-driven product and marketing recommendations.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project/refs/heads/main/images/bellabeat.png" loading="lazy" decoding="async" alt="Bellabeat Tableau dashboard summarising wearable activity, sleep and heart-rate patterns"/><div class="pcard-caption"><a href="https://public.tableau.com/app/profile/salvatore.barbagallo/viz/ExercisesBellabeat/Dashboard1" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a></div></details><div class="pcard-tags"><span class="pt">Data Analytics</span><span class="pt">R</span><span class="pt">SQL</span><span class="pt">dplyr</span><span class="pt">Tableau</span><span class="pt">Wearable Data</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/Google_Data_Analytics-Bellabeat_Project" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
+        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-barchart"/></svg></div><div class="pcard-title">Google Fiber - Contact Centre Analytics &amp; BI Dashboard</div></div><div class="pcard-desc">Identified repeat-contact patterns across 85,179 customer interactions by consolidating fragmented regional datasets into a unified analytics view, enabling clearer visibility into service inefficiencies.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Customer contact data was split across regional datasets, making it difficult to understand repeat-contact behaviour and pinpoint service pain points.</li><li><strong>Action:</strong> Consolidated 3 datasets into a unified analysis table covering 1,350 records and 85,179 contact events across 5 contact types, then built a Tableau dashboard to surface repeat-contact patterns and operational friction.</li><li><strong>Impact:</strong> Turned fragmented customer-support data into a decision-ready BI view that can support targeted service improvements and reduction of avoidable support load.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/Google_Business_Intelligence-Google_Fiber/refs/heads/main/img/fiber.png" loading="lazy" decoding="async" alt="Google Fiber Tableau dashboard showing repeat-contact patterns across contact types and regions"/><div class="pcard-caption"><a href="https://public.tableau.com/views/GoogleFiber-GoogleBusinessIntelligenceCertificate/Dashboard1?:language=en-GB&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener noreferrer">View interactive Tableau dashboard ↗</a></div></details><div class="pcard-tags"><span class="pt">Business Intelligence</span><span class="pt">Customer Analytics</span><span class="pt">Tableau</span><span class="pt">SQL</span><span class="pt">KPI Design</span><span class="pt">Telecom Analytics</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/Google_Business_Intelligence-Google_Fiber" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
         <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-users"/></svg></div><div class="pcard-title">Salifort Motors - Employee Attrition Prediction</div></div><div class="pcard-desc">Built predictive models on 14,999 employee records to identify the drivers of 23.8% turnover and translate model outputs into retention-focused recommendations.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> The business faced substantial employee turnover, but the main drivers of attrition were not clearly understood.</li><li><strong>Action:</strong> Performed exploratory analysis, engineered features, and trained classification models using Python, scikit-learn, and XGBoost to analyse attrition patterns across 10 departments.</li><li><strong>Impact:</strong> Produced evidence-based recommendations to support workforce retention strategy and prioritise the factors most associated with employee loss.</li></ul></details><div class="pcard-tags"><span class="pt">Data Science</span><span class="pt">Machine Learning</span><span class="pt">Python</span><span class="pt">scikit-learn</span><span class="pt">XGBoost</span><span class="pt">HR Analytics</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-Salifort_Motors" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
         <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-play"/></svg></div><div class="pcard-title">TikTok - Social Media Engagement Analysis</div></div><div class="pcard-desc">Analysed 19,382 posts to uncover highly skewed engagement patterns and identify content features associated with stronger performance.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Problem:</strong> Engagement was unevenly distributed, making it difficult to understand which content characteristics were linked to stronger performance.</li><li><strong>Action:</strong> Used Python, pandas, and visual analytics to explore engagement metrics, inspect distribution patterns, and examine relationships between content features and post performance.</li><li><strong>Impact:</strong> Generated evidence-based recommendations to support content optimisation and stronger audience engagement strategy.</li></ul></details><div class="pcard-tags"><span class="pt">Data Analytics</span><span class="pt">Exploratory Data Analysis</span><span class="pt">Python</span><span class="pt">Pandas</span><span class="pt">Matplotlib</span><span class="pt">Plotly</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/Google_Advanced_Data_Analytics-TikTok_Project" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
-        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-cloud"/></svg></div><div class="pcard-title">AWS Managed Services - Cloud Migration Architecture</div></div><div class="pcard-desc">High-level AWS architecture design for migrating on-premises workloads to a cloud-native, fully managed solution, ensuring scalability, fault-tolerance, and operational efficiency.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Migrate two on-prem workloads, a three-tier web application and a Hadoop-based analytics environment, into a modern AWS environment with managed services.</li><li><strong>Approach:</strong> Designed an end-to-end cloud solution using AWS managed services including CloudFront, S3, ECS on Fargate, ALB, Aurora MySQL, ElastiCache, SQS, EMR, Glue, Athena, Redshift, and QuickSight.</li><li><strong>Outcome:</strong> Produced a decoupled, fault-tolerant, multi-AZ architecture that modernises both workloads while reducing operational overhead through managed services.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/AWS_Solution_Architect/refs/heads/main/aws_architecture_diagram-Solution_Architect.png" alt="AWS Migration Architecture Diagram"/><div class="pcard-caption">AWS Architecture Diagram - Migration Solution</div></details><div class="pcard-tags"><span class="pt">Cloud Architecture</span><span class="pt">AWS</span><span class="pt">Data Infrastructure</span><span class="pt">ECS Fargate</span><span class="pt">Aurora MySQL</span><span class="pt">Redshift</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/AWS_Solution_Architect" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
+        <div class="pcard"><div class="pcard-top"><div class="pcard-icon"><svg><use href="#ico-cloud"/></svg></div><div class="pcard-title">AWS Managed Services - Cloud Migration Architecture</div></div><div class="pcard-desc">High-level AWS architecture design for migrating on-premises workloads to a cloud-native, fully managed solution, ensuring scalability, fault-tolerance, and operational efficiency.</div><details class="pcard-expand"><summary>View details</summary><ul><li><strong>Objective:</strong> Migrate two on-prem workloads, a three-tier web application and a Hadoop-based analytics environment, into a modern AWS environment with managed services.</li><li><strong>Approach:</strong> Designed an end-to-end cloud solution using AWS managed services including CloudFront, S3, ECS on Fargate, ALB, Aurora MySQL, ElastiCache, SQS, EMR, Glue, Athena, Redshift, and QuickSight.</li><li><strong>Outcome:</strong> Produced a decoupled, fault-tolerant, multi-AZ architecture that modernises both workloads while reducing operational overhead through managed services.</li></ul><img class="pcard-img" src="https://raw.githubusercontent.com/barbavegeta/AWS_Solution_Architect/refs/heads/main/aws_architecture_diagram-Solution_Architect.png" loading="lazy" decoding="async" alt="AWS migration architecture diagram using CloudFront, S3, ECS Fargate, Aurora MySQL, EMR, Glue, Redshift and QuickSight across multiple availability zones"/><div class="pcard-caption">AWS Architecture Diagram - Migration Solution</div></details><div class="pcard-tags"><span class="pt">Cloud Architecture</span><span class="pt">AWS</span><span class="pt">Data Infrastructure</span><span class="pt">ECS Fargate</span><span class="pt">Aurora MySQL</span><span class="pt">Redshift</span></div><a class="pcard-gh-btn" href="https://github.com/barbavegeta/AWS_Solution_Architect" target="_blank" rel="noopener"><svg><use href="#ico-github"/></svg> View on GitHub</a></div>
       </div>
     </details>
   </section>
@@ -1246,28 +1432,29 @@
     <div class="sec-head">
       <span class="sec-dot" aria-hidden="true"></span>
       <h2 class="sec-title">Education</h2>
+      <span class="sec-sub">Biomedical science → cell &amp; gene therapy → bioinformatics</span>
     </div>
     <div class="edu-strip">
       <div class="edu-tile">
-        <div class="edu-tag">2014 – 2017</div>
-        <div class="edu-deg">BSc, Biomedical Science</div>
-        <div class="edu-school">University of Catania</div>
-        <div class="edu-year">Catania, Italy</div>
-        <div class="edu-thesis">Cytotoxicity assays using SIRC, ARPE-19, and HRPE cells</div>
+        <div class="edu-tag">2025 – present</div>
+        <div class="edu-deg">MSc, Bioinformatics <span class="edu-ongoing">ongoing</span></div>
+        <div class="edu-school">Atlantic Technological University</div>
+        <div class="edu-year">Letterkenny, Ireland · Remote</div>
+        <div class="edu-thesis"><span class="edu-thesis-k">Thesis</span>Two-sample Mendelian randomisation and Bayesian colocalisation for causal inference using GWAS and eQTL data</div>
       </div>
       <div class="edu-tile">
         <div class="edu-tag">2021 – 2023</div>
         <div class="edu-deg">MSc, Cell &amp; Gene Therapy</div>
         <div class="edu-school">University College London</div>
         <div class="edu-year">London, UK</div>
-        <div class="edu-thesis">Expansion and Preservation of Haematopoietic Potential in Human Amniotic Fluid Stem Cells for Therapeutic Applications</div>
+        <div class="edu-thesis"><span class="edu-thesis-k">Thesis</span>Expansion and Preservation of Haematopoietic Potential in Human Amniotic Fluid Stem Cells for Therapeutic Applications</div>
       </div>
       <div class="edu-tile">
-        <div class="edu-tag">2025 – Present</div>
-        <div class="edu-deg">MSc, Bioinformatics</div>
-        <div class="edu-school">Atlantic Technological University</div>
-        <div class="edu-year">Letterkenny, Ireland · Remote</div>
-        <div class="edu-thesis">Two-sample Mendelian randomisation and Bayesian colocalisation for causal inference using GWAS and eQTL data</em></div>
+        <div class="edu-tag">2014 – 2017</div>
+        <div class="edu-deg">BSc, Biomedical Science</div>
+        <div class="edu-school">University of Catania</div>
+        <div class="edu-year">Catania, Italy</div>
+        <div class="edu-thesis"><span class="edu-thesis-k">Thesis</span>Cytotoxicity assays using SIRC, ARPE-19, and HRPE cells</div>
       </div>
     </div>
   </section>
@@ -1326,7 +1513,11 @@
     </div>
   </section>
 
-</div>
+</main>
+
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">
+  <svg aria-hidden="true"><use href="#ico-arrow-up"/></svg>
+</button>
 
 <footer class="footer">
   © <span id="yr"></span> Salvatore Barbagallo · All rights reserved
@@ -1335,51 +1526,177 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Hamburger menu
-  (function(){
-    const hamburger  = document.getElementById('hamburgerBtn');
-    const mobileNav  = document.getElementById('mobileNav');
-    const navLinks   = mobileNav.querySelectorAll('.mobile-nav-link');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function close() {
-      hamburger.classList.remove('open');
-      mobileNav.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
+  /* ── Mobile menu ─────────────────────────── */
+  (function () {
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const navLinks  = mobileNav.querySelectorAll('.mobile-nav-link, a');
+
+    function setOpen(open) {
+      hamburger.classList.toggle('open', open);
+      mobileNav.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     }
 
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.contains('open');
-      if (isOpen) { close(); } else {
-        hamburger.classList.add('open');
-        mobileNav.classList.add('open');
-        hamburger.setAttribute('aria-expanded', 'true');
-      }
-    });
-
-    navLinks.forEach(link => link.addEventListener('click', close));
+    hamburger.addEventListener('click', () => setOpen(!mobileNav.classList.contains('open')));
+    navLinks.forEach(link => link.addEventListener('click', () => setOpen(false)));
 
     document.addEventListener('click', e => {
-      if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) close();
+      if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+        setOpen(false);
+        hamburger.focus();
+      }
+    });
+    // Close the drawer if the viewport grows past the mobile breakpoint
+    window.matchMedia('(min-width: 1041px)').addEventListener('change', e => { if (e.matches) setOpen(false); });
+  })();
+
+  /* ── Theme toggle (respects system preference until the user chooses) ── */
+  (function () {
+    const root  = document.documentElement;
+    const btn   = document.getElementById('themeBtn');
+    const icon  = document.getElementById('themeIcon');
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const apply = t => {
+      root.setAttribute('data-theme', t);
+      icon.innerHTML = t === 'light' ? '<use href="#ico-moon"/>' : '<use href="#ico-sun"/>';
+      btn.setAttribute('aria-label', t === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+      btn.setAttribute('aria-pressed', String(t === 'dark'));
+      btn.setAttribute('title', t === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+    };
+
+    let stored = null;
+    try { stored = localStorage.getItem('sb3-theme'); } catch (e) {}
+    apply(stored || (media.matches ? 'dark' : 'light'));
+
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      try { localStorage.setItem('sb3-theme', next); } catch (e) {}
+      apply(next);
+    });
+
+    // Follow the OS only while the visitor hasn't picked a theme themselves
+    media.addEventListener('change', e => {
+      let hasChoice = false;
+      try { hasChoice = !!localStorage.getItem('sb3-theme'); } catch (err) {}
+      if (!hasChoice) apply(e.matches ? 'dark' : 'light');
     });
   })();
 
-  (function(){
-    const root = document.documentElement;
-    const btn  = document.getElementById('themeBtn');
-    const icon = document.getElementById('themeIcon');
-    const stored = localStorage.getItem('sb3-theme') || 'light';
-    const apply = t => {
-      root.setAttribute('data-theme', t);
-      icon.innerHTML = t === 'light'
-        ? '<use href="#ico-moon"/>'
-        : '<use href="#ico-sun"/>';
-    };
-    apply(stored);
-    btn.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      localStorage.setItem('sb3-theme', next);
-      apply(next);
+  /* ── Scroll progress, sticky-nav shadow, back to top ── */
+  (function () {
+    const bar   = document.getElementById('scrollProgress');
+    const nav   = document.getElementById('siteNav');
+    const toTop = document.getElementById('toTop');
+    let ticking = false;
+
+    function update() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const y   = window.scrollY;
+      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+      nav.classList.toggle('scrolled', y > 8);
+      toTop.classList.toggle('show', y > 600);
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+
+    toTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     });
+  })();
+
+  /* ── Highlight the section currently in view ── */
+  (function () {
+    const sections = Array.from(document.querySelectorAll('main section[id]'));
+    const links = Array.from(document.querySelectorAll('.nav-pill, .mobile-nav-link'));
+    if (!sections.length || !('IntersectionObserver' in window)) return;
+
+    const setActive = id => links.forEach(l => {
+      const on = l.getAttribute('href') === '#' + id;
+      l.classList.toggle('active', on);
+      if (on) { l.setAttribute('aria-current', 'true'); } else { l.removeAttribute('aria-current'); }
+    });
+
+    const visible = new Map();
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => visible.set(en.target.id, en.isIntersecting ? en.intersectionRatio : 0));
+      let best = null, bestRatio = 0;
+      visible.forEach((ratio, id) => { if (ratio > bestRatio) { bestRatio = ratio; best = id; } });
+      if (best) setActive(best);
+      else if (window.scrollY < 200) links.forEach(l => { l.classList.remove('active'); l.removeAttribute('aria-current'); });
+    }, { rootMargin: '-70px 0px -55% 0px', threshold: [0, .15, .35, .6, 1] });
+
+    sections.forEach(s => io.observe(s));
+  })();
+
+  /* ── Reveal on scroll (added in JS so no-JS visitors still see everything) ── */
+  (function () {
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+    const targets = document.querySelectorAll('.bento, .sec > .card, .project-group, .exp-card, .ai-work-group, .edu-tile, .cert-tile, .contact-wrap, .sec-head');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const el = en.target;
+        el.classList.add('is-visible');
+        io.unobserve(el);
+        // Drop the stagger delay afterwards so it can't slow down hover transitions
+        setTimeout(() => { el.style.transitionDelay = ''; el.classList.remove('reveal'); }, 1100);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .06 });
+
+    targets.forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = Math.min(i % 6, 5) * 45 + 'ms';
+      io.observe(el);
+    });
+  })();
+
+  /* ── Count up the hero stats once they scroll into view ── */
+  (function () {
+    const nums = document.querySelectorAll('.sitem-n');
+    if (!nums.length) return;
+
+    // Whatever happens, printing must show the real figures
+    nums.forEach(n => n.dataset.final = n.textContent.trim());
+    window.addEventListener('beforeprint', () => {
+      nums.forEach(n => { if (n.dataset.final) n.textContent = n.dataset.final; });
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+    });
+
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        const el = en.target;
+        const raw = el.textContent.trim();
+        const m = raw.match(/^(\d+)(.*)$/);
+        if (!m) return;
+        const target = parseInt(m[1], 10), suffix = m[2];
+        const start = performance.now(), dur = 900;
+        (function step(now) {
+          const p = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        })(start);
+      });
+    }, { threshold: .5 });
+
+    nums.forEach(n => io.observe(n));
   })();
 </script>
 </body>
