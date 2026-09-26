@@ -851,7 +851,7 @@
       <dl class="skills">
         <div class="skill-row"><dt>Programming</dt><dd><ul class="chips"><li>Python</li><li>R</li><li>SQL</li><li>Bash</li></ul></dd></div>
         <div class="skill-row"><dt>Workflows</dt><dd><ul class="chips"><li>Nextflow (DSL2)</li><li>Docker</li><li>Galaxy</li><li>Conda</li><li>Git</li><li>Linux</li></ul></dd></div>
-        <div class="skill-row"><dt>NGS / Omics</dt><dd><ul class="chips"><li>RNA-seq</li><li>WGS</li><li>fastp</li><li>Cutadapt</li><li>STAR</li><li>featureCounts</li><li>BWA-MEM2</li><li>samtools</li><li>Picard</li><li>bcftools</li><li>SnpEff</li><li>mosdepth</li><li>MultiQC</li><li>DESeq2</li><li>IGV</li></ul></dd></div>
+        <div class="skill-row"><dt>NGS / Omics</dt><dd><ul class="chips"><li>RNA-seq</li><li>WGS</li><li>fastp</li><li>Cutadapt</li><li>STAR</li><li>Salmon</li><li>featureCounts</li><li>BWA-MEM2</li><li>samtools</li><li>Picard</li><li>bcftools</li><li>SnpEff</li><li>mosdepth</li><li>MultiQC</li><li>DESeq2</li><li>IGV</li></ul></dd></div>
         <div class="skill-row"><dt>Single-cell</dt><dd><ul class="chips"><li>Scanpy</li><li>AnnData</li><li>Pseudobulk DE</li><li>PyDESeq2</li><li>speckle / propeller</li><li>Leiden clustering</li></ul></dd></div>
         <div class="skill-row"><dt>Statistical Genetics</dt><dd><ul class="chips"><li>Mendelian randomisation</li><li>Colocalisation</li><li>SuSiE</li><li>GWAS</li><li>pQTL / eQTL</li><li>LD clumping</li></ul></dd></div>
         <div class="skill-row"><dt>Machine learning</dt><dd><ul class="chips"><li>scikit-learn</li><li>XGBoost</li><li>PyTorch</li></ul></dd></div>
@@ -952,17 +952,17 @@
         <article class="pcard">
             <p class="kicker">Transcriptomics · Pipelines</p>
             <h4 class="proj-title">RNA-seq Pipeline (Nextflow + Docker)</h4>
-            <p class="proj-desc">Samplesheet-driven Nextflow DSL2 pipeline that runs FastQC, Cutadapt, STAR, featureCounts, MultiQC and DESeq2 in versioned Docker containers, from raw FASTQ to differential expression with one command.</p>
+            <p class="proj-desc">Samplesheet-driven Nextflow DSL2 pipeline from raw FASTQ to differential expression in one command: FastQC, Cutadapt, then STAR + featureCounts or Salmon, MultiQC and DESeq2 with any design formula, all in versioned Docker containers. Validated on real human data: 8 of 8 known dexamethasone-response genes recovered.</p>
             <details class="more"><summary>Details</summary><div class="more-body"><ul class="bullets">
-              <li><strong>Problem:</strong> RNA-seq analyses are often manually assembled, environment-dependent, and difficult to reproduce across machines.</li>
-              <li><strong>Action:</strong> Built a containerised Nextflow pipeline integrating FastQC, Cutadapt, STAR, featureCounts, MultiQC, and DESeq2 into a one-command workflow.</li>
-              <li><strong>Validation:</strong> Runs end-to-end on a small bundled test dataset (included so anyone can reproduce it), with Nextflow trace, report and timeline outputs. The test data checks the workflow wiring and is not meant for biological interpretation.</li>
+              <li><strong>Problem:</strong> RNA-seq analyses are often assembled by hand, depend on one machine's environment and are hard to reproduce.</li>
+              <li><strong>Action:</strong> Built a containerised Nextflow pipeline with two quantification routes: STAR genome alignment with fragment-level featureCounts, and low-memory Salmon with gene-level summarisation. DESeq2 takes a configurable design formula and an explicit reference level, so paired or blocked designs are supported.</li>
+              <li><strong>Validation:</strong> Ran on the public airway dataset (GSE52778; 4 donors, dexamethasone vs control, paired <code>~ cell + condition</code> design). Salmon mapped 94&#8211;95% of fragments and DESeq2 found 615 differentially expressed genes. All 8 canonical glucocorticoid-response genes came out strongly up (e.g. FKBP5, ZBTB16, PER1, DUSP1; padj &lt; 1e-9). The whole run took under 10 minutes on a 16 GB laptop. A small bundled test dataset runs in GitHub Actions on every push.</li>
             </ul>
-            <img class="shot" src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/refs/heads/main/img/test-run-docker.png" loading="lazy" decoding="async" alt="Terminal output of a successful Nextflow RNA-seq pipeline test run using the Docker profile"/>
-            <p class="shot-cap">Proof run: Nextflow test execution (Docker profile)</p>
+            <img class="shot" src="https://raw.githubusercontent.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker/main/img/airway-volcano.png" loading="lazy" decoding="async" alt="Volcano plot of dexamethasone versus control in airway smooth muscle cells, with eight known glucocorticoid-response genes labelled among 350 up-regulated and 265 down-regulated genes"/>
+            <p class="shot-cap">Airway smooth muscle cells, dexamethasone vs control: 350 genes up and 265 down (padj &lt; 0.05, |log2FC| &gt; 1), known targets labelled</p>
             </div></details>
             <div class="pcard-foot">
-              <ul class="tags"><li>Bioinformatics</li><li>Pipelines &amp; Automation</li><li>Nextflow</li><li>Docker</li><li>RNA-seq</li><li>STAR</li><li>DESeq2</li></ul>
+              <ul class="tags"><li>Bioinformatics</li><li>Pipelines &amp; Automation</li><li>Nextflow</li><li>Docker</li><li>RNA-seq</li><li>STAR</li><li>Salmon</li><li>DESeq2</li></ul>
               <a class="repo-link" href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>Repository ↗</a>
             </div>
         </article>
