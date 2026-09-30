@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Projects · Salvatore Barbagallo</title>
+  <meta name="description" content="Bioinformatics case studies by Salvatore Barbagallo: Mendelian randomisation and colocalisation, proteome-wide MR in Nextflow, snRNA-seq pseudobulk, WGS variant calling, RNA-seq pipelines and regulatory-variant ML."/>
+  <meta name="author" content="Salvatore Barbagallo"/>
+  <link rel="canonical" href="https://barbavegeta.github.io/projects.html"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="theme-color" content="#f5f8f7" media="(prefers-color-scheme: light)"/>
+  <meta name="theme-color" content="#0b1215" media="(prefers-color-scheme: dark)"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Projects · Salvatore Barbagallo"/>
+  <meta property="og:description" content="Bioinformatics case studies by Salvatore Barbagallo: Mendelian randomisation and colocalisation, proteome-wide MR in Nextflow, snRNA-seq pseudobulk, WGS variant calling, RNA-seq pipelines and regulatory-variant ML."/>
+  <meta property="og:url" content="https://barbavegeta.github.io/projects.html"/>
+  <meta property="og:locale" content="en_GB"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Projects · Salvatore Barbagallo"/>
+  <meta name="twitter:description" content="Bioinformatics case studies by Salvatore Barbagallo: Mendelian randomisation and colocalisation, proteome-wide MR in Nextflow, snRNA-seq pseudobulk, WGS variant calling, RNA-seq pipelines and regulatory-variant ML."/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add('js');
+      try {
+        var stored = localStorage.getItem('sb3-theme');
+        d.setAttribute('data-theme', stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+      } catch (e) { /* storage blocked: CSS falls back to the OS preference */ }
+    })();
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDBND1PJP7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-KDBND1PJP7');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/site.css"/>
+  <script src="assets/js/site.js" defer></script>
+
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ico-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></symbol>
+  <symbol id="ico-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+  <symbol id="ico-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+  <symbol id="ico-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="6"/><polyline points="5 13 12 6 19 13"/></symbol>
+  <symbol id="ico-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></symbol>
+  <symbol id="ico-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  <symbol id="ico-linkedin" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></symbol>
+</svg>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Salvatore Barbagallo, home">
+      <span class="brand-mark" aria-hidden="true">SB</span>
+      <span class="brand-name">Salvatore Barbagallo</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="projects.html" class="nav-link active" aria-current="page">Projects</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="docs/Salvatore_Barbagallo_CV.pdf" class="nav-link" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-actions">
+      <div class="nav-social">
+        <a href="https://github.com/barbavegeta" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg></a>
+        <a href="mailto:barbagallo1@hotmail.it" aria-label="Email" title="Email"><svg class="i" aria-hidden="true"><use href="#ico-mail"/></svg></a>
+      </div>
+      <button class="btn btn-icon" id="themeBtn" type="button" aria-label="Toggle theme">
+        <svg class="i" id="themeIcon" aria-hidden="true"><use href="#ico-moon"/></svg>
+      </button>
+      <button class="btn btn-icon hamburger" id="hamburgerBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile menu">
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <a href="projects.html" class="mobile-nav-link active" aria-current="page">Projects</a>
+  <a href="about.html" class="mobile-nav-link">About</a>
+  <a href="docs/Salvatore_Barbagallo_CV.pdf" class="mobile-nav-link" target="_blank" rel="noopener">Resume ↗</a>
+  <div class="mobile-nav-cv">
+    <a class="btn" href="https://github.com/barbavegeta" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</a>
+    <a class="btn" href="mailto:barbagallo1@hotmail.it"><svg class="i" aria-hidden="true"><use href="#ico-mail"/></svg>Email</a>
+  </div>
+</div>
+
+<main class="wrap" id="main">
+
+  <section class="page-hero">
+    <p class="kicker">Projects</p>
+    <h1>See how I take a question from raw data to a defensible answer</h1>
+    <p class="lead">Six bioinformatics projects, each written up as a case study: the question, the approach, the results, and what the evidence does and doesn’t support. Code for all of them is on <a class="text-link" href="https://github.com/barbavegeta" target="_blank" rel="noopener">GitHub</a>.</p>
+  </section>
+
+  <section class="block block--flush" aria-label="Bioinformatics projects" style="padding-top:8px">
+    <div class="filters" role="group" aria-label="Filter projects"><button class="filter" type="button" data-filter="all" aria-pressed="true">All<span class="n">6</span></button><button class="filter" type="button" data-filter="genetics" aria-pressed="false">Statistical genetics<span class="n">2</span></button><button class="filter" type="button" data-filter="transcriptomics" aria-pressed="false">Transcriptomics<span class="n">2</span></button><button class="filter" type="button" data-filter="pipelines" aria-pressed="false">Pipelines<span class="n">3</span></button><button class="filter" type="button" data-filter="ngs" aria-pressed="false">NGS / WGS<span class="n">1</span></button><button class="filter" type="button" data-filter="ml" aria-pressed="false">Machine learning<span class="n">1</span></button></div>
+    <div class="card-grid">
+        <a class="card reveal" href="projects/gpnmb-mendelian-randomisation.html" data-cat="genetics">
+          <div class="card-fig"><img src="assets/img/gpnmb-forest.webp" alt="Forest plot of GPNMB Mendelian randomisation odds ratios for Parkinson’s disease across SomaScan and Olink instrument sets" loading="lazy" decoding="async"/></div>
+          <div class="card-body">
+            <p class="kicker">MSc dissertation · Statistical genetics</p>
+            <h3>GPNMB and Parkinson’s disease: Mendelian randomisation and colocalisation</h3>
+            <p>Two-sample MR, LD-aware sensitivity analysis and Bayesian colocalisation to test whether genetically predicted GPNMB protein levels are linked to Parkinson’s disease risk. The evidence supports prioritisation, not causality.</p>
+            <ul class="tags"><li>Mendelian randomisation</li><li>Colocalisation</li><li>SuSiE</li><li>pQTL / eQTL</li><li>R</li><li>OpenGWAS</li></ul>
+            <span class="go">Read case study <span class="arr">→</span></span>
+          </div>
+        </a><a class="card reveal" href="projects/proteome-mr-scan.html" data-cat="genetics pipelines">
+          <div class="card-fig"><img src="assets/img/proteome-gpnmb-locus.webp" alt="Regional plot of the GPNMB locus from the pipeline: UKB-PPP Olink pQTL association above, Parkinson’s disease GWAS below" loading="lazy" decoding="async"/></div>
+          <div class="card-body">
+            <p class="kicker">Human genetics · Target discovery · Nextflow</p>
+            <h3>Proteome-wide cis-MR and colocalisation scan for Parkinson’s disease</h3>
+            <p>Scaled the dissertation from one protein to the plasma proteome: a Nextflow pipeline that tests each of ~2,900 UKB-PPP proteins with cis-pQTL MR and colocalisation, then applies FDR control, evidence tiers and an HTML report.</p>
+            <ul class="tags"><li>Nextflow</li><li>Mendelian randomisation</li><li>Colocalisation</li><li>UKB-PPP</li><li>Python</li><li>pytest</li></ul>
+            <span class="go">Read case study <span class="arr">→</span></span>
+          </div>
+        </a><a class="card reveal" href="projects/snrnaseq-gpnmb.html" data-cat="transcriptomics">
+          <div class="card-fig"><img src="assets/img/snrna-umap-celltypes.webp" alt="UMAP of 83,484 substantia nigra nuclei coloured by author cell-type annotation" loading="lazy" decoding="async"/></div>
+          <div class="card-body">
+            <p class="kicker">Single-nucleus transcriptomics · Parkinson’s disease</p>
+            <h3>GPNMB in Parkinson’s disease: snRNA-seq re-analysis</h3>
+            <p>Re-analysed 83,484 substantia nigra nuclei from 29 donors to localise GPNMB and test PD–control differences with donor-level pseudobulk models. GPNMB was highest in microglia and about two-fold higher in PD microglia.</p>
+            <ul class="tags"><li>snRNA-seq</li><li>Scanpy</li><li>Pseudobulk</li><li>PyDESeq2</li><li>Microglia</li><li>Propeller</li></ul>
+            <span class="go">Read case study <span class="arr">→</span></span>
+          </div>
+        </a><a class="card reveal" href="projects/mtb-wgs-galaxy.html" data-cat="ngs pipelines">
+          <div class="card-fig"><img src="assets/img/mtb-workflow.webp" alt="Galaxy workflow graph for M. tuberculosis WGS variant analysis" loading="lazy" decoding="async"/></div>
+          <div class="card-body">
+            <p class="kicker">Microbial genomics · WGS</p>
+            <h3><em>M. tuberculosis</em> WGS variant analysis (Galaxy)</h3>
+            <p>End-to-end Galaxy workflow from SRA reads to annotated resistance variants, run on 6 clinical isolates. It called rpoB and katG mutations, confirmed in IGV, and classified 4 isolates as genotypically MDR-TB.</p>
+            <ul class="tags"><li>WGS</li><li>Galaxy</li><li>BWA-MEM2</li><li>bcftools</li><li>SnpEff</li><li>IGV</li></ul>
+            <span class="go">Read case study <span class="arr">→</span></span>
+          </div>
+        </a><a class="card reveal" href="projects/rnaseq-nextflow.html" data-cat="transcriptomics pipelines">
+          <div class="card-fig"><img src="assets/img/rnaseq-volcano.webp" alt="Volcano plot of dexamethasone versus control in airway smooth muscle cells with known response genes labelled" loading="lazy" decoding="async"/></div>
+          <div class="card-body">
+            <p class="kicker">Transcriptomics · Pipelines</p>
+            <h3>RNA-seq pipeline (Nextflow + Docker)</h3>
+            <p>Samplesheet-driven Nextflow DSL2 pipeline from raw FASTQ to differential expression in one command, with every tool in a versioned container. Validated on real human data: 8 of 8 known dexamethasone-response genes recovered.</p>
+            <ul class="tags"><li>Nextflow</li><li>Docker</li><li>RNA-seq</li><li>STAR</li><li>Salmon</li><li>DESeq2</li></ul>
+            <span class="go">Read case study <span class="arr">→</span></span>
+          </div>
+        </a><a class="card reveal" href="projects/regulonml.html" data-cat="ml">
+          <div class="card-fig"><img src="assets/img/regulon-tert.webp" alt="Saturation mutagenesis of the TERT promoter with the C228T and C250T cancer mutations highlighted" loading="lazy" decoding="async"/></div>
+          <div class="card-body">
+            <p class="kicker">Regulatory genomics · Machine learning</p>
+            <h3>RegulonML: regulatory variant effects in unseen promoters and enhancers</h3>
+            <p>Predicted the effects of 41,724 single-base variants in 21 regulatory elements from DNA sequence alone, scoring binding-site gain and loss for 1,019 JASPAR motifs and testing only on loci the model had never seen.</p>
+            <ul class="tags"><li>MPRA</li><li>Regulatory genomics</li><li>JASPAR</li><li>scikit-learn</li><li>Gradient boosting</li><li>Grouped CV</li></ul>
+            <span class="go">Read case study <span class="arr">→</span></span>
+          </div>
+        </a>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="other-h">
+    <div class="block-head">
+      <div>
+        <p class="kicker">Other work</p>
+        <h2 id="other-h">Machine learning, LLMs and data engineering</h2>
+        <p class="sub">Mostly course capstones, kept here because they show range. Each links straight to its repository.</p>
+      </div>
+    </div>
+    <div class="mini-grid">
+        <a class="mini reveal" href="https://github.com/barbavegeta/qa-bot-llm-rag" target="_blank" rel="noopener">
+          <p class="kicker">LLM · Retrieval-augmented generation</p>
+          <h3>QA bot for documents using RAG</h3>
+          <p>A retrieval-augmented generation system for PDF question answering, covering loading, chunking, embeddings, vector storage, retrieval and answer generation.</p>
+          <ul class="tags"><li>LangChain</li><li>Chroma</li><li>FastAPI</li><li>Gradio</li><li>watsonx</li></ul>
+          <span class="go">View on GitHub <span class="arr">↗</span></span>
+        </a><a class="mini reveal" href="https://github.com/barbavegeta/deep-learning-experiments" target="_blank" rel="noopener">
+          <p class="kicker">Deep learning · Computer vision</p>
+          <h3>Deep learning experiments: Keras vs PyTorch, CNN, ViT</h3>
+          <p>Comparative experiments across CNNs, Vision Transformers and transfer learning for image classification, implemented in both frameworks.</p>
+          <ul class="tags"><li>PyTorch</li><li>Keras</li><li>CNN</li><li>Vision Transformer</li></ul>
+          <span class="go">View on GitHub <span class="arr">↗</span></span>
+        </a><a class="mini reveal" href="https://github.com/barbavegeta/softcart-data-engineering-platform" target="_blank" rel="noopener">
+          <p class="kicker">Data engineering</p>
+          <h3>SoftCart data engineering platform</h3>
+          <p>End-to-end e-commerce data platform: SQL/NoSQL ingestion, dimensional warehouse design, ETL automation, PostgreSQL analytics with 300,000 fact rows, BI reporting and Spark.</p>
+          <ul class="tags"><li>PostgreSQL</li><li>MongoDB</li><li>ETL</li><li>Spark</li></ul>
+          <span class="go">View on GitHub <span class="arr">↗</span></span>
+        </a><a class="mini reveal" href="https://github.com/barbavegeta/telco-customer-segmentation" target="_blank" rel="noopener">
+          <p class="kicker">Machine learning · Clustering</p>
+          <h3>Customer segmentation (unsupervised learning)</h3>
+          <p>Segmented 7,043 telecom customers with K-Means, hierarchical clustering and DBSCAN, finding a high-risk segment with ~42% churn against ~14% in the most stable group.</p>
+          <ul class="tags"><li>scikit-learn</li><li>K-Means</li><li>DBSCAN</li><li>pandas</li></ul>
+          <span class="go">View on GitHub <span class="arr">↗</span></span>
+        </a>
+    </div>
+  </section>
+
+
+  <section class="cta reveal" aria-labelledby="cta-h">
+    <div>
+      <h2 id="cta-h">Let’s work together?</h2>
+      <p>I’m looking for bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps. Based in London, open to hybrid and remote.</p>
+    </div>
+    <div class="cta-side">
+      <a class="cta-email" href="mailto:barbagallo1@hotmail.it">barbagallo1@hotmail.it</a>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#ico-download"/></svg>Curriculum Vitae</a>
+        <a class="btn" href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/barbavegeta" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top" title="Back to top">
+  <svg class="i" aria-hidden="true"><use href="#ico-arrow-up"/></svg>
+</button>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="yr">2026</span> Salvatore Barbagallo · London, UK</span>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

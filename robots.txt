@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://barbavegeta.github.io/sitemap.xml
