@@ -111,11 +111,10 @@
   <section class="home-hero" aria-labelledby="hero-h">
     <div class="home-hero-grid">
       <div>
-        <p class="hello">Hello!</p>
-        <h1 id="hero-h"><span class="im">I’m</span>Salvatore Barbagallo</h1>
         <p class="role-line">Bioinformatician <b>/</b> Statistical genetics <b>/</b> Transcriptomics <b>/</b> NGS</p>
-        <p class="tagline">I turn sequencing data and GWAS summary statistics into reproducible analyses, with conclusions no stronger than the evidence.</p>
-        <p class="lead">MSc in Bioinformatics and seven years in regulated clinical laboratories, two of them in high-throughput clinical NGS. I work in R, Python and Nextflow, most recently on Parkinson’s disease target prioritisation.</p>
+        <h1 id="hero-h">Salvatore Barbagallo</h1>
+        <p class="tagline">Prioritising drug targets, from GWAS to single cells.</p>
+        <p class="lead">MSc in Bioinformatics and seven years in regulated clinical laboratories, two of them in high-throughput clinical NGS. I work in R, Python and Nextflow. My 2026 MSc dissertation and two follow-up projects focus on Parkinson’s disease target prioritisation.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="projects.html">View projects <span aria-hidden="true">→</span></a>
           <a class="btn" href="docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#ico-download"/></svg>Download CV</a>
@@ -127,38 +126,18 @@
           <span class="chip">Right to work · UK &amp; EU</span>
         </div>
       </div>
-      <div class="polaroid-wrap">
-        <figure class="polaroid">
-          <div class="polaroid-photo">
-            <!-- To use a photo: save it as assets/img/profile.jpg (portrait, ~800×1000) and uncomment the next line. -->
-            <!-- <img src="assets/img/profile.jpg" alt="Salvatore Barbagallo" width="800" height="1000"/> -->
-            <svg class="polaroid-helix" viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 60 C 37 0, 75 0, 112 60 S 187 120, 225 60 S 262 0, 300 60" fill="none" stroke="#fff" stroke-width="2"/>
-              <path d="M0 60 C 37 120, 75 120, 112 60 S 187 0, 225 60 S 262 120, 300 60" fill="none" stroke="#fff" stroke-width="2"/>
-              <g stroke="#fff" stroke-width="1.2" opacity=".7">
-                <line x1="18" y1="30" x2="18" y2="90"/><line x1="46" y1="16" x2="46" y2="104"/><line x1="74" y1="18" x2="74" y2="102"/><line x1="98" y1="40" x2="98" y2="80"/>
-                <line x1="130" y1="36" x2="130" y2="84"/><line x1="156" y1="18" x2="156" y2="102"/><line x1="184" y1="16" x2="184" y2="104"/><line x1="208" y1="36" x2="208" y2="84"/>
-                <line x1="242" y1="36" x2="242" y2="84"/><line x1="268" y1="18" x2="268" y2="102"/><line x1="292" y1="44" x2="292" y2="76"/>
-              </g>
-            </svg>
-            <span class="polaroid-mono" aria-hidden="true">SB</span>
-          </div>
-          <figcaption class="polaroid-cap"><strong>Salvatore</strong><span>London, UK</span></figcaption>
-        </figure>
-      </div>
+      <dl class="stats" aria-label="At a glance">
+        <div class="stat"><dt>Years in regulated clinical laboratories</dt><dd class="stat-n">7</dd></div>
+        <div class="stat"><dt>Clinical NGS samples a week, prepared and QC’d at CooperGenomics</dt><dd class="stat-n">500+</dd></div>
+        <div class="stat"><dt>Nuclei re-analysed with donor-aware models</dt><dd class="stat-n">83k</dd></div>
+        <div class="stat"><dt>Bioinformatics benchmark tasks authored and accepted</dt><dd class="stat-n">106</dd></div>
+      </dl>
     </div>
-
-    <dl class="stats" aria-label="At a glance">
-      <div class="stat"><dt>Years in regulated clinical laboratories</dt><dd class="stat-n">7</dd></div>
-      <div class="stat"><dt>Bioinformatics benchmark tasks authored and accepted</dt><dd class="stat-n">106</dd></div>
-      <div class="stat"><dt>Nuclei re-analysed with donor-aware models</dt><dd class="stat-n">83k</dd></div>
-      <div class="stat"><dt>GPNMB–PD colocalisation, PP.H4</dt><dd>0.94</dd></div>
-    </dl>
 
     <figure class="track">
       <div class="track-head">
-        <span class="mono-label">-log<sub>10</sub>(p) · chromosomes 1-22</span>
-        <span class="mono-label">Parkinson’s disease risk loci · schematic</span>
+        <span class="mono-label case-keep">−log<sub>10</sub>(p) · chromosomes 1–22</span>
+        <span class="mono-label case-keep">Parkinson’s disease risk loci · schematic</span>
       </div>
       <div class="track-plot" id="trackPlot">
         <canvas id="manhattan" role="img" aria-label="Schematic Manhattan plot across chromosomes 1 to 22 with peaks at Parkinson's disease risk loci GBA1, SNCA, GPNMB, LRRK2 and MAPT; the GPNMB peak on chromosome 7 is highlighted."></canvas>
@@ -171,9 +150,9 @@
   <section class="block" aria-labelledby="feat-h">
     <div class="block-head">
       <div>
-        <p class="kicker">Projects</p>
-        <h2 id="feat-h">From summary statistics to a defensible answer</h2>
-        <p class="sub">Three connected projects on one Parkinson’s disease gene: genetic evidence, a pipeline that scales it to the whole proteome, and the cell types where it matters.</p>
+        <p class="kicker">Featured projects</p>
+        <h2 id="feat-h">One Parkinson’s disease gene, three angles</h2>
+        <p class="sub">Genetic evidence linking GPNMB to Parkinson’s disease, a pipeline that runs the same analysis across ~2,900 plasma proteins, and the cell types that express the gene.</p>
       </div>
       <a class="text-link" href="projects.html">All projects →</a>
     </div>
@@ -191,7 +170,7 @@
         <div class="show-body">
           <p class="kicker">Human genetics · Target discovery · Nextflow</p>
           <h3>Proteome-wide cis-MR and colocalisation scan for Parkinson’s disease</h3>
-          <p>Scaled the dissertation from one protein to the plasma proteome: a Nextflow pipeline that tests each of ~2,900 UKB-PPP proteins with cis-pQTL MR and colocalisation, then applies FDR control, evidence tiers and an HTML report.</p>
+          <p>Scaled the dissertation from one protein to a Nextflow pipeline built to test each of the ~2,900 UKB-PPP plasma proteins with cis-pQTL MR and colocalisation, then apply FDR control, evidence tiers and an HTML report.</p>
           <ul class="tags"><li>Nextflow</li><li>Mendelian randomisation</li><li>Colocalisation</li><li>UKB-PPP</li><li>Python</li></ul>
           <span class="go">Read case study <span class="arr">→</span></span>
         </div>
@@ -200,7 +179,7 @@
         <div class="show-body">
           <p class="kicker">Single-nucleus transcriptomics · Parkinson’s disease</p>
           <h3>GPNMB in Parkinson’s disease: snRNA-seq re-analysis</h3>
-          <p>Re-analysed 83,484 substantia nigra nuclei from 29 donors to localise GPNMB and test PD–control differences with donor-level pseudobulk models. GPNMB was highest in microglia and about two-fold higher in PD microglia.</p>
+          <p>Re-analysed 83,484 substantia nigra nuclei from 29 donors to localise GPNMB and test PD–control differences with donor-level pseudobulk models. GPNMB was highest in microglia and about two-fold higher in PD microglia (P = 0.009), a nominal effect that did not survive transcriptome-wide FDR.</p>
           <ul class="tags"><li>snRNA-seq</li><li>Scanpy</li><li>Pseudobulk</li><li>PyDESeq2</li><li>Microglia</li></ul>
           <span class="go">Read case study <span class="arr">→</span></span>
         </div>
@@ -213,37 +192,19 @@
   <section class="block" aria-labelledby="skills-h">
     <div class="block-head">
       <div>
-        <p class="kicker">My skills</p>
-        <h2 id="skills-h">What I bring to an analysis</h2>
+        <p class="kicker">Skills</p>
+        <h2 id="skills-h">Methods and tools I use most</h2>
       </div>
       <a class="text-link" href="about.html#toolkit">Full toolkit →</a>
     </div>
     <ul class="skill-cloud reveal"><li class="hot">Python</li><li class="hot">R</li><li class="hot">Nextflow</li><li>Docker</li><li>Bash</li><li>SQL</li><li class="hot">Mendelian randomisation</li><li class="hot">Colocalisation</li><li>SuSiE</li><li>GWAS summary statistics</li><li>pQTL / eQTL</li><li class="hot">Scanpy</li><li>Pseudobulk DE</li><li>DESeq2</li><li>RNA-seq</li><li>WGS</li><li>Variant calling</li><li>STAR</li><li>Salmon</li><li>BWA-MEM2</li><li>bcftools</li><li>Galaxy</li><li>scikit-learn</li><li>pytest</li><li>Reproducible pipelines</li><li>Audit-ready documentation</li></ul>
   </section>
 
-  <section class="block" aria-labelledby="faq-h">
-    <div class="faq-grid">
-      <div class="block-head">
-        <div>
-          <p class="kicker">FAQ</p>
-          <h2 id="faq-h">Have questions?</h2>
-          <p class="sub">The things recruiters and hiring managers usually ask first.</p>
-        </div>
-      </div>
-      <div class="faq">
-        <details><summary>What kind of role are you looking for?</summary><div class="ans"><p>Bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps.</p></div></details>
-<details><summary>Where are you based? Can you work remotely?</summary><div class="ans"><p>I’m in London and open to hybrid and remote work. I have the right to work in both the United Kingdom and the European Union.</p></div></details>
-<details><summary>What sets you apart from other bioinformaticians?</summary><div class="ans"><p>I came to bioinformatics from the lab bench: seven years in regulated clinical laboratories, two of them preparing NGS libraries for clinical genetic testing. I know how sequencing data is generated, where it fails QC, and what audit-ready documentation looks like, and that shapes how I analyse it.</p></div></details>
-<details><summary>How do you approach an analysis?</summary><div class="ans"><p>I fix the primary analysis before looking at the effect I care about, treat donors rather than cells as replicates, and run the sensitivity analyses that could weaken a result. Conclusions go no further than the evidence.</p><p>Then I package it: scripts, saved intermediate results, session information and provenance, so someone else can rerun it.</p></div></details>
-<details><summary>What tools do you use?</summary><div class="ans"><p>Mostly R, Python and Nextflow, with Docker or Conda for environments. For genetics: coloc, SuSiE and OpenGWAS. For single-cell: Scanpy, AnnData and PyDESeq2. For NGS: STAR, Salmon, BWA-MEM2, samtools, bcftools and DESeq2. The <a class="text-link" href="about.html#toolkit">full toolkit</a> is on the About page.</p></div></details>
-      </div>
-    </div>
-  </section>
 
 
   <section class="cta reveal" aria-labelledby="cta-h">
     <div>
-      <h2 id="cta-h">Let’s work together?</h2>
+      <h2 id="cta-h">Get in touch</h2>
       <p>I’m looking for bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps. Based in London, open to hybrid and remote.</p>
     </div>
     <div class="cta-side">

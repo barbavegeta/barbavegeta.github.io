@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>GPNMB in Parkinson’s disease: single-nucleus RNA-seq re-analysis · Salvatore Barbagallo</title>
-  <meta name="description" content="Re-analysed 83,484 substantia nigra nuclei from 29 donors to localise GPNMB and test PD–control differences with donor-level pseudobulk models. GPNMB was highest in microglia and about two-fold higher in PD microglia."/>
+  <meta name="description" content="Re-analysed 83,484 substantia nigra nuclei from 29 donors to localise GPNMB and test PD–control differences with donor-level pseudobulk models. GPNMB was highest in microglia and about two-fold higher in PD microglia (P = 0.009), a nominal effect that did not survive transcriptome-wide FDR."/>
   <meta name="author" content="Salvatore Barbagallo"/>
   <link rel="canonical" href="https://barbavegeta.github.io/projects/snrnaseq-gpnmb.html"/>
   <meta name="color-scheme" content="light dark"/>
@@ -12,12 +12,12 @@
   <meta name="theme-color" content="#0b1215" media="(prefers-color-scheme: dark)"/>
   <meta property="og:type" content="article"/>
   <meta property="og:title" content="GPNMB in Parkinson’s disease: single-nucleus RNA-seq re-analysis · Salvatore Barbagallo"/>
-  <meta property="og:description" content="Re-analysed 83,484 substantia nigra nuclei from 29 donors to localise GPNMB and test PD–control differences with donor-level pseudobulk models. GPNMB was highest in microglia and about two-fold higher in PD microglia."/>
+  <meta property="og:description" content="Re-analysed 83,484 substantia nigra nuclei from 29 donors to localise GPNMB and test PD–control differences with donor-level pseudobulk models. GPNMB was highest in microglia and about two-fold higher in PD microglia (P = 0.009), a nominal effect that did not survive transcriptome-wide FDR."/>
   <meta property="og:url" content="https://barbavegeta.github.io/projects/snrnaseq-gpnmb.html"/>
   <meta property="og:locale" content="en_GB"/>
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="GPNMB in Parkinson’s disease: single-nucleus RNA-seq re-analysis · Salvatore Barbagallo"/>
-  <meta name="twitter:description" content="Re-analysed 83,484 substantia nigra nuclei from 29 donors to localise GPNMB and test PD–control differences with donor-level pseudobulk models. GPNMB was highest in microglia and about two-fold higher in PD microglia."/>
+  <meta name="twitter:description" content="Re-analysed 83,484 substantia nigra nuclei from 29 donors to localise GPNMB and test PD–control differences with donor-level pseudobulk models. GPNMB was highest in microglia and about two-fold higher in PD microglia (P = 0.009), a nominal effect that did not survive transcriptome-wide FDR."/>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
   <script>
@@ -130,18 +130,18 @@
       </section>
 <section class="cs-sec" id="localisation" aria-labelledby="localisation-h">
         <span class="kicker">Localisation</span>
-        <h2 id="localisation-h">GPNMB is a microglial gene in the substantia nigra</h2>
+        <h2 id="localisation-h">Highest in microglia, with OPCs close behind</h2>
         <div class="fig-pair"><figure class="fig"><div class="well"><img src="../assets/img/snrna-umap-gpnmb.webp" alt="UMAP of all nuclei coloured by GPNMB expression" loading="lazy" decoding="async"/></div><figcaption>GPNMB expression across the atlas (log1p normalised).</figcaption></figure><figure class="fig"><div class="well"><img src="../assets/img/snrna-donor-expression.webp" alt="Box plot of mean GPNMB expression in microglia per donor, control versus PD" loading="lazy" decoding="async"/></div><figcaption>Donor-level mean GPNMB in microglia, control vs PD. Each point is one donor.</figcaption></figure></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Cell type</th><th>Donors</th><th>Median donor expression</th><th>Detection fraction</th><th>Nuclei</th></tr></thead><tbody><tr class="hl"><td>Microglia</td><td class="num">29</td><td class="num">0.2890</td><td class="num">0.1844</td><td class="num">12,995</td></tr><tr><td>OPC</td><td class="num">29</td><td class="num">0.1732</td><td class="num">0.1717</td><td class="num">6,644</td></tr><tr><td>Vascular</td><td class="num">29</td><td class="num">0.0801</td><td class="num">0.0620</td><td class="num">1,560</td></tr><tr><td>Astrocytes</td><td class="num">29</td><td class="num">0.0233</td><td class="num">0.0169</td><td class="num">20,710</td></tr><tr><td>Neurons</td><td class="num">29</td><td class="num">0.0213</td><td class="num">0.0269</td><td class="num">6,196</td></tr><tr><td>Oligodendrocytes</td><td class="num">29</td><td class="num">0.0082</td><td class="num">0.0075</td><td class="num">35,032</td></tr></tbody></table></div>
       </section>
 <section class="cs-sec" id="results" aria-labelledby="results-h">
         <span class="kicker">PD vs control</span>
         <h2 id="results-h">About two-fold higher in PD microglia, nominally</h2>
-        <p>Donor-level pseudobulk on 14 control and 15 PD donors gave <strong>log2FC +1.025 (SE 0.390; P = 0.00863)</strong>, roughly 2.03-fold higher GPNMB in PD microglia. It does not survive transcriptome-wide FDR (0.218).</p><p>Broad microglial abundance was not detectably different between groups (propeller P = 0.587), so the higher signal isn’t simply more microglia in PD donors. Neuronal proportion was lower in PD (P = 0.009) but did not cross FDR &lt; 0.05 (0.062).</p><figure class="fig"><div class="well"><img src="../assets/img/snrna-microglia-states.webp" alt="Six UMAP panels of 12,995 re-clustered microglial nuclei: Leiden clusters, condition, GPNMB and three programme scores" loading="lazy" decoding="async"/></div><figcaption>12,995 microglial nuclei re-clustered de novo: Leiden clusters, condition, GPNMB, and homeostatic, GPNMB-associated activation and interferon programme scores.</figcaption></figure>
+        <p>Donor-level pseudobulk on 14 control and 15 PD donors, adjusted for age and sex, gave <strong>log2FC +1.025 (SE 0.390; P = 0.00863)</strong>, roughly 2.03-fold higher GPNMB in PD microglia. It does not survive transcriptome-wide FDR (0.218).</p><p>Broad microglial abundance was not detectably different between groups (propeller P = 0.587), so the higher signal isn’t simply more microglia in PD donors. Neuronal proportion was lower in PD (P = 0.009) but did not cross FDR &lt; 0.05 (0.062).</p><figure class="fig"><div class="well"><img src="../assets/img/snrna-microglia-states.webp" alt="Six UMAP panels of 12,995 re-clustered microglial nuclei: Leiden clusters, condition, GPNMB and three programme scores" loading="lazy" decoding="async"/></div><figcaption>12,995 microglial nuclei re-clustered de novo: Leiden clusters, condition, GPNMB, and homeostatic, GPNMB-associated activation and interferon programme scores.</figcaption></figure>
       </section>
 <section class="cs-sec" id="validation" aria-labelledby="validation-h">
         <span class="kicker">External validation</span>
         <h2 id="validation-h">Same direction, variable strength</h2>
-        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Dataset</th><th>Method</th><th>log2FC</th><th>P</th><th>FDR</th></tr></thead><tbody><tr class="hl"><td>GSE243639 (this analysis)</td><td>Donor-level pseudobulk DESeq2</td><td class="num">+1.025</td><td class="num">0.00863</td><td class="num">0.218</td></tr><tr><td>GSE184950 / Wang</td><td>Donor-aware microglial MAST</td><td class="num">+0.113</td><td class="num">0.131</td><td class="num">1.000</td></tr><tr><td>Wang + Kamath + Smajic</td><td>Multi-dataset microglial pseudobulk</td><td class="num">+0.933</td><td class="num">0.00186</td><td class="num">0.050</td></tr></tbody></table></div><p>A full in-house rebuild of GSE184950 was explored but dropped: the public Seurat object lacks the final published labels needed for a defensible microglial pseudobulk. The validation step therefore extracts GPNMB directly from the published supplementary tables.</p><div class="callout">
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Dataset</th><th>Method</th><th>log2FC</th><th>P</th><th>FDR</th></tr></thead><tbody><tr class="hl"><td>GSE243639 (this analysis)</td><td>Donor-level pseudobulk DESeq2</td><td class="num">+1.025</td><td class="num">0.00863</td><td class="num">0.218</td></tr><tr><td>GSE184950 / Wang</td><td>Donor-aware microglial MAST</td><td class="num">+0.113</td><td class="num">0.131</td><td class="num">1.000</td></tr><tr><td>Wang + Kamath + Smajic</td><td>Multi-dataset microglial pseudobulk</td><td class="num">+0.933</td><td class="num">0.00186</td><td class="num">0.0501</td></tr></tbody></table></div><p>A full in-house rebuild of GSE184950 was explored but dropped: the public Seurat object lacks the final published labels needed for a defensible microglial pseudobulk. The validation step therefore extracts GPNMB directly from the published supplementary tables.</p><div class="callout">
       <div class="yes"><h3>What it supports</h3><ul class="bullets"><li>GPNMB expression concentrated in microglia.</li><li>A positive, nominally significant PD effect in donor-level pseudobulk.</li><li>Directional consistency across independent studies.</li></ul></div>
       <div class="no"><h3>What it doesn’t show</h3><ul class="bullets"><li>That GPNMB causes PD, or whether higher GPNMB is harmful or protective.</li><li>A significant replication in GSE184950 alone.</li><li>That a specific microglial state mediates the genetic association.</li></ul></div>
     </div>
@@ -158,7 +158,7 @@
 
   <section class="cta reveal" aria-labelledby="cta-h">
     <div>
-      <h2 id="cta-h">Let’s work together?</h2>
+      <h2 id="cta-h">Get in touch</h2>
       <p>I’m looking for bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps. Based in London, open to hybrid and remote.</p>
     </div>
     <div class="cta-side">

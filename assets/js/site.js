@@ -134,12 +134,6 @@
     reveals.forEach(el => el.classList.add('in'));
   }
 
-  /* ── Profile photo: fall back to the monogram if the image is missing ── */
-  $$('.polaroid-photo img').forEach(img => {
-    const hide = () => img.remove();
-    if (img.complete && img.naturalWidth === 0) hide(); else img.addEventListener('error', hide);
-  });
-
   /* ── Print: expand every collapsible section ── */
   window.addEventListener('beforeprint', () => $$('details').forEach(d => { d.dataset.wasOpen = d.open; d.open = true; }));
   window.addEventListener('afterprint', () => $$('details').forEach(d => { d.open = d.dataset.wasOpen === 'true'; }));

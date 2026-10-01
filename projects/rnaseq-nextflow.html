@@ -106,13 +106,13 @@
       <a class="crumb" href="../projects.html">← All projects</a>
       <p class="kicker">Transcriptomics · Pipelines</p>
       <h1>RNA-seq pipeline with Nextflow and Docker</h1>
-      <p class="lead">A samplesheet-driven Nextflow DSL2 pipeline that goes from paired-end FASTQ to differential expression in one command. Two quantification routes, any DESeq2 design formula, every tool in a versioned Docker container, and a real-data validation run that recovers the textbook biology.</p>
+      <p class="lead">A samplesheet-driven Nextflow DSL2 pipeline that goes from paired-end FASTQ to differential expression in one command. Two quantification routes, a configurable DESeq2 design formula, every tool in a versioned Docker container, and a real-data validation run that recovers the textbook biology.</p>
       <div class="cs-actions">
         <a class="btn" href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>View the code ↗</a>
       </div>
       <dl class="cs-meta"><div><dt>Context</dt><dd>Portfolio project</dd></div><div><dt>Data</dt><dd>Airway dataset GSE52778 (Himes et al. 2014): 4 donors, dexamethasone vs control, 8 libraries</dd></div><div><dt>Methods</dt><dd>FastQC, Cutadapt, STAR + featureCounts or Salmon, MultiQC, DESeq2 with paired design</dd></div><div><dt>Stack</dt><dd>Nextflow DSL2, Docker, R/DESeq2, GitHub Actions</dd></div></dl>
       <figure class="cs-cover"><img src="../assets/img/rnaseq-volcano.webp" alt="Volcano plot of dexamethasone versus control in airway smooth muscle cells with known response genes labelled" decoding="async"/><figcaption>Airway smooth muscle cells, dexamethasone vs control: 350 genes up and 265 down (padj &lt; 0.05, |log2FC| &gt; 1), known targets labelled.</figcaption></figure>
-      <div class="cs-stats"><div class="cs-stat"><b>8 / 8</b><span>Canonical glucocorticoid-response genes recovered</span></div><div class="cs-stat"><b>615</b><span>Differentially expressed genes (350 up, 265 down)</span></div><div class="cs-stat"><b>9.5 min</b><span>Full run on a 16 GB laptop (Salmon route)</span></div></div>
+      <div class="cs-stats"><div class="cs-stat"><b>8 / 8</b><span>Canonical glucocorticoid-response genes recovered</span></div><div class="cs-stat"><b>615</b><span>Differentially expressed genes (350 up, 265 down)</span></div><div class="cs-stat"><b>9.5 min</b><span>Salmon-route run on a 16 GB laptop, with FastQC and Cutadapt cached</span></div></div>
     </header>
 
     <div class="cs-layout">
@@ -136,7 +136,7 @@
 <section class="cs-sec" id="limits" aria-labelledby="limits-h">
         <span class="kicker">Notes</span>
         <h2 id="limits-h">Limits worth knowing</h2>
-        <ul class="bullets"><li>The airway run used the first 3 million read pairs per library to stay laptop-sized; the full files can be fetched with one flag.</li><li>The STAR route needs about 32 GB of RAM to build a human index (roughly 16 GB with a sparse suffix array). On a 16 GB laptop, use Salmon.</li></ul>
+        <ul class="bullets"><li>The airway run used the first 3 million read pairs per library to stay laptop-sized; rerunning the download script with <code>FULL=1</code> fetches the complete files.</li><li>The STAR route needs about 32 GB of RAM to build a human index (roughly 16 GB with a sparse suffix array). On a 16 GB laptop, use Salmon.</li></ul>
       </section>
       </div>
     </div>
@@ -150,7 +150,7 @@
 
   <section class="cta reveal" aria-labelledby="cta-h">
     <div>
-      <h2 id="cta-h">Let’s work together?</h2>
+      <h2 id="cta-h">Get in touch</h2>
       <p>I’m looking for bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps. Based in London, open to hybrid and remote.</p>
     </div>
     <div class="cta-side">

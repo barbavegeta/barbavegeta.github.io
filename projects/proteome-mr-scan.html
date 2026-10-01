@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Proteome-wide cis-MR and colocalisation scan for Parkinson’s disease · Salvatore Barbagallo</title>
-  <meta name="description" content="Scaled the dissertation from one protein to the plasma proteome: a Nextflow pipeline that tests each of ~2,900 UKB-PPP proteins with cis-pQTL MR and colocalisation, then applies FDR control, evidence tiers and an HTML report."/>
+  <meta name="description" content="Scaled the dissertation from one protein to a Nextflow pipeline built to test each of the ~2,900 UKB-PPP plasma proteins with cis-pQTL MR and colocalisation, then apply FDR control, evidence tiers and an HTML report."/>
   <meta name="author" content="Salvatore Barbagallo"/>
   <link rel="canonical" href="https://barbavegeta.github.io/projects/proteome-mr-scan.html"/>
   <meta name="color-scheme" content="light dark"/>
@@ -12,12 +12,12 @@
   <meta name="theme-color" content="#0b1215" media="(prefers-color-scheme: dark)"/>
   <meta property="og:type" content="article"/>
   <meta property="og:title" content="Proteome-wide cis-MR and colocalisation scan for Parkinson’s disease · Salvatore Barbagallo"/>
-  <meta property="og:description" content="Scaled the dissertation from one protein to the plasma proteome: a Nextflow pipeline that tests each of ~2,900 UKB-PPP proteins with cis-pQTL MR and colocalisation, then applies FDR control, evidence tiers and an HTML report."/>
+  <meta property="og:description" content="Scaled the dissertation from one protein to a Nextflow pipeline built to test each of the ~2,900 UKB-PPP plasma proteins with cis-pQTL MR and colocalisation, then apply FDR control, evidence tiers and an HTML report."/>
   <meta property="og:url" content="https://barbavegeta.github.io/projects/proteome-mr-scan.html"/>
   <meta property="og:locale" content="en_GB"/>
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="Proteome-wide cis-MR and colocalisation scan for Parkinson’s disease · Salvatore Barbagallo"/>
-  <meta name="twitter:description" content="Scaled the dissertation from one protein to the plasma proteome: a Nextflow pipeline that tests each of ~2,900 UKB-PPP proteins with cis-pQTL MR and colocalisation, then applies FDR control, evidence tiers and an HTML report."/>
+  <meta name="twitter:description" content="Scaled the dissertation from one protein to a Nextflow pipeline built to test each of the ~2,900 UKB-PPP plasma proteins with cis-pQTL MR and colocalisation, then apply FDR control, evidence tiers and an HTML report."/>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
   <script>
@@ -106,13 +106,13 @@
       <a class="crumb" href="../projects.html">← All projects</a>
       <p class="kicker">Human genetics · Target discovery · Nextflow</p>
       <h1>Proteome-wide cis-MR and colocalisation scan for Parkinson’s disease</h1>
-      <p class="lead">A Nextflow pipeline that tests every plasma protein in the UK Biobank Pharma Proteomics Project as a potential cause of Parkinson’s disease. For each protein it uses variants near the protein’s own gene as instruments, estimates the causal effect with Mendelian randomisation, tests with colocalisation whether protein and disease share a causal variant, then ranks everything into evidence tiers.</p>
+      <p class="lead">A Nextflow pipeline built to test every plasma protein in the UK Biobank Pharma Proteomics Project (~2,900 Olink proteins) as a potential cause of Parkinson’s disease. For each protein it uses variants near the protein’s own gene as instruments, estimates the causal effect with Mendelian randomisation, tests with colocalisation whether protein and disease share a causal variant, then ranks everything into evidence tiers.</p>
       <div class="cs-actions">
         <a class="btn" href="https://github.com/barbavegeta/pd-proteome-mr-scan" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>View the code ↗</a>
       </div>
       <dl class="cs-meta"><div><dt>Context</dt><dd>Independent project extending my MSc dissertation</dd></div><div><dt>Data</dt><dd>UKB-PPP Olink pQTLs (~2,900 proteins); PD GWAS ieu-b-7; 1000 Genomes EUR LD reference</dd></div><div><dt>Methods</dt><dd>cis-MR (Wald, IVW, MR-Egger, weighted median), coloc ABF, Benjamini–Hochberg FDR</dd></div><div><dt>Stack</dt><dd>Nextflow, Python (NumPy/SciPy), pytest; Docker, Conda and Slurm profiles</dd></div></dl>
       <figure class="cs-cover"><img src="../assets/img/proteome-volcano.webp" alt="Test-profile output: MR effect on Parkinson’s disease against −log10 p, coloured by evidence tier." decoding="async"/><figcaption>Test-profile output: MR effect on Parkinson’s disease against −log<sub>10</sub> p, coloured by evidence tier.</figcaption></figure>
-      <div class="cs-stats"><div class="cs-stat"><b>~2,900</b><span>Plasma proteins the scan can test, each as an independent Nextflow task</span></div><div class="cs-stat"><b>8 s.f.</b><span>Agreement with the R reference results from my dissertation</span></div><div class="cs-stat"><b>14</b><span>Automated tests, plus a test profile where every scenario lands in its expected tier</span></div></div>
+      <div class="cs-stats"><div class="cs-stat"><b>~2,900</b><span>Plasma proteins the scan can test, each as an independent Nextflow task</span></div><div class="cs-stat"><b>8 s.f.</b><span>Minimum agreement with the R results from my dissertation</span></div><div class="cs-stat"><b>14</b><span>Automated tests, plus a test profile where every scenario lands in its expected tier</span></div></div>
     </header>
 
     <div class="cs-layout">
@@ -120,13 +120,13 @@
       <div class="cs-body">
       <section class="cs-sec" id="question" aria-labelledby="question-h">
         <span class="kicker">The question</span>
-        <h2 id="question-h">From one protein to the whole plasma proteome</h2>
+        <h2 id="question-h">From one protein to thousands</h2>
         <p>My dissertation assessed a single protein, GPNMB. Human-genetics teams in drug discovery run the same logic across thousands of proteins at once. This project turns that analysis into a scalable target-prioritisation workflow: which plasma proteins have genetic evidence of a causal role in Parkinson’s disease, and how strong is it?</p>
       </section>
 <section class="cs-sec" id="pipeline" aria-labelledby="pipeline-h">
         <span class="kicker">Pipeline</span>
         <h2 id="pipeline-h">What runs for every protein</h2>
-        <ol class="steps"><li><strong>cis window.</strong> Gene ± 500 kb on GRCh38, with INFO and MAF QC.</li><li><strong>Harmonisation.</strong> Alleles aligned on GRCh37 position between pQTL and GWAS, handling strand flips and palindromic SNPs.</li><li><strong>Instruments.</strong> p &lt; 5×10<sup>−8</sup>, F ≥ 10, LD-clumped at r² &lt; 0.001 on 1000 Genomes EUR.</li><li><strong>MR.</strong> Wald ratio or IVW (fixed and random effects), MR-Egger and weighted median.</li><li><strong>Colocalisation.</strong> Approximate Bayes factor coloc (p<sub>1</sub> = p<sub>2</sub> = 10<sup>−4</sup>, p<sub>12</sub> = 10<sup>−5</sup>) with prior sensitivity.</li><li><strong>Across proteins.</strong> Benjamini–Hochberg FDR → evidence tiers → HTML report.</li></ol><p>UKB-PPP summary statistics run to well over a terabyte. A streaming fetch script downloads one protein at a time, keeps only its cis window and deletes the rest, so the scan fits ordinary hardware.</p><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Tier</th><th>Rule</th><th>Meaning</th></tr></thead><tbody><tr><td>1</td><td>MR q &lt; 0.05 and PP.H4 ≥ 0.8</td><td>Protein and PD most likely share one causal variant</td></tr><tr><td>2</td><td>MR q &lt; 0.05 and PP.H4 0.5–0.8</td><td>Supportive, not conclusive</td></tr><tr><td>3</td><td>MR q &lt; 0.05 and PP.H3 ≥ 0.5</td><td>Different causal variants: MR probably reflects LD</td></tr><tr><td>4</td><td>MR q &lt; 0.05, coloc inconclusive</td><td>Usually an underpowered outcome signal</td></tr></tbody></table></div>
+        <ol class="steps"><li><strong>cis window.</strong> Gene ± 500 kb on GRCh38, with INFO and MAF QC.</li><li><strong>Harmonisation.</strong> Alleles aligned on GRCh37 position between pQTL and GWAS, handling strand flips and palindromic SNPs.</li><li><strong>Instruments.</strong> p &lt; 5×10<sup>−8</sup>, F ≥ 10, LD-clumped at r² &lt; 0.001 on 1000 Genomes EUR.</li><li><strong>MR.</strong> Wald ratio or IVW (fixed and random effects), MR-Egger and weighted median.</li><li><strong>Colocalisation.</strong> Approximate Bayes factor coloc (p<sub>1</sub> = p<sub>2</sub> = 10<sup>−4</sup>, p<sub>12</sub> = 10<sup>−5</sup>) with prior sensitivity.</li><li><strong>Across proteins.</strong> Benjamini–Hochberg FDR → evidence tiers → HTML report.</li></ol><p>UKB-PPP summary statistics run to well over a terabyte. A streaming fetch script downloads one protein at a time, keeps only its cis window and deletes the rest before moving on, so disk use stays at one protein’s worth of raw data.</p><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Tier</th><th>Rule</th><th>Meaning</th></tr></thead><tbody><tr><td>1</td><td>MR q &lt; 0.05 and PP.H4 ≥ 0.8</td><td>Protein and PD most likely share one causal variant</td></tr><tr><td>2</td><td>MR q &lt; 0.05 and PP.H4 0.5–0.8</td><td>Supportive, not conclusive</td></tr><tr><td>3</td><td>MR q &lt; 0.05 and PP.H3 ≥ 0.5</td><td>Different causal variants: MR probably reflects LD</td></tr><tr><td>4</td><td>MR q &lt; 0.05, coloc inconclusive</td><td>Usually an underpowered outcome signal</td></tr></tbody></table></div>
       </section>
 <section class="cs-sec" id="validation" aria-labelledby="validation-h">
         <span class="kicker">Validation</span>
@@ -141,7 +141,7 @@
 <section class="cs-sec" id="limits" aria-labelledby="limits-h">
         <span class="kicker">Limitations</span>
         <h2 id="limits-h">What the scan can’t tell you</h2>
-        <ul class="bullets"><li>Single-variant colocalisation assumes one causal variant per trait. Multi-signal loci need SuSiE-based colocalisation with an LD matrix, which is the next planned extension.</li><li>cis-MR assumes instruments act on PD only through the protein. Protein-altering variants can change Olink antibody binding without changing protein level.</li><li>Results are genetic prioritisation evidence, not proof of causality or druggability.</li></ul>
+        <ul class="bullets"><li>Single-variant colocalisation assumes one causal variant per trait. Multi-signal loci need SuSiE-based colocalisation with an LD matrix, which the pipeline does not do yet.</li><li>cis-MR assumes instruments act on PD only through the protein. Protein-altering variants can change Olink antibody binding without changing protein level.</li><li>Results are genetic prioritisation evidence, not proof of causality or druggability.</li></ul>
       </section>
       </div>
     </div>
@@ -155,7 +155,7 @@
 
   <section class="cta reveal" aria-labelledby="cta-h">
     <div>
-      <h2 id="cta-h">Let’s work together?</h2>
+      <h2 id="cta-h">Get in touch</h2>
       <p>I’m looking for bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps. Based in London, open to hybrid and remote.</p>
     </div>
     <div class="cta-side">

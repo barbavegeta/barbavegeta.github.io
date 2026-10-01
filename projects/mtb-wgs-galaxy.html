@@ -112,7 +112,7 @@
       </div>
       <dl class="cs-meta"><div><dt>Context</dt><dd>Portfolio project</dd></div><div><dt>Data</dt><dd>6 clinical <em>M. tuberculosis</em> isolates from the SRA</dd></div><div><dt>Methods</dt><dd>QC, trimming, alignment, duplicate marking, coverage, variant calling, annotation, IGV review</dd></div><div><dt>Stack</dt><dd>Galaxy, fastp, Cutadapt, BWA-MEM2, Picard, samtools, mosdepth, bcftools, SnpEff, MultiQC, IGV</dd></div></dl>
       <figure class="cs-cover"><img src="../assets/img/mtb-workflow.webp" alt="Galaxy workflow graph for M. tuberculosis WGS variant analysis" decoding="async"/><figcaption>The Galaxy workflow graph, from read retrieval to annotated variants.</figcaption></figure>
-      <div class="cs-stats"><div class="cs-stat"><b>6</b><span>Clinical isolates analysed end to end</span></div><div class="cs-stat"><b>98–99.6%</b><span>Reads mapped to the reference across isolates</span></div><div class="cs-stat"><b>≥52×</b><span>Depth at every target locus, so absent calls read as true negatives</span></div></div>
+      <div class="cs-stats"><div class="cs-stat"><b>6</b><span>Clinical isolates analysed end to end</span></div><div class="cs-stat"><b>98–99.6%</b><span>Reads mapped to the reference across isolates</span></div><div class="cs-stat"><b>≥52×</b><span>Depth at every target locus, so a missing call is not a coverage gap</span></div></div>
     </header>
 
     <div class="cs-layout">
@@ -125,7 +125,7 @@
       </section>
 <section class="cs-sec" id="workflow" aria-labelledby="workflow-h">
         <span class="kicker">Workflow</span>
-        <h2 id="workflow-h">Eleven steps, one workflow</h2>
+        <h2 id="workflow-h">Eleven steps from reads to a resistance call</h2>
         <ol class="steps"><li>Read retrieval with <code>fasterq-dump</code></li><li>Quality control with Falco</li><li>Trimming with fastp and Cutadapt</li><li>Alignment to the reference with BWA-MEM2</li><li>Sorting and duplicate marking with Picard</li><li>Mapping QC with samtools flagstat and idxstats</li><li>Coverage with mosdepth</li><li>Variant calling and filtering with bcftools</li><li>Annotation with bcftools csq, SnpEff and SnpSift</li><li>Aggregate reporting with MultiQC</li><li>Read-level review in IGV</li></ol>
       </section>
 <section class="cs-sec" id="results" aria-labelledby="results-h">
@@ -150,7 +150,7 @@
 
   <section class="cta reveal" aria-labelledby="cta-h">
     <div>
-      <h2 id="cta-h">Let’s work together?</h2>
+      <h2 id="cta-h">Get in touch</h2>
       <p>I’m looking for bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps. Based in London, open to hybrid and remote.</p>
     </div>
     <div class="cta-side">
