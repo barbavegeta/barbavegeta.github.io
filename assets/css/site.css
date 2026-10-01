@@ -4,25 +4,26 @@
    (when no explicit choice) and for an explicit data-theme="dark".
    ================================================================ */
 :root {
-  --bg:          #f5f8f7;
-  --surface:     #ffffff;
-  --surface-2:   #edf2f1;
-  --line:        #d5dfdd;
-  --line-2:      #e4eae9;
-  --ink:         #0f1a1f;
-  --ink-2:       #34454c;
-  --ink-3:       #586a71;
-  --accent:      #0e7c73;
-  --accent-2:    #0a5f58;
-  --accent-soft: rgba(14,124,115,.08);
-  --accent-line: rgba(14,124,115,.30);
-  --on-accent:   #ffffff;
-  --hl:          #c46400;
-  --ok:          #13a058;
-  --plot-a:      #8b9ea4;
-  --plot-b:      #bfccd0;
-  --figure-bg:   #ffffff;
-  --shadow:      0 1px 2px rgba(15,26,31,.04), 0 10px 30px -14px rgba(15,26,31,.16);
+  /* Light theme: warm "night light" paper instead of white */
+  --bg:          #f7efd9;
+  --surface:     #fcf6e6;
+  --surface-2:   #efe5cb;
+  --line:        #ddd0b0;
+  --line-2:      #e8dec4;
+  --ink:         #221c12;
+  --ink-2:       #4b4232;
+  --ink-3:       #6e6450;
+  --accent:      #0b6e66;
+  --accent-2:    #08534d;
+  --accent-soft: rgba(11,110,102,.09);
+  --accent-line: rgba(11,110,102,.32);
+  --on-accent:   #fcf6e6;
+  --hl:          #a95300;
+  --ok:          #127a45;
+  --plot-a:      #9d9179;
+  --plot-b:      #cdbf9f;
+  --figure-bg:   #fbf4e2;
+  --shadow:      0 1px 2px rgba(60,44,12,.05), 0 10px 30px -14px rgba(60,44,12,.20);
 
   --font-display: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
   --font-body:    'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -81,7 +82,7 @@
 }
 
 /* Contact box: a dark panel in both themes */
-:root { --cta-bg: #0f1a1f; --cta-fg: #f5f8f7; --cta-muted: rgba(245,248,247,.72); --cta-line: rgba(245,248,247,.26); }
+:root { --cta-bg: #221c12; --cta-fg: #fbf4e2; --cta-muted: rgba(251,244,226,.74); --cta-line: rgba(251,244,226,.26); }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) { --cta-bg: #102624; --cta-fg: #e5eeec; --cta-muted: rgba(229,238,236,.74); --cta-line: rgba(63,193,174,.30); }
 }
@@ -838,7 +839,7 @@ a:hover .go .arr, .go:hover .arr { transform: translateX(4px); }
 
 .cs-cover { margin-top: clamp(28px, 4vw, 44px); background: var(--figure-bg); border: 1px solid var(--line); border-radius: 18px; padding: clamp(14px, 2.4vw, 32px); }
 .cs-cover img { display: block; width: 100%; max-height: 620px; object-fit: contain; }
-.cs-cover figcaption { margin-top: 12px; font-size: .8125rem; color: #586a71; text-align: center; }
+.cs-cover figcaption { margin-top: 12px; font-size: .8125rem; color: #6e6450; text-align: center; }
 
 .cs-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
 .cs-stat { padding: 22px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
@@ -951,3 +952,7 @@ a:hover .go .arr, .go:hover .arr { transform: translateX(4px); }
 }
 .home-hero + .block { border-top: 0; padding-top: clamp(24px, 4vw, 48px); }
 .mini .tags li { background: var(--surface); }
+
+/* Figures sit on the warm well: multiply lets their white backgrounds take the paper tone */
+.card-fig img, .show-fig img, .cs-cover img, .fig .well img { mix-blend-mode: multiply; }
+@media print { .card-fig img, .show-fig img, .cs-cover img, .fig .well img { mix-blend-mode: normal; } }
