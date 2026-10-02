@@ -105,8 +105,24 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
     const sy = Math.round(Y(SIG)) + .5;
     ctx.save(); ctx.setLineDash([4, 4]); ctx.strokeStyle = col.sig; ctx.globalAlpha = .75;
     ctx.beginPath(); ctx.moveTo(M.l, sy); ctx.lineTo(W - M.r, sy); ctx.stroke(); ctx.restore();
-    ctx.font = '10px ' + mono; ctx.fillStyle = col.sig; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom';
-    ctx.fillText('p = 5×10⁻⁸', W - M.r, sy - 4);
+    // Label: base text plus a drawn superscript (Plex Mono has no ⁻⁸ glyphs),
+    // placed in the widest horizontal gap between points that reach the line.
+    const base = 'p = 5×10', sup = '−8';
+    ctx.font = '10px ' + mono; const bw = ctx.measureText(base).width;
+    ctx.font = '7px ' + mono; const sw = ctx.measureText(sup).width;
+    const lw = bw + sw + 1;
+    const xs = pts.filter(p => p.y >= SIG * 0.8).map(p => X(p.g)).sort((a, b) => a - b);
+    const edges = [M.l, ...xs, W - M.r];
+    let gx = W - M.r - lw, best = 0;
+    for (let i = 1; i < edges.length; i++) {
+      const gap = edges[i] - edges[i - 1];
+      if (gap > best && gap >= lw + 16) { best = gap; gx = edges[i - 1] + (gap - lw) / 2; }
+    }
+    if (gx + lw <= cut) {
+      ctx.fillStyle = col.sig; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      ctx.font = '10px ' + mono; ctx.fillText(base, gx, sy - 6);
+      ctx.font = '7px ' + mono; ctx.fillText(sup, gx + bw + 1, sy - 10);
+    }
 
     // Locus labels
     ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';

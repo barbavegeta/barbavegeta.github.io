@@ -15,7 +15,13 @@
   <meta property="og:description" content="End-to-end Galaxy workflow from SRA reads to annotated resistance variants, run on 6 clinical isolates. It called rpoB and katG mutations, confirmed in IGV, and classified 4 isolates as genotypically MDR-TB."/>
   <meta property="og:url" content="https://barbavegeta.github.io/projects/mtb-wgs-galaxy.html"/>
   <meta property="og:locale" content="en_GB"/>
-  <meta name="twitter:card" content="summary"/>
+  <meta property="og:image" content="https://barbavegeta.github.io/assets/img/og-share.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Salvatore Barbagallo, bioinformatician: prioritising drug targets, from GWAS to single cells. Schematic Manhattan plot of Parkinson’s disease risk loci with GPNMB highlighted."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://barbavegeta.github.io/assets/img/og-share.png"/>
+  <meta name="twitter:image:alt" content="Salvatore Barbagallo, bioinformatician: prioritising drug targets, from GWAS to single cells. Schematic Manhattan plot of Parkinson’s disease risk loci with GPNMB highlighted."/>
   <meta name="twitter:title" content="M. tuberculosis WGS variant analysis workflow · Salvatore Barbagallo"/>
   <meta name="twitter:description" content="End-to-end Galaxy workflow from SRA reads to annotated resistance variants, run on 6 clinical isolates. It called rpoB and katG mutations, confirmed in IGV, and classified 4 isolates as genotypically MDR-TB."/>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
@@ -110,8 +116,8 @@
       <div class="cs-actions">
         <a class="btn" href="https://github.com/barbavegeta/mtb-wgs-galaxy-workflow" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>View the code ↗</a>
       </div>
-      <dl class="cs-meta"><div><dt>Context</dt><dd>Portfolio project</dd></div><div><dt>Data</dt><dd>6 clinical <em>M. tuberculosis</em> isolates from the SRA</dd></div><div><dt>Methods</dt><dd>QC, trimming, alignment, duplicate marking, coverage, variant calling, annotation, IGV review</dd></div><div><dt>Stack</dt><dd>Galaxy, fastp, Cutadapt, BWA-MEM2, Picard, samtools, mosdepth, bcftools, SnpEff, MultiQC, IGV</dd></div></dl>
-      <figure class="cs-cover"><img src="../assets/img/mtb-workflow.webp" alt="Galaxy workflow graph for M. tuberculosis WGS variant analysis" decoding="async"/><figcaption>The Galaxy workflow graph, from read retrieval to annotated variants.</figcaption></figure>
+      <dl class="cs-meta"><div><dt>Context</dt><dd>Portfolio project</dd></div><div><dt>Data</dt><dd>6 clinical <em>M. tuberculosis</em> isolates from the SRA</dd></div><div><dt>Methods</dt><dd>QC, trimming, alignment, duplicate marking, coverage, variant calling, annotation, IGV review</dd></div><div><dt>Stack</dt><dd>Galaxy, fasterq-dump, Falco, fastp, Cutadapt, BWA-MEM2, Picard, samtools, mosdepth, bcftools, SnpEff, SnpSift, MultiQC, IGV</dd></div></dl>
+      <figure class="cs-cover"><img src="../assets/img/mtb-workflow.webp" width="1600" height="1619" alt="Galaxy workflow graph for M. tuberculosis WGS variant analysis" decoding="async"/><figcaption>The Galaxy workflow graph, from read retrieval to annotated variants.</figcaption></figure>
       <div class="cs-stats"><div class="cs-stat"><b>6</b><span>Clinical isolates analysed end to end</span></div><div class="cs-stat"><b>98–99.6%</b><span>Reads mapped to the reference across isolates</span></div><div class="cs-stat"><b>≥52×</b><span>Depth at every target locus, so a missing call is not a coverage gap</span></div></div>
     </header>
 
@@ -131,7 +137,7 @@
 <section class="cs-sec" id="results" aria-labelledby="results-h">
         <span class="kicker">Results</span>
         <h2 id="results-h">Resistance mutations, confirmed at the read level</h2>
-        <p>The workflow called rpoB mutations <strong>S450L, H445R, D435Y and L430P</strong> and katG mutations <strong>S315T and Q295*</strong>. On those genotypes, <strong>4 isolates were classified as MDR-TB</strong> and <strong>2 as rifampicin-resistant</strong>.</p><p>Coverage mattered as much as the calls: with 98–99.6% of reads mapped and at least 52× depth across every target locus, a missing mutation could be read as a true negative rather than a coverage gap.</p><figure class="fig"><div class="well"><img src="../assets/img/mtb-igv-rpob-s450l.webp" alt="IGV screenshot showing reads supporting the rpoB S450L mutation" loading="lazy" decoding="async"/></div><figcaption>IGV evidence for rpoB S450L, associated with rifampicin resistance.</figcaption></figure><figure class="fig"><div class="well"><img src="../assets/img/mtb-igv-katg-s315t.webp" alt="IGV screenshot showing reads supporting the katG S315T mutation" loading="lazy" decoding="async"/></div><figcaption>IGV evidence for katG S315T, associated with isoniazid resistance.</figcaption></figure>
+        <p>The workflow called rpoB mutations <strong>S450L, H445R, D435Y and L430P</strong> and katG mutations <strong>S315T and Q295*</strong>. On those genotypes, <strong>4 isolates were classified as MDR-TB</strong> and <strong>2 as rifampicin-resistant</strong>.</p><p>Coverage mattered as much as the calls: with 98–99.6% of reads mapped and at least 52× depth across every target locus, a missing mutation could be read as a true negative rather than a coverage gap.</p><figure class="fig"><div class="well"><img src="../assets/img/mtb-igv-rpob-s450l.webp" width="1375" height="617" alt="IGV screenshot showing reads supporting the rpoB S450L mutation" loading="lazy" decoding="async"/></div><figcaption>IGV evidence for rpoB S450L, associated with rifampicin resistance.</figcaption></figure><figure class="fig"><div class="well"><img src="../assets/img/mtb-igv-katg-s315t.webp" width="1373" height="618" alt="IGV screenshot showing reads supporting the katG S315T mutation" loading="lazy" decoding="async"/></div><figcaption>IGV evidence for katG S315T, associated with isoniazid resistance.</figcaption></figure>
       </section>
 <section class="cs-sec" id="outputs" aria-labelledby="outputs-h">
         <span class="kicker">Outputs</span>
