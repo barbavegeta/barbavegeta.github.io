@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>RNA-seq pipeline with Nextflow and Docker · Salvatore Barbagallo</title>
+  <meta name="description" content="Samplesheet-driven Nextflow DSL2 pipeline from raw FASTQ to differential expression in one command, with every tool in a versioned container. Validated on real human data: 8 of 8 known dexamethasone-response genes recovered."/>
+  <meta name="author" content="Salvatore Barbagallo"/>
+  <link rel="canonical" href="https://barbavegeta.github.io/projects/rnaseq-nextflow.html"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="theme-color" content="#f7efd9" media="(prefers-color-scheme: light)"/>
+  <meta name="theme-color" content="#0b1215" media="(prefers-color-scheme: dark)"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="RNA-seq pipeline with Nextflow and Docker · Salvatore Barbagallo"/>
+  <meta property="og:description" content="Samplesheet-driven Nextflow DSL2 pipeline from raw FASTQ to differential expression in one command, with every tool in a versioned container. Validated on real human data: 8 of 8 known dexamethasone-response genes recovered."/>
+  <meta property="og:url" content="https://barbavegeta.github.io/projects/rnaseq-nextflow.html"/>
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:image" content="https://barbavegeta.github.io/assets/img/og-share.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Salvatore Barbagallo, bioinformatician: prioritising drug targets, from GWAS to single cells. Schematic Manhattan plot of Parkinson’s disease risk loci with GPNMB highlighted."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://barbavegeta.github.io/assets/img/og-share.png"/>
+  <meta name="twitter:image:alt" content="Salvatore Barbagallo, bioinformatician: prioritising drug targets, from GWAS to single cells. Schematic Manhattan plot of Parkinson’s disease risk loci with GPNMB highlighted."/>
+  <meta name="twitter:title" content="RNA-seq pipeline with Nextflow and Docker · Salvatore Barbagallo"/>
+  <meta name="twitter:description" content="Samplesheet-driven Nextflow DSL2 pipeline from raw FASTQ to differential expression in one command, with every tool in a versioned container. Validated on real human data: 8 of 8 known dexamethasone-response genes recovered."/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add('js');
+      try {
+        var stored = localStorage.getItem('sb3-theme');
+        d.setAttribute('data-theme', stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+      } catch (e) { /* storage blocked: CSS falls back to the OS preference */ }
+    })();
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDBND1PJP7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-KDBND1PJP7');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../assets/css/site.css"/>
+  <script src="../assets/js/site.js" defer></script>
+
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ico-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></symbol>
+  <symbol id="ico-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+  <symbol id="ico-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+  <symbol id="ico-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="6"/><polyline points="5 13 12 6 19 13"/></symbol>
+  <symbol id="ico-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></symbol>
+  <symbol id="ico-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  <symbol id="ico-linkedin" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></symbol>
+</svg>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../index.html" aria-label="Salvatore Barbagallo, home">
+      <span class="brand-mark" aria-hidden="true">SB</span>
+      <span class="brand-name">Salvatore Barbagallo</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+      <a href="../about.html" class="nav-link">About</a>
+      <a href="../docs/Salvatore_Barbagallo_CV.pdf" class="nav-link" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-actions">
+      <div class="nav-social">
+        <a href="https://github.com/barbavegeta" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg></a>
+        <a href="mailto:barbagallo1@hotmail.it" aria-label="Email" title="Email"><svg class="i" aria-hidden="true"><use href="#ico-mail"/></svg></a>
+      </div>
+      <button class="btn btn-icon" id="themeBtn" type="button" aria-label="Toggle theme">
+        <svg class="i" id="themeIcon" aria-hidden="true"><use href="#ico-moon"/></svg>
+      </button>
+      <button class="btn btn-icon hamburger" id="hamburgerBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile menu">
+  <a href="../index.html" class="mobile-nav-link">Home</a>
+  <a href="../projects.html" class="mobile-nav-link active" aria-current="page">Projects</a>
+  <a href="../about.html" class="mobile-nav-link">About</a>
+  <a href="../docs/Salvatore_Barbagallo_CV.pdf" class="mobile-nav-link" target="_blank" rel="noopener">Resume ↗</a>
+  <div class="mobile-nav-cv">
+    <a class="btn" href="https://github.com/barbavegeta" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</a>
+    <a class="btn" href="mailto:barbagallo1@hotmail.it"><svg class="i" aria-hidden="true"><use href="#ico-mail"/></svg>Email</a>
+  </div>
+</div>
+
+<main class="wrap" id="main">
+
+  <article>
+    <header class="cs-hero">
+      <a class="crumb" href="../projects.html">← All projects</a>
+      <p class="kicker">Transcriptomics · Pipelines</p>
+      <h1>RNA-seq pipeline with Nextflow and Docker</h1>
+      <p class="lead">A samplesheet-driven Nextflow DSL2 pipeline that goes from paired-end FASTQ to differential expression in one command. Two quantification routes, a configurable DESeq2 design formula, every tool in a versioned Docker container, and a real-data validation run that recovers the textbook biology.</p>
+      <div class="cs-actions">
+        <a class="btn" href="https://github.com/barbavegeta/RNA-seq_Nextflow_Pipeline_with_Docker" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>View the code ↗</a>
+      </div>
+      <dl class="cs-meta"><div><dt>Context</dt><dd>Portfolio project</dd></div><div><dt>Data</dt><dd>Airway dataset GSE52778 (Himes et al. 2014): 4 donors, dexamethasone vs control, 8 libraries</dd></div><div><dt>Methods</dt><dd>FastQC, Cutadapt, STAR + featureCounts or Salmon, MultiQC, DESeq2 with paired design</dd></div><div><dt>Stack</dt><dd>Nextflow DSL2, Docker, R/DESeq2, GitHub Actions</dd></div></dl>
+      <figure class="cs-cover"><img src="../assets/img/rnaseq-volcano.webp" width="1050" height="750" alt="Volcano plot of dexamethasone versus control in airway smooth muscle cells with known response genes labelled" decoding="async"/><figcaption>Airway smooth muscle cells, dexamethasone vs control: 350 genes up and 265 down (padj &lt; 0.05, |log2FC| &gt; 1), known targets labelled.</figcaption></figure>
+      <div class="cs-stats"><div class="cs-stat"><b>8 / 8</b><span>Canonical glucocorticoid-response genes recovered</span></div><div class="cs-stat"><b>615</b><span>Differentially expressed genes (350 up, 265 down)</span></div><div class="cs-stat"><b>9.5 min</b><span>Salmon-route run on a 16 GB laptop, with FastQC and Cutadapt cached</span></div></div>
+    </header>
+
+    <div class="cs-layout">
+      <nav class="toc" aria-label="On this page"><span class="mono-label">On this page</span><a href="#question">The problem</a><a href="#design">Design</a><a href="#validation">Validation</a><a href="#limits">Notes</a></nav>
+      <div class="cs-body">
+      <section class="cs-sec" id="question" aria-labelledby="question-h">
+        <span class="kicker">The problem</span>
+        <h2 id="question-h">RNA-seq that runs the same way twice</h2>
+        <p>RNA-seq analyses are often assembled by hand, depend on one machine’s environment and are hard to reproduce. I wanted a pipeline that runs end to end from a samplesheet, in containers, and proves itself on real data rather than just on a toy test.</p>
+      </section>
+<section class="cs-sec" id="design" aria-labelledby="design-h">
+        <span class="kicker">Design</span>
+        <h2 id="design-h">Two routes, one command</h2>
+        <ol class="steps"><li><strong>QC and trimming.</strong> FastQC, then Cutadapt.</li><li><strong>Genome route.</strong> STAR alignment to sorted BAM, then fragment-level featureCounts.</li><li><strong>Transcript route.</strong> Salmon with gene-level summarisation, around 4 GB of RAM, so it fits a laptop.</li><li><strong>Differential expression.</strong> DESeq2 with a configurable design formula and an explicit reference level, so paired or blocked designs work and the sign of log2FC is unambiguous.</li><li><strong>Reporting.</strong> MultiQC across everything, plus MA and PCA plots.</li></ol><p>Three versioned Docker images hold the tools. A tiny bundled test dataset runs in GitHub Actions on every push to check the wiring end to end.</p>
+      </section>
+<section class="cs-sec" id="validation" aria-labelledby="validation-h">
+        <span class="kicker">Validation</span>
+        <h2 id="validation-h">Does it recover known biology?</h2>
+        <p>I ran the pipeline on the public airway dataset: four donors’ airway smooth muscle cells, each untreated and treated with dexamethasone, with a paired <code>~ cell + condition</code> design so each donor is compared with itself. Salmon mapped 93.9–95.3% of fragments in all eight samples.</p><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Gene</th><th>log2FC</th><th>padj</th></tr></thead><tbody><tr><td>ZBTB16</td><td class="num">7.36</td><td class="num">9.6e−19</td></tr><tr><td>SPARCL1</td><td class="num">4.64</td><td class="num">2.7e−38</td></tr><tr><td>KLF15</td><td class="num">4.44</td><td class="num">6.5e−24</td></tr><tr><td>FKBP5</td><td class="num">3.79</td><td class="num">9.6e−21</td></tr><tr><td>TSC22D3 (GILZ)</td><td class="num">3.18</td><td class="num">2.7e−10</td></tr><tr><td>PER1</td><td class="num">3.17</td><td class="num">1.2e−28</td></tr><tr><td>DUSP1</td><td class="num">2.99</td><td class="num">3.4e−81</td></tr><tr class="hl"><td>CRISPLD2</td><td class="num">2.69</td><td class="num">3.0e−39</td></tr></tbody></table></div><p>Every classic dexamethasone target is strongly induced, including CRISPLD2, the headline gene of the original study. On the PCA, treatment separates samples on PC1 (42% of variance); PC2 mainly separates one donor, which is exactly the effect the paired design removes.</p><figure class="fig"><div class="well"><img src="../assets/img/rnaseq-pca.webp" width="1050" height="750" alt="PCA of the eight airway samples separating by treatment on PC1" loading="lazy" decoding="async"/></div><figcaption>PCA of the eight airway samples.</figcaption></figure>
+      </section>
+<section class="cs-sec" id="limits" aria-labelledby="limits-h">
+        <span class="kicker">Notes</span>
+        <h2 id="limits-h">Limits worth knowing</h2>
+        <ul class="bullets"><li>The airway run used the first 3 million read pairs per library to stay laptop-sized; rerunning the download script with <code>FULL=1</code> fetches the complete files.</li><li>The STAR route needs about 32 GB of RAM to build a human index (roughly 16 GB with a sparse suffix array). On a 16 GB laptop, use Salmon.</li></ul>
+      </section>
+      </div>
+    </div>
+
+    <nav class="next-proj" aria-label="More projects">
+      <a href="../projects/mtb-wgs-galaxy.html"><span class="mono-label">← Previous</span><strong><em>M. tuberculosis</em> WGS variant analysis (Galaxy)</strong></a>
+      <a class="nx" href="../projects/regulonml.html"><span class="mono-label">Next →</span><strong>RegulonML: regulatory variant effects in unseen promoters and enhancers</strong></a>
+    </nav>
+  </article>
+
+
+  <section class="cta reveal" aria-labelledby="cta-h">
+    <div>
+      <h2 id="cta-h">Get in touch</h2>
+      <p>I’m looking for bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps. Based in London, open to hybrid and remote.</p>
+    </div>
+    <div class="cta-side">
+      <a class="cta-email" href="mailto:barbagallo1@hotmail.it">barbagallo1@hotmail.it</a>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="../docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#ico-download"/></svg>Curriculum Vitae</a>
+        <a class="btn" href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/barbavegeta" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top" title="Back to top">
+  <svg class="i" aria-hidden="true"><use href="#ico-arrow-up"/></svg>
+</button>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="yr">2026</span> Salvatore Barbagallo · London, UK</span>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
