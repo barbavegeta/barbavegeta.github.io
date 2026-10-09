@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>From FHIR to OMOP to RAG: answering clinical questions from notes, and measuring it honestly · Salvatore Barbagallo</title>
+  <meta name="description" content="Synthetic FHIR records built into an OMOP CDM with dbt, clinical notes with exact ground truth, and a retrieval-augmented LLM scored once on 1,200 held-out questions. Accuracy 0.925, every error traced to retrieval, and a plain SQL baseline that wins on structured data."/>
+  <meta name="author" content="Salvatore Barbagallo"/>
+  <link rel="canonical" href="https://barbavegeta.github.io/projects/synthea-omop-rag.html"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="theme-color" content="#f7efd9" media="(prefers-color-scheme: light)"/>
+  <meta name="theme-color" content="#0b1215" media="(prefers-color-scheme: dark)"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="From FHIR to OMOP to RAG: answering clinical questions from notes, and measuring it honestly · Salvatore Barbagallo"/>
+  <meta property="og:description" content="Synthetic FHIR records built into an OMOP CDM with dbt, clinical notes with exact ground truth, and a retrieval-augmented LLM scored once on 1,200 held-out questions. Accuracy 0.925, every error traced to retrieval, and a plain SQL baseline that wins on structured data."/>
+  <meta property="og:url" content="https://barbavegeta.github.io/projects/synthea-omop-rag.html"/>
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:image" content="https://barbavegeta.github.io/assets/img/og-share.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Salvatore Barbagallo, bioinformatician: prioritising drug targets, from GWAS to single cells. Schematic Manhattan plot of Parkinson’s disease risk loci with GPNMB highlighted."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://barbavegeta.github.io/assets/img/og-share.png"/>
+  <meta name="twitter:image:alt" content="Salvatore Barbagallo, bioinformatician: prioritising drug targets, from GWAS to single cells. Schematic Manhattan plot of Parkinson’s disease risk loci with GPNMB highlighted."/>
+  <meta name="twitter:title" content="From FHIR to OMOP to RAG: answering clinical questions from notes, and measuring it honestly · Salvatore Barbagallo"/>
+  <meta name="twitter:description" content="Synthetic FHIR records built into an OMOP CDM with dbt, clinical notes with exact ground truth, and a retrieval-augmented LLM scored once on 1,200 held-out questions. Accuracy 0.925, every error traced to retrieval, and a plain SQL baseline that wins on structured data."/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add('js');
+      try {
+        var stored = localStorage.getItem('sb3-theme');
+        d.setAttribute('data-theme', stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+      } catch (e) { /* storage blocked: CSS falls back to the OS preference */ }
+    })();
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDBND1PJP7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-KDBND1PJP7');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../assets/css/site.css"/>
+  <script src="../assets/js/site.js" defer></script>
+
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ico-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></symbol>
+  <symbol id="ico-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+  <symbol id="ico-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+  <symbol id="ico-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="6"/><polyline points="5 13 12 6 19 13"/></symbol>
+  <symbol id="ico-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></symbol>
+  <symbol id="ico-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  <symbol id="ico-linkedin" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></symbol>
+</svg>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../index.html" aria-label="Salvatore Barbagallo, home">
+      <span class="brand-mark" aria-hidden="true">SB</span>
+      <span class="brand-name">Salvatore Barbagallo</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+      <a href="../about.html" class="nav-link">About</a>
+      <a href="../docs/Salvatore_Barbagallo_CV.pdf" class="nav-link" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-actions">
+      <div class="nav-social">
+        <a href="https://github.com/barbavegeta" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg></a>
+        <a href="mailto:barbagallo1@hotmail.it" aria-label="Email" title="Email"><svg class="i" aria-hidden="true"><use href="#ico-mail"/></svg></a>
+      </div>
+      <button class="btn btn-icon" id="themeBtn" type="button" aria-label="Toggle theme">
+        <svg class="i" id="themeIcon" aria-hidden="true"><use href="#ico-moon"/></svg>
+      </button>
+      <button class="btn btn-icon hamburger" id="hamburgerBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile menu">
+  <a href="../index.html" class="mobile-nav-link">Home</a>
+  <a href="../projects.html" class="mobile-nav-link active" aria-current="page">Projects</a>
+  <a href="../about.html" class="mobile-nav-link">About</a>
+  <a href="../docs/Salvatore_Barbagallo_CV.pdf" class="mobile-nav-link" target="_blank" rel="noopener">Resume ↗</a>
+  <div class="mobile-nav-cv">
+    <a class="btn" href="https://github.com/barbavegeta" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</a>
+    <a class="btn" href="mailto:barbagallo1@hotmail.it"><svg class="i" aria-hidden="true"><use href="#ico-mail"/></svg>Email</a>
+  </div>
+</div>
+
+<main class="wrap" id="main">
+
+  <article>
+    <header class="cs-hero">
+      <a class="crumb" href="../projects.html">← All projects</a>
+      <p class="kicker">Health data engineering · GenAI evaluation</p>
+      <h1>From FHIR to OMOP to RAG: answering clinical questions from notes, and measuring it honestly</h1>
+      <p class="lead">An end-to-end real-world-evidence pipeline on synthetic patients: FHIR records built into an OMOP common data model with dbt, clinical notes with exact ground truth, and a retrieval-augmented LLM that answers questions about each patient with citations. The test set was frozen before any tuning and scored once, against a plain SQL baseline.</p>
+      <div class="cs-actions">
+        <a class="btn" href="https://github.com/barbavegeta/synthea-omop-rag" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>View the code ↗</a>
+      </div>
+      <dl class="cs-meta"><div><dt>Context</dt><dd>Portfolio project; RWE data engineering and applied GenAI on healthcare data</dd></div><div><dt>Data</dt><dd>Synthea: 1,151 synthetic patients, 1.44 million FHIR resources, 8,692 generated notes. All data is synthetic.</dd></div><div><dt>Methods</dt><dd>OMOP CDM v5.4 with OHDSI vocabularies, dbt tests, BM25 / dense / hybrid retrieval, cited LLM answers, patient-clustered bootstrap</dd></div><div><dt>Stack</dt><dd>Python, SQL, dbt, PostgreSQL + pgvector, bge-small, Claude API, Docker, GitHub Actions</dd></div></dl>
+      <figure class="cs-cover"><img src="../assets/img/rag-accuracy-retrieval.webp" width="1440" height="810" alt="Dot plot of answer accuracy and recall at 5 for five retrieval configurations: accuracy rises with recall, from 0.827 for dense retrieval to 0.925 for hybrid with recency on clean notes" decoding="async"/><figcaption>Test set, scored once. Each configuration’s accuracy tracks how often the right excerpt was retrieved.</figcaption></figure>
+      <div class="cs-stats"><div class="cs-stat"><b>0.925</b><span>Answer accuracy on 1,200 held-out questions (95% CI 0.912–0.938), best clean configuration</span></div><div class="cs-stat"><b>84 → 31</b><span>Wrong answers after a retrieval miss, BM25 vs hybrid with recency: the rest became “not documented”</span></div><div class="cs-stat"><b>0 / 184</b><span>Unanswerable questions answered anyway, in every configuration</span></div></div>
+    </header>
+
+    <div class="cs-layout">
+      <nav class="toc" aria-label="On this page"><span class="mono-label">On this page</span><a href="#question">The question</a><a href="#cdm">FHIR to OMOP</a><a href="#truth">Ground truth</a><a href="#rag">Retrieval and answers</a><a href="#results">Results</a><a href="#failures">Failures</a><a href="#limits">Limits</a></nav>
+      <div class="cs-body">
+      <section class="cs-sec" id="question" aria-labelledby="question-h">
+        <span class="kicker">The question</span>
+        <h2 id="question-h">When does an LLM over notes beat a query over tables?</h2>
+        <p>Clinical questions are answered either from structured data (conditions, drugs, labs) or from free text. Retrieval-augmented generation promises the second, but its accuracy is usually reported on a handful of examples, with no baseline and no account of how it fails. This project builds both routes over the same synthetic patients, so every answer can be checked exactly.</p>
+      </section>
+<section class="cs-sec" id="cdm" aria-labelledby="cdm-h">
+        <span class="kicker">FHIR to OMOP</span>
+        <h2 id="cdm-h">A tested OMOP CDM, with mapping coverage as a metric</h2>
+        <p>Synthea generates FHIR R4 bundles with fixed seeds and dates, so output is byte-identical across runs. Raw resources land in PostgreSQL as JSON, and dbt builds an OMOP CDM v5.4 subset: person, visits, conditions, drugs, measurements, procedures, observations, death and notes. Source codes are mapped to OHDSI standard concepts and routed to tables by the concept’s domain, not by FHIR resource type.</p>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>CDM table</th><th>Records</th><th>Records mapped</th><th>Codes mapped</th></tr></thead><tbody><tr><td>Measurement</td><td class="num">601,766</td><td class="num">99.99%</td><td class="num">98.1%</td></tr><tr><td>Observation</td><td class="num">321,049</td><td class="num">99.93%</td><td class="num">91.6%</td></tr><tr><td>Drug exposure</td><td class="num">72,577</td><td class="num">100%</td><td class="num">100%</td></tr><tr><td>Condition</td><td class="num">17,969</td><td class="num">99.0%</td><td class="num">98.2%</td></tr><tr class="hl"><td>Procedure</td><td class="num">83,545</td><td class="num">87.3%</td><td class="num">40.7%</td></tr></tbody></table></div>
+        <p>The procedure gap is CDT dental codes, which are licensed separately and not distributed through Athena: a licensing gap, not an ETL bug, and the coverage test warns about it as designed. 108 dbt data tests cover keys, referential integrity, date logic, events after death, plausible lab ranges and conformance to the official CDM field specification, and 6 dbt unit tests show each rule fires on deliberately corrupted rows.</p>
+      </section>
+<section class="cs-sec" id="truth" aria-labelledby="truth-h">
+        <span class="kicker">Ground truth</span>
+        <h2 id="truth-h">Notes where every fact is known</h2>
+        <p>Notes are generated from the CDM by templates, so every statement has a known position, polarity (negated or not), time (current or historical) and subject (patient or relative). The traps are planted deliberately: “no evidence of…”, “h/o … resolved”, “Mother: …”. Some facts exist only in the notes, such as family history and why a drug was stopped, so there is a category SQL cannot answer.</p>
+        <ul class="bullets"><li><strong>1,800 questions</strong> across 11 templates, each with an answer derived by SQL and the exact facts that support it.</li><li><strong>Split by patient</strong> (75 dev, 150 test), so no patient’s notes appear in both. The test file was frozen by SHA-256 before retrieval was built, and the code refuses to score it outside the final run.</li><li><strong>A messier copy:</strong> an LLM rewrote the test notes into terse clinical shorthand, with each fact tagged so a deterministic validator could confirm nothing was lost or changed; 98.9% of notes passed.</li></ul>
+      </section>
+<section class="cs-sec" id="rag" aria-labelledby="rag-h">
+        <span class="kicker">Retrieval and answers</span>
+        <h2 id="rag-h">Search one patient’s chart, cite every claim</h2>
+        <p>Notes are chunked and embedded locally (bge-small, CPU) into pgvector. Retrieval is scoped to one patient, as chart search is, and compares BM25, exact dense search, hybrid fusion (reciprocal rank fusion) and hybrid with recency, which re-sorts the top 20 newest-first for time-sensitive questions. Claude answers from the top 5 excerpts in a fixed JSON format; the schema only allows citing excerpts that were shown.</p>
+        <p>A hard spend cap is enforced in a Postgres ledger before each call, responses are cached so a re-run never pays twice, and the test runs went through the batch API at half price. All five test runs, the note rewrite and the dev pilot cost $70.56.</p>
+      </section>
+<section class="cs-sec" id="results" aria-labelledby="results-h">
+        <span class="kicker">Results</span>
+        <h2 id="results-h">Retrieval decides accuracy; SQL wins where the data is structured</h2>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Configuration</th><th>Recall@5</th><th>Accuracy (95% CI)</th><th>Wrong after a retrieval miss</th></tr></thead><tbody><tr><td>Dense</td><td class="num">0.719</td><td class="num">0.827 (0.806–0.846)</td><td class="num">118</td></tr><tr><td>Hybrid (RRF)</td><td class="num">0.775</td><td class="num">0.867 (0.849–0.884)</td><td class="num">109</td></tr><tr><td>BM25</td><td class="num">0.845</td><td class="num">0.908 (0.892–0.923)</td><td class="num">84</td></tr><tr class="hl"><td>Hybrid + recency</td><td class="num">0.894</td><td class="num">0.925 (0.912–0.938)</td><td class="num">31</td></tr><tr><td>Hybrid + recency, rewritten notes</td><td class="num">0.913</td><td class="num">0.942 (0.927–0.955)</td><td class="num">26</td></tr></tbody></table></div>
+        <p>Confidence intervals come from a bootstrap that resamples patients, because questions about the same patient are correlated. The four clean configurations rank identically on retrieval and on accuracy. When the right excerpt was shown, the model rarely erred: at most 10 temporal or value errors per run, and no negation errors.</p>
+        <p>Plain SQL over the CDM scores 1.000 on every structured question type, bar one disagreement in 859 (SNOMED files eclampsia under seizure disorder, so SQL says yes where the note-level answer is no). The notes were generated from the same CDM, so SQL is a ceiling by construction. RAG’s value is in note-only questions, family history and stop reasons, where it scored 1.000 on 157 questions that SQL cannot answer at all.</p>
+      </section>
+<section class="cs-sec" id="failures" aria-labelledby="failures-h">
+        <span class="kicker">Failures</span>
+        <h2 id="failures-h">How it fails matters more than how often</h2>
+        <ul class="bullets"><li><strong>Retrieval misses dominate.</strong> Every wrong answer was classified once; retrieval misses account for most errors in every run, and they split into a safe outcome (“not documented”) and an unsafe one (a wrong answer). Hybrid with recency turned most misses into safe abstentions.</li><li><strong>Stale lab values.</strong> The weakest question type is the most recent lab result (0.61). Every failure is a retrieval miss, after which the model reports an older value as the latest: the most clinically dangerous pattern in the results.</li><li><strong>Rewritten notes are not easier.</strong> They scored higher only because they are about 20% shorter, so each chunk carries more facts. Messiness itself lowered rank-1 recall and cut stop-reason accuracy from 1.00 to 0.80.</li><li><strong>Extra detail beyond the citations.</strong> In a 50-claim grounding check, every unsupported claim added a diagnosis or resolution date that its cited excerpts did not show. The automatic grounding rule caught all of them and was, if anything, too strict.</li></ul>
+      </section>
+<section class="cs-sec" id="limits" aria-labelledby="limits-h">
+        <span class="kicker">Limits</span>
+        <h2 id="limits-h">What this does and doesn’t show</h2>
+        <div class="callout"><div class="yes"><h3>What it supports</h3><ul class="bullets"><li>On these notes, answer quality is limited by retrieval, not by the model’s reasoning.</li><li>Recency-aware hybrid retrieval cuts unsafe wrong answers by more than half compared with BM25.</li><li>For facts the CDM already holds, SQL is exact, cheaper and auditable.</li></ul></div><div class="no"><h3>What it doesn’t show</h3><ul class="bullets"><li>Clinical performance: the data is synthetic and the notes are templated, so these numbers are an optimistic upper bound.</li><li>Search across a hospital: retrieval is within one patient’s chart, about 65 chunks each.</li><li>Run-to-run model variance: one model, one prompt, one run; the intervals cover patient sampling only.</li></ul></div></div>
+        <p class="scope-note">All data is synthetic, generated by Synthea. No real patient data was used. OHDSI vocabularies were downloaded from Athena and are not redistributed.</p>
+      </section>
+      </div>
+    </div>
+
+    <nav class="next-proj" aria-label="More projects">
+      <a href="../projects/regulonml.html"><span class="mono-label">← Previous</span><strong>RegulonML: regulatory variant effects in unseen promoters and enhancers</strong></a>
+      <a class="nx" href="../projects/gpnmb-mendelian-randomisation.html"><span class="mono-label">Next →</span><strong>GPNMB and Parkinson’s disease: Mendelian randomisation and colocalisation</strong></a>
+    </nav>
+  </article>
+
+
+  <section class="cta reveal" aria-labelledby="cta-h">
+    <div>
+      <h2 id="cta-h">Get in touch</h2>
+      <p>I’m looking for bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps. Based in London, open to hybrid and remote.</p>
+    </div>
+    <div class="cta-side">
+      <a class="cta-email" href="mailto:barbagallo1@hotmail.it">barbagallo1@hotmail.it</a>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="../docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#ico-download"/></svg>Curriculum Vitae</a>
+        <a class="btn" href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/barbavegeta" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top" title="Back to top">
+  <svg class="i" aria-hidden="true"><use href="#ico-arrow-up"/></svg>
+</button>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="yr">2026</span> Salvatore Barbagallo · London, UK</span>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
