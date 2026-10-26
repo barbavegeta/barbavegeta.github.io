@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pembrolizumab in PD-L1 ≥ 50% NSCLC: a reproducible partitioned survival model · Salvatore Barbagallo</title>
+  <meta name="description" content="A NICE TA531-style partitioned survival model of first-line pembrolizumab versus chemotherapy, rebuilt in R from KEYNOTE-024 five-year data and public costs. At list price the ICER is £52,670 per QALY; a 47% price discount reaches £30,000."/>
+  <meta name="author" content="Salvatore Barbagallo"/>
+  <link rel="canonical" href="https://barbavegeta.github.io/projects/pembrolizumab-nsclc-psm.html"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="theme-color" content="#f7efd9" media="(prefers-color-scheme: light)"/>
+  <meta name="theme-color" content="#0b1215" media="(prefers-color-scheme: dark)"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Pembrolizumab in PD-L1 ≥ 50% NSCLC: a reproducible partitioned survival model · Salvatore Barbagallo"/>
+  <meta property="og:description" content="A NICE TA531-style partitioned survival model of first-line pembrolizumab versus chemotherapy, rebuilt in R from KEYNOTE-024 five-year data and public costs. At list price the ICER is £52,670 per QALY; a 47% price discount reaches £30,000."/>
+  <meta property="og:url" content="https://barbavegeta.github.io/projects/pembrolizumab-nsclc-psm.html"/>
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:image" content="https://barbavegeta.github.io/assets/img/og-share.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Salvatore Barbagallo, bioinformatician: prioritising drug targets, from GWAS to single cells. Schematic Manhattan plot of Parkinson’s disease risk loci with GPNMB highlighted."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://barbavegeta.github.io/assets/img/og-share.png"/>
+  <meta name="twitter:image:alt" content="Salvatore Barbagallo, bioinformatician: prioritising drug targets, from GWAS to single cells. Schematic Manhattan plot of Parkinson’s disease risk loci with GPNMB highlighted."/>
+  <meta name="twitter:title" content="Pembrolizumab in PD-L1 ≥ 50% NSCLC: a reproducible partitioned survival model · Salvatore Barbagallo"/>
+  <meta name="twitter:description" content="A NICE TA531-style partitioned survival model of first-line pembrolizumab versus chemotherapy, rebuilt in R from KEYNOTE-024 five-year data and public costs. At list price the ICER is £52,670 per QALY; a 47% price discount reaches £30,000."/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add('js');
+      try {
+        var stored = localStorage.getItem('sb3-theme');
+        d.setAttribute('data-theme', stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+      } catch (e) { /* storage blocked: CSS falls back to the OS preference */ }
+    })();
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDBND1PJP7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-KDBND1PJP7');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../assets/css/site.css"/>
+  <script src="../assets/js/site.js" defer></script>
+
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ico-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></symbol>
+  <symbol id="ico-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+  <symbol id="ico-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+  <symbol id="ico-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="6"/><polyline points="5 13 12 6 19 13"/></symbol>
+  <symbol id="ico-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></symbol>
+  <symbol id="ico-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  <symbol id="ico-linkedin" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></symbol>
+</svg>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../index.html" aria-label="Salvatore Barbagallo, home">
+      <span class="brand-mark" aria-hidden="true">SB</span>
+      <span class="brand-name">Salvatore Barbagallo</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+      <a href="../about.html" class="nav-link">About</a>
+      <a href="../docs/Salvatore_Barbagallo_CV.pdf" class="nav-link" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-actions">
+      <div class="nav-social">
+        <a href="https://github.com/barbavegeta" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg></a>
+        <a href="mailto:barbagallo1@hotmail.it" aria-label="Email" title="Email"><svg class="i" aria-hidden="true"><use href="#ico-mail"/></svg></a>
+      </div>
+      <button class="btn btn-icon" id="themeBtn" type="button" aria-label="Toggle theme">
+        <svg class="i" id="themeIcon" aria-hidden="true"><use href="#ico-moon"/></svg>
+      </button>
+      <button class="btn btn-icon hamburger" id="hamburgerBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile menu">
+  <a href="../index.html" class="mobile-nav-link">Home</a>
+  <a href="../projects.html" class="mobile-nav-link active" aria-current="page">Projects</a>
+  <a href="../about.html" class="mobile-nav-link">About</a>
+  <a href="../docs/Salvatore_Barbagallo_CV.pdf" class="mobile-nav-link" target="_blank" rel="noopener">Resume ↗</a>
+  <div class="mobile-nav-cv">
+    <a class="btn" href="https://github.com/barbavegeta" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</a>
+    <a class="btn" href="mailto:barbagallo1@hotmail.it"><svg class="i" aria-hidden="true"><use href="#ico-mail"/></svg>Email</a>
+  </div>
+</div>
+
+<main class="wrap" id="main">
+
+  <article>
+    <header class="cs-hero">
+      <a class="crumb" href="../projects.html">← All projects</a>
+      <p class="kicker">Health economics · Cost-effectiveness modelling</p>
+      <h1>Pembrolizumab in PD-L1 ≥ 50% NSCLC: a reproducible partitioned survival model</h1>
+      <p class="lead">Is first-line pembrolizumab cost-effective against platinum chemotherapy for metastatic non-small-cell lung cancer with high PD-L1 expression, using five-year trial data and NHS list prices? I rebuilt a NICE TA531-style model in R from published evidence only, with every input traced to a public source and the whole analysis rebuilt by one pipeline command.</p>
+      <div class="cs-actions">
+        <a class="btn" href="https://github.com/barbavegeta/pembrolizumab-nsclc-psm" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>View the code ↗</a>
+      </div>
+      <dl class="cs-meta"><div><dt>Context</dt><dd>Portfolio project; health technology assessment following the NICE reference case</dd></div><div><dt>Data</dt><dd>KEYNOTE-024 five-year Kaplan–Meier curves (Reck et al. 2021), NICE TA531 committee papers, ONS life tables, eMIT, National Cost Collection, BNF</dd></div><div><dt>Methods</dt><dd>Guyot IPD reconstruction, parametric and spline survival models (NICE DSU TSD 14, 19, 21), three-state partitioned survival model, OWSA, PSA, price-threshold analysis</dd></div><div><dt>Stack</dt><dd>R, targets, flexsurv, IPDfromKM, renv, testthat, Quarto, Shiny</dd></div></dl>
+      <figure class="cs-cover"><img src="../assets/img/pembro-base-curves.png" width="1050" height="675" alt="Overall and progression-free survival for pembrolizumab and chemotherapy: Kaplan–Meier curves of reconstructed patient data with lognormal extrapolations to 20 years" decoding="async"/><figcaption>Kaplan–Meier curves of the reconstructed data (steps) and the base-case lognormal extrapolations (lines), constrained by general-population mortality.</figcaption></figure>
+      <div class="cs-stats"><div class="cs-stat"><b>£52,670</b><span>Base-case ICER per QALY gained at list price (+£71,782, +1.36 QALYs)</span></div><div class="cs-stat"><b>68% / 47%</b><span>Price discount on pembrolizumab needed to reach £20,000 / £30,000 per QALY</span></div><div class="cs-stat"><b>26.35 vs 26.3</b><span>Reconstructed vs published median OS on pembrolizumab, months; all pre-specified checks passed</span></div></div>
+    </header>
+
+    <div class="cs-layout">
+      <nav class="toc" aria-label="On this page"><span class="mono-label">On this page</span><a href="#question">The question</a><a href="#reconstruction">Reconstruction</a><a href="#extrapolation">Extrapolation</a><a href="#results">Results</a><a href="#uncertainty">Uncertainty</a><a href="#limits">Limits</a></nav>
+      <div class="cs-body">
+      <section class="cs-sec" id="question" aria-labelledby="question-h">
+        <span class="kicker">The question</span>
+        <h2 id="question-h">Rebuilding an appraisal from public evidence</h2>
+        <p>NICE recommended pembrolizumab for untreated PD-L1 ≥ 50% NSCLC in TA531 (2018), using KEYNOTE-024 data with about two years of follow-up and a confidential discount. Five-year results have since been published. I wanted to know what a transparent model built only from public sources says now, and to build it the way a submission model should be built: traceable inputs, logged decisions, tests, and results that regenerate from the raw data.</p>
+        <ul class="bullets"><li><strong>Structure.</strong> Three states (progression-free, progressed, dead), weekly cycles, a 20-year horizon, NHS and PSS perspective, 3.5% discounting, trapezoidal half-cycle correction.</li><li><strong>Costs.</strong> Drug acquisition with the 2-year stopping rule, administration, monitoring, adverse events, terminal care, and subsequent therapy including immunotherapy after crossover.</li><li><strong>Utilities.</strong> TA531’s time-to-death utilities, age-adjusted and capped at general-population EQ-5D norms.</li><li><strong>Traceability.</strong> Every input in <code>data-raw/</code> has a source, and <code>DECISIONS.md</code> records each methodological choice with its rationale and the alternatives tested.</li></ul>
+      </section>
+<section class="cs-sec" id="reconstruction" aria-labelledby="reconstruction-h">
+        <span class="kicker">Reconstruction</span>
+        <h2 id="reconstruction-h">Patient-level data from a published figure, checked against pre-set thresholds</h2>
+        <p>The OS and PFS curves were extracted from the vector paths in the open-access article PDF, so the step coordinates are read exactly rather than clicked by hand. Individual patient data were then reconstructed with the Guyot et al. (2012) algorithm. Acceptance thresholds were fixed before reconstruction, and the pipeline stops if any check fails.</p>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Overall survival</th><th>Published</th><th>Reconstructed</th><th>Threshold</th></tr></thead><tbody><tr><td>Median, pembrolizumab (months)</td><td class="num">26.3</td><td class="num">26.35</td><td class="num">± 1</td></tr><tr><td>Median, chemotherapy (months)</td><td class="num">13.4</td><td class="num">13.44</td><td class="num">± 1</td></tr><tr class="hl"><td>Hazard ratio</td><td class="num">0.62</td><td class="num">0.64</td><td class="num">± 0.03</td></tr><tr><td>5-year survival, pembrolizumab</td><td class="num">31.9%</td><td class="num">31.6%</td><td class="num">± 3 pts</td></tr><tr><td>5-year survival, chemotherapy</td><td class="num">16.3%</td><td class="num">16.4%</td><td class="num">± 3 pts</td></tr></tbody></table></div>
+        <figure class="fig"><div class="well"><img src="../assets/img/pembro-overlay-os.png" width="1050" height="675" alt="Kaplan–Meier curves of reconstructed overall survival overlaid on the digitised published coordinates for both arms" loading="lazy" decoding="async"/></div><figcaption>Reconstructed OS (lines) against the digitised published coordinates (points). Numbers at risk match the published table.</figcaption></figure>
+        <p>The published HR comes from a stratified Cox model; the reconstructed data carry no stratification factors, so the comparison uses an unstratified model. Both are intention-to-treat and unadjusted for crossover.</p>
+      </section>
+<section class="cs-sec" id="extrapolation" aria-labelledby="extrapolation-h">
+        <span class="kicker">Extrapolation</span>
+        <h2 id="extrapolation-h">Choosing a tail when five years must cover twenty</h2>
+        <p>Nine models were fitted to each arm separately: exponential, Weibull, Gompertz, log-logistic, lognormal, generalised gamma and Royston–Parmar splines with 1–3 knots. The proportional hazards test was passed for OS (P = 0.66) but failed for PFS (P = 0.001), which supports separate fits.</p>
+        <ul class="bullets"><li><strong>Base case: lognormal for OS and PFS.</strong> It had the lowest combined AIC across arms, reproduced observed 5-year OS (31.5% vs 31.6%), and its falling hazard matched the smoothed empirical hazard.</li><li><strong>Plausibility constraints.</strong> OS is never allowed below general-population mortality (ONS life tables, England 2022–2024) and PFS never exceeds OS.</li><li><strong>The tail is the main uncertainty.</strong> Candidate models with similar fit gave 20-year pembrolizumab OS from 2.5% (Weibull) to 12.2% (Gompertz), so each was carried into the scenario analysis.</li></ul>
+      </section>
+<section class="cs-sec" id="results" aria-labelledby="results-h">
+        <span class="kicker">Results</span>
+        <h2 id="results-h">More life years, but not cost-effective at list price</h2>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Discounted, per patient</th><th>Pembrolizumab</th><th>Chemotherapy</th><th>Incremental</th></tr></thead><tbody><tr><td>Life years</td><td class="num">4.20</td><td class="num">2.45</td><td class="num">1.75</td></tr><tr><td>QALYs</td><td class="num">3.20</td><td class="num">1.83</td><td class="num">1.36</td></tr><tr><td>Total cost</td><td class="num">£135,281</td><td class="num">£63,499</td><td class="num">£71,782</td></tr><tr class="hl"><td>ICER (£ per QALY)</td><td class="num"></td><td class="num"></td><td class="num">£52,670</td></tr></tbody></table></div>
+        <p>First-line drug acquisition (£88,908) drives the cost difference, partly offset by lower subsequent-therapy costs: two-thirds of the chemotherapy arm crossed over to immunotherapy, costing £31,043 per patient against £7,339 in the pembrolizumab arm.</p>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Scenario</th><th>ICER (£ per QALY)</th></tr></thead><tbody><tr><td>Base case (lognormal OS and PFS)</td><td class="num">52,670</td></tr><tr><td>OS log-logistic / Gompertz</td><td class="num">55,282 / 56,022</td></tr><tr><td>OS Weibull / exponential</td><td class="num">60,841 / 67,762</td></tr><tr><td>OS TA531 piecewise (KM to 33 weeks + exponential)</td><td class="num">65,237</td></tr><tr><td>Treatment effect wanes from 5 / 3 years</td><td class="num">65,081 / 78,365</td></tr><tr><td>Progression-based utilities</td><td class="num">56,544</td></tr><tr><td>Discount rate 1.5%</td><td class="num">47,370</td></tr><tr class="hl"><td>No 2-year stopping rule</td><td class="num">123,489</td></tr></tbody></table></div>
+        <p>Because TA531’s decision used a confidential discount, the model answers a different question instead: what price would make pembrolizumab cost-effective? A 68% discount on every pembrolizumab administration (including use after crossover) reaches £20,000 per QALY, and 47% reaches £30,000.</p>
+      </section>
+<section class="cs-sec" id="uncertainty" aria-labelledby="uncertainty-h">
+        <span class="kicker">Uncertainty</span>
+        <h2 id="uncertainty-h">Probabilistic and one-way sensitivity</h2>
+        <p>The PSA ran 1,000 iterations with a fixed seed: beta distributions for utilities and proportions, gamma for costs, and multivariate normal draws of the survival parameters from each fit’s covariance matrix.</p>
+        <figure class="fig"><div class="well"><img src="../assets/img/pembro-ce-plane.png" width="1050" height="675" alt="Cost-effectiveness plane of 1,000 PSA iterations, all in the north-east quadrant above the £20,000 and £30,000 per QALY thresholds" loading="lazy" decoding="async"/></div><figcaption>Every iteration gains QALYs at extra cost; almost none fall below £30,000 per QALY.</figcaption></figure>
+        <ul class="bullets"><li><strong>Probability cost-effective:</strong> 0% at £20,000 and 0.1% at £30,000 per QALY. It passes 50% at about £54,000.</li><li><strong>One-way sensitivity:</strong> subsequent-therapy use in the chemotherapy arm moved the ICER most (£49,984 to £55,453), followed by progression-free monitoring costs and the long-term utility. Across all parameters the ICER stayed between £49,984 and £55,624.</li></ul>
+      </section>
+<section class="cs-sec" id="limits" aria-labelledby="limits-h">
+        <span class="kicker">Limits</span>
+        <h2 id="limits-h">What this does and doesn’t show</h2>
+        <div class="callout"><div class="yes"><h3>What it supports</h3><ul class="bullets"><li>At list price, pembrolizumab is not cost-effective at NICE thresholds under any tested scenario.</li><li>The result is robust to parameter uncertainty; it is most sensitive to the 2-year stopping rule, treatment-effect waning and the survival tail.</li><li>The five-year data give a mean OS about twice TA531’s 2017 estimate (62 vs 36 months). Applying TA531’s own extrapolation method to the new data gives 48 months, so the gain comes partly from longer follow-up and partly from the choice of tail.</li></ul></div><div class="no"><h3>What it doesn’t show</h3><ul class="bullets"><li>NICE’s decision: TA531 used a confidential price, so this is not NICE’s model or result.</li><li>Real patient data: survival comes from reconstructed IPD, and treatment duration is assumed to follow PFS because time-on-treatment curves are not public.</li><li>Crossover-adjusted effects: the OS comparison is intention-to-treat, and crossover is handled only through subsequent-therapy costs.</li></ul></div></div>
+        <p class="scope-note">Reck et al. (2021) is published under CC BY-NC-ND 4.0; the repository stores only numerical coordinates extracted from Figure 2, with attribution, and does not reproduce the figure. ONS, eMIT and NHS England data are used under the Open Government Licence v3.0.</p>
+      </section>
+      </div>
+    </div>
+
+    <nav class="next-proj" aria-label="More projects">
+      <a href="../projects/synthea-omop-rag.html"><span class="mono-label">← Previous</span><strong>From FHIR to OMOP to RAG: answering clinical questions from notes, and measuring it honestly</strong></a>
+      <a class="nx" href="../projects/gpnmb-mendelian-randomisation.html"><span class="mono-label">Next →</span><strong>GPNMB and Parkinson’s disease: Mendelian randomisation and colocalisation</strong></a>
+    </nav>
+  </article>
+
+
+  <section class="cta reveal" aria-labelledby="cta-h">
+    <div>
+      <h2 id="cta-h">Get in touch</h2>
+      <p>I’m looking for bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps. Based in London, open to hybrid and remote.</p>
+    </div>
+    <div class="cta-side">
+      <a class="cta-email" href="mailto:barbagallo1@hotmail.it">barbagallo1@hotmail.it</a>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="../docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#ico-download"/></svg>Curriculum Vitae</a>
+        <a class="btn" href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/barbavegeta" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top" title="Back to top">
+  <svg class="i" aria-hidden="true"><use href="#ico-arrow-up"/></svg>
+</button>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="yr">2026</span> Salvatore Barbagallo · London, UK</span>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
