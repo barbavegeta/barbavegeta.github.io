@@ -110,11 +110,11 @@
   <section class="page-hero">
     <p class="kicker">Case studies</p>
     <h1>Projects</h1>
-    <p class="lead">Nine projects, each written up as a case study: the question, the approach, the results and their limits. Code for all of them is on <a class="text-link" href="https://github.com/barbavegeta" target="_blank" rel="noopener">GitHub</a>.</p>
+    <p class="lead">Ten projects, each written up as a case study: the question, the approach, the results and their limits. Code for all of them is on <a class="text-link" href="https://github.com/barbavegeta" target="_blank" rel="noopener">GitHub</a>.</p>
   </section>
 
   <section class="block block--flush" aria-label="Bioinformatics projects" style="padding-top:8px">
-    <div class="filters" role="group" aria-label="Filter projects"><button class="filter" type="button" data-filter="all" aria-pressed="true">All<span class="n">9</span></button><button class="filter" type="button" data-filter="genetics" aria-pressed="false">Statistical genetics<span class="n">2</span></button><button class="filter" type="button" data-filter="transcriptomics" aria-pressed="false">Transcriptomics<span class="n">2</span></button><button class="filter" type="button" data-filter="pipelines" aria-pressed="false">Pipelines<span class="n">4</span></button><button class="filter" type="button" data-filter="ngs" aria-pressed="false">NGS / WGS<span class="n">1</span></button><button class="filter" type="button" data-filter="ml" aria-pressed="false">Machine learning<span class="n">1</span></button><button class="filter" type="button" data-filter="biostats" aria-pressed="false">Biostatistics<span class="n">3</span></button><button class="filter" type="button" data-filter="rwe" aria-pressed="false">Health data · GenAI<span class="n">1</span></button></div>
+    <div class="filters" role="group" aria-label="Filter projects"><button class="filter" type="button" data-filter="all" aria-pressed="true">All<span class="n">10</span></button><button class="filter" type="button" data-filter="genetics" aria-pressed="false">Statistical genetics<span class="n">2</span></button><button class="filter" type="button" data-filter="transcriptomics" aria-pressed="false">Transcriptomics<span class="n">2</span></button><button class="filter" type="button" data-filter="pipelines" aria-pressed="false">Pipelines<span class="n">4</span></button><button class="filter" type="button" data-filter="ngs" aria-pressed="false">NGS / WGS<span class="n">1</span></button><button class="filter" type="button" data-filter="ml" aria-pressed="false">Machine learning<span class="n">1</span></button><button class="filter" type="button" data-filter="biostats" aria-pressed="false">Biostatistics<span class="n">4</span></button><button class="filter" type="button" data-filter="heor" aria-pressed="false">Health economics<span class="n">1</span></button><button class="filter" type="button" data-filter="rwe" aria-pressed="false">Health data · GenAI<span class="n">1</span></button></div>
     <div class="card-grid">
         <a class="card reveal" href="projects/gpnmb-mendelian-randomisation.html" data-cat="genetics">
           <div class="card-fig"><img src="assets/img/gpnmb-forest.webp" width="1600" height="930" alt="Forest plot of GPNMB Mendelian randomisation odds ratios for Parkinson’s disease across SomaScan and Olink instrument sets" loading="lazy" decoding="async"/></div>
@@ -195,6 +195,15 @@
             <h3>From FHIR to OMOP to RAG: answering clinical questions from notes, and measuring it honestly</h3>
             <p>Synthetic FHIR records built into a tested OMOP CDM with dbt, notes with exact ground truth, and a retrieval-augmented LLM scored once on 1,200 held-out questions. Accuracy 0.925, with errors traced to retrieval, against a SQL baseline that is exact on structured data.</p>
             <ul class="tags"><li>OMOP CDM</li><li>FHIR</li><li>dbt</li><li>pgvector</li><li>RAG</li><li>Claude API</li></ul>
+            <span class="go">Read case study <span class="arr">→</span></span>
+          </div>
+        </a><a class="card reveal" href="projects/pembrolizumab-nsclc-psm.html" data-cat="heor biostats">
+          <div class="card-fig"><img src="assets/img/pembro-base-curves.png" width="1050" height="675" alt="Overall and progression-free survival for pembrolizumab and chemotherapy with lognormal extrapolations to 20 years" loading="lazy" decoding="async"/></div>
+          <div class="card-body">
+            <p class="kicker">Health economics · Cost-effectiveness</p>
+            <h3>Pembrolizumab in PD-L1 ≥ 50% NSCLC: a reproducible partitioned survival model</h3>
+            <p>A NICE TA531-style model rebuilt in R from KEYNOTE-024 five-year data: reconstructed patient data checked against published results, DSU-compliant extrapolation, PSA and a price-threshold analysis. At list price the ICER is £52,670 per QALY.</p>
+            <ul class="tags"><li>Partitioned survival</li><li>Survival extrapolation</li><li>PSA</li><li>NICE HTA</li><li>R</li><li>targets</li></ul>
             <span class="go">Read case study <span class="arr">→</span></span>
           </div>
         </a>
