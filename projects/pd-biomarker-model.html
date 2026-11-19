@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>A Parkinson’s biomarker data model, and an AI mapping agent held to a frozen gold standard · Salvatore Barbagallo</title>
+  <meta name="description" content="A LinkML model for Parkinson’s phenotypes and biomarkers with ontology-bound value sets, 16 validation rules and FAIR provenance, plus a blind AI mapping agent reviewed in SSSOM and scored against a frozen gold standard: precision 0.906, recall 0.967, 67 of 68 proposals accepted."/>
+  <meta name="author" content="Salvatore Barbagallo"/>
+  <link rel="canonical" href="https://barbavegeta.github.io/projects/pd-biomarker-model.html"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="theme-color" content="#f7efd9" media="(prefers-color-scheme: light)"/>
+  <meta name="theme-color" content="#0b1215" media="(prefers-color-scheme: dark)"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="A Parkinson’s biomarker data model, and an AI mapping agent held to a frozen gold standard · Salvatore Barbagallo"/>
+  <meta property="og:description" content="A LinkML model for Parkinson’s phenotypes and biomarkers with ontology-bound value sets, 16 validation rules and FAIR provenance, plus a blind AI mapping agent reviewed in SSSOM and scored against a frozen gold standard: precision 0.906, recall 0.967, 67 of 68 proposals accepted."/>
+  <meta property="og:url" content="https://barbavegeta.github.io/projects/pd-biomarker-model.html"/>
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:image" content="https://barbavegeta.github.io/assets/img/og-share.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Salvatore Barbagallo, bioinformatician: prioritising drug targets, from GWAS to single cells. Schematic Manhattan plot of Parkinson’s disease risk loci with GPNMB highlighted."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://barbavegeta.github.io/assets/img/og-share.png"/>
+  <meta name="twitter:image:alt" content="Salvatore Barbagallo, bioinformatician: prioritising drug targets, from GWAS to single cells. Schematic Manhattan plot of Parkinson’s disease risk loci with GPNMB highlighted."/>
+  <meta name="twitter:title" content="A Parkinson’s biomarker data model, and an AI mapping agent held to a frozen gold standard · Salvatore Barbagallo"/>
+  <meta name="twitter:description" content="A LinkML model for Parkinson’s phenotypes and biomarkers with ontology-bound value sets, 16 validation rules and FAIR provenance, plus a blind AI mapping agent reviewed in SSSOM and scored against a frozen gold standard: precision 0.906, recall 0.967, 67 of 68 proposals accepted."/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a1f'/%3E%3Ctext x='32' y='43' font-family='Menlo,Consolas,monospace' font-size='28' font-weight='700' fill='%233fc1ae' text-anchor='middle'%3ESB%3C/text%3E%3C/svg%3E"/>
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add('js');
+      try {
+        var stored = localStorage.getItem('sb3-theme');
+        d.setAttribute('data-theme', stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+      } catch (e) { /* storage blocked: CSS falls back to the OS preference */ }
+    })();
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDBND1PJP7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-KDBND1PJP7');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../assets/css/site.css"/>
+  <script src="../assets/js/site.js" defer></script>
+
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ico-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></symbol>
+  <symbol id="ico-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+  <symbol id="ico-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+  <symbol id="ico-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="6"/><polyline points="5 13 12 6 19 13"/></symbol>
+  <symbol id="ico-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></symbol>
+  <symbol id="ico-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  <symbol id="ico-linkedin" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></symbol>
+</svg>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../index.html" aria-label="Salvatore Barbagallo, home">
+      <span class="brand-mark" aria-hidden="true">SB</span>
+      <span class="brand-name">Salvatore Barbagallo</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+      <a href="../about.html" class="nav-link">About</a>
+      <a href="../docs/Salvatore_Barbagallo_CV.pdf" class="nav-link" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-actions">
+      <div class="nav-social">
+        <a href="https://github.com/barbavegeta" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg></a>
+        <a href="mailto:barbagallo1@hotmail.it" aria-label="Email" title="Email"><svg class="i" aria-hidden="true"><use href="#ico-mail"/></svg></a>
+      </div>
+      <button class="btn btn-icon" id="themeBtn" type="button" aria-label="Toggle theme">
+        <svg class="i" id="themeIcon" aria-hidden="true"><use href="#ico-moon"/></svg>
+      </button>
+      <button class="btn btn-icon hamburger" id="hamburgerBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile menu">
+  <a href="../index.html" class="mobile-nav-link">Home</a>
+  <a href="../projects.html" class="mobile-nav-link active" aria-current="page">Projects</a>
+  <a href="../about.html" class="mobile-nav-link">About</a>
+  <a href="../docs/Salvatore_Barbagallo_CV.pdf" class="mobile-nav-link" target="_blank" rel="noopener">Resume ↗</a>
+  <div class="mobile-nav-cv">
+    <a class="btn" href="https://github.com/barbavegeta" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</a>
+    <a class="btn" href="mailto:barbagallo1@hotmail.it"><svg class="i" aria-hidden="true"><use href="#ico-mail"/></svg>Email</a>
+  </div>
+</div>
+
+<main class="wrap" id="main">
+
+  <article>
+    <header class="cs-hero">
+      <a class="crumb" href="../projects.html">← All projects</a>
+      <p class="kicker">Data modelling · Ontologies · AI curation</p>
+      <h1>A Parkinson’s biomarker data model, and an AI mapping agent held to a frozen gold standard</h1>
+      <p class="lead">A LinkML model for Parkinson’s disease phenotypes and biomarkers, with ontology-bound value sets, cross-field validation rules and FAIR provenance. A blind AI agent then maps a messy study dictionary to ontology terms; a curator reviews every proposal, recorded in SSSOM, and the agent is scored against a gold standard frozen before it ran.</p>
+      <div class="cs-actions">
+        <a class="btn" href="https://github.com/barbavegeta/pd-biomarker-model" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>View the code ↗</a>
+      </div>
+      <dl class="cs-meta"><div><dt>Context</dt><dd>Portfolio project; disease data modelling, ontology mapping and AI-agent curation with human review</dd></div><div><dt>Data</dt><dd>Synthetic: two example cohorts, 29 invalid files that each break one rule, and a 68-variable study dictionary. No real participant data.</dd></div><div><dt>Methods</dt><dd>LinkML schema with dynamic value sets and rules, generated JSON Schema, SQL and Pydantic, SSSOM mappings, SKOS and OWL vocabulary export, blind agent runs with a transcript audit</dd></div><div><dt>Stack</dt><dd>Python, LinkML, oaklib, sssom-py, linkml-term-validator, Claude Code, GitHub Actions</dd></div></dl>
+      <figure class="cs-cover"><img src="../assets/img/pd-mapping-scores.webp" width="1440" height="810" alt="Dot plot of mapping agent scores for prompts v1 and v2: precision 0.891 to 0.906, recall 0.950 to 0.967, fully correct 0.882 to 0.912, accepted by the curator 0.956 to 0.985" decoding="async"/><figcaption>The second prompt raised every score, and the curator accepted 67 of its 68 proposals.</figcaption></figure>
+      <div class="cs-stats"><div class="cs-stat"><b>0.906 · 0.967</b><span>Precision and recall of the agent’s second prompt against the frozen gold standard</span></div><div class="cs-stat"><b>67 / 68</b><span>Proposals accepted in the curator’s review, up from 65 with the first prompt</span></div><div class="cs-stat"><b>5 of 8</b><span>First-run disagreements that were errors in the gold standard, caught by the review</span></div></div>
+    </header>
+
+    <div class="cs-layout">
+      <nav class="toc" aria-label="On this page"><span class="mono-label">On this page</span><a href="#question">The question</a><a href="#model">The model</a><a href="#validation">Validation</a><a href="#mapping">Mapping</a><a href="#results">Results</a><a href="#errors">Errors</a><a href="#limits">Limits</a></nav>
+      <div class="cs-body">
+      <section class="cs-sec" id="question" aria-labelledby="question-h">
+        <span class="kicker">The question</span>
+        <h2 id="question-h">Can an AI agent be trusted to map study variables to ontologies?</h2>
+        <p>Parkinson’s cohort data mixes rating scales, diagnoses, symptoms, fluid biomarkers (alpha-synuclein seed amplification, NfL, proteomics on SomaScan and Olink) and DaT-SPECT imaging, and every study exports it with its own names and units. Combining studies needs a shared model that says what a valid record is, and a mapping from each study’s variables to standard terms. AI agents can draft such mappings quickly; the question is how far to trust them, and how a curator should check them.</p>
+      </section>
+<section class="cs-sec" id="model" aria-labelledby="model-h">
+        <span class="kicker">The model</span>
+        <h2 id="model-h">A disease-agnostic core with a Parkinson’s module</h2>
+        <p>The core is a cohort model: a dataset holds flat lists of participants, visits, diagnoses, phenotype observations, clinical assessments, specimens, analytes, assays and biomarker measurements, linked by identifier so each class maps to one table. The Parkinson’s module imports it and narrows it: diagnoses to parkinsonian disorders with their published criteria, assessments to MDS-UPDRS, MoCA and Hoehn and Yahr. A new disease area adds a module without touching the core.</p>
+        <ul class="bullets"><li><strong>Ontology-bound value sets.</strong> MONDO for diseases, HPO for phenotypes, UBERON for specimens and brain regions, OBI and NCIT for assays, PRIDE for platforms, LOINC for rating scales, UCUM units mapped to UO. Diseases, phenotypes and brain regions follow an ontology branch; brain regions exclude the cell types UBERON relates to the brain.</li><li><strong>16 cross-field rules.</strong> Units must match the measurement type (a ratio is dimensionless, SomaScan and Olink values are never concentrations), categorical results carry no value, imaging values need a brain region and no specimen, each scale has its score range, and motor scores need the medication state.</li><li><strong>One protein, many platforms.</strong> Analytes are UniProtKB accessions, so a protein measured on SomaScan and on Olink is the same analyte, with each platform’s reagent identifier kept on the measurement.</li><li><strong>FAIR by construction.</strong> w3id identifiers, dataset metadata, provenance on every measurement (source, date, curator, and whether the curator was a person or an AI agent), semantic versioning with a changelog, and every value set exported as SKOS, OWL and TSV for a terminology system.</li></ul>
+      </section>
+<section class="cs-sec" id="validation" aria-labelledby="validation-h">
+        <span class="kicker">Validation</span>
+        <h2 id="validation-h">Every rule has a file that breaks it</h2>
+        <p>One <code>linkml-validate</code> call runs three layers: structure and rules through JSON Schema generated from the model; ontology terms, where dynamic value sets are checked offline against a committed cache; and cross-record rules in a plugin: references resolve, identifiers are unique, no visit precedes enrolment, and a measurement’s specimen comes from the same visit.</p>
+        <p>Two valid synthetic cohorts pass, and 29 invalid files each fail for exactly the rule they break, checked by pytest. CI tests Python 3.11 to 3.13, checks every ontology term in the schema is current, and regenerates the JSON Schema, SQL, Python models, diagram and vocabularies, failing if any committed copy has drifted from the model.</p>
+      </section>
+<section class="cs-sec" id="mapping" aria-labelledby="mapping-h">
+        <span class="kicker">Mapping</span>
+        <h2 id="mapping-h">A blind agent, a curator, and SSSOM in between</h2>
+        <p>The task: map 68 messy variables, such as “aSyn SAA (CSF)”, “UPDRS3 tot OFF” and “GPNMB_SOMA”, to ontology terms, each with a predicate (exact, broad, narrow or related) and a confidence.</p>
+        <ul class="bullets"><li><strong>Gold standard first.</strong> An AI draft was reviewed row by row by the curator (66 accepted, 2 corrected) and frozen before the mapping agent ran.</li><li><strong>A blind agent.</strong> A Claude Code agent worked in a folder holding only the dictionary, the curation guidelines and an ontology search tool (oaklib over local ontology databases, LOINC through a FHIR terminology server). An audit of its transcript lists every command and fails if it touched anything outside that folder.</li><li><strong>Review in SSSOM.</strong> The curator accepts, rejects or corrects every proposal. The decision is recorded on the agent’s mapping, and a correction is added as a new curator-authored mapping, so the agent’s original proposal is never overwritten.</li><li><strong>One revision.</strong> After the first run, every disagreement was classified and the guidelines gained one clarification per agent error, with examples deliberately not taken from the dictionary, plus a checklist the agent runs before writing.</li></ul>
+      </section>
+<section class="cs-sec" id="results" aria-labelledby="results-h">
+        <span class="kicker">Results</span>
+        <h2 id="results-h">High accuracy, and a review that corrected the gold standard too</h2>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Measure</th><th>Prompt v1</th><th>Prompt v2</th></tr></thead><tbody><tr><td>Precision</td><td class="num">0.891</td><td class="num">0.906</td></tr><tr><td>Recall</td><td class="num">0.950</td><td class="num">0.967</td></tr><tr><td>Predicate agreement (correct terms)</td><td class="num">0.982</td><td class="num">1.000</td></tr><tr><td>Fully correct, of 68 variables</td><td class="num">60</td><td class="num">62</td></tr><tr class="hl"><td>Accepted in curator review, of 68</td><td class="num">65</td><td class="num">67</td></tr></tbody></table></div>
+        <p>Of the first run’s eight disagreements with the gold standard, five were the gold standard’s errors: an NCIT assay-plate identifier and a more specific fasting-status term it had missed, and broad and related matches the guidelines allow. Scores stay tied to the frozen gold standard, so these count against the agent in the table; the last row shows the curator’s verdict.</p>
+        <p>The agent’s confidence carried signal: proposals matching the gold standard averaged 0.81 and 0.75 in the two runs, those that did not 0.53 and 0.50. A review queue ordered by confidence puts the disagreements first.</p>
+      </section>
+<section class="cs-sec" id="errors" aria-labelledby="errors-h">
+        <span class="kicker">Errors</span>
+        <h2 id="errors-h">What the agent got wrong, and what fixing it broke</h2>
+        <ul class="bullets"><li><strong>Identifier versus entity.</strong> “site” went to <em>Study Site</em>, though the column holds codes naming the site (<em>Study Site Identifier</em>).</li><li><strong>Over-literal definitions.</strong> <em>Age at Diagnosis</em> was judged broader than “age when PD diagnosed” because NCIT defines it for a pathologic diagnosis.</li><li><strong>Diagnosis versus symptom.</strong> Clinician-judged depression went to the MONDO disorder rather than the HPO phenotype.</li><li><strong>A fix with a side effect.</strong> The second prompt fixed all three, but its diagnosis rule pushed PD mild cognitive impairment to HPO’s broader <em>Cognitive impairment</em> instead of NCIT’s <em>Mild Cognitive Impairment</em>: the one correction in the second review.</li><li><strong>No unit or specimen errors.</strong> Molar and mass units went to the right LOINC property in both runs, relative SomaScan and Olink units were never mapped to concentration tests, and “SAA” was never read as serum amyloid A.</li></ul>
+      </section>
+<section class="cs-sec" id="limits" aria-labelledby="limits-h">
+        <span class="kicker">Limits</span>
+        <h2 id="limits-h">What this does and doesn’t show</h2>
+        <div class="callout"><div class="yes"><h3>What it supports</h3><ul class="bullets"><li>A curation agent with an ontology search tool and written guidelines gets most mappings right, and its confidence ranks its own doubtful calls.</li><li>Recording review in SSSOM keeps the agent’s proposals, the curator’s decisions and the corrections auditable side by side.</li><li>Reviewing disagreements improves the gold standard as well as the agent.</li></ul></div><div class="no"><h3>What it doesn’t show</h3><ul class="bullets"><li>Generalisation: 68 variables is a small set, and the second prompt was revised on the same variables it was scored on.</li><li>Independence: the gold-standard draft and the agent are the same model family and may share blind spots; the curator’s review is the check on that.</li><li>Run-to-run variation: each prompt was run once.</li></ul></div></div>
+        <p class="scope-note">All data is synthetic: variable names, values and the study dictionary are invented. No PPMI or other participant data was used.</p>
+      </section>
+      </div>
+    </div>
+
+    <nav class="next-proj" aria-label="More projects">
+      <a href="../projects/synthea-omop-rag.html"><span class="mono-label">← Previous</span><strong>From FHIR to OMOP to RAG: answering clinical questions from notes, and measuring it honestly</strong></a>
+      <a class="nx" href="../projects/gpnmb-mendelian-randomisation.html"><span class="mono-label">Next →</span><strong>GPNMB and Parkinson’s disease: Mendelian randomisation and colocalisation</strong></a>
+    </nav>
+  </article>
+
+
+  <section class="cta reveal" aria-labelledby="cta-h">
+    <div>
+      <h2 id="cta-h">Get in touch</h2>
+      <p>I’m looking for bioinformatics roles in statistical genetics, transcriptomics and NGS analysis, especially where clinical or cell and gene therapy experience helps. Based in London, open to hybrid and remote.</p>
+    </div>
+    <div class="cta-side">
+      <a class="cta-email" href="mailto:barbagallo1@hotmail.it">barbagallo1@hotmail.it</a>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="../docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#ico-download"/></svg>Curriculum Vitae</a>
+        <a class="btn" href="https://www.linkedin.com/in/salvatore-barbagallo" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/barbavegeta" target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top" title="Back to top">
+  <svg class="i" aria-hidden="true"><use href="#ico-arrow-up"/></svg>
+</button>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="yr">2026</span> Salvatore Barbagallo · London, UK</span>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../docs/Salvatore_Barbagallo_CV.pdf" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
